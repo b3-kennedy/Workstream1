@@ -9,8 +9,18 @@ public class PickUpCar : MonoBehaviour
     private GameObject currentCar;
     private bool isControllingCar = false;
 
-    public  PlayerControls controls;
     private Vector2 movementInput;
+    private Vector3 originalPosition; // Store the original position of the player
+
+    public bool carParked = false;
+
+    public  PlayerControls controls;
+
+    void Start()
+    {
+        // Store the original position of the player when the scene starts
+        originalPosition = transform.position;
+        }
 
     void OnEnable()
     {
@@ -33,7 +43,6 @@ public class PickUpCar : MonoBehaviour
     {
         if (!isControllingCar)
         {
-            // Handle player movement when not controlling a car
             Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
             transform.Translate(movement * moveSpeed * Time.deltaTime);
         }
@@ -45,6 +54,11 @@ public class PickUpCar : MonoBehaviour
             Debug.Log(carHorizontal+" "+carVertical);
             currentCar.transform.Translate(new Vector3(carHorizontal, 0f, carVertical) * moveSpeed * Time.deltaTime);
         }
+        if (currentCar != null && currentCar.GetComponent<CarObject>().isParked)
+        {
+            carParked = true;
+            SwitchToPlayer();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +69,16 @@ public class PickUpCar : MonoBehaviour
             
         }
     }
+
+private void SwitchToPlayer()
+{
+    Debug.Log("switch to meee");
+    transform.position = originalPosition;
+    gameObject.SetActive(true);
+    // currentCar = car;
+    // currentCar.SetActive(false);
+    ExitCar();
+}
 
     private void SwitchToCar(GameObject car)
     {
@@ -79,7 +103,7 @@ public class PickUpCar : MonoBehaviour
 
     public void ExitCar()
     {
-        currentCar.SetActive(false);
+        // currentCar.SetActive(false);
         gameObject.SetActive(true);
 
         isControllingCar = false;

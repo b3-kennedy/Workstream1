@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5976824152380698151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AAAAA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 52757185062869994}
   - component: {fileID: 1109010463747159780}
   - component: {fileID: 5531715677626929824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 6220549975896764890}
   - component: {fileID: 9038618610931571704}
   - component: {fileID: 2629356139081549518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,5 +264,11 @@ MonoBehaviour:
   target: {fileID: 887261678352462803}
   Player1: {fileID: 7877329383367280334, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
   Player2: {fileID: 0}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
+  Player5: {fileID: 0}
+  Player6: {fileID: 0}
+  Player7: {fileID: 0}
+  Player8: {fileID: 0}
   spawnpointP1: {fileID: 700270460971902448, guid: f5a7920c8342b1c4897c98c2ea7f3cfc, type: 3}
   spawnpointP2: {fileID: 8076320250941436298, guid: f7e606f5f5f902a4e85dbe1d861cddfb, type: 3}

@@ -7,8 +7,8 @@ public class CarObject
     public Color carColor;   
     public string carName;   
     public GameObject carObject;
-    private bool isParked=false;
-    private float parkingScore;
+    public bool isParked=false;
+    public float parkingScore;
 
     public CarObject(int index, Color color, string name,GameObject carObj)
     {
@@ -17,9 +17,9 @@ public class CarObject
         carName = name;
         carObject = carObj;   
          }
-        public void SetIsParked()
+        public void SetIsParked(bool isparked)
         {
-            isParked=true;
+            isParked=isparked;
         }
         public void SetParkingScore(float score)
         {

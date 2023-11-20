@@ -10,12 +10,20 @@ public class CarMovements : MonoBehaviour
 
     public float carSpeed = 10f;
     public float turnSpeed = 180f;
+    public float parkingSpaceRadius = 1.0f;
+    private CarObject thisCar;
+
+    public LayerMask parkingSpaceLayer;
+    private void Start()
+    {
+        carSpawner = FindObjectOfType<CarSpawner>();
+        thisCar = carSpawner.GetCarObject(gameObject);
+    }
 
     private void OnEnable()
     {
         controls = new PlayerControls();
         controls.Enable();
-        carSpawner = FindObjectOfType<CarSpawner>();
 
         // controls.Player.Move.performed += OnMovementPerformed;
         // controls.Player.Move.canceled += OnMovementCanceled;
@@ -32,7 +40,7 @@ public class CarMovements : MonoBehaviour
     public void EnableInput()
     {
         isInputEnabled = true;
-         CarObject thisCar = carSpawner.GetCarObject(gameObject);
+         
         //  Debug.Log(thisCar.carIndex);
         carSpawner.OnCarPickedUp(thisCar);
     }
@@ -69,6 +77,15 @@ public class CarMovements : MonoBehaviour
 
             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
             transform.Rotate(0f, newRotation, 0f, Space.World);
+        
         }
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
+                    
+            if (colliders.Length > 0)
+            {
+                // Car is parked
+                thisCar.isParked = (true);
+                Debug.Log("Car is parked!");
+            }
     }
 }
