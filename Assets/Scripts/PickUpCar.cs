@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PickUpCar : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public GameObject carPrefab;  // Drag your "CarPrefab" onto this field in the Inspector
+    public GameObject carPrefab;  
 
     private GameObject currentCar;
     private bool isControllingCar = false;
@@ -51,8 +51,6 @@ public class PickUpCar : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && !isControllingCar)
         {
-            // Debug.Log("collided with car"+other.gameObject.name);
-            // Get close to a car and switch control to that car
             SwitchToCar(other.gameObject);
             
         }
@@ -60,30 +58,27 @@ public class PickUpCar : MonoBehaviour
 
     private void SwitchToCar(GameObject car)
     {
-        // Disable the player's capsule and enable the car
+      
         gameObject.SetActive(false);
 
     
         currentCar = car;
         currentCar.SetActive(true);
 
-        // Position the car at the player's position and activate it
-        // currentCar.transform.position = transform.position;
-        // currentCar.SetActive(true);
+
 
         isControllingCar = true;
 
                 // Enable car input
-        CarMovements carController = currentCar.GetComponent<CarMovements>();
-        if (carController != null)
+        CarMovements carMovement = currentCar.GetComponent<CarMovements>();
+        if (carMovement != null)
         {
-            carController.EnableInput();
+            carMovement.EnableInput();
         }
     }
 
     public void ExitCar()
     {
-        // Disable the car and enable the player's capsule
         currentCar.SetActive(false);
         gameObject.SetActive(true);
 
@@ -93,12 +88,7 @@ public class PickUpCar : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
-        //  if (isControllingCar && currentCar != null)
-        // {
-        //     float carHorizontal = context.ReadValue<Vector2>().x;
-        //     float carVertical = context.ReadValue<Vector2>().y;
-        //     currentCar.transform.Translate(new Vector3(carHorizontal, 0f, carVertical) * Time.deltaTime);
-        // }
+     
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)

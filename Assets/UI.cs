@@ -9,6 +9,12 @@ public class UI : MonoBehaviour
 
     public int p1Score;
     public int p2Score;
+    public int p3Score;
+    public int p4Score;
+    public int p5Score;
+    public int p6Score;
+    public int p7Score;
+    public int p8Score;
 
     public bool over = false;
     // Start is called before the first frame update

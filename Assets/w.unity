@@ -1230,6 +1230,12 @@ MonoBehaviour:
   target: {fileID: 0}
   Player1: {fileID: 0}
   Player2: {fileID: 0}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
+  Player5: {fileID: 0}
+  Player6: {fileID: 0}
+  Player7: {fileID: 0}
+  Player8: {fileID: 0}
   spawnpointP1: {fileID: 0}
   spawnpointP2: {fileID: 0}
 --- !u!1 &525064662
@@ -2719,8 +2725,8 @@ Transform:
   m_GameObject: {fileID: 914802521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 186.9, y: -0, z: 35.8122}
-  m_LocalScale: {x: 9.7711, y: 34.99958, z: 86.849625}
+  m_LocalPosition: {x: 186.9, y: 0, z: 13.471}
+  m_LocalScale: {x: 9.7711, y: 34.99958, z: 131.53082}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47838694}
@@ -3740,6 +3746,12 @@ MonoBehaviour:
   target: {fileID: 0}
   Player1: {fileID: 0}
   Player2: {fileID: 0}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
+  Player5: {fileID: 0}
+  Player6: {fileID: 0}
+  Player7: {fileID: 0}
+  Player8: {fileID: 0}
   spawnpointP1: {fileID: 0}
   spawnpointP2: {fileID: 0}
 --- !u!4 &1348870798 stripped
@@ -3846,8 +3858,8 @@ Transform:
   m_GameObject: {fileID: 1384018192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710695, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: 88.0459, y: 0, z: -39.200005}
-  m_LocalScale: {x: 9.771099, y: 34.99958, z: 184.94804}
+  m_LocalPosition: {x: 32.1642, y: 0, z: -39.2}
+  m_LocalScale: {x: 9.771099, y: 34.99958, z: 73.18771}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47838694}
@@ -4347,6 +4359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+  spawnHeight: -10
+  moveUpDuration: 1
 --- !u!4 &1585901880
 Transform:
   m_ObjectHideFlags: 0

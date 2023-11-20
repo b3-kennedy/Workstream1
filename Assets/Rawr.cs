@@ -18,6 +18,12 @@ public class Rawr : MonoBehaviour
     
     public GameObject Player1;
     public GameObject Player2;
+    public GameObject Player3;
+    public GameObject Player4;
+    public GameObject Player5;
+    public GameObject Player6;
+    public GameObject Player7;
+    public GameObject Player8;
 
     public GameObject spawnpointP1;
     public GameObject spawnpointP2; 
