@@ -39,7 +39,6 @@ public class CarSpawner : MonoBehaviour
             yield return null;
         }
 
-        // // Ensure the car is at the target position
         // car.transform.position = target;
     }
 
@@ -58,16 +57,15 @@ public class CarSpawner : MonoBehaviour
 
                 StartCoroutine(waiter(pickedCar));
             
-          
             }
     }
    public CarObject GetCarObject(GameObject gameObj )
     {
-        Debug.Log("getting CarObject: "+gameObj.ToString());
+        // Debug.Log("getting CarObject: "+gameObj.ToString());
         
         CarObject carObject = cars.Find(car => car.carObject == gameObj);
         
-        //     Debug.Log("Found CarObject: " + carObject.ToString());
+  
             return carObject; 
     }
     
