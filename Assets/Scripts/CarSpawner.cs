@@ -20,18 +20,21 @@ public class CarSpawner : MonoBehaviour
 
      IEnumerator SpawnCar(int i)
     {
-        GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -70), Quaternion.identity);
+        GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
         car.name = "Car" + (cars.Count);
         
         CarObject carObj = new CarObject(i, Color.blue, car.name, car);
         cars.Add(carObj);
          float elapsedTime = 0f;
+         int moveInSpeed = 10;
         // Vector3 start = car.transform.position;
-        // Vector3 target = new Vector3(60 - 14 * i, 0, 100);
+        Vector3 target = new Vector3(60 - 14 * i, 0, -70);
 
-        while (elapsedTime < moveUpDuration)
+        while (car.transform.position.z <-70)
         {
             // car.transform.position = Vector3.Lerp(start,target, elapsedTime / moveUpDuration);
+            Vector3 movement = transform.forward * moveInSpeed* Time.deltaTime;
+            car.transform.Translate(movement, Space.World);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
@@ -40,9 +43,10 @@ public class CarSpawner : MonoBehaviour
         // car.transform.position = target;
     }
 
-    IEnumerator waiter()
+    IEnumerator waiter(CarObject pickedCar)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
+        StartCoroutine(SpawnCar(pickedCar.carIndex));
     }
 
     public void OnCarPickedUp(CarObject pickedCar)
@@ -52,8 +56,8 @@ public class CarSpawner : MonoBehaviour
                 
                 cars.Remove(pickedCar);
 
-                StartCoroutine(waiter());
-                // StartCoroutine(SpawnCar(pickedCar.carIndex));
+                StartCoroutine(waiter(pickedCar));
+            
           
             }
     }
