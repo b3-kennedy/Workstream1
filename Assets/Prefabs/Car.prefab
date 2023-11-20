@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8228307762944528165}
   - component: {fileID: 4382473132137937444}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bodyyy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.885637, y: 2.3612752, z: 3.5293546}
+  m_Center: {x: -0.025449866, y: 0.6806376, z: 0.026951546}
 --- !u!1 &3132785985233409984
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 1070169240529879437}
   - component: {fileID: 6411847777823030657}
   - component: {fileID: 4686601421375557548}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (2)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6599532638266976984}
   - component: {fileID: 3331984036050019539}
   - component: {fileID: 2885491119765210129}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: r (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 5146131479691253594}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalPosition: {x: 1.01, y: 0.86, z: 0.01}
   m_LocalScale: {x: 3, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,10 +263,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.237736, y: 1.9909445, z: 1.808651}
+  m_Center: {x: -0.32367393, y: -0.069527805, z: -0.011109349}
 --- !u!1 &5913383536001482622
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 7890932766143965508}
   - component: {fileID: 3328564559769476195}
   - component: {fileID: 1851444681506826011}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 5805222407363882686}
   - component: {fileID: 3045805227832441853}
   - component: {fileID: 8205634269919063672}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: e (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,8 +466,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9027647157081095351}
-  m_Layer: 0
-  m_Name: GameObject (3)
+  - component: {fileID: 7976349212266283533}
+  - component: {fileID: -3965562810121608667}
+  m_Layer: 3
+  m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7707067220034693487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -489,7 +491,42 @@ Transform:
   - {fileID: 8228307762944528165}
   - {fileID: 3214584584614554528}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &7976349212266283533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707067220034693487}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.5911827, y: 0.8385563, z: 8.589868}
+  m_Center: {x: 0.07321429, y: 0.08072162, z: 0.3518529}
+--- !u!114 &-3965562810121608667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707067220034693487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743917b448179a54e8c27c17d2bb2ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSpeed: 10
+  turnSpeed: 180
 --- !u!1 &7996087586216919162
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +539,7 @@ GameObject:
   - component: {fileID: 6158056917642483687}
   - component: {fileID: 5837714994224611371}
   - component: {fileID: 7617256677607949545}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
