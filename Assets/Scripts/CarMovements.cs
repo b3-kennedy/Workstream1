@@ -1,6 +1,10 @@
 
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+
+using TMPro;
 
 public class CarMovements : MonoBehaviour
 {
@@ -11,6 +15,10 @@ public class CarMovements : MonoBehaviour
     public float carSpeed = 40f;
     public float turnSpeed = 180f;
     public float parkingSpaceRadius = 1.0f;
+
+    // public GameObject canvas;
+    public TextMeshPro uiScore;
+
     private CarObject thisCar;
 
     public LayerMask parkingSpaceLayer;
@@ -18,6 +26,7 @@ public class CarMovements : MonoBehaviour
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
+            
     }
 
     private void OnEnable()
