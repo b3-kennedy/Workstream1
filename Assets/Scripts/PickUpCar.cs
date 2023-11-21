@@ -17,10 +17,15 @@ public class PickUpCar : MonoBehaviour
 
     public  PlayerControls controls;
 
+    public int playerIndex ;
+
     void Start()
     {
-        // Store the original position of the player when the scene starts
         originalPosition = transform.position;
+        string objectName = gameObject.name.Split('r')[1];
+        playerIndex = int.Parse(objectName) - 1;
+        Debug.Log(gameObject.name);
+        
         }
 
     void OnEnable()
@@ -98,7 +103,7 @@ private void SwitchToPlayer()
         CarMovements carMovement = currentCar.GetComponent<CarMovements>();
         if (carMovement != null)
         {
-            carMovement.EnableInput();
+            carMovement.EnableInput(playerIndex);
         }
     }
 

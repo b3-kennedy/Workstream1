@@ -16,7 +16,9 @@ public class CarMovements : MonoBehaviour
     public float turnSpeed = 180f;
     public float parkingSpaceRadius = 1.0f;
 
-    // public GameObject canvas;
+    public Material[] driverMaterials = new Material[8];
+    private Material currentMaterial;
+
     public TextMeshPro uiScore;
 
     private CarObject thisCar;
@@ -26,7 +28,7 @@ public class CarMovements : MonoBehaviour
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
-            
+
     }
 
     private void OnEnable()
@@ -45,13 +47,21 @@ public class CarMovements : MonoBehaviour
         // controls.Player.Move.performed -= OnMovementPerformed;
         // controls.Player.Move.canceled -= OnMovementCanceled;
     }
-
-    public void EnableInput()
+public void SetColor(Material currentMaterial, int driverIndex)
+    {
+        currentMaterial = driverMaterials[driverIndex];
+        ApplyMaterialToChild("body/top",currentMaterial);
+        ApplyMaterialToChild("body/body",currentMaterial);
+        
+    }
+    public void EnableInput(int driverIndex)
     {
         isInputEnabled = true;
          
-        //  Debug.Log(thisCar.carIndex);
         carSpawner.OnCarPickedUp(thisCar);
+        // thisCar.SetDriver(driverIndex);
+        SetColor(currentMaterial, driverIndex);
+        
     }
 
     public void DisableInput()
@@ -97,4 +107,23 @@ public class CarMovements : MonoBehaviour
                 Debug.Log("Car is parked!");
             }
     }
+    void ApplyMaterialToChild(string childObjectName, Material material)
+    {
+        Transform childTransform = transform.Find(childObjectName);
+        Debug.Log(childTransform+" here");
+
+        if (childTransform != null)
+        {
+            Renderer childRenderer = childTransform.GetComponent<Renderer>();
+
+            if (childRenderer != null)
+            {
+                childRenderer.material = material;
+            }
+            else
+            {
+                Debug.LogError("Renderer component not found on child object: " + childObjectName);
+            }
+        }
+        }
 }

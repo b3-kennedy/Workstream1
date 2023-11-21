@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CarObject
+public class CarObject 
 {
     public int playerIndex;
     public int carIndex;
@@ -9,6 +9,8 @@ public class CarObject
     public GameObject carObject;
     public bool isParked=false;
     public float parkingScore;
+    
+  
 
     public CarObject(int index, Color color, string name,GameObject carObj)
     {
@@ -25,5 +27,22 @@ public class CarObject
         {
             parkingScore = score;
         }
+         public void SetDriver(int driverIndex)
+    {
+        
+            // currentMaterial = driverMaterials[driverIndex];
+
+        
+            // ChangeMaterial();
+     
+    }
+    public void SetColor(Material currentMaterial)
+    {
+        // Renderer renderer = GetComponent<Renderer>();
+
+        
+        //     renderer.material = currentMaterial;
+        
+    }
         
 }

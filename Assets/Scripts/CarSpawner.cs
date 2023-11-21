@@ -5,6 +5,8 @@ using UnityEngine;
 public class CarSpawner : MonoBehaviour
 {
     public GameObject carPrefab;
+
+  
     
     [SerializeField]  public List<CarObject> cars = new List<CarObject>();
     public float spawnHeight = -70f; 
@@ -54,6 +56,7 @@ public class CarSpawner : MonoBehaviour
             {
                 
                 cars.Remove(pickedCar);
+                
 
                 StartCoroutine(waiter(pickedCar));
             
@@ -68,5 +71,6 @@ public class CarSpawner : MonoBehaviour
   
             return carObject; 
     }
+    
     
 }
