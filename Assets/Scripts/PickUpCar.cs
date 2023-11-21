@@ -13,6 +13,7 @@ public class PickUpCar : MonoBehaviour
     private Vector3 originalPosition; // Store the original position of the player
 
     public bool carParked = false;
+    public int score = 0;
 
     public  PlayerControls controls;
 
