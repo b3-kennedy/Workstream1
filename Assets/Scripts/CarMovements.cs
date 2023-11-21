@@ -8,7 +8,7 @@ public class CarMovements : MonoBehaviour
     private CarSpawner carSpawner;
     private bool isInputEnabled = false;
 
-    public float carSpeed = 10f;
+    public float carSpeed = 40f;
     public float turnSpeed = 180f;
     public float parkingSpaceRadius = 1.0f;
     private CarObject thisCar;
