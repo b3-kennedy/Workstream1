@@ -12,6 +12,8 @@ public class CarSpawner : MonoBehaviour
     public float spawnHeight = -70f; 
     public float moveUpDuration = 0.25f;
 
+    private int totalCount =1;
+
     void Start()
     {
         for (var i = 0; i < 8; i++)
@@ -22,8 +24,10 @@ public class CarSpawner : MonoBehaviour
 
      IEnumerator SpawnCar(int i)
     {
+        // GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
         GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
-        car.name = "Car" + (cars.Count);
+        car.name = "Car" + (totalCount);
+        totalCount +=1;
         
         CarObject carObj = new CarObject(i, Color.blue, car.name, car);
         cars.Add(carObj);

@@ -62,6 +62,7 @@ public class PickUpCar : MonoBehaviour
         }
         if (currentCar != null && currentCar.GetComponent<CarObject>().isParked)
         {
+            Debug.Log("switch here for player");
             carParked = true;
             SwitchToPlayer();
         }
