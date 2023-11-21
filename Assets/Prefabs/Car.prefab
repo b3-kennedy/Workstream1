@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743917b448179a54e8c27c17d2bb2ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carSpeed: 10
+  carSpeed: 40
   turnSpeed: 180
   parkingSpaceRadius: 1
   driverMaterials:
