@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PickUpCar : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public GameObject carPrefab;  
 
     private GameObject currentCar;
     private bool isControllingCar = false;
@@ -35,6 +34,8 @@ public class PickUpCar : MonoBehaviour
 
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
+        controls.Player.Switch.performed +=ctx => SwitchToPlayer();
+        // controls.Player.Switch.canceled += OnMovementCanceled;
     }
 
     void OnDisable()
@@ -43,6 +44,7 @@ public class PickUpCar : MonoBehaviour
 
         controls.Player.Move.performed -= OnMovementPerformed;
         controls.Player.Move.canceled -= OnMovementCanceled;
+    
     }
 
     void Update()
@@ -73,6 +75,7 @@ public class PickUpCar : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && !isControllingCar)
         {
             SwitchToCar(other.gameObject);
+            other.gameObject.tag= "pickedUpCar";
             
         }
     }

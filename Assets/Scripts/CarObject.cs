@@ -27,22 +27,6 @@ public class CarObject
         {
             parkingScore = score;
         }
-         public void SetDriver(int driverIndex)
-    {
-        
-            // currentMaterial = driverMaterials[driverIndex];
-
-        
-            // ChangeMaterial();
      
-    }
-    public void SetColor(Material currentMaterial)
-    {
-        // Renderer renderer = GetComponent<Renderer>();
-
-        
-        //     renderer.material = currentMaterial;
-        
-    }
         
 }
