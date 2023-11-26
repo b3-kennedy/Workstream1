@@ -5,10 +5,14 @@ using UnityEngine;
 public class CarSpawner : MonoBehaviour
 {
     public GameObject carPrefab;
+
+  
     
     [SerializeField]  public List<CarObject> cars = new List<CarObject>();
     public float spawnHeight = -70f; 
     public float moveUpDuration = 0.25f;
+
+    private int totalCount =1;
 
     void Start()
     {
@@ -20,8 +24,10 @@ public class CarSpawner : MonoBehaviour
 
      IEnumerator SpawnCar(int i)
     {
+        // GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
         GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
-        car.name = "Car" + (cars.Count);
+        car.name = "Car" + (totalCount);
+        totalCount +=1;
         
         CarObject carObj = new CarObject(i, Color.blue, car.name, car);
         cars.Add(carObj);
@@ -39,7 +45,6 @@ public class CarSpawner : MonoBehaviour
             yield return null;
         }
 
-        // // Ensure the car is at the target position
         // car.transform.position = target;
     }
 
@@ -55,20 +60,21 @@ public class CarSpawner : MonoBehaviour
             {
                 
                 cars.Remove(pickedCar);
+                
 
                 StartCoroutine(waiter(pickedCar));
             
-          
             }
     }
    public CarObject GetCarObject(GameObject gameObj )
     {
-        Debug.Log("getting CarObject: "+gameObj.ToString());
+        // Debug.Log("getting CarObject: "+gameObj.ToString());
         
         CarObject carObject = cars.Find(car => car.carObject == gameObj);
         
-        //     Debug.Log("Found CarObject: " + carObject.ToString());
+  
             return carObject; 
     }
+    
     
 }

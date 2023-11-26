@@ -4,13 +4,28 @@ using UnityEngine.InputSystem;
 public class PickUpCar : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public GameObject carPrefab;  
 
     private GameObject currentCar;
     private bool isControllingCar = false;
 
-    public  PlayerControls controls;
     private Vector2 movementInput;
+    private Vector3 originalPosition; // Store the original position of the player
+
+    public bool carParked = false;
+    public int score = 0;
+
+    public  PlayerControls controls;
+
+    public int playerIndex ;
+
+    void Start()
+    {
+        originalPosition = transform.position;
+        string objectName = gameObject.name.Split('r')[1];
+        playerIndex = int.Parse(objectName) - 1;
+        Debug.Log(gameObject.name);
+        
+        }
 
     void OnEnable()
     {
@@ -19,6 +34,8 @@ public class PickUpCar : MonoBehaviour
 
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
+        controls.Player.Switch.performed +=ctx => SwitchToPlayer();
+        // controls.Player.Switch.canceled += OnMovementCanceled;
     }
 
     void OnDisable()
@@ -27,13 +44,13 @@ public class PickUpCar : MonoBehaviour
 
         controls.Player.Move.performed -= OnMovementPerformed;
         controls.Player.Move.canceled -= OnMovementCanceled;
+    
     }
 
     void Update()
     {
         if (!isControllingCar)
         {
-            // Handle player movement when not controlling a car
             Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
             transform.Translate(movement * moveSpeed * Time.deltaTime);
         }
@@ -45,6 +62,12 @@ public class PickUpCar : MonoBehaviour
             Debug.Log(carHorizontal+" "+carVertical);
             currentCar.transform.Translate(new Vector3(carHorizontal, 0f, carVertical) * moveSpeed * Time.deltaTime);
         }
+        if (currentCar != null && currentCar.GetComponent<CarObject>().isParked)
+        {
+            Debug.Log("switch here for player");
+            carParked = true;
+            SwitchToPlayer();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,9 +75,20 @@ public class PickUpCar : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && !isControllingCar)
         {
             SwitchToCar(other.gameObject);
+            other.gameObject.tag= "pickedUpCar";
             
         }
     }
+
+private void SwitchToPlayer()
+{
+    Debug.Log("switch to meee");
+    transform.position = originalPosition;
+    gameObject.SetActive(true);
+    // currentCar = car;
+    // currentCar.SetActive(false);
+    ExitCar();
+}
 
     private void SwitchToCar(GameObject car)
     {
@@ -73,13 +107,13 @@ public class PickUpCar : MonoBehaviour
         CarMovements carMovement = currentCar.GetComponent<CarMovements>();
         if (carMovement != null)
         {
-            carMovement.EnableInput();
+            carMovement.EnableInput(playerIndex);
         }
     }
 
     public void ExitCar()
     {
-        currentCar.SetActive(false);
+        // currentCar.SetActive(false);
         gameObject.SetActive(true);
 
         isControllingCar = false;
