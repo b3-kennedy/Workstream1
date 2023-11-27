@@ -107,7 +107,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3132785985233409984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: -3965562810121608667}
   m_Layer: 3
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: freeCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -565,6 +565,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: dc6ccda1c7d05e64fb3e544015a69e52, type: 2}
   - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
   uiScore: {fileID: 0}
+  currentDriver: {fileID: 0}
   sphereRB: {fileID: 7019712658648120252}
   moveInput: 0
   turnInput: 0

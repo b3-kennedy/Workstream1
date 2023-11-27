@@ -11,6 +11,8 @@ TagManager:
   - Player6
   - Player7
   - Player8
+  - pickedUpCar
+  - freeCar
   layers:
   - Default
   - TransparentFX

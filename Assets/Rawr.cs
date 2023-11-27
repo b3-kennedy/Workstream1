@@ -42,28 +42,28 @@ public class Rawr : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (parked)
-        {
+        //if (parked)
+        //{
 
-        }
-        else if (other.transform.gameObject.tag == "Player")
-        {
-            TOTALp1++;
-            //  Debug.Log("Total: " + TOTALp1);
-            uii.p1Score++;
-            Instantiate(prefabP1, target.transform);
-            Player1.transform.position = spawnpointP1.transform.position;
+        //}
+        //else if (other.transform.gameObject.tag == "Player")
+        //{
+        //    TOTALp1++;
+        //    //  Debug.Log("Total: " + TOTALp1);
+        //    uii.p1Score++;
+        //    Instantiate(prefabP1, target.transform);
+        //    Player1.transform.position = spawnpointP1.transform.position;
 
-            parked = true;
-        }
-        else if (other.transform.gameObject.tag == "Player2")
-        {
-            uii.p2Score++;
-            Instantiate(prefabP2, target.transform);
-            Player2.transform.position = spawnpointP2.transform.position;
+        //    parked = true;
+        //}
+        //else if (other.transform.gameObject.tag == "Player2")
+        //{
+        //    uii.p2Score++;
+        //    Instantiate(prefabP2, target.transform);
+        //    Player2.transform.position = spawnpointP2.transform.position;
 
-            parked = true;
-        }
+        //    parked = true;
+        //}
     }
 
 
