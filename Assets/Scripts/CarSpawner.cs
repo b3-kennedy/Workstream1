@@ -25,7 +25,8 @@ public class CarSpawner : MonoBehaviour
      IEnumerator SpawnCar(int i)
     {
         // GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
-        GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -80), Quaternion.identity);
+        GameObject car = Instantiate(carPrefab, new Vector3(60 - 14 * i, 0, -70), Quaternion.identity);
+        car.transform.position = new Vector3(60 - 14 * i, 0, -80);
         car.name = "Car" + (totalCount);
         totalCount +=1;
         
@@ -41,12 +42,37 @@ public class CarSpawner : MonoBehaviour
             // car.transform.position = Vector3.Lerp(start,target, elapsedTime / moveUpDuration);
             Vector3 movement = transform.forward * moveInSpeed* Time.deltaTime;
             car.transform.Translate(movement, Space.World);
+
+
+
+
+
+
+
+            //sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+           // car.GetComponent<Rigidbody>().AddForce(transform.forward * moveInSpeed, ForceMode.Acceleration);
+
+
+
+
+
+
+
+
+
+
+
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // car.transform.position = target;
     }
+
+
+
+
 
     IEnumerator waiter(CarObject pickedCar)
     {

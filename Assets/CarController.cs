@@ -33,8 +33,10 @@ public class CarController : MonoBehaviour
         if (!disable)
         {
             moveInput = Input.GetAxisRaw("Vertical");
-            // moveInput = Input.GetAxis("Fire1");
             turnInput = Input.GetAxisRaw("Horizontal");
+
+
+
             moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 

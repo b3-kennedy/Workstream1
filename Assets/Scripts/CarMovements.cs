@@ -13,7 +13,7 @@ public class CarMovements : MonoBehaviour
     private bool isInputEnabled = false;
 
     public float carSpeed = 100f;
-    public float turnSpeed = 180f;
+    //public float turnSpeed = 180f;
     public float parkingSpaceRadius = 1.0f;
 
     public Material[] driverMaterials = new Material[8];
@@ -23,11 +23,30 @@ public class CarMovements : MonoBehaviour
 
     private CarObject thisCar;
 
+
+
+
+
+
+    public Rigidbody sphereRB;
+    public float moveInput;
+    public float turnInput;
+
+    public float fwdspeed;
+    public float revSpeed;
+    public float turnSpeed;
+
+
+
     public LayerMask parkingSpaceLayer;
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
+
+
+        sphereRB.transform.parent = null;
+
 
     }
 
@@ -83,16 +102,23 @@ public void SetColor(Material currentMaterial, int driverIndex)
         if (isInputEnabled)
         {
             Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-            float moveInput = movementInput.y;
-            float turnInput = movementInput.x;
+             moveInput = movementInput.y;
+             turnInput = movementInput.x;
 
 
-            float fwdspeed = (moveInput > 0) ? carSpeed : 0f;
-            float revSpeed = (moveInput < 0) ? -carSpeed : 0f;
+            //  float fwdspeed = (moveInput > 0) ? carSpeed : 0f;
+            // float revSpeed = (moveInput < 0) ? -carSpeed : 0f;
+            // float speed = (moveInput > 0) ? fwdspeed : revSpeed;
+            //  Vector3 movement = transform.forward * speed * Time.deltaTime;
+            // transform.Translate(movement, Space.World);
 
-            float speed = (moveInput > 0) ? fwdspeed : revSpeed;
-            Vector3 movement = transform.forward * speed * Time.deltaTime;
-            transform.Translate(movement, Space.World);
+
+            //if statement about trigger/shoulder button
+            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            transform.position = sphereRB.transform.position;
+
+
+
 
             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
             transform.Rotate(0f, newRotation, 0f, Space.World);
@@ -103,10 +129,37 @@ public void SetColor(Material currentMaterial, int driverIndex)
             if (colliders.Length > 0)
             {
                 // Car is parked
+
+
+
+
+
+            if (moveInput == 0)
+            {
                 thisCar.isParked = (true);
                 Debug.Log("Car is parked!");
+
+                //stop control of the car
+                //spawn player back
+            }
+                /*thisCar.isParked = (true);
+                Debug.Log("Car is parked!");*/
             }
     }
+
+
+
+    private void FixedUpdate()
+    {
+        sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+    }
+
+
+
+
+
+
+
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
@@ -125,5 +178,7 @@ public void SetColor(Material currentMaterial, int driverIndex)
                 Debug.LogError("Renderer component not found on child object: " + childObjectName);
             }
         }
-        }
+    }
+
+
 }

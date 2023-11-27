@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,7 +358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -1111,6 +1110,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381788971}
   m_CullTransparentMesh: 1
+--- !u!1001 &387597740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_Name
+      value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 56.155426
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42.361866
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027647157081095351, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
 --- !u!4 &437067560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 407d844698632bf4d8699e1c2e8ba8b6, type: 3}
@@ -1361,7 +1417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -1708,7 +1763,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548596149}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 390e7a99cb0560f49a1dd255b0e3b819, type: 3}
@@ -2603,7 +2658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -3728,7 +3782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -4125,7 +4178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -5555,7 +5607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -6205,6 +6256,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 407d844698632bf4d8699e1c2e8ba8b6, type: 3}
   m_PrefabInstance: {fileID: 1939531440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1665950288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.546604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.595848
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390515367273386361, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877329383367280334, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
+      propertyPath: m_Name
+      value: GameObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
 --- !u!4 &1677109549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 407d844698632bf4d8699e1c2e8ba8b6, type: 3}
@@ -6927,7 +7035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -7149,7 +7256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
   carParked: 0
   score: 0
   playerIndex: 0
@@ -7567,3 +7673,5 @@ SceneRoots:
   - {fileID: 199341673}
   - {fileID: 288954014}
   - {fileID: 1111069409}
+  - {fileID: 1665950288}
+  - {fileID: 387597740}

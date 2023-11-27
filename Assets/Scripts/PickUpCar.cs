@@ -24,8 +24,11 @@ public class PickUpCar : MonoBehaviour
         string objectName = gameObject.name.Split('r')[1];
         playerIndex = int.Parse(objectName) - 1;
         Debug.Log(gameObject.name);
+
+
         
-        }
+        
+    }
 
     void OnEnable()
     {
@@ -108,6 +111,7 @@ private void SwitchToPlayer()
         if (carMovement != null)
         {
             carMovement.EnableInput(playerIndex);
+            
         }
     }
 
