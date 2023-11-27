@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 291714459050297301}
   - component: {fileID: 559119178709146367}
   - component: {fileID: 2701157108401220609}
+  - component: {fileID: -3331199258201915580}
   m_Layer: 0
   m_Name: p1 SPAWN
   m_TagString: Untagged
@@ -105,3 +106,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3331199258201915580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700270460971902448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f84b893ad69eb4a9c1d97a82ea70b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput: 0
+  turnInput: 0
+  sphereRB: {fileID: 0}
+  fwdspeed: 0
+  revSpeed: 0
+  turnSpeed: 0
+  disable: 0

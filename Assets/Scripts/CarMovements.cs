@@ -1,6 +1,10 @@
 
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+
+using TMPro;
 
 public class CarMovements : MonoBehaviour
 {
@@ -8,14 +12,29 @@ public class CarMovements : MonoBehaviour
     private CarSpawner carSpawner;
     private bool isInputEnabled = false;
 
-    public float carSpeed = 10f;
+    public float carSpeed = 100f;
     public float turnSpeed = 180f;
+    public float parkingSpaceRadius = 1.0f;
+
+    public Material[] driverMaterials = new Material[8];
+    private Material currentMaterial;
+
+    public TextMeshPro uiScore;
+
+    private CarObject thisCar;
+
+    public LayerMask parkingSpaceLayer;
+    private void Start()
+    {
+        carSpawner = FindObjectOfType<CarSpawner>();
+        thisCar = carSpawner.GetCarObject(gameObject);
+
+    }
 
     private void OnEnable()
     {
         controls = new PlayerControls();
         controls.Enable();
-        carSpawner = FindObjectOfType<CarSpawner>();
 
         // controls.Player.Move.performed += OnMovementPerformed;
         // controls.Player.Move.canceled += OnMovementCanceled;
@@ -28,13 +47,21 @@ public class CarMovements : MonoBehaviour
         // controls.Player.Move.performed -= OnMovementPerformed;
         // controls.Player.Move.canceled -= OnMovementCanceled;
     }
-
-    public void EnableInput()
+public void SetColor(Material currentMaterial, int driverIndex)
+    {
+        currentMaterial = driverMaterials[driverIndex];
+        ApplyMaterialToChild("body/top",currentMaterial);
+        ApplyMaterialToChild("body/body",currentMaterial);
+        
+    }
+    public void EnableInput(int driverIndex)
     {
         isInputEnabled = true;
-         CarObject thisCar = carSpawner.GetCarObject(gameObject);
-        //  Debug.Log(thisCar.carIndex);
+         
         carSpawner.OnCarPickedUp(thisCar);
+        // thisCar.SetDriver(driverIndex);
+        SetColor(currentMaterial, driverIndex);
+        
     }
 
     public void DisableInput()
@@ -69,6 +96,34 @@ public class CarMovements : MonoBehaviour
 
             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
             transform.Rotate(0f, newRotation, 0f, Space.World);
+        
         }
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
+                    
+            if (colliders.Length > 0)
+            {
+                // Car is parked
+                thisCar.isParked = (true);
+                Debug.Log("Car is parked!");
+            }
     }
+    void ApplyMaterialToChild(string childObjectName, Material material)
+    {
+        Transform childTransform = transform.Find(childObjectName);
+        Debug.Log(childTransform+" here");
+
+        if (childTransform != null)
+        {
+            Renderer childRenderer = childTransform.GetComponent<Renderer>();
+
+            if (childRenderer != null)
+            {
+                childRenderer.material = material;
+            }
+            else
+            {
+                Debug.LogError("Renderer component not found on child object: " + childObjectName);
+            }
+        }
+        }
 }
