@@ -57,6 +57,10 @@ public class CarMovements : MonoBehaviour
 
         // controls.Player.Move.performed += OnMovementPerformed;
         // controls.Player.Move.canceled += OnMovementCanceled;
+
+
+
+       // controls.Player.Drive.performed += true;
     }
 
     private void OnDisable()
@@ -114,7 +118,21 @@ public void SetColor(Material currentMaterial, int driverIndex)
 
 
             //if statement about trigger/shoulder button
-            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+
+
+            float buttonP = controls.Player.Drive.ReadValue<float>();
+
+            //add reverse, see if thats good or seperate reverse from the left trigger
+            if (buttonP > 0)
+            {
+                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            }
+           // moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+
+
+
             transform.position = sphereRB.transform.position;
 
 
