@@ -71,7 +71,7 @@ public class CarMovements : MonoBehaviour
         ApplyMaterialToChild("body/body", currentMaterial);
 
     }
-    public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
+    public void EnableInput(GameObject playerObject, Vector3 pos)
     {
         isInputEnabled = true;
         playerOriginalPosition = pos;
@@ -79,7 +79,7 @@ public class CarMovements : MonoBehaviour
         carSpawner.OnCarPickedUp(thisCar);
        
         currentDriver = playerObject;
-        SetColor(currentMaterial, driverIndex);
+       // SetColor(currentMaterial, driverIndex);
 
     }
 
@@ -110,10 +110,10 @@ public class CarMovements : MonoBehaviour
             float buttonP = controls.Player.Drive.ReadValue<float>();
 
             //add reverse, see if thats good or seperate reverse from the left trigger
-            if (buttonP > 0)
-            {
+           // if (buttonP > 0)
+            
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            }
+            
             //moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 

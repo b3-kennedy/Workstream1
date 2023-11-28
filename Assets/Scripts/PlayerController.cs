@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         originalPosition = transform.position;
-        string objectName = gameObject.name.Split('r')[1];
-        playerIndex = int.Parse(objectName) - 1;
+      //  string objectName = gameObject.name.Split('r')[1];
+      //  playerIndex = int.Parse(objectName) - 1;
         Debug.Log(gameObject.name);
     
 
@@ -110,7 +110,7 @@ private void SwitchToPlayer()
         CarMovements carMovement = currentCar.GetComponent<CarMovements>();
         if (carMovement != null)
         {
-            carMovement.EnableInput(playerIndex, gameObject , originalPosition);
+            carMovement.EnableInput( gameObject , originalPosition);
             
         }
     }
@@ -122,13 +122,13 @@ private void SwitchToPlayer()
         isControllingCar = false;
     }
 
-    private void OnMovementPerformed(InputAction.CallbackContext context)
+    public void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
      
     }
 
-    private void OnMovementCanceled(InputAction.CallbackContext context)
+    public void OnMovementCanceled(InputAction.CallbackContext context)
     {
         movementInput = Vector2.zero;
     }
