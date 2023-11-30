@@ -87,7 +87,7 @@ TextMesh:
   m_GameObject: {fileID: 2821929495596066008}
   m_Text: +100
   m_OffsetZ: 0
-  m_CharacterSize: 6
+  m_CharacterSize: 7
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 1

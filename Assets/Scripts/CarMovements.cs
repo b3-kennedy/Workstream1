@@ -23,7 +23,7 @@ public class CarMovements : MonoBehaviour
 
     private Vector3 playerOriginalPosition;
 
-    private string parkingScore = "+ 200";
+    private string parkingScoreText = "+ 200";
 
 
 
@@ -145,9 +145,14 @@ public class CarMovements : MonoBehaviour
            
 
             thisCar.isParked = (true);
-            Debug.Log("Car is parked!");
+            foreach(Collider c in colliders) {
+                parkingScoreText = "+ " + c.gameObject.name.Split('c')[0];
+                Debug.Log(c.gameObject.name.Split('c')[0]);
+            }
+            
+            //Debug.Log("Car is parked!");
 
-            parkingScore = "+ "+Random.Range(1, 3)*100;
+            
 
             DisableInput();
             ShowFloatingScore();
@@ -200,7 +205,7 @@ public class CarMovements : MonoBehaviour
         if(FloatingTextPrefab != null)
         {
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScore;
+            go.GetComponent<TextMesh>().text = parkingScoreText;
         }
     }
 
