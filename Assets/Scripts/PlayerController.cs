@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip clip;
     public float volume = 0.5f;
 
+    public TMP_Text scoreTextMesh;
+    
+
     void Start()
     {
         originalPosition = transform.position;
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour
         //audioSource.Play();
         //audioSource.PlayOneShot(clip,volume);
         audioSource.PlayOneShot(audioSource.clip, volume);
-            Debug.Log("slammed");
+           
         //}
     }
 
@@ -64,10 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!isControllingCar)
-        {
-           
-        }
+        scoreTextMesh.text = ""+score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
        

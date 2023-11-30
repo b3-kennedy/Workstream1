@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 38679498}
   - component: {fileID: 38679497}
   m_Layer: 5
-  m_Name: player4 (1)
+  m_Name: player8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,6 +716,7 @@ MonoBehaviour:
   audioSource: {fileID: 136387855}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 969389080}
 --- !u!54 &136387850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1612,7 +1613,7 @@ GameObject:
   - component: {fileID: 366792525}
   - component: {fileID: 366792524}
   m_Layer: 5
-  m_Name: player1 (1)
+  m_Name: player7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2018,6 +2019,7 @@ MonoBehaviour:
   audioSource: {fileID: 505563387}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 1033452225}
 --- !u!54 &505563382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4375,6 +4377,7 @@ GameObject:
   - component: {fileID: 773642306}
   - component: {fileID: 773642305}
   - component: {fileID: 773642304}
+  - component: {fileID: 773642308}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4472,6 +4475,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &773642308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773642303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb5fe2041491224eadef92a3dac9ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &788516076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4756,6 +4771,7 @@ MonoBehaviour:
   audioSource: {fileID: 797877032}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 1281731979}
 --- !u!82 &797877032
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6620,6 +6636,7 @@ MonoBehaviour:
   audioSource: {fileID: 1167082973}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 1255919251}
 --- !u!54 &1167082968
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7044,6 +7061,7 @@ MonoBehaviour:
   audioSource: {fileID: 1204578633}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 1719604799}
 --- !u!54 &1204578628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9464,6 +9482,7 @@ MonoBehaviour:
   audioSource: {fileID: 1507526899}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 754398513}
 --- !u!54 &1507526894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12017,6 +12036,7 @@ MonoBehaviour:
   audioSource: {fileID: 2073384918}
   clip: {fileID: 0}
   volume: 0.5
+  scoreTextMesh: {fileID: 1250350625}
 --- !u!54 &2073384913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12637,9 +12657,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102835070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f8915ae2c6a61499123a0a309c3e0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -12647,6 +12667,9 @@ MonoBehaviour:
   score: 0
   playerIndex: 0
   audioSource: {fileID: 0}
+  clip: {fileID: 0}
+  volume: 0.5
+  scoreTextMesh: {fileID: 754305646}
 --- !u!1001 &2107027302
 PrefabInstance:
   m_ObjectHideFlags: 0
