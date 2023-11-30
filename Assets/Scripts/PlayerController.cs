@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public int playerIndex ;
 
     public AudioSource audioSource;
+    public AudioClip clip;
+    public float volume = 0.5f;
 
     void Start()
     {
@@ -34,7 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         //if (!audioSource.isPlaying)
         //{
-            audioSource.Play();
+        //audioSource.Play();
+        //audioSource.PlayOneShot(clip,volume);
+        audioSource.PlayOneShot(audioSource.clip, volume);
             Debug.Log("slammed");
         //}
     }
