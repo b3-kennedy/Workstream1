@@ -111,8 +111,6 @@ public class CarMovements : MonoBehaviour
         {
          
 
-
-            //if ( driverIndex == 0)
             if (currentDriverIndex == 0)
             {
 
@@ -146,7 +144,7 @@ public class CarMovements : MonoBehaviour
                      fwdspeed = 0;
                  }*/
             }
-            //else if (driverIndex == 1)
+     
             else if (currentDriverIndex == 1) 
             {
                 Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
@@ -159,34 +157,7 @@ public class CarMovements : MonoBehaviour
             else if (currentDriverIndex == 4) { }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //if statement about trigger/shoulder button
-
-
-
-
-            //add reverse, see if thats good or seperate reverse from the left trigger
-
-            //moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-
+      
 
             transform.position = sphereRB.transform.position;
 
@@ -202,7 +173,7 @@ public class CarMovements : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
 
-        // Car is parked , change conditions 
+        //  change parking conditions 
         if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
         {
            
@@ -213,7 +184,7 @@ public class CarMovements : MonoBehaviour
                 Debug.Log(c.gameObject.name.Split('c')[0]);
             }
             
-            //Debug.Log("Car is parked!");
+         
 
             
 
@@ -233,10 +204,7 @@ public class CarMovements : MonoBehaviour
         if (isInputEnabled)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
-            
-            //sphereRB.AddForce(transform.forward * fwdspeed, ForceMode.Acceleration);
-
-
+        
         }
     }
 

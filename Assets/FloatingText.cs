@@ -18,6 +18,6 @@ public class FloatingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameObject.transform.localScale += changeScale;
+        gameObject.GetComponent<TextMesh>().fontSize -= 1;
     }
 }
