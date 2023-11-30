@@ -19,6 +19,8 @@ public class CarMovements : MonoBehaviour
 
     private CarObject thisCar;
 
+    private int currentDriverIndex;
+
     public GameObject currentDriver;
 
     private Vector3 playerOriginalPosition;
@@ -87,6 +89,7 @@ public class CarMovements : MonoBehaviour
         carSpawner.OnCarPickedUp(thisCar);
        
         currentDriver = playerObject;
+        currentDriverIndex = driverIndex;
         SetColor(currentMaterial, driverIndex);
 
     }
@@ -110,7 +113,7 @@ public class CarMovements : MonoBehaviour
 
 
             //if ( driverIndex == 0)
-            if (PlayerNUMBER == 1)
+            if (currentDriverIndex == 1)
             {
 
 
@@ -134,7 +137,7 @@ public class CarMovements : MonoBehaviour
                  }*/
             }
             //else if (driverIndex == 1)
-            else if (PlayerNUMBER == 2) 
+            else if (currentDriverIndex == 2) 
             {
                 Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
 
@@ -142,6 +145,8 @@ public class CarMovements : MonoBehaviour
                 turnInput = movementInput.x;
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
             }
+            else if(currentDriverIndex == 3) { }
+            else if (currentDriverIndex == 4) { }
 
 
 
@@ -159,7 +164,6 @@ public class CarMovements : MonoBehaviour
 
 
 
-        
 
 
             //if statement about trigger/shoulder button
@@ -168,7 +172,7 @@ public class CarMovements : MonoBehaviour
 
 
             //add reverse, see if thats good or seperate reverse from the left trigger
-          
+
             //moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 
