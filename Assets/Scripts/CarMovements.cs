@@ -27,7 +27,7 @@ public class CarMovements : MonoBehaviour
 
     private string parkingScore = "+ 200";
 
-
+    public bool Azine = false;
 
 
 
@@ -121,11 +121,21 @@ public class CarMovements : MonoBehaviour
                 moveInput = movementInput.y;
                 turnInput = movementInput.x;
                 float buttonP = controls.Player.Drive.ReadValue<float>();
-                if (buttonP > 0)
+
+
+                if (!Azine)
+                {
+                    if (buttonP > 0)
+                    {
+                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+                    }
+                }
+                else
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
                 }
+               
                 /* if (buttonP > 0)
                  {
                      fwdspeed = 200; 
