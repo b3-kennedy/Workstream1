@@ -81,7 +81,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7438393e5ee688e42bda234a6d426d62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -953,6 +953,7 @@ MonoBehaviour:
   revSpeed: 70
   turnSpeed: 2.5
   Score: {fileID: 0}
+  PlayerNUMBER: 0
   parkingSpaceLayer:
     serializedVersion: 2
     m_Bits: 256
