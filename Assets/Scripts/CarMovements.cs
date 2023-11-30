@@ -113,7 +113,7 @@ public class CarMovements : MonoBehaviour
 
 
             //if ( driverIndex == 0)
-            if (currentDriverIndex == 1)
+            if (currentDriverIndex == 0)
             {
 
 
@@ -137,7 +137,7 @@ public class CarMovements : MonoBehaviour
                  }*/
             }
             //else if (driverIndex == 1)
-            else if (currentDriverIndex == 2) 
+            else if (currentDriverIndex == 1) 
             {
                 Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
 
