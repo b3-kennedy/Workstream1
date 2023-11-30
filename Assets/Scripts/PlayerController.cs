@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
-        controls.Player.Switch.performed +=ctx => SwitchToPlayer();
-        // controls.Player.Switch.canceled += OnMovementCanceled;
     }
 
     void OnDisable()
