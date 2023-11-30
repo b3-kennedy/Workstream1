@@ -1060,7 +1060,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
   uiScore: {fileID: 0}
   currentDriver: {fileID: 0}
-  Azine: 0
+  Azine: 1
   sphereRB: {fileID: 7019712658648120252}
   moveInput: 0
   turnInput: 0
