@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PickUpCar : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
@@ -18,14 +18,26 @@ public class PickUpCar : MonoBehaviour
 
     public int playerIndex ;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
         playerIndex = int.Parse(objectName) - 1;
-        Debug.Log(gameObject.name);
-        
-        }
+
+        audioSource = GetComponent<AudioSource>();
+       
+
+    }
+    void SlamDoor()
+    {
+        //if (!audioSource.isPlaying)
+        //{
+            audioSource.Play();
+            Debug.Log("slammed");
+        //}
+    }
 
     void OnEnable()
     {
@@ -46,33 +58,23 @@ public class PickUpCar : MonoBehaviour
         controls.Player.Move.canceled -= OnMovementCanceled;
     
     }
+   
 
     void Update()
     {
         if (!isControllingCar)
         {
-            Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
-            transform.Translate(movement * moveSpeed * Time.deltaTime);
+           
         }
-        else
-        {
-            
-            float carHorizontal = movementInput.x;
-            float carVertical = movementInput.y;
-            Debug.Log(carHorizontal+" "+carVertical);
-            currentCar.transform.Translate(new Vector3(carHorizontal, 0f, carVertical) * moveSpeed * Time.deltaTime);
-        }
-        if (currentCar != null && currentCar.GetComponent<CarObject>().isParked)
-        {
-            Debug.Log("switch here for player");
-            carParked = true;
-            SwitchToPlayer();
-        }
+        Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && !isControllingCar)
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Cars")  && other.gameObject.CompareTag("freeCar"))
         {
             SwitchToCar(other.gameObject);
             other.gameObject.tag= "pickedUpCar";
@@ -82,17 +84,16 @@ public class PickUpCar : MonoBehaviour
 
 private void SwitchToPlayer()
 {
-    Debug.Log("switch to meee");
+
     transform.position = originalPosition;
     gameObject.SetActive(true);
-    // currentCar = car;
-    // currentCar.SetActive(false);
     ExitCar();
 }
 
     private void SwitchToCar(GameObject car)
     {
-      
+        SlamDoor();
+       
         gameObject.SetActive(false);
 
     
@@ -107,13 +108,13 @@ private void SwitchToPlayer()
         CarMovements carMovement = currentCar.GetComponent<CarMovements>();
         if (carMovement != null)
         {
-            carMovement.EnableInput(playerIndex);
+            carMovement.EnableInput(playerIndex, gameObject , originalPosition);
+            
         }
     }
 
     public void ExitCar()
     {
-        // currentCar.SetActive(false);
         gameObject.SetActive(true);
 
         isControllingCar = false;

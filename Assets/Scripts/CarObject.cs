@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarObject 
@@ -11,13 +12,14 @@ public class CarObject
     public float parkingScore;
     
   
-
+  
     public CarObject(int index, Color color, string name,GameObject carObj)
     {
         carIndex = index;
         carColor = color;
         carName = name;
-        carObject = carObj;   
+        carObject = carObj; 
+      
          }
         public void SetIsParked(bool isparked)
         {
@@ -27,6 +29,6 @@ public class CarObject
         {
             parkingScore = score;
         }
-     
-        
+
+    
 }

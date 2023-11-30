@@ -638,8 +638,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1758729dd7488a74f8d40c9fd7853990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInput: 0
+  turnInput: 0
   sphereRB: {fileID: 5223024218746211155}
   fwdspeed: 200
   revSpeed: 100
   turnSpeed: 150
-  TOTAL: 0
+  disable: 0

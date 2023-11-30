@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class CarMovements : MonoBehaviour
+public class CarMovement2 : MonoBehaviour
 {
     private PlayerControls controls;
     private CarSpawner carSpawner;
@@ -18,8 +18,6 @@ public class CarMovements : MonoBehaviour
     public TextMeshPro uiScore;
 
     private CarObject thisCar;
-
-    private int currentDriverIndex;
 
     public GameObject currentDriver;
 
@@ -43,8 +41,6 @@ public class CarMovements : MonoBehaviour
     public float turnSpeed;
 
     public TextMeshPro Score;
-
-    public int PlayerNUMBER;
 
 
 
@@ -87,9 +83,8 @@ public class CarMovements : MonoBehaviour
         playerOriginalPosition = pos;
 
         carSpawner.OnCarPickedUp(thisCar);
-       
+
         currentDriver = playerObject;
-        currentDriverIndex = driverIndex;
         SetColor(currentMaterial, driverIndex);
 
     }
@@ -99,80 +94,32 @@ public class CarMovements : MonoBehaviour
         currentDriver.SetActive(true);
         currentDriver.transform.position = playerOriginalPosition;
         isInputEnabled = false;
-      
+
 
     }
 
-   
+
 
     private void Update()
     {
         if (isInputEnabled)
         {
-         
-
-
-            //if ( driverIndex == 0)
-            if (currentDriverIndex == 0)
-            {
-
-
-                Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                float buttonP = controls.Player.Drive.ReadValue<float>();
-                if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                }
-                /* if (buttonP > 0)
-                 {
-                     fwdspeed = 200; 
- ;
-                 }
-                 else
-                 {
-                     fwdspeed = 0;
-                 }*/
-            }
-            //else if (driverIndex == 1)
-            else if (currentDriverIndex == 1) 
-            {
-                Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            }
-            else if(currentDriverIndex == 3) { }
-            else if (currentDriverIndex == 4) { }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+            moveInput = movementInput.y;
+            turnInput = movementInput.x;
 
 
             //if statement about trigger/shoulder button
 
 
 
+            
 
             //add reverse, see if thats good or seperate reverse from the left trigger
-
+         
+            
+                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            
             //moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 
@@ -195,18 +142,18 @@ public class CarMovements : MonoBehaviour
         // Car is parked , change conditions 
         if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
         {
-           
+
 
             thisCar.isParked = (true);
             Debug.Log("Car is parked!");
 
-            parkingScore = "+ "+Random.Range(1, 3)*100;
+            parkingScore = "+ " + Random.Range(1, 3) * 100;
 
             DisableInput();
             ShowFloatingScore();
 
 
-            
+
         }
 
     }
@@ -218,9 +165,6 @@ public class CarMovements : MonoBehaviour
         if (isInputEnabled)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
-            
-            //sphereRB.AddForce(transform.forward * fwdspeed, ForceMode.Acceleration);
-
 
         }
     }
@@ -232,7 +176,7 @@ public class CarMovements : MonoBehaviour
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
-     
+
 
         if (childTransform != null)
         {
@@ -253,9 +197,9 @@ public class CarMovements : MonoBehaviour
 
     void ShowFloatingScore()
     {
-        if(FloatingTextPrefab != null)
+        if (FloatingTextPrefab != null)
         {
-            var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScore;
         }
     }
@@ -264,4 +208,4 @@ public class CarMovements : MonoBehaviour
 
 
 }
- 
+
