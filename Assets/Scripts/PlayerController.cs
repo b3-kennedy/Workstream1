@@ -18,14 +18,25 @@ public class PlayerController : MonoBehaviour
 
     public int playerIndex ;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
         playerIndex = int.Parse(objectName) - 1;
-        Debug.Log(gameObject.name);
-    
 
+        audioSource = GetComponent<AudioSource>();
+       
+
+    }
+    void SlamDoor()
+    {
+        //if (!audioSource.isPlaying)
+        //{
+            audioSource.Play();
+            Debug.Log("slammed");
+        //}
     }
 
     void OnEnable()
@@ -57,20 +68,7 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
-        //else
-        //{
-
-        //    float carHorizontal = movementInput.x;
-        //    float carVertical = movementInput.y;
-
-        //    currentCar.transform.Translate(new Vector3(carHorizontal, 0f, carVertical) * moveSpeed * Time.deltaTime);
-        //}
-        //if (currentCar != null && currentCar.GetComponent<CarObject>().isParked)
-        //{
-        //    Debug.Log("switch here for player");
-        //    carParked = true;
-        //    SwitchToPlayer();
-        //}
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -80,7 +78,6 @@ public class PlayerController : MonoBehaviour
         {
             SwitchToCar(other.gameObject);
             other.gameObject.tag= "pickedUpCar";
-            Debug.Log("collision with : " + other.gameObject.name);
             
         }
     }
@@ -95,7 +92,8 @@ private void SwitchToPlayer()
 
     private void SwitchToCar(GameObject car)
     {
-      
+        SlamDoor();
+       
         gameObject.SetActive(false);
 
     

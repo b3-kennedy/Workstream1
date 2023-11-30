@@ -24,11 +24,10 @@ public class CarSpawner : MonoBehaviour
 
     IEnumerator SpawnCar(int i)
     {
-
-        Vector3 target = new Vector3(50 - 8 * i, 0, -70);
-
-        GameObject car = Instantiate(carPrefab, target, Quaternion.identity);
-        car.transform.position = new Vector3(target.x, 0, -80);
+        Vector3 start = new Vector3(60 - 12 * i, 0, -80);
+        Vector3 target = new Vector3(60 - 12 * i, 0, -70);
+        GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
+        car.transform.position = start;
         car.name = "Car" + (totalCount);
         totalCount += 1;
 
@@ -38,7 +37,7 @@ public class CarSpawner : MonoBehaviour
         int moveInSpeed = 10;
         
 
-        while (car.transform.position.z < -70)
+        while (car.transform.position.z < target.z)
         {
       
             Vector3 movement = transform.forward * moveInSpeed * Time.deltaTime;
@@ -49,7 +48,6 @@ public class CarSpawner : MonoBehaviour
             yield return null;
         }
 
-        // car.transform.position = target;
     }
 
 

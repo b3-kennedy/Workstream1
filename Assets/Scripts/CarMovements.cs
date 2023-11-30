@@ -23,6 +23,8 @@ public class CarMovements : MonoBehaviour
 
     private Vector3 playerOriginalPosition;
 
+    private string parkingScore = "+ 200";
+
 
 
 
@@ -32,9 +34,13 @@ public class CarMovements : MonoBehaviour
     public float moveInput;
     public float turnInput;
 
+    public GameObject FloatingTextPrefab;
+
     public float fwdspeed;
     public float revSpeed;
     public float turnSpeed;
+
+    public TextMeshPro Score;
 
 
 
@@ -132,14 +138,20 @@ public class CarMovements : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
+
+        // Car is parked , change conditions 
         if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
         {
-            // Car is parked
+           
 
             thisCar.isParked = (true);
             Debug.Log("Car is parked!");
 
+            parkingScore = "+ "+Random.Range(1, 3)*100;
+
             DisableInput();
+            ShowFloatingScore();
+
 
             
         }
@@ -182,4 +194,18 @@ public class CarMovements : MonoBehaviour
     }
 
 
+
+    void ShowFloatingScore()
+    {
+        if(FloatingTextPrefab != null)
+        {
+            var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
+            go.GetComponent<TextMesh>().text = parkingScore;
+        }
+    }
+
+
+
+
 }
+ 
