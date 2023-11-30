@@ -704,7 +704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136387848}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -712,7 +712,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 4
   audioSource: {fileID: 136387855}
   clip: {fileID: 0}
   volume: 0.5
@@ -2007,7 +2007,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505563380}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 2
   audioSource: {fileID: 505563387}
   clip: {fileID: 0}
   volume: 0.5
@@ -6624,7 +6624,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167082966}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -6632,7 +6632,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 6
   audioSource: {fileID: 1167082973}
   clip: {fileID: 0}
   volume: 0.5
@@ -7049,7 +7049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204578626}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -7057,7 +7057,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 5
   audioSource: {fileID: 1204578633}
   clip: {fileID: 0}
   volume: 0.5
@@ -9470,7 +9470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507526892}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -9478,7 +9478,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 3
   audioSource: {fileID: 1507526899}
   clip: {fileID: 0}
   volume: 0.5
@@ -12024,7 +12024,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073384911}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -12032,7 +12032,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 8
+  playerIndex: 7
   audioSource: {fileID: 2073384918}
   clip: {fileID: 0}
   volume: 0.5
@@ -12657,7 +12657,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102835070}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -12665,7 +12665,7 @@ MonoBehaviour:
   moveSpeed: 5
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 1
   audioSource: {fileID: 0}
   clip: {fileID: 0}
   volume: 0.5
