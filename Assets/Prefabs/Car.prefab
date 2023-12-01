@@ -1058,9 +1058,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
   - {fileID: 2100000, guid: dc6ccda1c7d05e64fb3e544015a69e52, type: 2}
   - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
-  uiScore: {fileID: 0}
   currentDriver: {fileID: 0}
   Azine: 1
+  parkingScoreEarned: 0
   sphereRB: {fileID: 7019712658648120252}
   moveInput: 0
   turnInput: 0
@@ -1068,7 +1068,6 @@ MonoBehaviour:
   fwdspeed: 165
   revSpeed: 70
   turnSpeed: 2.5
-  Score: {fileID: 0}
   PlayerNUMBER: 0
   parkingSpaceLayer:
     serializedVersion: 2

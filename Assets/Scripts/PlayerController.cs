@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateScore()
     {
-        score = carMovement.parkingScoreEarned;
+        score += carMovement.parkingScoreEarned;
        
         scoreTextMesh.text = score.ToString();
 ;    }

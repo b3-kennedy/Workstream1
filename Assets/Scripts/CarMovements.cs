@@ -1,6 +1,8 @@
 
 using System;
+using System.Linq.Expressions;
 using TMPro;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.Controls;
@@ -189,7 +191,22 @@ public class CarMovements : MonoBehaviour
             thisCar.isParked = (true);
             foreach(Collider c in colliders) {
                 parkingScoreFloatingText = "+ " + c.gameObject.name.Split('c')[0];
-                Debug.Log(c.gameObject.name.Split('c')[0]);
+                switch (c.gameObject.name.Split('c')[0])
+                {
+                    case "100":
+                        parkingScoreEarned = 100;
+                        break;
+                    case "200":
+                        parkingScoreEarned = 200;
+                        break;
+                    case "300":
+                        parkingScoreEarned = 300;
+                        break;
+                    default:
+                        break;
+                }
+
+
             }
 
            
@@ -245,7 +262,7 @@ public class CarMovements : MonoBehaviour
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
-        parkingScoreEarned = 100;
+        //parkingScoreEarned = int.Parse(parkingScoreFloatingText);
         OnCarParked?.Invoke();
     }
 
