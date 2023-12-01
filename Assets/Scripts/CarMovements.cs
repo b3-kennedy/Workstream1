@@ -264,7 +264,7 @@ public class CarMovements : MonoBehaviour
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
-        //parkingScoreEarned = int.Parse(parkingScoreFloatingText);
+
         OnCarParked?.Invoke();
     }
 
