@@ -1,6 +1,11 @@
 
+using System;
+using System.Linq.Expressions;
 using TMPro;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.Controls;
 
 public class CarMovements : MonoBehaviour
 {
@@ -9,13 +14,11 @@ public class CarMovements : MonoBehaviour
     private bool isInputEnabled = false;
 
     public float carSpeed = 100f;
-    //public float turnSpeed = 180f;
     public float parkingSpaceRadius = 1.0f;
 
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
 
-    public TextMeshPro uiScore;
 
     private CarObject thisCar;
 
@@ -25,30 +28,32 @@ public class CarMovements : MonoBehaviour
 
     private Vector3 playerOriginalPosition;
 
-    private string parkingScoreText = "+ 200";
+    private string parkingScoreFloatingText;
+
+    public GameObject FloatingTextPrefab;
 
     public bool Azine = false;
 
 
-
+    public event Action OnCarParked;
+    public int parkingScoreEarned;
 
     public Rigidbody sphereRB;
     public float moveInput;
     public float turnInput;
-
-    public GameObject FloatingTextPrefab;
-
     public float fwdspeed;
     public float revSpeed;
     public float turnSpeed;
 
-    public TextMeshPro Score;
-
-    public int PlayerNUMBER;
-
-
-
     public LayerMask parkingSpaceLayer;
+
+    public AudioSource screechAudio;
+
+    private Quaternion previousRotation;
+
+    public float diff = 0.3f;
+
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -57,7 +62,7 @@ public class CarMovements : MonoBehaviour
 
         sphereRB.transform.parent = null;
 
-
+        previousRotation = transform.rotation;
     }
 
     private void OnEnable()
@@ -65,10 +70,7 @@ public class CarMovements : MonoBehaviour
         controls = new PlayerControls();
         controls.Enable();
 
-
     }
-
-
 
     private void OnDisable()
     {
@@ -103,7 +105,7 @@ public class CarMovements : MonoBehaviour
 
     }
 
-   
+
 
     private void Update()
     {
@@ -167,12 +169,22 @@ public class CarMovements : MonoBehaviour
             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
             transform.Rotate(0f, newRotation, 0f, Space.World);
 
+            Quaternion currentRotation = transform.rotation;
+            float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
+
+            if (rotationDifference > diff)  // Adjust the threshold as needed
+            {
+                screechAudio.Play();
+            }
+
+            previousRotation = currentRotation;
+
         }
 
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
-
+        
         //  change parking conditions 
         if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
         {
@@ -180,19 +192,29 @@ public class CarMovements : MonoBehaviour
 
             thisCar.isParked = (true);
             foreach(Collider c in colliders) {
-                parkingScoreText = "+ " + c.gameObject.name.Split('c')[0];
-                Debug.Log(c.gameObject.name.Split('c')[0]);
+                parkingScoreFloatingText = "+ " + c.gameObject.name.Split('c')[0];
+                switch (c.gameObject.name.Split('c')[0])
+                {
+                    case "100":
+                        parkingScoreEarned = 100;
+                        break;
+                    case "200":
+                        parkingScoreEarned = 200;
+                        break;
+                    case "300":
+                        parkingScoreEarned = 300;
+                        break;
+                    default:
+                        break;
+                }
+
+
             }
-            
-         
 
-            
-
-            DisableInput();
+           
             ShowFloatingScore();
-
-
-            
+            DisableInput();
+    
         }
 
     }
@@ -236,11 +258,14 @@ public class CarMovements : MonoBehaviour
 
     void ShowFloatingScore()
     {
-        if(FloatingTextPrefab != null)
+        
+        if (FloatingTextPrefab != null)
         {
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScoreText;
+            go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
+
+        OnCarParked?.Invoke();
     }
 
 
