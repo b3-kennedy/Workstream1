@@ -26,8 +26,8 @@ public class CarSpawner : MonoBehaviour
 
     IEnumerator SpawnCar(int i)
     {
-        Vector3 start = new Vector3(60 - 12 * i, 0, -80);
-        Vector3 target = new Vector3(60 - 12 * i, 0, -70);
+        Vector3 start = new Vector3(60 - 12 * i, 0, -90);
+        Vector3 target = new Vector3(60 - 12 * i, 0, -75);
         GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
         car.transform.position = start;
         car.name = "Car" + (totalCount);

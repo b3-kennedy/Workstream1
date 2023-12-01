@@ -25,7 +25,7 @@ public class CarMovements : MonoBehaviour
 
     private Vector3 playerOriginalPosition;
 
-    private string parkingScore = "+ 200";
+    private string parkingScoreText = "+ 200";
 
     public bool Azine = false;
 
@@ -111,8 +111,6 @@ public class CarMovements : MonoBehaviour
         {
          
 
-
-            //if ( driverIndex == 0)
             if (currentDriverIndex == 0)
             {
 
@@ -146,7 +144,7 @@ public class CarMovements : MonoBehaviour
                      fwdspeed = 0;
                  }*/
             }
-            //else if (driverIndex == 1)
+     
             else if (currentDriverIndex == 1) 
             {
                 Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
@@ -159,34 +157,7 @@ public class CarMovements : MonoBehaviour
             else if (currentDriverIndex == 4) { }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //if statement about trigger/shoulder button
-
-
-
-
-            //add reverse, see if thats good or seperate reverse from the left trigger
-
-            //moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-
+      
 
             transform.position = sphereRB.transform.position;
 
@@ -202,15 +173,20 @@ public class CarMovements : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
 
-        // Car is parked , change conditions 
+        //  change parking conditions 
         if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
         {
            
 
             thisCar.isParked = (true);
-            Debug.Log("Car is parked!");
+            foreach(Collider c in colliders) {
+                parkingScoreText = "+ " + c.gameObject.name.Split('c')[0];
+                Debug.Log(c.gameObject.name.Split('c')[0]);
+            }
+            
+         
 
-            parkingScore = "+ "+Random.Range(1, 3)*100;
+            
 
             DisableInput();
             ShowFloatingScore();
@@ -228,10 +204,7 @@ public class CarMovements : MonoBehaviour
         if (isInputEnabled)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
-            
-            //sphereRB.AddForce(transform.forward * fwdspeed, ForceMode.Acceleration);
-
-
+        
         }
     }
 
@@ -266,7 +239,7 @@ public class CarMovements : MonoBehaviour
         if(FloatingTextPrefab != null)
         {
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScore;
+            go.GetComponent<TextMesh>().text = parkingScoreText;
         }
     }
 

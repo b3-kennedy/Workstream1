@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,13 +15,16 @@ public class PlayerController : MonoBehaviour
     public bool carParked = false;
     public int score = 0;
 
-    public  PlayerControls controls;
+    public PlayerControls controls;
 
-    public int playerIndex ;
+    public int playerIndex;
 
     public AudioSource audioSource;
     public AudioClip clip;
     public float volume = 0.5f;
+
+    public TMP_Text scoreTextMesh;
+
 
     void Start()
     {
@@ -29,78 +33,76 @@ public class PlayerController : MonoBehaviour
         playerIndex = int.Parse(objectName) - 1;
 
         audioSource = GetComponent<AudioSource>();
-       
+
 
     }
     void SlamDoor()
     {
-        //if (!audioSource.isPlaying)
-        //{
-        //audioSource.Play();
-        //audioSource.PlayOneShot(clip,volume);
+       
         audioSource.PlayOneShot(audioSource.clip, volume);
-            Debug.Log("slammed");
-        //}
+
+      
     }
 
     void OnEnable()
     {
         controls = new PlayerControls();
-        controls.Enable();
+       
+        if (playerIndex == 0)
+        {
+ controls.Enable();
+            controls.Player.Move.performed += OnMovementPerformed;
+            controls.Player.Move.canceled += OnMovementCanceled;
+        }
+        else
+        {
+          
+        }
 
-        controls.Player.Move.performed += OnMovementPerformed;
-        controls.Player.Move.canceled += OnMovementCanceled;
-        controls.Player.Switch.performed +=ctx => SwitchToPlayer();
-        // controls.Player.Switch.canceled += OnMovementCanceled;
     }
 
     void OnDisable()
     {
-        controls.Disable();
+        
+        if (playerIndex == 0)
+        {
+            controls.Disable();
+            controls.Player.Move.performed -= OnMovementPerformed;
+            controls.Player.Move.canceled -= OnMovementCanceled;
+        }
 
-        controls.Player.Move.performed -= OnMovementPerformed;
-        controls.Player.Move.canceled -= OnMovementCanceled;
-    
+
     }
-   
+
 
     void Update()
     {
-        if (!isControllingCar)
-        {
-           
-        }
+        scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
-       
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.gameObject.layer == LayerMask.NameToLayer("Cars")  && other.gameObject.CompareTag("freeCar"))
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && other.gameObject.CompareTag("freeCar"))
         {
             SwitchToCar(other.gameObject);
-            other.gameObject.tag= "pickedUpCar";
-            
+            other.gameObject.tag = "pickedUpCar";
+
         }
     }
 
-private void SwitchToPlayer()
-{
-
-    transform.position = originalPosition;
-    gameObject.SetActive(true);
-    ExitCar();
-}
+  
 
     private void SwitchToCar(GameObject car)
     {
         SlamDoor();
-       
+
         gameObject.SetActive(false);
 
-    
+
         currentCar = car;
         currentCar.SetActive(true);
 
@@ -108,12 +110,12 @@ private void SwitchToPlayer()
 
         isControllingCar = true;
 
-                // Enable car input
+        // Enable car input
         CarMovements carMovement = currentCar.GetComponent<CarMovements>();
         if (carMovement != null)
         {
-            carMovement.EnableInput(playerIndex, gameObject , originalPosition);
-            
+            carMovement.EnableInput(playerIndex, gameObject, originalPosition);
+
         }
     }
 
@@ -127,7 +129,7 @@ private void SwitchToPlayer()
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
-     
+
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)
