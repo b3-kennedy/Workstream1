@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -25,9 +27,14 @@ public class PlayerController : MonoBehaviour
 
     public TMP_Text scoreTextMesh;
 
+    CarMovements carMovement;
+
+
 
     void Start()
     {
+        
+
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
         playerIndex = int.Parse(objectName) - 1;
@@ -36,6 +43,14 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    private void UpdateScore()
+    {
+        score = carMovement.parkingScoreEarned;
+       
+        scoreTextMesh.text = score.ToString();
+;    }
+
     void SlamDoor()
     {
        
@@ -80,7 +95,7 @@ public class PlayerController : MonoBehaviour
         scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
-
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,11 +125,14 @@ public class PlayerController : MonoBehaviour
 
         isControllingCar = true;
 
+
         // Enable car input
-        CarMovements carMovement = currentCar.GetComponent<CarMovements>();
+        carMovement = currentCar.GetComponent<CarMovements>();
+      
         if (carMovement != null)
         {
             carMovement.EnableInput(playerIndex, gameObject, originalPosition);
+            carMovement.OnCarParked += UpdateScore;
 
         }
     }

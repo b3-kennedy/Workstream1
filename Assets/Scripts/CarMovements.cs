@@ -1,6 +1,9 @@
 
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem.Controls;
 
 public class CarMovements : MonoBehaviour
 {
@@ -15,7 +18,6 @@ public class CarMovements : MonoBehaviour
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
 
-    public TextMeshPro uiScore;
 
     private CarObject thisCar;
 
@@ -25,9 +27,15 @@ public class CarMovements : MonoBehaviour
 
     private Vector3 playerOriginalPosition;
 
-    private string parkingScoreText = "+ 200";
+    private string parkingScoreFloatingText = "+ 200";
 
     public bool Azine = false;
+
+
+
+
+    public event Action OnCarParked;
+    public int parkingScoreEarned;
 
 
 
@@ -42,7 +50,7 @@ public class CarMovements : MonoBehaviour
     public float revSpeed;
     public float turnSpeed;
 
-    public TextMeshPro Score;
+   
 
     public int PlayerNUMBER;
 
@@ -103,7 +111,7 @@ public class CarMovements : MonoBehaviour
 
     }
 
-   
+
 
     private void Update()
     {
@@ -180,19 +188,14 @@ public class CarMovements : MonoBehaviour
 
             thisCar.isParked = (true);
             foreach(Collider c in colliders) {
-                parkingScoreText = "+ " + c.gameObject.name.Split('c')[0];
+                parkingScoreFloatingText = "+ " + c.gameObject.name.Split('c')[0];
                 Debug.Log(c.gameObject.name.Split('c')[0]);
             }
-            
-         
 
-            
-
-            DisableInput();
+           
             ShowFloatingScore();
-
-
-            
+            DisableInput();
+    
         }
 
     }
@@ -236,11 +239,14 @@ public class CarMovements : MonoBehaviour
 
     void ShowFloatingScore()
     {
-        if(FloatingTextPrefab != null)
+        
+        if (FloatingTextPrefab != null)
         {
             var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScoreText;
+            go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
+        parkingScoreEarned = 100;
+        OnCarParked?.Invoke();
     }
 
 

@@ -1387,7 +1387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238987254}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,6 +1407,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 660391013}
+  - {fileID: 773642307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &260837001 stripped
@@ -4468,7 +4469,7 @@ RectTransform:
   - {fileID: 1251116178}
   - {fileID: 366792523}
   - {fileID: 38679496}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 238987254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12737,7 +12738,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 79972011}
-  - {fileID: 773642307}
   - {fileID: 47838694}
   - {fileID: 1006969053}
   - {fileID: 1134009124}
