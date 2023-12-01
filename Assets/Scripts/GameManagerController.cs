@@ -11,6 +11,7 @@ public class GameManagerController : MonoBehaviour
     public GameObject scene1;
     public GameObject scene2;
     public AudioSource gameAudio;
+    public AudioSource endAudio;
 
     public TMP_Text EndMessage;
     void Start()
@@ -26,6 +27,7 @@ public class GameManagerController : MonoBehaviour
         scene2.SetActive(true); 
         scene1.SetActive(false);
         gameAudio.Stop();
+        endAudio.Play();
         
     }
 
