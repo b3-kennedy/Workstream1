@@ -4488,6 +4488,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb5fe2041491224eadef92a3dac9ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scores:
+  - {fileID: 1281731979}
+  - {fileID: 754305646}
+  - {fileID: 1033452225}
+  - {fileID: 754398513}
+  - {fileID: 969389080}
+  - {fileID: 1719604799}
+  - {fileID: 1255919251}
+  - {fileID: 1250350625}
 --- !u!1001 &788516076
 PrefabInstance:
   m_ObjectHideFlags: 0
