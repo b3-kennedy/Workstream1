@@ -769,6 +769,73 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Restart"",
+            ""id"": ""afbfd7dd-63e5-494f-bd8b-81171a26cef7"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d7dea3e-f870-4adf-919c-2054b8fb1fdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7832094f-d043-4800-abe0-7109cee4e7f2"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4126b77e-3826-4193-8947-ef343fd390be"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Start"",
+            ""id"": ""10162183-13b8-4ed7-a34a-84332f8e3536"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b71afa0-4679-46fe-9aef-c71e33fb1044"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9198771e-6302-4e38-8760-e7732ba8a37d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -852,6 +919,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Restart
+        m_Restart = asset.FindActionMap("Restart", throwIfNotFound: true);
+        m_Restart_action = m_Restart.FindAction("action", throwIfNotFound: true);
+        // Start
+        m_Start = asset.FindActionMap("Start", throwIfNotFound: true);
+        m_Start_action = m_Start.FindAction("action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1097,6 +1170,98 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Restart
+    private readonly InputActionMap m_Restart;
+    private List<IRestartActions> m_RestartActionsCallbackInterfaces = new List<IRestartActions>();
+    private readonly InputAction m_Restart_action;
+    public struct RestartActions
+    {
+        private @PlayerControls m_Wrapper;
+        public RestartActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Restart_action;
+        public InputActionMap Get() { return m_Wrapper.m_Restart; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RestartActions set) { return set.Get(); }
+        public void AddCallbacks(IRestartActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RestartActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RestartActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IRestartActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IRestartActions instance)
+        {
+            if (m_Wrapper.m_RestartActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRestartActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RestartActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RestartActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RestartActions @Restart => new RestartActions(this);
+
+    // Start
+    private readonly InputActionMap m_Start;
+    private List<IStartActions> m_StartActionsCallbackInterfaces = new List<IStartActions>();
+    private readonly InputAction m_Start_action;
+    public struct StartActions
+    {
+        private @PlayerControls m_Wrapper;
+        public StartActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Start_action;
+        public InputActionMap Get() { return m_Wrapper.m_Start; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartActions set) { return set.Get(); }
+        public void AddCallbacks(IStartActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StartActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StartActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IStartActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IStartActions instance)
+        {
+            if (m_Wrapper.m_StartActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStartActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StartActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StartActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StartActions @Start => new StartActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1161,5 +1326,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IRestartActions
+    {
+        void OnAction(InputAction.CallbackContext context);
+    }
+    public interface IStartActions
+    {
+        void OnAction(InputAction.CallbackContext context);
     }
 }

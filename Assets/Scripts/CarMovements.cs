@@ -192,21 +192,22 @@ public class CarMovements : MonoBehaviour
 
             thisCar.isParked = (true);
             foreach(Collider c in colliders) {
-                parkingScoreFloatingText = "+ " + c.gameObject.name.Split('c')[0];
+                
                 switch (c.gameObject.name.Split('c')[0])
                 {
                     case "100":
-                        parkingScoreEarned = 100;
+                        parkingScoreEarned = 100 * thisCar.life/100;
                         break;
                     case "200":
-                        parkingScoreEarned = 200;
+                        parkingScoreEarned = 200 * thisCar.life / 100;
                         break;
                     case "300":
-                        parkingScoreEarned = 300;
+                        parkingScoreEarned = 300 * thisCar.life / 100;
                         break;
                     default:
                         break;
                 }
+                parkingScoreFloatingText = "+ " + parkingScoreEarned;
 
 
             }
@@ -269,7 +270,10 @@ public class CarMovements : MonoBehaviour
     }
 
 
-
+    void ReduceLifeOnDamage()
+    {
+        thisCar.life -= 15;
+    }
 
 }
  

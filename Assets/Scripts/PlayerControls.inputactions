@@ -747,6 +747,73 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Restart",
+            "id": "afbfd7dd-63e5-494f-bd8b-81171a26cef7",
+            "actions": [
+                {
+                    "name": "action",
+                    "type": "Button",
+                    "id": "0d7dea3e-f870-4adf-919c-2054b8fb1fdc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7832094f-d043-4800-abe0-7109cee4e7f2",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4126b77e-3826-4193-8947-ef343fd390be",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Start",
+            "id": "10162183-13b8-4ed7-a34a-84332f8e3536",
+            "actions": [
+                {
+                    "name": "action",
+                    "type": "Button",
+                    "id": "7b71afa0-4679-46fe-9aef-c71e33fb1044",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9198771e-6302-4e38-8760-e7732ba8a37d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

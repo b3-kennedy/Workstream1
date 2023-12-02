@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,36 +5,84 @@ using UnityEngine.SceneManagement;
 public class GameManagerController : MonoBehaviour
 {
     public ScoreUIController scoreUIController;
-    public GameObject scene1;
-    public GameObject scene2;
+    public GameObject mainScene;
+    public GameObject endScene;
+    public GameObject startScene;
+
     public AudioSource gameAudio;
     public AudioSource endAudio;
 
     public TMP_Text EndMessage;
+
+    public PlayerControls playerControls;
+
+    public TMP_Text[] scoresTxt = new TMP_Text[8];
+
+    private void OnEnable()
+    {
+        playerControls = new PlayerControls();
+        playerControls.Enable();
+        playerControls.Restart.action.performed += ctx => RestartGame();
+        playerControls.Start.action.performed += ctx => StartGame();
+
+
+    }
+    private void OnDisable()
+    {
+        playerControls.Enable();
+        playerControls.Restart.action.performed -= ctx => RestartGame();
+        playerControls.Start.action.performed -= ctx => StartGame();
+    }
+
+    private void StartGame()
+    {
+        if (mainScene != null)
+            mainScene.SetActive(true);
+        if (startScene != null)
+            startScene.SetActive(false);
+    }
+
     void Start()
     {
-      
+
         scoreUIController.OnEndGame += LoadEndGameScene;
+        endScene.SetActive(false);
+        mainScene.SetActive(false);
+        startScene.SetActive(true);
+
     }
 
     private void LoadEndGameScene()
     {
         Debug.Log("game over scene load");
         EndMessage.text = scoreUIController.endGameMsg;
-        scene2.SetActive(true); 
-        scene1.SetActive(false);
+        for (int i = 7; i >= 0; i--)
+        {
+            scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
+        }
+        endScene.SetActive(true);
+        mainScene.SetActive(false);
         gameAudio.Stop();
         endAudio.Play();
-        
+
+
+
+
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void AddToCars(){
-       
+    void RestartGame()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+        startScene.SetActive(false);
+        mainScene.SetActive(true);
+        endScene.SetActive(false);
     }
 }
