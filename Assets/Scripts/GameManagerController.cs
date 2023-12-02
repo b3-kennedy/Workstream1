@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,7 +27,8 @@ public class GameManagerController : MonoBehaviour
 
 
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         playerControls.Enable();
         playerControls.Restart.action.performed -= ctx => RestartGame();
         playerControls.Start.action.performed -= ctx => StartGame();
@@ -39,9 +36,10 @@ public class GameManagerController : MonoBehaviour
 
     private void StartGame()
     {
-      
-        mainScene.SetActive(true);
-        startScene.SetActive(false);
+        if (mainScene != null)
+            mainScene.SetActive(true);
+        if (startScene != null)
+            startScene.SetActive(false);
     }
 
     void Start()
@@ -62,13 +60,13 @@ public class GameManagerController : MonoBehaviour
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
         }
-        endScene.SetActive(true); 
+        endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
         endAudio.Play();
 
 
-        
+
 
 
     }
@@ -77,9 +75,10 @@ public class GameManagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void RestartGame(){
+    void RestartGame()
+    {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
         startScene.SetActive(false);
