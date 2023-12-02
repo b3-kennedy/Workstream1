@@ -82,6 +82,8 @@ public class GameManagerController : MonoBehaviour
     void RestartGame(){
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
-        StartGame();
+        startScene.SetActive(false);
+        mainScene.SetActive(true);
+        endScene.SetActive(false);
     }
 }

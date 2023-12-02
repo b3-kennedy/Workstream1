@@ -11,13 +11,15 @@ public class ScoreUIController : MonoBehaviour
 
     public string endGameMsg;
     public int[] scores;
+
+    public int winLimit = 200;
     void Update()
     {
         for (int i =0; i < 8; i++)
         {
             TMP_Text score = scoresTxt[i];
             scores[i] = int.Parse(score.text);
-            if(scores[i] > 100)
+            if(scores[i] > winLimit)
             {
                 endGameMsg = "player #" + (i + 1) + " has won with " + scores[i] + " points!!";
                 Debug.Log(endGameMsg);
