@@ -6,19 +6,20 @@ using UnityEngine;
 
 public class ScoreUIController : MonoBehaviour
 {
-    public TMP_Text[] scores= new TMP_Text[8];
+    public TMP_Text[] scoresTxt= new TMP_Text[8];
     public event Action OnEndGame ;
 
     public string endGameMsg;
+    public int[] scores;
     void Update()
     {
         for (int i =0; i < 8; i++)
         {
-            TMP_Text score = scores[i];
-            int sc = int.Parse(score.text);
-            if(sc > 100)
+            TMP_Text score = scoresTxt[i];
+            scores[i] = int.Parse(score.text);
+            if(scores[i] > 100)
             {
-                endGameMsg = "player #" + (i + 1) + " has won with " + sc + " points!!";
+                endGameMsg = "player #" + (i + 1) + " has won with " + scores[i] + " points!!";
                 Debug.Log(endGameMsg);
                 OnEndGame?.Invoke();
             }

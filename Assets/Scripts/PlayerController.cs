@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
        
         if (playerIndex == 0)
         {
- controls.Enable();
+            controls.Enable();
             controls.Player.Move.performed += OnMovementPerformed;
             controls.Player.Move.canceled += OnMovementCanceled;
         }
