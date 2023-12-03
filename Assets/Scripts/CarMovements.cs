@@ -39,6 +39,8 @@ public class CarMovements : MonoBehaviour
     public int parkingScoreEarned;
 
     public Rigidbody sphereRB;
+    public Rigidbody carRB;
+
     public float moveInput;
     public float turnInput;
     public float fwdspeed;
@@ -61,6 +63,8 @@ public class CarMovements : MonoBehaviour
 
 
         sphereRB.transform.parent = null;
+        carRB.transform.parent = null;
+
 
         previousRotation = transform.rotation;
     }
@@ -229,6 +233,8 @@ public class CarMovements : MonoBehaviour
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
         
         }
+
+        carRB.MoveRotation(transform.rotation);
     }
 
 

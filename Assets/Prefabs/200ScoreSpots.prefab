@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 1591447415307874883}
   - component: {fileID: 6220549975896764890}
   - component: {fileID: 9038618610931571704}
-  - component: {fileID: 2629356139081549518}
   m_Layer: 8
   m_Name: 200c
   m_TagString: Untagged
@@ -242,33 +241,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2629356139081549518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675043541598912647}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d936d2290d052284b8bfc6f7920314a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TOTALp1: 0
-  TOTALp2: 0
-  parked: 0
-  prefabP1: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
-  prefabP2: {fileID: 5569093234876637883, guid: d6ee95dc2e000af4ba36b3d59651cc6c, type: 3}
-  target: {fileID: 887261678352462803}
-  Player1: {fileID: 7877329383367280334, guid: dec1d9088f22c134b974c01047ee8a90, type: 3}
-  Player2: {fileID: 0}
-  Player3: {fileID: 0}
-  Player4: {fileID: 0}
-  Player5: {fileID: 0}
-  Player6: {fileID: 0}
-  Player7: {fileID: 0}
-  Player8: {fileID: 0}
-  spawnpointP1: {fileID: 700270460971902448, guid: f5a7920c8342b1c4897c98c2ea7f3cfc, type: 3}
-  spawnpointP2: {fileID: 8076320250941436298, guid: f7e606f5f5f902a4e85dbe1d861cddfb, type: 3}
