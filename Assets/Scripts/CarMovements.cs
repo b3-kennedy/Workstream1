@@ -103,7 +103,7 @@ public class CarMovements : MonoBehaviour
     public void DisableInput()
     {
         currentDriver.SetActive(true);
-        currentDriver.transform.position = playerOriginalPosition;
+        currentDriver.transform.position =new Vector3(transform.position.x+1, transform.position.y, transform.position.z+2);
         isInputEnabled = false;
       
 
