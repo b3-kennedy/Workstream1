@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
+    public PlayerType inputType;
     private GameObject currentCar;
     private bool isControllingCar = false;
 
@@ -17,6 +18,12 @@ public class PlayerController : MonoBehaviour
     public  PlayerControls controls;
 
     public int playerIndex ;
+    private PlayerInput _playerInput;
+    private InputAction _moveAction;
+    private InputAction _driveAction;
+    private InputAction _switchAction;
+    private bool d_Pressed;
+    private bool d_Released;
 
     void Start()
     {
@@ -28,15 +35,26 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void SetupInputReference()
+    {
+        _playerInput = this.GetComponent<PlayerInput>();
+        _moveAction = _playerInput.actions["Move"];
+        _switchAction = _playerInput.actions["Switch"];
+        _driveAction = _playerInput.actions["Drive"];
+
+        _moveAction.performed += OnMovementPerformed;
+        _moveAction.canceled += OnMovementCanceled;
+       // _driveAction.performed += ctx => d_Pressed = true;
+       // _driveAction.canceled += ctx => d_Released = true;
+        _switchAction.performed += ctx => SwitchToPlayer();
+    }
+
     void OnEnable()
     {
         controls = new PlayerControls();
         controls.Enable();
 
-        controls.Player.Move.performed += OnMovementPerformed;
-        controls.Player.Move.canceled += OnMovementCanceled;
-        controls.Player.Switch.performed +=ctx => SwitchToPlayer();
-        // controls.Player.Switch.canceled += OnMovementCanceled;
+        SetupInputReference();
     }
 
     void OnDisable()
@@ -131,5 +149,10 @@ private void SwitchToPlayer()
     public void OnMovementCanceled(InputAction.CallbackContext context)
     {
         movementInput = Vector2.zero;
+    }
+    public void OnSwitch(InputAction.CallbackContext context)
+    {
+        if (context.performed) { print("Attack"); }
+            
     }
 }
