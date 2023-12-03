@@ -12,7 +12,7 @@ public class FloatingText : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
-        Destroy(gameObject,destroyTime);
+        //Destroy(gameObject,destroyTime);
     }
 
     // Update is called once per frame

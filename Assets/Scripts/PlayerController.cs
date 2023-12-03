@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -47,43 +47,115 @@ public class PlayerController : MonoBehaviour
     private void UpdateScore()
     {
         score += carMovement.parkingScoreEarned;
-       
+
         scoreTextMesh.text = score.ToString();
-;    }
+        ;
+    }
 
     void SlamDoor()
     {
-       
+
         audioSource.PlayOneShot(audioSource.clip, volume);
 
-      
+
     }
 
     void OnEnable()
     {
         controls = new PlayerControls();
-       
+        //left
         if (playerIndex == 0)
         {
             controls.Enable();
             controls.Player.Move.performed += OnMovementPerformed;
             controls.Player.Move.canceled += OnMovementCanceled;
         }
-        else
+        //right
+        else if (playerIndex == 1)
         {
-          
+            controls.Player.Move2.performed += OnMovementPerformed;
+            controls.Player.Move2.canceled += OnMovementCanceled;
+        }
+        //left
+        else if (playerIndex == 2)
+        {
+            controls.Player2.Move.performed += OnMovementPerformed;
+            controls.Player2.Move.canceled += OnMovementCanceled;
+        }
+        //right
+        else if (playerIndex == 3)
+        {
+            controls.Player2.Move2.performed += OnMovementPerformed;
+            controls.Player2.Move2.canceled += OnMovementCanceled;
+        }
+        else if (playerIndex == 4)
+        {
+            controls.Player3.Move.performed += OnMovementPerformed;
+            controls.Player3.Move.canceled += OnMovementCanceled;
+        }
+        else if (playerIndex == 5)
+        {
+            controls.Player3.Move2.performed += OnMovementPerformed;
+            controls.Player3.Move2.canceled += OnMovementCanceled;
+        }
+        else if (playerIndex == 6)
+        {
+            controls.Player4.Move.performed += OnMovementPerformed;
+            controls.Player4.Move.canceled += OnMovementCanceled;
+        }
+        else if (playerIndex == 7)
+        {
+            controls.Player4.Move2.performed += OnMovementPerformed;
+            controls.Player4.Move2.canceled += OnMovementCanceled;
         }
 
     }
 
     void OnDisable()
     {
-        
+
         if (playerIndex == 0)
         {
             controls.Disable();
             controls.Player.Move.performed -= OnMovementPerformed;
             controls.Player.Move.canceled -= OnMovementCanceled;
+        }
+        else if (playerIndex == 1)
+        {
+            controls.Player.Move2.performed -= OnMovementPerformed;
+            controls.Player.Move2.canceled -= OnMovementCanceled;
+        }
+        //left
+        else if (playerIndex == 2)
+        {
+            controls.Player2.Move.performed -= OnMovementPerformed;
+            controls.Player2.Move.canceled -= OnMovementCanceled;
+        }
+        //right
+        else if (playerIndex == 3)
+        {
+            controls.Player2.Move2.performed -= OnMovementPerformed;
+            controls.Player2.Move2.canceled -= OnMovementCanceled;
+        }
+        else if (playerIndex == 4)
+        {
+            controls.Player3.Move.performed -= OnMovementPerformed;
+            controls.Player3.Move.canceled -= OnMovementCanceled;
+        }
+        else if (playerIndex == 5)
+        {
+            controls.Player3.Move2.performed -= OnMovementPerformed;
+            controls.Player3.Move2.canceled -= OnMovementCanceled;
+        }
+        else if (playerIndex == 6)
+        {
+            controls.Player4.Move.performed -= OnMovementPerformed;
+            controls.Player4.Move.canceled -= OnMovementCanceled;
+        }
+        else if (playerIndex == 7)
+        {
+            controls.Player4.Move2.performed -= OnMovementPerformed;
+            controls.Player4.Move2.canceled -= OnMovementCanceled;
         }
 
 
@@ -95,7 +167,7 @@ public class PlayerController : MonoBehaviour
         scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
-       
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -109,7 +181,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-  
+
 
     private void SwitchToCar(GameObject car)
     {
@@ -128,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
-      
+
         if (carMovement != null)
         {
             carMovement.EnableInput(playerIndex, gameObject, originalPosition);

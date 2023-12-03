@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -63,20 +64,17 @@ public class GameManagerController : MonoBehaviour
         endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
-        endAudio.Play();
-
-
-
-
+        StartCoroutine(PlayEndMusic());
 
     }
-
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator PlayEndMusic()
     {
-
+        
+        yield return new WaitForSeconds(1.5f);
+        endAudio.Play();
     }
+
+  
     void RestartGame()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
