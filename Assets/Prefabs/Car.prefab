@@ -561,7 +561,7 @@ Rigidbody:
   m_GameObject: {fileID: 3132785985233409984}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 4
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -961,7 +961,7 @@ MonoBehaviour:
   sphereRB: {fileID: 7019712658648120252}
   moveInput: 0
   turnInput: 0
-  fwdspeed: 165
+  fwdspeed: 150
   revSpeed: 70
   turnSpeed: 2.5
   parkingSpaceLayer:
