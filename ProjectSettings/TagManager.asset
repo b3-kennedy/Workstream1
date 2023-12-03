@@ -13,6 +13,8 @@ TagManager:
   - Player8
   - pickedUpCar
   - freeCar
+  - CarCOLLL
+  - CARAC
   layers:
   - Default
   - TransparentFX

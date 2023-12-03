@@ -12,7 +12,7 @@ public class ScoreUIController : MonoBehaviour
     public string endGameMsg;
     public int[] scores;
 
-    public int winLimit = 200;
+    public int winLimit = 20000;
     void Update()
     {
         for (int i =0; i < 8; i++)

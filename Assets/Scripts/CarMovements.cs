@@ -40,6 +40,8 @@ public class CarMovements : MonoBehaviour
 
     public Rigidbody sphereRB;
     public Rigidbody carRB;
+    //public Rigidbody thiscarRB;
+
 
     public float moveInput;
     public float turnInput;
@@ -54,7 +56,7 @@ public class CarMovements : MonoBehaviour
     private Quaternion previousRotation;
 
     public float diff = 0.3f;
-
+    public bool spawnDamage = false;
 
     private void Start()
     {
@@ -265,13 +267,13 @@ public class CarMovements : MonoBehaviour
 
 
 
-            transform.position = sphereRB.transform.position;
+           /* transform.position = sphereRB.transform.position;
 
 
 
 
             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-            transform.Rotate(0f, newRotation, 0f, Space.World);
+            transform.Rotate(0f, newRotation, 0f, Space.World);*/
 
             Quaternion currentRotation = transform.rotation;
             float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
@@ -284,6 +286,14 @@ public class CarMovements : MonoBehaviour
             previousRotation = currentRotation;
 
         }
+
+
+        transform.position = sphereRB.transform.position;
+        float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
+        transform.Rotate(0f, newRotation, 0f, Space.World);
+
+
+
 
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
@@ -316,7 +326,12 @@ public class CarMovements : MonoBehaviour
 
             }
 
-           
+            //makes car heavy after parking
+            carRB.drag = 5;
+            carRB.mass = 5;
+            /*thiscarRB.drag = 100;
+            thiscarRB.mass = 100;*/
+
             ShowFloatingScore();
             DisableInput();
     
@@ -338,9 +353,39 @@ public class CarMovements : MonoBehaviour
     }
 
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (spawnDamage)
+        {
+            if (collision.gameObject.tag == "Player")           
+            {
+                thisCar.life -= 5;
+                Debug.Log("Player HIT: " + thisCar.life);
+            }
+            else
+            {
+                ReduceLifeOnDamage();
+                Debug.Log("Object HIT: " + thisCar.life);
+            }
 
 
+        }
 
+        spawnDamage = true;
+    }
+
+
+   /* private void OnTriggerEnter(Collider other)
+    {
+        
+            if (other.gameObject.tag == "CARAC")
+            {
+                thisCar.life -= 5;
+                Debug.Log("CAR ON CAR: " + thisCar.life);
+            }      
+
+    }
+   */
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
