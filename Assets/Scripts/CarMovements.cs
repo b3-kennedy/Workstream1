@@ -14,6 +14,8 @@ public class CarMovements : MonoBehaviour
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
 
+    public ParticleSystem explosionParticleSystem;
+
 
     private CarObject thisCar;
 
@@ -21,7 +23,6 @@ public class CarMovements : MonoBehaviour
 
     public GameObject currentDriver;
 
-    private Vector3 playerOriginalPosition;
 
     private string parkingScoreFloatingText;
 
@@ -47,11 +48,13 @@ public class CarMovements : MonoBehaviour
     public LayerMask parkingSpaceLayer;
 
     public AudioSource screechAudio;
-
+   
     private Quaternion previousRotation;
 
-    public float diff = 0.3f;
+    public float diff = 1f;
     public bool spawnDamage = false;
+
+   public GameObject explosionEffectPrefab;
 
     private void Start()
     {
@@ -87,7 +90,6 @@ public class CarMovements : MonoBehaviour
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
     {
         isInputEnabled = true;
-        playerOriginalPosition = pos;
 
         carSpawner.OnCarPickedUp(thisCar);
 
@@ -108,9 +110,9 @@ public class CarMovements : MonoBehaviour
     }
 
 
-
     private void Update()
     {
+        
         if (isInputEnabled)
         {
 
@@ -359,22 +361,22 @@ public class CarMovements : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                thisCar.life -= 1;
+                ReduceLifeOnDamage(51);
                 Debug.Log("Player HIT: " + thisCar.life);
-                showFloatingLostLife();
+                ShowFloatingLostLife();
             }
             else if (collision.gameObject.CompareTag("CarCOLLL"))
             {
-                ReduceLifeOnDamage();
+                ReduceLifeOnDamage(10);
                 Debug.Log("Object HIT: " + thisCar.life);
-                showFloatingLostLife();
+                ShowFloatingLostLife();
 
             }
             else if (collision.gameObject.CompareTag("Walls"))
             {
-                thisCar.life -= 10;
+                ReduceLifeOnDamage(20);
                 Debug.Log("wall HIT: " + thisCar.life);
-                showFloatingLostLife();
+                ShowFloatingLostLife();
 
             }
         }
@@ -390,17 +392,7 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    /* private void OnTriggerEnter(Collider other)
-     {
-
-             if (other.gameObject.tag == "CARAC")
-             {
-                 thisCar.life -= 5;
-                 Debug.Log("CAR ON CAR: " + thisCar.life);
-             }      
-
-     }
-    */
+  
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
@@ -422,7 +414,7 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void showFloatingLostLife()
+    void ShowFloatingLostLife()
     {
         if (FloatingTextPrefab != null)
         {
@@ -436,17 +428,38 @@ public class CarMovements : MonoBehaviour
 
         if (FloatingTextPrefab != null)
         {
+
             var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
+        Instantiate(explosionEffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity, transform);
 
         OnCarParked?.Invoke();
     }
 
 
-    void ReduceLifeOnDamage()
+    void ReduceLifeOnDamage(int damage)
     {
-        thisCar.life -= 5;
+        
+        if (thisCar.life - damage <= 0 )
+        {
+           
+           
+            DisableInput();
+            //Instantiate(explosionEffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity, transform);
+            ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
+
+            
+            //Destroy(gameObject, explosion.main.duration);
+            Destroy(gameObject);
+
+            //play audio
+            
+        }
+        else
+        {
+            thisCar.life -= damage;
+        }
     }
 
 }

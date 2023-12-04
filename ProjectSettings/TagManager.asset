@@ -16,6 +16,7 @@ TagManager:
   - CarCOLLL
   - CARAC
   - Walls
+  - explosion
   layers:
   - Default
   - TransparentFX

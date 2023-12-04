@@ -1276,8 +1276,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 4
   audioSource: {fileID: 136387855}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 969389080}
 --- !u!54 &136387850
 Rigidbody:
@@ -1401,7 +1401,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136387848}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -3011,7 +3011,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505563380}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
@@ -3021,8 +3021,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 2
   audioSource: {fileID: 505563387}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 1033452225}
 --- !u!54 &505563382
 Rigidbody:
@@ -3146,7 +3146,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505563380}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -6318,8 +6318,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 0
   audioSource: {fileID: 797877032}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 1281731979}
 --- !u!82 &797877032
 AudioSource:
@@ -6328,7 +6328,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797877025}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -9094,8 +9094,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 6
   audioSource: {fileID: 1167082973}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 1255919251}
 --- !u!54 &1167082968
 Rigidbody:
@@ -9219,11 +9219,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167082966}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -9543,8 +9543,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 5
   audioSource: {fileID: 1204578633}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 1719604799}
 --- !u!54 &1204578628
 Rigidbody:
@@ -9668,7 +9668,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204578626}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -12308,8 +12308,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 3
   audioSource: {fileID: 1507526899}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 754398513}
 --- !u!54 &1507526894
 Rigidbody:
@@ -12433,7 +12433,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507526892}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -16275,8 +16275,8 @@ MonoBehaviour:
   score: 0
   playerIndex: 7
   audioSource: {fileID: 2073384918}
-  clip: {fileID: 0}
-  volume: 0.5
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 1250350625}
 --- !u!54 &2073384913
 Rigidbody:
@@ -16400,7 +16400,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073384911}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -16826,7 +16826,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102835070}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -16931,9 +16931,9 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 1
-  audioSource: {fileID: 0}
-  clip: {fileID: 0}
-  volume: 0.5
+  audioSource: {fileID: 2102835077}
+  clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
+  volume: 0.39
   scoreTextMesh: {fileID: 754305646}
 --- !u!136 &2102835080
 CapsuleCollider:
