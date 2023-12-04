@@ -10,7 +10,7 @@ public class FloatingText : MonoBehaviour
     public AudioSource audioSource;
         void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();
         audioSource.Play();
         Destroy(gameObject, destroyTime);
     }
