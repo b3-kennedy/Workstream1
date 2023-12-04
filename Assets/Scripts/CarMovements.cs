@@ -355,18 +355,30 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("triggered");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            thisCar.life -= 1;
+            Debug.Log("Player HIT: " + thisCar.life);
+            showFloatingLostLife();
+        }
+        else if (collision.gameObject.CompareTag("CarCOLLL"))
+        {
+            ReduceLifeOnDamage();
+            Debug.Log("Object HIT: " + thisCar.life);
+            showFloatingLostLife();
+
+        }
+        else if (collision.gameObject.CompareTag("Walls"))
+        {
+            thisCar.life -= 10;
+            Debug.Log("wall HIT: " + thisCar.life);
+            showFloatingLostLife();
+
+        }
         if (spawnDamage)
         {
-            if (collision.gameObject.tag == "Player")           
-            {
-                thisCar.life -= 5;
-                Debug.Log("Player HIT: " + thisCar.life);
-            }
-            else
-            {
-                ReduceLifeOnDamage();
-                Debug.Log("Object HIT: " + thisCar.life);
-            }
+            
 
 
         }
@@ -407,7 +419,15 @@ public class CarMovements : MonoBehaviour
     }
 
 
-
+    void showFloatingLostLife()
+    {
+        if (FloatingTextPrefab != null)
+        {
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
+            go.GetComponent<TextMesh>().color = Color.red;
+            go.GetComponent<TextMesh>().text = ""+thisCar.life;
+        }
+    }
     void ShowFloatingScore()
     {
         
@@ -423,7 +443,7 @@ public class CarMovements : MonoBehaviour
 
     void ReduceLifeOnDamage()
     {
-        thisCar.life -= 15;
+        thisCar.life -= 5;
     }
 
 }

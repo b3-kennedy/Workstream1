@@ -15,6 +15,7 @@ TagManager:
   - freeCar
   - CarCOLLL
   - CARAC
+  - Walls
   layers:
   - Default
   - TransparentFX

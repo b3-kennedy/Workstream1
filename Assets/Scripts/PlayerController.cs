@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     private GameObject currentCar;
-    private bool isControllingCar = false;
 
     private Vector2 movementInput;
     private Vector3 originalPosition; // Store the original position of the player
@@ -194,8 +193,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-        isControllingCar = true;
-
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
@@ -212,7 +209,7 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        isControllingCar = false;
+      
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
