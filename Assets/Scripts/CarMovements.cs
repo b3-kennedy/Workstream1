@@ -126,19 +126,19 @@ public class CarMovements : MonoBehaviour
                 turnInput = movementInput.x;
                 float buttonP = controls.Player.Drive.ReadValue<float>();
 
+                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                /* if (!Azine)
+                 {
+                     if (buttonP > 0)
+                     {
+                         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                if (!Azine)
-                {
-                    if (buttonP > 0)
-                    {
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                    }
-                }
-                else
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                }
+                     }
+                 }
+                 else
+                 {
+                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                 }*/
 
 
             }
@@ -152,12 +152,11 @@ public class CarMovements : MonoBehaviour
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
                 float buttonP = controls.Player.Drive1.ReadValue<float>();
 
-
-                if (buttonP > 0)
+               /* if (buttonP > 0)
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
+                }*/
             }
             else if (currentDriverIndex == 2)
             {
@@ -169,11 +168,13 @@ public class CarMovements : MonoBehaviour
                 float buttonP = controls.Player2.Drive.ReadValue<float>();
 
 
-                if (buttonP > 0)
+               /* if (buttonP > 0)
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
+                }*/
+
+
 
             }
             else if (currentDriverIndex == 3)
@@ -184,14 +185,14 @@ public class CarMovements : MonoBehaviour
                 moveInput = movementInput.y;
                 turnInput = movementInput.x;
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player2.Drive1.ReadValue<float>();
+               /* float buttonP = controls.Player2.Drive1.ReadValue<float>();
 
 
                 if (buttonP > 0)
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
+                }*/
             }
             else if (currentDriverIndex == 4)
             {

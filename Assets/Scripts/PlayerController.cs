@@ -71,18 +71,24 @@ public class PlayerController : MonoBehaviour
         //right
         else if (playerIndex == 1)
         {
+            controls.Enable();
+
             controls.Player.Move2.performed += OnMovementPerformed;
             controls.Player.Move2.canceled += OnMovementCanceled;
         }
         //left
         else if (playerIndex == 2)
         {
+            controls.Enable();
+
             controls.Player2.Move.performed += OnMovementPerformed;
             controls.Player2.Move.canceled += OnMovementCanceled;
         }
         //right
         else if (playerIndex == 3)
         {
+            controls.Enable();
+
             controls.Player2.Move2.performed += OnMovementPerformed;
             controls.Player2.Move2.canceled += OnMovementCanceled;
         }
