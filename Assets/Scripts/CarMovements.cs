@@ -365,7 +365,7 @@ public class CarMovements : MonoBehaviour
                 Debug.Log("Player HIT: " + thisCar.life);
                 ShowFloatingLostLife();
             }
-            else if (collision.gameObject.CompareTag("CarCOLLL"))
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
                 Debug.Log("Object HIT: " + thisCar.life);
