@@ -40,7 +40,7 @@ public class CarSpawner : MonoBehaviour
         int moveInSpeed = 10;
         
 
-        while (car.transform.position.z < target.z)
+        while (car.transform.position.z < target.z && elapsedTime<1.5f)
         {
       
             Vector3 movement = transform.forward * moveInSpeed * Time.deltaTime;
@@ -60,6 +60,7 @@ public class CarSpawner : MonoBehaviour
     IEnumerator waiter(CarObject pickedCar)
     {
         yield return new WaitForSeconds(3);
+        Debug.Log(pickedCar.carIndex);
         StartCoroutine(SpawnCar(pickedCar.carIndex));
     }
 
