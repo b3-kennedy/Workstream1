@@ -365,7 +365,7 @@ public class CarMovements : MonoBehaviour
                 Debug.Log("Player HIT: " + thisCar.life);
                 ShowFloatingLostLife();
             }
-            else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
                 Debug.Log("Object HIT: " + thisCar.life);
@@ -459,11 +459,9 @@ public class CarMovements : MonoBehaviour
            
            
             DisableInput();
-            //Instantiate(explosionEffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity, transform);
+
             ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
 
-            
-            //Destroy(gameObject, explosion.main.duration);
             Destroy(gameObject);
 
             //play audio
