@@ -329,8 +329,9 @@ public class CarMovements : MonoBehaviour
             }
 
             //makes car heavy after parking
-            carRB.drag = 5;
-            carRB.mass = 5;
+            carRB.drag = 15;
+            carRB.mass = 15;
+           // carRB.constraints = RigidbodyConstraints.FreezePositionY;
             /*thiscarRB.drag = 100;
             thiscarRB.mass = 100;*/
 

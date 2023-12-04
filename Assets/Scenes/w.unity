@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 4
@@ -1561,8 +1561,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136387848}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2138,7 +2138,6 @@ GameObject:
   - component: {fileID: 229455634}
   - component: {fileID: 229455633}
   - component: {fileID: 229455632}
-  - component: {fileID: 229455636}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Walls
@@ -2232,33 +2231,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 47838694}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!54 &229455636
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229455631}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 20
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!4 &238241862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 5d468fe6b5dc7394b846eed1357140ef, type: 3}
@@ -3908,7 +3880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 2
@@ -3924,8 +3896,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505563380}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -4276,7 +4248,6 @@ GameObject:
   - component: {fileID: 515798019}
   - component: {fileID: 515798018}
   - component: {fileID: 515798017}
-  - component: {fileID: 515798020}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Walls
@@ -4370,33 +4341,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515798015}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &515798020
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515798015}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 20
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1001 &525536981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5352,7 +5296,6 @@ GameObject:
   - component: {fileID: 605747612}
   - component: {fileID: 605747611}
   - component: {fileID: 605747610}
-  - component: {fileID: 605747614}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Walls
@@ -5446,33 +5389,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 47838694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &605747614
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605747609}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 20
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1001 &613263226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7776,8 +7692,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797877025}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -7807,7 +7723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 0
@@ -8951,7 +8867,6 @@ GameObject:
   - component: {fileID: 914802524}
   - component: {fileID: 914802523}
   - component: {fileID: 914802522}
-  - component: {fileID: 914802526}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Walls
@@ -9045,33 +8960,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 47838694}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!54 &914802526
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914802521}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 20
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &915529723
 GameObject:
   m_ObjectHideFlags: 0
@@ -11325,7 +11213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 6
@@ -11341,8 +11229,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167082966}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -11934,7 +11822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 5
@@ -11950,8 +11838,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204578626}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -14434,7 +14322,6 @@ GameObject:
   - component: {fileID: 1384018195}
   - component: {fileID: 1384018194}
   - component: {fileID: 1384018193}
-  - component: {fileID: 1384018197}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Walls
@@ -14528,33 +14415,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 47838694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1384018197
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384018192}
-  serializedVersion: 4
-  m_Mass: 50
-  m_Drag: 20
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!4 &1432384366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 5d468fe6b5dc7394b846eed1357140ef, type: 3}
@@ -15203,7 +15063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 3
@@ -15219,8 +15079,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507526892}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -20678,7 +20538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 7
@@ -20694,8 +20554,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073384911}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -21241,8 +21101,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102835070}
   serializedVersion: 4
-  m_Mass: 5
-  m_Drag: 0
+  m_Mass: 3.5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -21456,7 +21316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   carParked: 0
   score: 0
   playerIndex: 1

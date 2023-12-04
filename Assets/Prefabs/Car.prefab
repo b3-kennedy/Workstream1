@@ -1024,7 +1024,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   screechAudio: {fileID: 8832537507843281090}
-  crashAudio: {fileID: 0}
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
