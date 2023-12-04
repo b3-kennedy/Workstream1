@@ -1202,6 +1202,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Exit"",
+            ""id"": ""4fbd22b8-b9eb-4273-8cd4-f0c3b8f0c8ef"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7a217ca-0cff-4416-bb12-45d449387f66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""98cc7f6b-430c-4059-943a-d9eb406cebfa"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1313,6 +1341,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Start
         m_Start = asset.FindActionMap("Start", throwIfNotFound: true);
         m_Start_action = m_Start.FindAction("action", throwIfNotFound: true);
+        // Exit
+        m_Exit = asset.FindActionMap("Exit", throwIfNotFound: true);
+        m_Exit_action = m_Exit.FindAction("action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1892,6 +1923,52 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public StartActions @Start => new StartActions(this);
+
+    // Exit
+    private readonly InputActionMap m_Exit;
+    private List<IExitActions> m_ExitActionsCallbackInterfaces = new List<IExitActions>();
+    private readonly InputAction m_Exit_action;
+    public struct ExitActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ExitActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Exit_action;
+        public InputActionMap Get() { return m_Wrapper.m_Exit; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ExitActions set) { return set.Get(); }
+        public void AddCallbacks(IExitActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ExitActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ExitActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IExitActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IExitActions instance)
+        {
+            if (m_Wrapper.m_ExitActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IExitActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ExitActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ExitActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ExitActions @Exit => new ExitActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1987,6 +2064,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnAction(InputAction.CallbackContext context);
     }
     public interface IStartActions
+    {
+        void OnAction(InputAction.CallbackContext context);
+    }
+    public interface IExitActions
     {
         void OnAction(InputAction.CallbackContext context);
     }

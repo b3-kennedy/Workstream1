@@ -32,7 +32,7 @@ public class GameManagerController : MonoBehaviour
         playerControls.Enable();
         playerControls.Restart.action.performed += ctx => RestartGame();
         playerControls.Start.action.performed += ctx => StartGame();
-
+        playerControls.Exit.action.performed += ctx => QuitGame();
 
     }
     private void OnDisable()
@@ -40,8 +40,13 @@ public class GameManagerController : MonoBehaviour
         playerControls.Enable();
         playerControls.Restart.action.performed -= ctx => RestartGame();
         playerControls.Start.action.performed -= ctx => StartGame();
+        playerControls.Exit.action.performed -= ctx => QuitGame();
     }
-
+    private void QuitGame()
+    {
+        Debug.Log("quit on e");
+        Application.Quit();
+    }
     private void StartGame()
     {
         if (gameMode == "start")
