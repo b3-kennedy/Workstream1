@@ -30,8 +30,8 @@ public class PlayerController2 : MonoBehaviour
     void Start()
     {
         originalPosition = transform.position;
-        string objectName = gameObject.name.Split('r')[1];
-        playerIndex = int.Parse(objectName) - 1;
+        //string objectName = gameObject.name.Split('r')[1];
+       // playerIndex = int.Parse(objectName) - 1;
 
         audioSource = GetComponent<AudioSource>();
 
@@ -42,7 +42,7 @@ public class PlayerController2 : MonoBehaviour
     {
         score += carMovement.parkingScoreEarned;
 
-        scoreTextMesh.text = score.ToString();
+       // scoreTextMesh.text = score.ToString();
         ;
     }
 
@@ -81,7 +81,7 @@ public class PlayerController2 : MonoBehaviour
     void Update()
     {
 
-        scoreTextMesh.text = "" + score;
+        //scoreTextMesh.text = "" + score;
 
         if (!isControllingCar)
         {

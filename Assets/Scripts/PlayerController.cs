@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private GameObject currentCar;
     private bool isControllingCar = false;
 
+    [SerializeField] private GameObject _buddyPlayer;
+
     private Vector2 movementInput;
     private Vector3 originalPosition; // Store the original position of the player
 
@@ -29,15 +31,13 @@ public class PlayerController : MonoBehaviour
 
     CarMovements carMovement;
 
-
-
     void Start()
     {
-        
-
+        _buddyPlayer.gameObject.transform.position = new Vector3(this.transform.position.x - 10,this.transform.position.y, this.transform.position.z);
+        Instantiate(_buddyPlayer);
         originalPosition = transform.position;
-        string objectName = gameObject.name.Split('r')[1];
-        playerIndex = int.Parse(objectName) - 1;
+        //string objectName = gameObject.name.Split('r')[1];
+        //playerIndex = int.Parse(objectName) - 1;
 
         audioSource = GetComponent<AudioSource>();
 
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         score += carMovement.parkingScoreEarned;
        
-        scoreTextMesh.text = score.ToString();
+       // scoreTextMesh.text = score.ToString();
 ;    }
 
     void SlamDoor()
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        scoreTextMesh.text = "" + score;
+       // scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
        
