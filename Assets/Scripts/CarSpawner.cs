@@ -31,6 +31,7 @@ public class CarSpawner : MonoBehaviour
         GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
         car.transform.position = start;
         car.name = "Car" + (totalCount);
+        car.transform.SetParent(transform);
         totalCount += 1;
 
         CarObject carObj = new CarObject(i, Color.blue, car.name, car);
