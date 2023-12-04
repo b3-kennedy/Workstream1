@@ -300,7 +300,7 @@ public class CarMovements : MonoBehaviour
 
 
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false && currentDriver!=null)
+        if (colliders.Length > 0 && moveInput <= 0.4f && thisCar.isParked == false && currentDriver!=null)
         {
 
 
@@ -359,7 +359,7 @@ public class CarMovements : MonoBehaviour
         Debug.Log("triggered");
         if (currentDriver != null)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
                 ReduceLifeOnDamage(51);
                 Debug.Log("Player HIT: " + thisCar.life);
