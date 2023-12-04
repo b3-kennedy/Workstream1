@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerController : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class GameManagerController : MonoBehaviour
 
     public TMP_Text[] scoresTxt = new TMP_Text[8];
 
-  
+    public Toggle audioToggle;
+
+
     string gameMode = "start";
 
 
@@ -59,7 +62,20 @@ public class GameManagerController : MonoBehaviour
         endScene.SetActive(false);
         mainScene.SetActive(false);
         startScene.SetActive(true);
+        if (audioToggle != null)
+            audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
 
+    }
+    void OnToggleValueChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            gameAudio.Stop();
+        }
+        if (!isOn)
+        {
+            gameAudio.Play();
+        }
     }
 
     private void LoadEndGameScene()
@@ -87,7 +103,7 @@ public class GameManagerController : MonoBehaviour
 
     void RestartGame()
     {
-        if (gameMode=="End")
+        if (gameMode == "End")
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
