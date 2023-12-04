@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private GameObject currentCar;
 
     private Vector2 movementInput;
-    private Vector3 originalPosition; // Store the original position of the player
+    private Vector3 originalPosition; 
 
     public bool carParked = false;
     public int score = 0;

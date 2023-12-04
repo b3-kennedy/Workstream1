@@ -19,6 +19,10 @@ public class GameManagerController : MonoBehaviour
 
     public TMP_Text[] scoresTxt = new TMP_Text[8];
 
+  
+    string gameMode = "start";
+
+
     private void OnEnable()
     {
         playerControls = new PlayerControls();
@@ -37,10 +41,15 @@ public class GameManagerController : MonoBehaviour
 
     private void StartGame()
     {
-        if (mainScene != null)
-            mainScene.SetActive(true);
-        if (startScene != null)
-            startScene.SetActive(false);
+        if (gameMode == "start")
+        {
+            if (startScene != null)
+                startScene.SetActive(false);
+            if (mainScene != null)
+                mainScene.SetActive(true);
+            gameMode = "play";
+        }
+
     }
 
     void Start()
@@ -65,22 +74,28 @@ public class GameManagerController : MonoBehaviour
         mainScene.SetActive(false);
         gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
+        gameMode = "End";
 
     }
     IEnumerator PlayEndMusic()
     {
-        
+
         yield return new WaitForSeconds(1.5f);
         endAudio.Play();
     }
 
-  
+
     void RestartGame()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
-        startScene.SetActive(false);
-        mainScene.SetActive(true);
-        endScene.SetActive(false);
+        if (gameMode=="End")
+        {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+            startScene.SetActive(false);
+            mainScene.SetActive(true);
+            endScene.SetActive(false);
+            gameMode = "start";
+        }
     }
+
 }
