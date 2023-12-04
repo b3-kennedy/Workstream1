@@ -17,6 +17,8 @@ TagManager:
   - CARAC
   - Walls
   - explosion
+  - SpeedBump
+  - TrafficCone
   layers:
   - Default
   - TransparentFX

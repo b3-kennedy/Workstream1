@@ -300,7 +300,7 @@ public class CarMovements : MonoBehaviour
 
 
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
+        if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false && currentDriver!=null)
         {
 
 
@@ -379,6 +379,20 @@ public class CarMovements : MonoBehaviour
                 ShowFloatingLostLife();
 
             }
+            else if (collision.gameObject.CompareTag("TrafficCone"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("wall HIT: " + thisCar.life);
+                ShowFloatingLostLife();
+
+            }
+            else if (collision.gameObject.CompareTag("SpeedBump"))
+            {
+                ReduceLifeOnDamage(5);
+                Debug.Log("wall HIT: " + thisCar.life);
+                ShowFloatingLostLife();
+
+            }
         }
 
         if (spawnDamage)
@@ -432,7 +446,6 @@ public class CarMovements : MonoBehaviour
             var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
-        Instantiate(explosionEffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity, transform);
 
         OnCarParked?.Invoke();
     }
