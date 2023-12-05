@@ -9,10 +9,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     private GameObject currentCar;
-    private bool isControllingCar = false;
 
     private Vector2 movementInput;
-    private Vector3 originalPosition; // Store the original position of the player
+    private Vector3 originalPosition; 
 
     public bool carParked = false;
     public int score = 0;
@@ -26,13 +25,13 @@ public class PlayerController : MonoBehaviour
     public float volume = 0.5f;
 
     public TMP_Text scoreTextMesh;
-
+    Rigidbody rigidbody;
     CarMovements carMovement;
 
 
     void Start()
     {
-
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -72,18 +71,24 @@ public class PlayerController : MonoBehaviour
         //right
         else if (playerIndex == 1)
         {
+            controls.Enable();
+
             controls.Player.Move2.performed += OnMovementPerformed;
             controls.Player.Move2.canceled += OnMovementCanceled;
         }
         //left
         else if (playerIndex == 2)
         {
+            controls.Enable();
+
             controls.Player2.Move.performed += OnMovementPerformed;
             controls.Player2.Move.canceled += OnMovementCanceled;
         }
         //right
         else if (playerIndex == 3)
         {
+            controls.Enable();
+
             controls.Player2.Move2.performed += OnMovementPerformed;
             controls.Player2.Move2.canceled += OnMovementCanceled;
         }
@@ -165,7 +170,8 @@ public class PlayerController : MonoBehaviour
     {
         scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        //rigidbody.velocity =  movement;
+         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
     }
 
@@ -194,8 +200,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-        isControllingCar = true;
-
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
@@ -212,7 +216,7 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        isControllingCar = false;
+      
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)

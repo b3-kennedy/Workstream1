@@ -1,11 +1,6 @@
 
 using System;
-using System.Linq.Expressions;
-using TMPro;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem.Controls;
 
 public class CarMovements : MonoBehaviour
 {
@@ -19,6 +14,8 @@ public class CarMovements : MonoBehaviour
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
 
+    public ParticleSystem explosionParticleSystem;
+
 
     private CarObject thisCar;
 
@@ -26,7 +23,6 @@ public class CarMovements : MonoBehaviour
 
     public GameObject currentDriver;
 
-    private Vector3 playerOriginalPosition;
 
     private string parkingScoreFloatingText;
 
@@ -52,11 +48,18 @@ public class CarMovements : MonoBehaviour
     public LayerMask parkingSpaceLayer;
 
     public AudioSource screechAudio;
+    public AudioSource colOOF;
+    public AudioSource colCRASH;
+    public AudioSource colSCREAM;
+
+
 
     private Quaternion previousRotation;
 
-    public float diff = 0.3f;
+    public float diff = 1f;
     public bool spawnDamage = false;
+
+   public GameObject explosionEffectPrefab;
 
     private void Start()
     {
@@ -92,10 +95,9 @@ public class CarMovements : MonoBehaviour
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
     {
         isInputEnabled = true;
-        playerOriginalPosition = pos;
 
         carSpawner.OnCarPickedUp(thisCar);
-       
+
         currentDriver = playerObject;
         currentDriverIndex = driverIndex;
         SetColor(currentMaterial, driverIndex);
@@ -105,19 +107,20 @@ public class CarMovements : MonoBehaviour
     public void DisableInput()
     {
         currentDriver.SetActive(true);
-        currentDriver.transform.position =new Vector3(transform.position.x+1, transform.position.y, transform.position.z+2);
+        currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
+        currentDriver = null;
         isInputEnabled = false;
-      
+
 
     }
 
 
-
     private void Update()
     {
+        
         if (isInputEnabled)
         {
-         
+
 
             if (currentDriverIndex == 0)
             {
@@ -128,24 +131,24 @@ public class CarMovements : MonoBehaviour
                 turnInput = movementInput.x;
                 float buttonP = controls.Player.Drive.ReadValue<float>();
 
+                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                /* if (!Azine)
+                 {
+                     if (buttonP > 0)
+                     {
+                         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                if (!Azine)
-                {
-                    if (buttonP > 0)
-                    {
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                     }
+                 }
+                 else
+                 {
+                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                 }*/
 
-                    }
-                }
-                else
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                }
-               
-               
+
             }
-     
-            else if (currentDriverIndex == 1) 
+
+            else if (currentDriverIndex == 1)
             {
                 Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
 
@@ -154,12 +157,11 @@ public class CarMovements : MonoBehaviour
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
                 float buttonP = controls.Player.Drive1.ReadValue<float>();
 
-
-                if (buttonP > 0)
+               /* if (buttonP > 0)
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
+                }*/
             }
             else if (currentDriverIndex == 2)
             {
@@ -171,30 +173,34 @@ public class CarMovements : MonoBehaviour
                 float buttonP = controls.Player2.Drive.ReadValue<float>();
 
 
-                    if (buttonP > 0)
-                    {
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+               /* if (buttonP > 0)
+                {
+                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                    }
-                  
+                }*/
+
+
+
             }
-            else if(currentDriverIndex == 3) {
+            else if (currentDriverIndex == 3)
+            {
 
                 Vector2 movementInput = controls.Player2.Move2.ReadValue<Vector2>();
 
                 moveInput = movementInput.y;
                 turnInput = movementInput.x;
                 moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player2.Drive1.ReadValue<float>();
+               /* float buttonP = controls.Player2.Drive1.ReadValue<float>();
 
 
                 if (buttonP > 0)
                 {
                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
+                }*/
             }
-            else if (currentDriverIndex == 4) {
+            else if (currentDriverIndex == 4)
+            {
 
                 Vector2 movementInput = controls.Player3.Move.ReadValue<Vector2>();
 
@@ -262,18 +268,18 @@ public class CarMovements : MonoBehaviour
 
                 }
             }
-         
 
 
 
 
-           /* transform.position = sphereRB.transform.position;
+
+            /* transform.position = sphereRB.transform.position;
 
 
 
 
-            float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-            transform.Rotate(0f, newRotation, 0f, Space.World);*/
+             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
+             transform.Rotate(0f, newRotation, 0f, Space.World);*/
 
             Quaternion currentRotation = transform.rotation;
             float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
@@ -298,19 +304,20 @@ public class CarMovements : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
-        
+
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput == 0 && thisCar.isParked == false)
+        if (colliders.Length > 0 && moveInput <= 0.4f && thisCar.isParked == false && currentDriver!=null)
         {
-           
+
 
             thisCar.isParked = (true);
-            foreach(Collider c in colliders) {
-                
+            foreach (Collider c in colliders)
+            {
+
                 switch (c.gameObject.name.Split('c')[0])
                 {
                     case "100":
-                        parkingScoreEarned = 100 * thisCar.life/100;
+                        parkingScoreEarned = 100 * thisCar.life / 100;
                         break;
                     case "200":
                         parkingScoreEarned = 200 * thisCar.life / 100;
@@ -327,14 +334,18 @@ public class CarMovements : MonoBehaviour
             }
 
             //makes car heavy after parking
-            carRB.drag = 5;
-            carRB.mass = 5;
+            //carRB.drag = 15;
+           // carRB.mass = 15;
+            sphereRB.drag = 5;
+            sphereRB.mass = 5;
+            transform.Rotate(0f, 0f, 0f, Space.World);
+            // carRB.constraints = RigidbodyConstraints.FreezePositionY;
             /*thiscarRB.drag = 100;
             thiscarRB.mass = 100;*/
 
             ShowFloatingScore();
             DisableInput();
-    
+
         }
 
     }
@@ -346,7 +357,7 @@ public class CarMovements : MonoBehaviour
         if (isInputEnabled)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
-        
+
         }
 
         carRB.MoveRotation(transform.rotation);
@@ -355,18 +366,53 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("triggered");
+        if (currentDriver != null)
+        {
+            if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("Player HIT: " + thisCar.life);
+
+                colOOF.Play();
+                colCRASH.Play();
+
+                ShowFloatingLostLife();
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("Object HIT: " + thisCar.life);
+                ShowFloatingLostLife();
+
+            }
+            else if (collision.gameObject.CompareTag("Walls"))
+            {
+                ReduceLifeOnDamage(20);
+                Debug.Log("wall HIT: " + thisCar.life);
+                ShowFloatingLostLife();
+
+            }
+            else if (collision.gameObject.CompareTag("TrafficCone"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("wall HIT: " + thisCar.life);
+                colCRASH.Play();
+                ShowFloatingLostLife();
+
+            }
+            /*else if (collision.gameObject.CompareTag("SpeedBump"))
+            {
+                ReduceLifeOnDamage(5);
+                Debug.Log("wall HIT: " + thisCar.life);
+                ShowFloatingLostLife();
+
+            }*/
+        }
+
         if (spawnDamage)
         {
-            if (collision.gameObject.tag == "Player")           
-            {
-                thisCar.life -= 5;
-                Debug.Log("Player HIT: " + thisCar.life);
-            }
-            else
-            {
-                ReduceLifeOnDamage();
-                Debug.Log("Object HIT: " + thisCar.life);
-            }
+
 
 
         }
@@ -375,21 +421,39 @@ public class CarMovements : MonoBehaviour
     }
 
 
-   /* private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        
-            if (other.gameObject.tag == "CARAC")
-            {
-                thisCar.life -= 5;
-                Debug.Log("CAR ON CAR: " + thisCar.life);
-            }      
+        if (other.gameObject.CompareTag("SpeedBump"))
+        {
+            Debug.Log("On Speedbump");
+            fwdspeed = 40;
+            colOOF.Play();
+
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+
+        if (other.gameObject.CompareTag("SpeedBump"))
+        {
+            Debug.Log("Off Speedbump");
+            fwdspeed = 150;
+
+
+        }
 
     }
-   */
+
+
+
+
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
-     
+
 
         if (childTransform != null)
         {
@@ -407,13 +471,22 @@ public class CarMovements : MonoBehaviour
     }
 
 
-
-    void ShowFloatingScore()
+    void ShowFloatingLostLife()
     {
-        
         if (FloatingTextPrefab != null)
         {
-            var go = Instantiate(FloatingTextPrefab,new Vector3(transform.position.x, 2 , transform.position.z), Quaternion.Euler(90, 0, 0), transform);
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
+            go.GetComponent<TextMesh>().color = Color.red;
+            go.GetComponent<TextMesh>().text = "" + thisCar.life;
+        }
+    }
+    void ShowFloatingScore()
+    {
+
+        if (FloatingTextPrefab != null)
+        {
+
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
         }
 
@@ -421,10 +494,30 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void ReduceLifeOnDamage()
+    void ReduceLifeOnDamage(int damage)
     {
-        thisCar.life -= 15;
+        
+        if (thisCar.life - damage <= 0 )
+        {
+
+            // colSCREAM.Play();
+
+            DisableInput();
+
+            ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
+
+            //play audio
+
+            colSCREAM.Play();
+
+        }
+        else
+        {
+            thisCar.life -= damage;
+        }
     }
 
 }
- 
+
