@@ -25,13 +25,13 @@ public class PlayerController : MonoBehaviour
     public float volume = 0.5f;
 
     public TMP_Text scoreTextMesh;
-
+    Rigidbody rigidbody;
     CarMovements carMovement;
 
 
     void Start()
     {
-
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -170,7 +170,8 @@ public class PlayerController : MonoBehaviour
     {
         scoreTextMesh.text = "" + score;
         Vector3 movement = new Vector3(movementInput.x, 0f, movementInput.y);
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        //rigidbody.velocity =  movement;
+         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
     }
 

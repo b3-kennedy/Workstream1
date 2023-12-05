@@ -48,7 +48,12 @@ public class CarMovements : MonoBehaviour
     public LayerMask parkingSpaceLayer;
 
     public AudioSource screechAudio;
-   
+    public AudioSource colOOF;
+    public AudioSource colCRASH;
+    public AudioSource colSCREAM;
+
+
+
     private Quaternion previousRotation;
 
     public float diff = 1f;
@@ -102,7 +107,7 @@ public class CarMovements : MonoBehaviour
     public void DisableInput()
     {
         currentDriver.SetActive(true);
-        currentDriver.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 2);
+        currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
         currentDriver = null;
         isInputEnabled = false;
 
@@ -329,9 +334,12 @@ public class CarMovements : MonoBehaviour
             }
 
             //makes car heavy after parking
-            carRB.drag = 15;
-            carRB.mass = 15;
-           // carRB.constraints = RigidbodyConstraints.FreezePositionY;
+            //carRB.drag = 15;
+           // carRB.mass = 15;
+            sphereRB.drag = 5;
+            sphereRB.mass = 5;
+            transform.Rotate(0f, 0f, 0f, Space.World);
+            // carRB.constraints = RigidbodyConstraints.FreezePositionY;
             /*thiscarRB.drag = 100;
             thiscarRB.mass = 100;*/
 
@@ -363,8 +371,12 @@ public class CarMovements : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
-                ReduceLifeOnDamage(51);
+                ReduceLifeOnDamage(10);
                 Debug.Log("Player HIT: " + thisCar.life);
+
+                colOOF.Play();
+                colCRASH.Play();
+
                 ShowFloatingLostLife();
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
@@ -385,16 +397,17 @@ public class CarMovements : MonoBehaviour
             {
                 ReduceLifeOnDamage(10);
                 Debug.Log("wall HIT: " + thisCar.life);
+                colCRASH.Play();
                 ShowFloatingLostLife();
 
             }
-            else if (collision.gameObject.CompareTag("SpeedBump"))
+            /*else if (collision.gameObject.CompareTag("SpeedBump"))
             {
                 ReduceLifeOnDamage(5);
                 Debug.Log("wall HIT: " + thisCar.life);
                 ShowFloatingLostLife();
 
-            }
+            }*/
         }
 
         if (spawnDamage)
@@ -408,7 +421,35 @@ public class CarMovements : MonoBehaviour
     }
 
 
-  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("SpeedBump"))
+        {
+            Debug.Log("On Speedbump");
+            fwdspeed = 40;
+            colOOF.Play();
+
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+
+        if (other.gameObject.CompareTag("SpeedBump"))
+        {
+            Debug.Log("Off Speedbump");
+            fwdspeed = 150;
+
+
+        }
+
+    }
+
+
+
+
     void ApplyMaterialToChild(string childObjectName, Material material)
     {
         Transform childTransform = transform.Find(childObjectName);
@@ -458,8 +499,9 @@ public class CarMovements : MonoBehaviour
         
         if (thisCar.life - damage <= 0 )
         {
-           
-           
+
+            // colSCREAM.Play();
+
             DisableInput();
 
             ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
@@ -467,7 +509,9 @@ public class CarMovements : MonoBehaviour
             Destroy(gameObject);
 
             //play audio
-            
+
+            colSCREAM.Play();
+
         }
         else
         {
