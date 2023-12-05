@@ -29,7 +29,8 @@ public class CarSpawner : MonoBehaviour
         Vector3 start = new Vector3(60 - 12 * i, 0, -90);
         Vector3 target = new Vector3(60 - 12 * i, 0, -75);
         GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
-        car.transform.position = start;
+        //car.transform.position = start;
+        car.transform.position = target;
         car.name = "Car" + (totalCount);
         //car.transform.SetParent(transform);
         totalCount += 1;
@@ -38,19 +39,19 @@ public class CarSpawner : MonoBehaviour
         cars.Add(carObj);
         float elapsedTime = 0f;
         int moveInSpeed = 10;
-        
-
-        while (car.transform.position.z < target.z && elapsedTime<1.5f)
-        {
-      
-            Vector3 movement = transform.forward * moveInSpeed * Time.deltaTime;
-            car.transform.Translate(movement, Space.World);
 
 
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        /* while (car.transform.position.z < target.z && elapsedTime<1.5f)
+         {
 
+             Vector3 movement = transform.forward * moveInSpeed * Time.deltaTime;
+             car.transform.Translate(movement, Space.World);
+
+
+             elapsedTime += Time.deltaTime;
+             yield return null;
+         }*/
+        yield return null;
     }
 
 
