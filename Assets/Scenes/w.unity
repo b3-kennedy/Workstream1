@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7640,7 +7640,7 @@ MonoBehaviour:
   - {fileID: 1250350625}
   endGameMsg: 
   scores: 0000000000000000000000000000000000000000000000000000000000000000
-  winLimit: 200
+  winLimit: 1500
 --- !u!1001 &774664094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8079,7 +8079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e52e3a947450d478f81a61d6d6bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 12
   carParked: 0
   score: 0
   playerIndex: 0
@@ -14753,7 +14753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1365587493
 Transform:
   m_ObjectHideFlags: 0
@@ -17013,8 +17013,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
+  carPrefab2: {fileID: 5312223292022720695, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
+  carPrefab3: {fileID: 6050832578905188880, guid: ce0fa2aea4aa8174380a20192304bff6, type: 3}
+  car: {fileID: 0}
   spawnHeight: -10
   moveUpDuration: 1
+  randomNumber: 0
 --- !u!4 &1585901880
 Transform:
   m_ObjectHideFlags: 0

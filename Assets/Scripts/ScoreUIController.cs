@@ -19,7 +19,7 @@ public class ScoreUIController : MonoBehaviour
         {
             TMP_Text score = scoresTxt[i];
             scores[i] = int.Parse(score.text);
-            if(scores[i] > 20000)
+            if(scores[i] > 1500)
             {
                 endGameMsg = "player #" + (i + 1) + " has won with " + scores[i] + " points!!";
                 Debug.Log(endGameMsg);

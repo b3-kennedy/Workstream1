@@ -431,6 +431,23 @@ public class CarMovements : MonoBehaviour
 
 
         }
+
+        if (other.gameObject.CompareTag("freeCar"))
+        {
+            ReduceLifeOnDamage(10);
+            Debug.Log("wall HIT: " + thisCar.life);
+            colCRASH.Play();
+            ShowFloatingLostLife();
+
+        }
+
+
+
+
+
+
+
+
     }
 
     private void OnTriggerExit(Collider other)

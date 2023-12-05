@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class CarSpawner : MonoBehaviour
 {
     public GameObject carPrefab;
-
+    public GameObject carPrefab2;
+    public GameObject carPrefab3;
+    public GameObject car;
 
 
     [SerializeField] public List<CarObject> cars = new List<CarObject>();
@@ -13,6 +16,8 @@ public class CarSpawner : MonoBehaviour
     public float moveUpDuration = 0.25f;
 
     private int totalCount = 1;
+
+    public int randomNumber;
 
     void Start()
     {
@@ -28,7 +33,29 @@ public class CarSpawner : MonoBehaviour
     {
         Vector3 start = new Vector3(60 - 12 * i, 0, -90);
         Vector3 target = new Vector3(60 - 12 * i, 0, -75);
-        GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
+
+
+        randomNumber = Random.Range(1,11);
+      
+        if (randomNumber <= 5)
+        {
+             car = Instantiate(carPrefab, target, Quaternion.identity);
+
+        }
+        else if (randomNumber <=8)
+        {
+             car = Instantiate(carPrefab2, target, Quaternion.identity);
+
+        }
+        else 
+        {
+
+             car = Instantiate(carPrefab3, target, Quaternion.identity);
+
+        }
+
+
+        //GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
         //car.transform.position = start;
         car.transform.position = target;
         car.name = "Car" + (totalCount);
