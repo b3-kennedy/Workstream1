@@ -306,7 +306,7 @@ public class CarMovements : MonoBehaviour
 
 
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput <= 0.4f && thisCar.isParked == false && currentDriver!=null)
+        if (colliders.Length > 0 && moveInput == 0&& thisCar.isParked == false && currentDriver!=null)
         {
 
 
