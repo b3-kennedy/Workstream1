@@ -93,6 +93,23 @@ public class LevelScroll : MonoBehaviour
         levelNameText.text = levels[index].levelName;
     }
 
+    public void ScrollRight()
+    {
+        index++;
+        if (index >= levels.Length)
+        {
+            index = 0;
+        }
+    }
+
+    public void ScrollLeft()
+    {
+        if (index <= 0)
+        {
+            index = levels.Length;
+        }
+        index--;
+    }
 
     public void LoadLevel()
     {
