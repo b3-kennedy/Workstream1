@@ -65,8 +65,8 @@ public class GameManagerController : MonoBehaviour
 
         scoreUIController.OnEndGame += LoadEndGameScene;
         endScene.SetActive(false);
-        mainScene.SetActive(false);
-        startScene.SetActive(true);
+        mainScene.SetActive(true);
+        startScene.SetActive(false);
         if (audioToggle != null)
             audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
 

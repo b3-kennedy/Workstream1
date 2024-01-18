@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -92,6 +93,11 @@ public class LevelScroll : MonoBehaviour
         levelNameText.text = levels[index].levelName;
     }
 
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(levels[index].sceneIndex);
+    }
     void SnapTo(RectTransform target)
     {
         Canvas.ForceUpdateCanvases();
