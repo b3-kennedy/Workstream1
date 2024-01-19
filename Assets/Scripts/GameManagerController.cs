@@ -22,6 +22,7 @@ public class GameManagerController : MonoBehaviour
     public Toggle audioToggle;
 
 
+
     string gameMode = "start";
 
 
@@ -64,6 +65,8 @@ public class GameManagerController : MonoBehaviour
         scoreUIController.OnEndGame += LoadEndGameScene;
         endScene.SetActive(false);
         mainScene.SetActive(true);
+
+        
        
         if (audioToggle != null)
             audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
