@@ -13993,6 +13993,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 1a251e93287950547bfd385d8096129d, type: 3}
   m_PrefabInstance: {fileID: 213140197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1292527463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292527465}
+  - component: {fileID: 1292527464}
+  m_Layer: 0
+  m_Name: RandomEventController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1292527464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292527463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641ca45d2c61df445af7901c8bb68e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToStart: 1
+  minTimeBetweenEvents: 1
+  maxTimeBetweenEvents: 5
+  events:
+  - {fileID: 642961290345391937, guid: 493afe79ede22a3458dd849dfa4f3747, type: 3}
+  - {fileID: 1915243483302708100, guid: 362182626da28534f90c2e0a6ff29e01, type: 3}
+  - {fileID: 898671923835255363, guid: 57b6713d5d5da9447998b3ff3b25c5d8, type: 3}
+  parkingSpots: []
+  drivableCars: []
+  parkingSpaces1: {fileID: 499753217}
+  parkingSpaces2: {fileID: 1619546069}
+--- !u!4 &1292527465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292527463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1296.9746, y: 545.5599, z: -63.663876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1297336938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22520,3 +22575,4 @@ SceneRoots:
   - {fileID: 703696195}
   - {fileID: 1365587493}
   - {fileID: 61766620}
+  - {fileID: 1292527465}

@@ -313,17 +313,38 @@ public class CarMovements : MonoBehaviour
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {
-
                 switch (c.gameObject.name.Split('c')[0])
                 {
+
                     case "100":
-                        parkingScoreEarned = 100 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 200 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 100 * thisCar.life / 100;
+                        }
                         break;
                     case "200":
-                        parkingScoreEarned = 200 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 400 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 200 * thisCar.life / 100;
+                        }
                         break;
                     case "300":
-                        parkingScoreEarned = 300 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 600 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 300 * thisCar.life / 100;
+                        }
                         break;
                     default:
                         break;
@@ -345,7 +366,7 @@ public class CarMovements : MonoBehaviour
 
             ShowFloatingScore();
             DisableInput();
-
+            RandomEventController.Instance.drivableCars.Remove(gameObject);
         }
 
     }
@@ -511,7 +532,7 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void ReduceLifeOnDamage(int damage)
+    public void ReduceLifeOnDamage(int damage)
     {
         
         if (thisCar.life - damage <= 0 )
