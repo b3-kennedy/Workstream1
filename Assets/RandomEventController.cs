@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EventListItem
+{
+    public string eventName;
+    public RandomEvent randomEvent;
+    public bool active = true;
+}
+
 
 public class RandomEventController : MonoBehaviour
 {
@@ -22,7 +30,9 @@ public class RandomEventController : MonoBehaviour
 
     float startTimer;
 
-    public List<RandomEvent> events;
+    public List<EventListItem> events;
+
+    List<RandomEvent> activeEvents = new List<RandomEvent>();
 
     public List<GameObject> parkingSpots;
 
@@ -46,30 +56,76 @@ public class RandomEventController : MonoBehaviour
         {
             parkingSpots.Add(parkingSpaces2.GetChild(i).gameObject);
         }
+
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
 
+        int index = 0;
+        //If scene is loaded through level select
+        if (ActivatedEvents.Instance)
+        {
+            foreach (var e in ActivatedEvents.Instance.events)
+            {
+                if (e.active)
+                {
+                    activeEvents.Add(e.randomEvent);
+                }
+                index++;
+            }
+
+            
+            foreach (var e in events)
+            {
+                if (!activeEvents.Contains(e.randomEvent))
+                {
+                    e.active = false;
+                }
+            }
+        }
+        //If scene is loaded through unity
+        else
+        {
+            foreach (var e in events)
+            {
+                if (e.active)
+                {
+                    activeEvents.Add(e.randomEvent);
+                }
+            }
+        }
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        PreEventTime();
-        if (startEvents)
+        if(activeEvents.Count > 0)
         {
-            StartEvents();
+            PreEventTime();
+            if (startEvents)
+            {
+                StartEvents();
+            }
         }
+
 
     }
 
     void PickEvent()
     {
-        Debug.Log("spawned event");
-        int num = Random.Range(0, events.Count);
-        Instantiate(events[num]);
+        if(activeEvents.Count > 0)
+        {
+            Debug.Log("spawned event");
+            int num = Random.Range(0, activeEvents.Count);
+            Instantiate(activeEvents[num]);
+        }
+
     }
 
     void StartEvents()
@@ -86,17 +142,21 @@ public class RandomEventController : MonoBehaviour
 
     void PreEventTime()
     {
-        if (startTimer < timeToStart)
+        if(activeEvents.Count > 0)
         {
-            
-            startTimer += Time.deltaTime;
-            if (startTimer >= timeToStart)
+            if (startTimer < timeToStart)
             {
-                betweenEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
-                startEvents = true;
-                Debug.Log("Events Starting");
-                Debug.Log("Next Event In: " + betweenEventTime.ToString());
+
+                startTimer += Time.deltaTime;
+                if (startTimer >= timeToStart)
+                {
+                    betweenEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
+                    startEvents = true;
+                    Debug.Log("Events Starting");
+                    Debug.Log("Next Event In: " + betweenEventTime.ToString());
+                }
             }
         }
+
     }
 }

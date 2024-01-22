@@ -14026,9 +14026,15 @@ MonoBehaviour:
   minTimeBetweenEvents: 1
   maxTimeBetweenEvents: 5
   events:
-  - {fileID: 642961290345391937, guid: 493afe79ede22a3458dd849dfa4f3747, type: 3}
-  - {fileID: 1915243483302708100, guid: 362182626da28534f90c2e0a6ff29e01, type: 3}
-  - {fileID: 898671923835255363, guid: 57b6713d5d5da9447998b3ff3b25c5d8, type: 3}
+  - eventName: Double Points
+    randomEvent: {fileID: 642961290345391937, guid: 493afe79ede22a3458dd849dfa4f3747, type: 3}
+    active: 1
+  - eventName: Lightning
+    randomEvent: {fileID: 898671923835255363, guid: 57b6713d5d5da9447998b3ff3b25c5d8, type: 3}
+    active: 1
+  - eventName: Meteor
+    randomEvent: {fileID: 1915243483302708100, guid: 362182626da28534f90c2e0a6ff29e01, type: 3}
+    active: 1
   parkingSpots: []
   drivableCars: []
   parkingSpaces1: {fileID: 499753217}
