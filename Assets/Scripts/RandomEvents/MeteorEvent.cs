@@ -7,17 +7,14 @@ public class MeteorEvent : StrikeEvent
 
     public GameObject meteor;
 
-    [Header("Bounds")]
-    public Transform topLeft;
-    public Transform topRight;
-    public Transform bottomLeft;
-    public Transform bottomRight;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(meteor, new Vector3(Random.Range(topLeft.position.x, topRight.position.x), 200, Random.Range(topLeft.position.z, bottomLeft.position.z)), Quaternion.identity);
+        Instantiate(meteor, new Vector3(Random.Range(RandomEventController.Instance.topLeft.position.x, RandomEventController.Instance.topRight.position.x), 200, 
+            Random.Range(RandomEventController.Instance.topLeft.position.z, RandomEventController.Instance.bottomLeft.position.z)), Quaternion.identity);
         Destroy(gameObject, 15);
     }
 

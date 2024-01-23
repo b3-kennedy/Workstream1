@@ -1602,6 +1602,9 @@ MonoBehaviour:
   - eventName: Meteor
     randomEvent: {fileID: 1915243483302708100, guid: 362182626da28534f90c2e0a6ff29e01, type: 3}
     active: 0
+  - eventName: Grenade Rain
+    randomEvent: {fileID: 3434614451870140578, guid: 6ad86b158246d5346b0f708125f0eebd, type: 3}
+    active: 0
 --- !u!1 &1051089514
 GameObject:
   m_ObjectHideFlags: 0

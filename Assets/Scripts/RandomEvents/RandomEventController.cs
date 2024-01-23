@@ -43,6 +43,12 @@ public class RandomEventController : MonoBehaviour
 
     bool startEvents;
 
+    [Header("Bounds")]
+    public Transform topLeft;
+    public Transform topRight;
+    public Transform bottomLeft;
+    public Transform bottomRight;
+
 
     private void Awake()
     {
