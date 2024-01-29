@@ -22,6 +22,6 @@ public class startScript : MonoBehaviour
     }
     void Play() {
         Debug.Log("play pressesd");
-        SceneManager.LoadScene("w");
+        SceneManager.LoadScene(1);
     }
 }
