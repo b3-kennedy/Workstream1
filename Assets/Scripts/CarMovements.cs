@@ -110,6 +110,16 @@ public class CarMovements : MonoBehaviour
         {
             currentDriver.SetActive(true);
             currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
+            if (Camera.main.GetComponent<MultipleTargetCamera>())
+            {
+                for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
+                {
+                    if (Camera.main.GetComponent<MultipleTargetCamera>().targets[i].gameObject == thisCar.carObject)
+                    {
+                        Camera.main.GetComponent<MultipleTargetCamera>().targets[i] = currentDriver.transform;
+                    }
+                }
+            }
             currentDriver = null;
             isInputEnabled = false;
         }
@@ -391,6 +401,7 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         Debug.Log("triggered");
         if (currentDriver != null)
         {
@@ -463,6 +474,23 @@ public class CarMovements : MonoBehaviour
             Debug.Log("wall HIT: " + thisCar.life);
             colCRASH.Play();
             ShowFloatingLostLife();
+
+        }
+
+        if (other.CompareTag("test"))
+        {
+            Debug.Log("hello");
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("Water");
+            DisableInput();
+            if(currentDriver != null)
+            {
+                currentDriver.transform.position = Vector3.zero;
+            }
+            Destroy(gameObject);
 
         }
 

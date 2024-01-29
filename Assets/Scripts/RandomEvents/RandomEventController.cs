@@ -38,8 +38,7 @@ public class RandomEventController : MonoBehaviour
 
     public List<GameObject> drivableCars;
 
-    public Transform parkingSpaces1;
-    public Transform parkingSpaces2;
+    public List<Transform> parkingSpotsParents;
 
     bool startEvents;
 
@@ -53,14 +52,12 @@ public class RandomEventController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        for (int i = 0; i < parkingSpaces1.childCount; i++)
+        foreach (var spots in parkingSpotsParents)
         {
-            parkingSpots.Add(parkingSpaces1.GetChild(i).gameObject);
-        }
-
-        for (int i = 0; i < parkingSpaces2.childCount; i++)
-        {
-            parkingSpots.Add(parkingSpaces2.GetChild(i).gameObject);
+            for (var i = 0; i < spots.transform.childCount; i++)
+            {
+                parkingSpots.Add(spots.GetChild(i).gameObject);
+            }
         }
 
 

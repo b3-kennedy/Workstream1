@@ -180,6 +180,18 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && other.gameObject.CompareTag("freeCar"))
         {
+
+            if (Camera.main.GetComponent<MultipleTargetCamera>())
+            {
+                for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
+                {
+                    if (Camera.main.GetComponent<MultipleTargetCamera>().targets[i].gameObject == gameObject)
+                    {
+                        Camera.main.GetComponent<MultipleTargetCamera>().targets[i] = other.transform;
+                    }
+                }
+            }
+
             SwitchToCar(other.gameObject);
             other.gameObject.tag = "pickedUpCar";
 

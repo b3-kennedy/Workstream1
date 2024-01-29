@@ -14091,8 +14091,9 @@ MonoBehaviour:
     active: 1
   parkingSpots: []
   drivableCars: []
-  parkingSpaces1: {fileID: 499753217}
-  parkingSpaces2: {fileID: 1619546069}
+  parkingSpotsParents:
+  - {fileID: 499753217}
+  - {fileID: 1619546069}
   topLeft: {fileID: 1563317037}
   topRight: {fileID: 702549452}
   bottomLeft: {fileID: 343384839}
