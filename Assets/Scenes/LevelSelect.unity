@@ -166,7 +166,7 @@ MonoBehaviour:
     sceneIndex: 2
   - levelName: Level 2
     levelObj: {fileID: 480594386}
-    sceneIndex: 0
+    sceneIndex: 3
   - levelName: Level 3
     levelObj: {fileID: 116531051}
     sceneIndex: 0

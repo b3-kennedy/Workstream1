@@ -3490,7 +3490,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4a6862b4c88bfc241ae1a3068bb4ef1f, type: 2}
+  - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17735,11 +17735,8 @@ MonoBehaviour:
     active: 1
   parkingSpots: []
   drivableCars: []
-  parkingSpotsParents:
-  - {fileID: 499753217}
-  - {fileID: 1619546069}
-  - {fileID: 2121080220}
-  - {fileID: 1013849315}
+  parkingSpaces1: {fileID: 0}
+  parkingSpaces2: {fileID: 0}
   topLeft: {fileID: 1563317037}
   topRight: {fileID: 702549452}
   bottomLeft: {fileID: 343384839}
@@ -22451,7 +22448,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651820544}
   m_LocalRotation: {x: -0, y: -0, z: 0.00095626723, w: 0.9999996}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000012874603}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22459,7 +22456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.11}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 85}
+  m_AnchoredPosition: {x: 0, y: -92.53}
   m_SizeDelta: {x: 283.37, y: 185.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651820546
@@ -24886,8 +24883,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 477}
-  m_SizeDelta: {x: -356.31567, y: -174.33862}
+  m_AnchoredPosition: {x: 0, y: 436}
+  m_SizeDelta: {x: 356.3157, y: 174.3386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835218247
 MonoBehaviour:
