@@ -16,8 +16,8 @@ public class CarMovements : MonoBehaviour
 
     public ParticleSystem explosionParticleSystem;
 
-
-    private CarObject thisCar;
+    [HideInInspector]
+    public CarObject thisCar;
 
     private int currentDriverIndex;
 
@@ -437,6 +437,7 @@ public class CarMovements : MonoBehaviour
             go.GetComponent<TextMesh>().text = "" + thisCar.life;
         }
     }
+    
     void ShowFloatingScore()
     {
 
