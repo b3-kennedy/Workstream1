@@ -7775,7 +7775,7 @@ MonoBehaviour:
   scores: 0000000000000000000000000000000000000000000000000000000000000000
   winLimit: 200
   timerTxt: {fileID: 1651820546}
-  TimeLeft: 35
+  TimeLeft: 300
   TimerOn: 0
 --- !u!1001 &788516076
 PrefabInstance:
