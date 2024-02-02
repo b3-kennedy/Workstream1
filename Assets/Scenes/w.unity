@@ -5117,6 +5117,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2701567004596339129, guid: 1b4d6c478766703449eb07b772b2a56b, type: 3}
   players: []
+  scoreTexts:
+  - {fileID: 1281731979}
+  - {fileID: 754305646}
+  - {fileID: 1033452225}
+  - {fileID: 754398513}
+  - {fileID: 969389080}
+  - {fileID: 1719604799}
+  - {fileID: 1255919251}
+  - {fileID: 1250350625}
   playerSpawnParent: {fileID: 0}
 --- !u!1001 &554661934
 PrefabInstance:
@@ -18953,7 +18962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2721539921338401438, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_TagString
-      value: SpeedBump
+      value: Parking
       objectReference: {fileID: 0}
     - target: {fileID: 9131750480195312547, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_LocalScale.x

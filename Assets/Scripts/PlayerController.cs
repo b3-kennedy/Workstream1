@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         score += carMovement.parkingScoreEarned;
 
         scoreTextMesh.text = score.ToString();
-        
+
     }
 
     void SlamDoor()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5976824152380698151}
   m_Layer: 8
   m_Name: 300ScoreSpots
-  m_TagString: Untagged
+  m_TagString: Parking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 9038618610931571704}
   m_Layer: 8
   m_Name: 300c
-  m_TagString: Untagged
+  m_TagString: Parking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -90,7 +90,7 @@ public class CarMovements : MonoBehaviour
 
     private void OnDisable()
     {
-        controls.Disable();
+        //controls.Disable();
     }
     public void SetColor(Material currentMaterial, int driverIndex)
     {
@@ -366,12 +366,11 @@ public class CarMovements : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
 
-
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput == 0&& thisCar.isParked == false && currentDriver!=null)
+        if (colliders.Length > 0 && moveInput < 1&& thisCar.isParked == false && currentDriver!=null)
         {
 
-            Debug.Log(moveInput);
+            
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {
@@ -446,6 +445,7 @@ public class CarMovements : MonoBehaviour
         carRB.MoveRotation(transform.rotation);
     }
 
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -505,6 +505,21 @@ public class CarMovements : MonoBehaviour
     }
 
 
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Parking"))
+    //    {
+    //        Debug.Log(moveInput);
+    //        if(moveInput == 0)
+    //        {
+
+
+    //            Debug.Log("PARK");
+    //        }
+            
+    //    }
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SpeedBump"))
@@ -515,6 +530,8 @@ public class CarMovements : MonoBehaviour
 
 
         }
+
+
 
         if (other.gameObject.CompareTag("freeCar"))
         {

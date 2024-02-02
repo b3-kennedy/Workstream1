@@ -21,6 +21,7 @@ TagManager:
   - TrafficCone
   - Water
   - test
+  - Parking
   layers:
   - Default
   - TransparentFX
