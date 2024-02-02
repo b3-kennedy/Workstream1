@@ -19,6 +19,8 @@ TagManager:
   - explosion
   - SpeedBump
   - TrafficCone
+  - Water
+  - test
   layers:
   - Default
   - TransparentFX

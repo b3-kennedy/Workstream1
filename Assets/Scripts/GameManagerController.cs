@@ -9,7 +9,6 @@ public class GameManagerController : MonoBehaviour
     public ScoreUIController scoreUIController;
     public GameObject mainScene;
     public GameObject endScene;
-    public GameObject startScene;
 
     public AudioSource gameAudio;
     public AudioSource endAudio;
@@ -21,6 +20,7 @@ public class GameManagerController : MonoBehaviour
     public TMP_Text[] scoresTxt = new TMP_Text[8];
 
     public Toggle audioToggle;
+
 
 
     string gameMode = "start";
@@ -51,8 +51,7 @@ public class GameManagerController : MonoBehaviour
     {
         if (gameMode == "start")
         {
-            if (startScene != null)
-                startScene.SetActive(false);
+           
             if (mainScene != null)
                 mainScene.SetActive(true);
             gameMode = "play";
@@ -65,8 +64,10 @@ public class GameManagerController : MonoBehaviour
 
         scoreUIController.OnEndGame += LoadEndGameScene;
         endScene.SetActive(false);
-        mainScene.SetActive(false);
-        startScene.SetActive(true);
+        mainScene.SetActive(true);
+
+        
+       
         if (audioToggle != null)
             audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
 
@@ -112,7 +113,7 @@ public class GameManagerController : MonoBehaviour
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(currentSceneName);
-            startScene.SetActive(false);
+          
             mainScene.SetActive(true);
             endScene.SetActive(false);
             gameMode = "start";

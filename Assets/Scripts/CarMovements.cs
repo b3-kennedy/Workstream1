@@ -16,8 +16,8 @@ public class CarMovements : MonoBehaviour
 
     public ParticleSystem explosionParticleSystem;
 
-
-    private CarObject thisCar;
+    [HideInInspector]
+    public CarObject thisCar;
 
     private int currentDriverIndex;
 
@@ -106,10 +106,24 @@ public class CarMovements : MonoBehaviour
 
     public void DisableInput()
     {
-        currentDriver.SetActive(true);
-        currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
-        currentDriver = null;
-        isInputEnabled = false;
+        if(currentDriver != null)
+        {
+            currentDriver.SetActive(true);
+            currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
+            if (Camera.main.GetComponent<MultipleTargetCamera>())
+            {
+                for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
+                {
+                    if (Camera.main.GetComponent<MultipleTargetCamera>().targets[i].gameObject == thisCar.carObject)
+                    {
+                        Camera.main.GetComponent<MultipleTargetCamera>().targets[i] = currentDriver.transform;
+                    }
+                }
+            }
+            currentDriver = null;
+            isInputEnabled = false;
+        }
+
 
 
     }
@@ -313,17 +327,38 @@ public class CarMovements : MonoBehaviour
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {
-
                 switch (c.gameObject.name.Split('c')[0])
                 {
+
                     case "100":
-                        parkingScoreEarned = 100 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 200 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 100 * thisCar.life / 100;
+                        }
                         break;
                     case "200":
-                        parkingScoreEarned = 200 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 400 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 200 * thisCar.life / 100;
+                        }
                         break;
                     case "300":
-                        parkingScoreEarned = 300 * thisCar.life / 100;
+                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                        {
+                            parkingScoreEarned = 600 * thisCar.life / 100;
+                        }
+                        else
+                        {
+                            parkingScoreEarned = 300 * thisCar.life / 100;
+                        }
                         break;
                     default:
                         break;
@@ -345,7 +380,7 @@ public class CarMovements : MonoBehaviour
 
             ShowFloatingScore();
             DisableInput();
-
+            RandomEventController.Instance.drivableCars.Remove(gameObject);
         }
 
     }
@@ -366,6 +401,7 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         Debug.Log("triggered");
         if (currentDriver != null)
         {
@@ -441,6 +477,23 @@ public class CarMovements : MonoBehaviour
 
         }
 
+        if (other.CompareTag("test"))
+        {
+            Debug.Log("hello");
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("Water");
+            DisableInput();
+            if(currentDriver != null)
+            {
+                currentDriver.transform.position = Vector3.zero;
+            }
+            Destroy(gameObject);
+
+        }
+
 
 
 
@@ -497,6 +550,7 @@ public class CarMovements : MonoBehaviour
             go.GetComponent<TextMesh>().text = "" + thisCar.life;
         }
     }
+    
     void ShowFloatingScore()
     {
 
@@ -511,7 +565,7 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void ReduceLifeOnDamage(int damage)
+    public void ReduceLifeOnDamage(int damage)
     {
         
         if (thisCar.life - damage <= 0 )
