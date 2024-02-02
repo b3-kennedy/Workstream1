@@ -10,6 +10,7 @@ public class CarObject
     public GameObject carObject;
     public bool isParked=false;
     public float parkingScore;
+    public int life = 100;
     
   
   
@@ -29,6 +30,7 @@ public class CarObject
         {
             parkingScore = score;
         }
+   
 
     
 }

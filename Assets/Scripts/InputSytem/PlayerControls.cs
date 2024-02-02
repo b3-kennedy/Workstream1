@@ -53,6 +53,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive1"",
+                    ""type"": ""Button"",
+                    ""id"": ""79020613-3758-470c-a2a8-4333bfe0d3b2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move2"",
+                    ""type"": ""Value"",
+                    ""id"": ""8bd8325a-9f34-4de9-a874-01ad9740d5de"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -63,127 +81,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
-                    ""path"": ""Dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e2062cb9-1b15-46a2-838c-2f8d72a0bdd9"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""8180e8bd-4097-4f4e-ab88-4523101a6ce9"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1c5327b5-f71c-4f60-99c7-4e737386f1d1"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""d2581a9b-1d11-4566-b27d-b92aff5fabbc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2e46982e-44cc-431b-9f0b-c11910bf467a"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""77bff152-3580-4b21-b6de-dcd0c7e41164"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8"",
-                    ""path"": ""<XRController>/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3ea4d645-4504-4529-b061-ab81934c3752"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -201,23 +98,446 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""28698bf0-ab34-4207-ba06-0cdcb16841df"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Switch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""48f250b1-c139-4f18-bbdc-2887452d86b7"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57f5182f-ea19-4d03-bec9-6171d86139d3"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac4fbd1d-0e9d-423d-bea2-24b17d4ec91c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player2"",
+            ""id"": ""f4088212-d28c-4b22-9f35-d051b4d36112"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""a06a61aa-6e15-4fec-a6c4-e8d9df6eb36a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""58794495-ede3-4fa3-beac-4711e4e04eec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive"",
+                    ""type"": ""Button"",
+                    ""id"": ""22627018-b8a1-4d95-92be-364185e3cb39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive1"",
+                    ""type"": ""Button"",
+                    ""id"": ""740efa2b-ae56-4157-b2c6-b2cfd2a22aaf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move2"",
+                    ""type"": ""Value"",
+                    ""id"": ""db790907-96f0-4c95-a556-12dc7edfd0e8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""7ab02f2a-2295-4121-96f0-276966395dca"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""c8670312-f1c2-452a-a60a-35bd720cfb88"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3bc5e610-e34a-4cfe-b5e6-aaff273d6064"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""22c9cdb4-a497-42ff-b7f8-b36dfca0b190"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e7c97f7a-a93b-4e2b-8f7f-ee522290d88b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16a8c4ae-36a1-4a46-835a-babfe582301a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""706cfa85-4cb6-4b34-8e41-5a94c2916576"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63f35893-449e-4878-9b8c-c58b628c9bf3"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""74007d6a-eafd-41aa-9336-7dcd54c49592"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move2"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2cea514d-8fd0-4dce-ba23-2826b3ce4c50"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3ba0097e-fe9c-40dc-ba8d-455a4a83f90f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f3647874-7d16-4f18-9639-26e65a108287"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""625640bc-8122-445a-b495-c3a6d99700a2"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Player3"",
+            ""id"": ""aa0e44b9-dfd9-4b17-b611-edb4aab2d069"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""d32d839f-e637-469e-8c2d-f8836a18e86f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""8aa90a83-82b1-4f97-960c-97787c098540"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive"",
+                    ""type"": ""Button"",
+                    ""id"": ""55aff62e-47cf-45f2-b22b-f71b158161e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive1"",
+                    ""type"": ""Button"",
+                    ""id"": ""4116b228-a31a-4e0f-8d64-ef4f82e299c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move2"",
+                    ""type"": ""Value"",
+                    ""id"": ""eee108cf-6ced-4afd-bce7-e38e324b81f8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""114f9935-1689-4a4d-be5d-08062ba052a4"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""733cea2a-85c2-479a-a592-bc6593bb3923"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf50f480-c11f-4902-99ad-37475d0a688e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35e6e11f-befa-47a0-afc4-de72a341147e"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98705a0a-1a73-4c66-8541-7f6fbe9324f5"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player4"",
+            ""id"": ""39a24d04-22cb-4ffd-8ce1-505f5dc44ef2"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""05dc49fa-7eb9-4fb7-83a5-40e99e31e1d2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""e88e9b59-2781-49ad-83da-d647e7603923"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive"",
+                    ""type"": ""Button"",
+                    ""id"": ""f11d8229-f9dd-4ab0-bd58-a828bcf8a287"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drive1"",
+                    ""type"": ""Button"",
+                    ""id"": ""eed0bba2-e931-4d18-9d31-65a7ab228a11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move2"",
+                    ""type"": ""Value"",
+                    ""id"": ""3673f807-d5a6-4695-9cd8-c3087c62bf2a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""108cf039-c09b-4a93-8bd5-1068b265078c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f31f279-ccee-4d7b-9e0c-e65785e49ccf"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0608d0f5-791a-4747-be9f-96adb00de7d7"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7b0890b-3015-4b29-a2e1-adb54f38f914"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1938370-bad0-40b4-a7cd-2ce0b8d8518a"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drive1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -738,6 +1058,101 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Restart"",
+            ""id"": ""afbfd7dd-63e5-494f-bd8b-81171a26cef7"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d7dea3e-f870-4adf-919c-2054b8fb1fdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7832094f-d043-4800-abe0-7109cee4e7f2"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4126b77e-3826-4193-8947-ef343fd390be"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Start"",
+            ""id"": ""10162183-13b8-4ed7-a34a-84332f8e3536"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b71afa0-4679-46fe-9aef-c71e33fb1044"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9198771e-6302-4e38-8760-e7732ba8a37d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Exit"",
+            ""id"": ""4fbd22b8-b9eb-4273-8cd4-f0c3b8f0c8ef"",
+            ""actions"": [
+                {
+                    ""name"": ""action"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7a217ca-0cff-4416-bb12-45d449387f66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""98cc7f6b-430c-4059-943a-d9eb406cebfa"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -808,6 +1223,29 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
         m_Player_Drive = m_Player.FindAction("Drive", throwIfNotFound: true);
+        m_Player_Drive1 = m_Player.FindAction("Drive1", throwIfNotFound: true);
+        m_Player_Move2 = m_Player.FindAction("Move2", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
+        m_Player2_Switch = m_Player2.FindAction("Switch", throwIfNotFound: true);
+        m_Player2_Drive = m_Player2.FindAction("Drive", throwIfNotFound: true);
+        m_Player2_Drive1 = m_Player2.FindAction("Drive1", throwIfNotFound: true);
+        m_Player2_Move2 = m_Player2.FindAction("Move2", throwIfNotFound: true);
+        // Player3
+        m_Player3 = asset.FindActionMap("Player3", throwIfNotFound: true);
+        m_Player3_Move = m_Player3.FindAction("Move", throwIfNotFound: true);
+        m_Player3_Switch = m_Player3.FindAction("Switch", throwIfNotFound: true);
+        m_Player3_Drive = m_Player3.FindAction("Drive", throwIfNotFound: true);
+        m_Player3_Drive1 = m_Player3.FindAction("Drive1", throwIfNotFound: true);
+        m_Player3_Move2 = m_Player3.FindAction("Move2", throwIfNotFound: true);
+        // Player4
+        m_Player4 = asset.FindActionMap("Player4", throwIfNotFound: true);
+        m_Player4_Move = m_Player4.FindAction("Move", throwIfNotFound: true);
+        m_Player4_Switch = m_Player4.FindAction("Switch", throwIfNotFound: true);
+        m_Player4_Drive = m_Player4.FindAction("Drive", throwIfNotFound: true);
+        m_Player4_Drive1 = m_Player4.FindAction("Drive1", throwIfNotFound: true);
+        m_Player4_Move2 = m_Player4.FindAction("Move2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -820,6 +1258,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Restart
+        m_Restart = asset.FindActionMap("Restart", throwIfNotFound: true);
+        m_Restart_action = m_Restart.FindAction("action", throwIfNotFound: true);
+        // Start
+        m_Start = asset.FindActionMap("Start", throwIfNotFound: true);
+        m_Start_action = m_Start.FindAction("action", throwIfNotFound: true);
+        // Exit
+        m_Exit = asset.FindActionMap("Exit", throwIfNotFound: true);
+        m_Exit_action = m_Exit.FindAction("action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -884,6 +1331,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Switch;
     private readonly InputAction m_Player_Drive;
+    private readonly InputAction m_Player_Drive1;
+    private readonly InputAction m_Player_Move2;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -891,6 +1340,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputAction @Drive => m_Wrapper.m_Player_Drive;
+        public InputAction @Drive1 => m_Wrapper.m_Player_Drive1;
+        public InputAction @Move2 => m_Wrapper.m_Player_Move2;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -909,6 +1360,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Drive.started += instance.OnDrive;
             @Drive.performed += instance.OnDrive;
             @Drive.canceled += instance.OnDrive;
+            @Drive1.started += instance.OnDrive1;
+            @Drive1.performed += instance.OnDrive1;
+            @Drive1.canceled += instance.OnDrive1;
+            @Move2.started += instance.OnMove2;
+            @Move2.performed += instance.OnMove2;
+            @Move2.canceled += instance.OnMove2;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -922,6 +1379,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Drive.started -= instance.OnDrive;
             @Drive.performed -= instance.OnDrive;
             @Drive.canceled -= instance.OnDrive;
+            @Drive1.started -= instance.OnDrive1;
+            @Drive1.performed -= instance.OnDrive1;
+            @Drive1.canceled -= instance.OnDrive1;
+            @Move2.started -= instance.OnMove2;
+            @Move2.performed -= instance.OnMove2;
+            @Move2.canceled -= instance.OnMove2;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -939,6 +1402,240 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_Move;
+    private readonly InputAction m_Player2_Switch;
+    private readonly InputAction m_Player2_Drive;
+    private readonly InputAction m_Player2_Drive1;
+    private readonly InputAction m_Player2_Move2;
+    public struct Player2Actions
+    {
+        private @PlayerControls m_Wrapper;
+        public Player2Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player2_Move;
+        public InputAction @Switch => m_Wrapper.m_Player2_Switch;
+        public InputAction @Drive => m_Wrapper.m_Player2_Drive;
+        public InputAction @Drive1 => m_Wrapper.m_Player2_Drive1;
+        public InputAction @Move2 => m_Wrapper.m_Player2_Move2;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Switch.started += instance.OnSwitch;
+            @Switch.performed += instance.OnSwitch;
+            @Switch.canceled += instance.OnSwitch;
+            @Drive.started += instance.OnDrive;
+            @Drive.performed += instance.OnDrive;
+            @Drive.canceled += instance.OnDrive;
+            @Drive1.started += instance.OnDrive1;
+            @Drive1.performed += instance.OnDrive1;
+            @Drive1.canceled += instance.OnDrive1;
+            @Move2.started += instance.OnMove2;
+            @Move2.performed += instance.OnMove2;
+            @Move2.canceled += instance.OnMove2;
+        }
+
+        private void UnregisterCallbacks(IPlayer2Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Switch.started -= instance.OnSwitch;
+            @Switch.performed -= instance.OnSwitch;
+            @Switch.canceled -= instance.OnSwitch;
+            @Drive.started -= instance.OnDrive;
+            @Drive.performed -= instance.OnDrive;
+            @Drive.canceled -= instance.OnDrive;
+            @Drive1.started -= instance.OnDrive1;
+            @Drive1.performed -= instance.OnDrive1;
+            @Drive1.canceled -= instance.OnDrive1;
+            @Move2.started -= instance.OnMove2;
+            @Move2.performed -= instance.OnMove2;
+            @Move2.canceled -= instance.OnMove2;
+        }
+
+        public void RemoveCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player2Actions @Player2 => new Player2Actions(this);
+
+    // Player3
+    private readonly InputActionMap m_Player3;
+    private List<IPlayer3Actions> m_Player3ActionsCallbackInterfaces = new List<IPlayer3Actions>();
+    private readonly InputAction m_Player3_Move;
+    private readonly InputAction m_Player3_Switch;
+    private readonly InputAction m_Player3_Drive;
+    private readonly InputAction m_Player3_Drive1;
+    private readonly InputAction m_Player3_Move2;
+    public struct Player3Actions
+    {
+        private @PlayerControls m_Wrapper;
+        public Player3Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player3_Move;
+        public InputAction @Switch => m_Wrapper.m_Player3_Switch;
+        public InputAction @Drive => m_Wrapper.m_Player3_Drive;
+        public InputAction @Drive1 => m_Wrapper.m_Player3_Drive1;
+        public InputAction @Move2 => m_Wrapper.m_Player3_Move2;
+        public InputActionMap Get() { return m_Wrapper.m_Player3; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player3Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer3Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Switch.started += instance.OnSwitch;
+            @Switch.performed += instance.OnSwitch;
+            @Switch.canceled += instance.OnSwitch;
+            @Drive.started += instance.OnDrive;
+            @Drive.performed += instance.OnDrive;
+            @Drive.canceled += instance.OnDrive;
+            @Drive1.started += instance.OnDrive1;
+            @Drive1.performed += instance.OnDrive1;
+            @Drive1.canceled += instance.OnDrive1;
+            @Move2.started += instance.OnMove2;
+            @Move2.performed += instance.OnMove2;
+            @Move2.canceled += instance.OnMove2;
+        }
+
+        private void UnregisterCallbacks(IPlayer3Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Switch.started -= instance.OnSwitch;
+            @Switch.performed -= instance.OnSwitch;
+            @Switch.canceled -= instance.OnSwitch;
+            @Drive.started -= instance.OnDrive;
+            @Drive.performed -= instance.OnDrive;
+            @Drive.canceled -= instance.OnDrive;
+            @Drive1.started -= instance.OnDrive1;
+            @Drive1.performed -= instance.OnDrive1;
+            @Drive1.canceled -= instance.OnDrive1;
+            @Move2.started -= instance.OnMove2;
+            @Move2.performed -= instance.OnMove2;
+            @Move2.canceled -= instance.OnMove2;
+        }
+
+        public void RemoveCallbacks(IPlayer3Actions instance)
+        {
+            if (m_Wrapper.m_Player3ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer3Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player3ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player3Actions @Player3 => new Player3Actions(this);
+
+    // Player4
+    private readonly InputActionMap m_Player4;
+    private List<IPlayer4Actions> m_Player4ActionsCallbackInterfaces = new List<IPlayer4Actions>();
+    private readonly InputAction m_Player4_Move;
+    private readonly InputAction m_Player4_Switch;
+    private readonly InputAction m_Player4_Drive;
+    private readonly InputAction m_Player4_Drive1;
+    private readonly InputAction m_Player4_Move2;
+    public struct Player4Actions
+    {
+        private @PlayerControls m_Wrapper;
+        public Player4Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player4_Move;
+        public InputAction @Switch => m_Wrapper.m_Player4_Switch;
+        public InputAction @Drive => m_Wrapper.m_Player4_Drive;
+        public InputAction @Drive1 => m_Wrapper.m_Player4_Drive1;
+        public InputAction @Move2 => m_Wrapper.m_Player4_Move2;
+        public InputActionMap Get() { return m_Wrapper.m_Player4; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player4Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer4Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player4ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Switch.started += instance.OnSwitch;
+            @Switch.performed += instance.OnSwitch;
+            @Switch.canceled += instance.OnSwitch;
+            @Drive.started += instance.OnDrive;
+            @Drive.performed += instance.OnDrive;
+            @Drive.canceled += instance.OnDrive;
+            @Drive1.started += instance.OnDrive1;
+            @Drive1.performed += instance.OnDrive1;
+            @Drive1.canceled += instance.OnDrive1;
+            @Move2.started += instance.OnMove2;
+            @Move2.performed += instance.OnMove2;
+            @Move2.canceled += instance.OnMove2;
+        }
+
+        private void UnregisterCallbacks(IPlayer4Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Switch.started -= instance.OnSwitch;
+            @Switch.performed -= instance.OnSwitch;
+            @Switch.canceled -= instance.OnSwitch;
+            @Drive.started -= instance.OnDrive;
+            @Drive.performed -= instance.OnDrive;
+            @Drive.canceled -= instance.OnDrive;
+            @Drive1.started -= instance.OnDrive1;
+            @Drive1.performed -= instance.OnDrive1;
+            @Drive1.canceled -= instance.OnDrive1;
+            @Move2.started -= instance.OnMove2;
+            @Move2.performed -= instance.OnMove2;
+            @Move2.canceled -= instance.OnMove2;
+        }
+
+        public void RemoveCallbacks(IPlayer4Actions instance)
+        {
+            if (m_Wrapper.m_Player4ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer4Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player4ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player4Actions @Player4 => new Player4Actions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1057,6 +1754,144 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Restart
+    private readonly InputActionMap m_Restart;
+    private List<IRestartActions> m_RestartActionsCallbackInterfaces = new List<IRestartActions>();
+    private readonly InputAction m_Restart_action;
+    public struct RestartActions
+    {
+        private @PlayerControls m_Wrapper;
+        public RestartActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Restart_action;
+        public InputActionMap Get() { return m_Wrapper.m_Restart; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RestartActions set) { return set.Get(); }
+        public void AddCallbacks(IRestartActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RestartActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RestartActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IRestartActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IRestartActions instance)
+        {
+            if (m_Wrapper.m_RestartActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRestartActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RestartActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RestartActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RestartActions @Restart => new RestartActions(this);
+
+    // Start
+    private readonly InputActionMap m_Start;
+    private List<IStartActions> m_StartActionsCallbackInterfaces = new List<IStartActions>();
+    private readonly InputAction m_Start_action;
+    public struct StartActions
+    {
+        private @PlayerControls m_Wrapper;
+        public StartActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Start_action;
+        public InputActionMap Get() { return m_Wrapper.m_Start; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartActions set) { return set.Get(); }
+        public void AddCallbacks(IStartActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StartActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StartActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IStartActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IStartActions instance)
+        {
+            if (m_Wrapper.m_StartActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStartActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StartActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StartActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StartActions @Start => new StartActions(this);
+
+    // Exit
+    private readonly InputActionMap m_Exit;
+    private List<IExitActions> m_ExitActionsCallbackInterfaces = new List<IExitActions>();
+    private readonly InputAction m_Exit_action;
+    public struct ExitActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ExitActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @action => m_Wrapper.m_Exit_action;
+        public InputActionMap Get() { return m_Wrapper.m_Exit; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ExitActions set) { return set.Get(); }
+        public void AddCallbacks(IExitActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ExitActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ExitActionsCallbackInterfaces.Add(instance);
+            @action.started += instance.OnAction;
+            @action.performed += instance.OnAction;
+            @action.canceled += instance.OnAction;
+        }
+
+        private void UnregisterCallbacks(IExitActions instance)
+        {
+            @action.started -= instance.OnAction;
+            @action.performed -= instance.OnAction;
+            @action.canceled -= instance.OnAction;
+        }
+
+        public void RemoveCallbacks(IExitActions instance)
+        {
+            if (m_Wrapper.m_ExitActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IExitActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ExitActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ExitActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ExitActions @Exit => new ExitActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1107,6 +1942,32 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
         void OnDrive(InputAction.CallbackContext context);
+        void OnDrive1(InputAction.CallbackContext context);
+        void OnMove2(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+        void OnDrive(InputAction.CallbackContext context);
+        void OnDrive1(InputAction.CallbackContext context);
+        void OnMove2(InputAction.CallbackContext context);
+    }
+    public interface IPlayer3Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+        void OnDrive(InputAction.CallbackContext context);
+        void OnDrive1(InputAction.CallbackContext context);
+        void OnMove2(InputAction.CallbackContext context);
+    }
+    public interface IPlayer4Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
+        void OnDrive(InputAction.CallbackContext context);
+        void OnDrive1(InputAction.CallbackContext context);
+        void OnMove2(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1120,5 +1981,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    public interface IRestartActions
+    {
+        void OnAction(InputAction.CallbackContext context);
+    }
+    public interface IStartActions
+    {
+        void OnAction(InputAction.CallbackContext context);
+    }
+    public interface IExitActions
+    {
+        void OnAction(InputAction.CallbackContext context);
     }
 }
