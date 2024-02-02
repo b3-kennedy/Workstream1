@@ -9,9 +9,11 @@ public class CreatePlayers : MonoBehaviour
     public static CreatePlayers Instance;
     public GameObject playerPrefab;
     public List<GameObject> players;
+    public Material[] playerMats;
     public TMP_Text[] scoreTexts;
     public Transform playerSpawnParent;
     int index = 0;
+    int controllerIndex = 0;
     //public InputActionAsset controlScheme;
 
 
@@ -24,43 +26,32 @@ public class CreatePlayers : MonoBehaviour
     void Start()
     {
 
-        //for (int i = 0; i < 8; i++)
-        //{
-        //    if ((i+1) % 2 == 0)
-        //    {
-        //        index++;
-        //    }
-        //    var player = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[index]);
-        //    player.GetComponent<PlayerController>().pad = Gamepad.all[index];
-        //    player.GetComponent<PlayerController>().controlScheme = "GamePadLeft";
-
-        //    player.GetComponent<PlayerController>().OnSpawn();
-        //    players.Add(player.gameObject);
-
-
-        //}
-
-        //PlayerInput.Instantiate(playerPrefab, controlScheme: "Gamepad", pairWithDevice: Gamepad.all[0]);
         Debug.Log(Gamepad.all.Count);
 
-        for (int i = 0; i < Gamepad.all.Count/2; i++)
+
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            var player1 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[i]);
+            var player1 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[controllerIndex]);
             player1.GetComponent<PlayerController>().pad = Gamepad.all[i];
             player1.GetComponent<PlayerController>().controlScheme = "GamePadLeft";
-
             player1.GetComponent<PlayerController>().OnSpawn();
             players.Add(player1.gameObject);
             player1.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
+            player1.transform.position = playerSpawnParent.GetChild(index).position;
+            player1.GetComponent<MeshRenderer>().material = playerMats[index];
             index++;
 
-            var player2 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[i]);
+            var player2 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[controllerIndex]);
             player2.GetComponent<PlayerController>().pad = Gamepad.all[i];
             player2.GetComponent<PlayerController>().controlScheme = "GamePadRight";
             player2.GetComponent<PlayerController>().OnSpawn();
             players.Add(player2.gameObject);
-            player1.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
+            player2.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
+            player2.transform.position = playerSpawnParent.GetChild(index).position;
+            player2.GetComponent<MeshRenderer>().material = playerMats[index];
+
             index++;
+            controllerIndex++;
         }
 
         //var player1 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[0]);
