@@ -1,10 +1,11 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarMovements : MonoBehaviour
 {
-    private PlayerControls controls;
+    private Player1Input controls;
     private CarSpawner carSpawner;
     private bool isInputEnabled = false;
 
@@ -76,9 +77,15 @@ public class CarMovements : MonoBehaviour
 
     private void OnEnable()
     {
-        controls = new PlayerControls();
-        controls.Enable();
 
+
+    }
+
+    public void OnSwitch()
+    {
+        controls = new Player1Input();
+        GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
+        controls.Enable();
     }
 
     private void OnDisable()
@@ -136,152 +143,193 @@ public class CarMovements : MonoBehaviour
         {
 
 
-            if (currentDriverIndex == 0)
+            Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
+            Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
+
+            if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
             {
 
-
-                Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                float buttonP = controls.Player.Drive.ReadValue<float>();
-
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                /* if (!Azine)
-                 {
-                     if (buttonP > 0)
-                     {
-                         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                     }
-                 }
-                 else
-                 {
-                     moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                 }*/
-
-
-            }
-
-            else if (currentDriverIndex == 1)
-            {
-                Vector2 movementInput = controls.Player.Move2.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player.Drive1.ReadValue<float>();
-
-               /* if (buttonP > 0)
+                for (int i = 0; i < Gamepad.all.Count; i++)
                 {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                }*/
-            }
-            else if (currentDriverIndex == 2)
-            {
-                Vector2 movementInput = controls.Player2.Move.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player2.Drive.ReadValue<float>();
+                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+                    {
+                        Vector2 movementInput = new Vector2(stickL.x, stickL.y);
+                        moveInput = movementInput.y;
+                        turnInput = movementInput.x;
+                        float buttonP = controls.Player.Drive.ReadValue<float>();
+                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 
-               /* if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                }*/
-
-
-
-            }
-            else if (currentDriverIndex == 3)
-            {
-
-                Vector2 movementInput = controls.Player2.Move2.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-               /* float buttonP = controls.Player2.Drive1.ReadValue<float>();
-
-
-                if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-                }*/
-            }
-            else if (currentDriverIndex == 4)
-            {
-
-                Vector2 movementInput = controls.Player3.Move.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player3.Drive.ReadValue<float>();
-
-
-                if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
+                    }
                 }
             }
-            else if (currentDriverIndex == 5)
+            else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
             {
-
-                Vector2 movementInput = controls.Player3.Move2.ReadValue<Vector2>();
-
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player3.Drive1.ReadValue<float>();
-
-
-                if (buttonP > 0)
+                for (int i = 0; i < Gamepad.all.Count; i++)
                 {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+                    {
+                        Vector2 movementInput = new Vector2(stickR.x, stickR.y);
+                        moveInput = movementInput.y;
+                        turnInput = movementInput.x;
+                        float buttonP = controls.Player.Drive.ReadValue<float>();
+                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
+
+                    }
                 }
             }
-            else if (currentDriverIndex == 6)
-            {
 
-                Vector2 movementInput = controls.Player4.Move.ReadValue<Vector2>();
+            //if (currentDriverIndex == 0)
+            //{
 
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-                float buttonP = controls.Player4.Drive.ReadValue<float>();
+            //    if(GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft")
+            //    {
+
+            //    }
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    float buttonP = controls.Player.Drive.ReadValue<float>();
+
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    /* if (!Azine)
+            //     {
+            //         if (buttonP > 0)
+            //         {
+            //             moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //         }
+            //     }
+            //     else
+            //     {
+            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //     }*/
 
 
-                if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //}
 
-                }
-            }
-            else if (currentDriverIndex == 7)
-            {
+            //else if (currentDriverIndex == 1)
+            //{
+            //    Debug.Log(currentDriver.GetComponent<PlayerInput>().currentControlScheme);
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
 
-                Vector2 movementInput = controls.Player4.Move2.ReadValue<Vector2>();
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
 
-                moveInput = movementInput.y;
-                turnInput = movementInput.x;
-                moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    /* if (buttonP > 0)
+            //     {
+            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                float buttonP = controls.Player4.Drive1.ReadValue<float>();
+            //     }*/
+            //}
+            //else if (currentDriverIndex == 2)
+            //{
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    float buttonP = controls.Player.Drive.ReadValue<float>();
 
 
-                if (buttonP > 0)
-                {
-                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    /* if (buttonP > 0)
+            //     {
+            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
-                }
-            }
+            //     }*/
+
+
+
+            //}
+            //else if (currentDriverIndex == 3)
+            //{
+
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    /* float buttonP = controls.Player2.Drive1.ReadValue<float>();
+
+
+            //     if (buttonP > 0)
+            //     {
+            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //     }*/
+            //}
+            //else if (currentDriverIndex == 4)
+            //{
+
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    float buttonP = controls.Player.Drive.ReadValue<float>();
+
+
+            //    if (buttonP > 0)
+            //    {
+            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //    }
+            //}
+            //else if (currentDriverIndex == 5)
+            //{
+
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
+
+
+            //    if (buttonP > 0)
+            //    {
+            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //    }
+            //}
+            //else if (currentDriverIndex == 6)
+            //{
+
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+            //    float buttonP = controls.Player.Drive.ReadValue<float>();
+
+
+            //    if (buttonP > 0)
+            //    {
+            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //    }
+            //}
+            //else if (currentDriverIndex == 7)
+            //{
+
+            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
+
+            //    moveInput = movementInput.y;
+            //    turnInput = movementInput.x;
+            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
+
+
+            //    if (buttonP > 0)
+            //    {
+            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+            //    }
+            //}
 
 
 
@@ -323,7 +371,7 @@ public class CarMovements : MonoBehaviour
         if (colliders.Length > 0 && moveInput == 0&& thisCar.isParked == false && currentDriver!=null)
         {
 
-
+            Debug.Log(moveInput);
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {

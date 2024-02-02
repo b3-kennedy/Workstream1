@@ -296,6 +296,7 @@ public class PlayerController : MonoBehaviour
         if (carMovement != null)
         {
             carMovement.EnableInput(playerIndex, gameObject, originalPosition);
+            carMovement.OnSwitch();
             carMovement.OnCarParked += UpdateScore;
 
         }
@@ -310,16 +311,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnMovementPerformed(InputAction.CallbackContext context)
     {
-
-
-        
-
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             if (Gamepad.all[i] == pad)
             {
                 movementInput = context.ReadValue<Vector2>();
-                Debug.Log(GetComponent<PlayerInput>().currentControlScheme);
             }
         }
     }
