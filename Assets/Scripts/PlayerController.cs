@@ -93,67 +93,6 @@ public class PlayerController : MonoBehaviour
     {
 
 
-        ////left
-        //if (playerIndex == 0)
-        //{
-        //    //controls.Enable();
-        //    controls.Player.Move.performed += OnMovementPerformed;
-        //    controls.Player.Move.canceled += OnMovementCanceled;
-        //}
-        ////right
-        //else if (playerIndex == 1)
-        //{
-            
-        //    //controls.Enable();
-
-        //    controls.Player.Move.performed += OnMovementPerformed;
-        //    controls.Player.Move.canceled += OnMovementCanceled;
-        //}
-        ////left
-        //else if (playerIndex == 2)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player.Move.performed += OnMovementPerformed;
-        //    controls.Player.Move.canceled += OnMovementCanceled;
-        //}
-        ////right
-        //else if (playerIndex == 3)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player.Move.performed += OnMovementPerformed;
-        //    controls.Player.Move.canceled += OnMovementCanceled;
-        //}
-        //else if (playerIndex == 4)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player.Move.performed += OnMovementPerformed;
-        //    controls.Player3.Move.canceled += OnMovementCanceled;
-        //}
-        //else if (playerIndex == 5)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player3.Move2.performed += OnMovementPerformed;
-        //    controls.Player3.Move2.canceled += OnMovementCanceled;
-        //}
-        //else if (playerIndex == 6)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player4.Move.performed += OnMovementPerformed;
-        //    controls.Player4.Move.canceled += OnMovementCanceled;
-        //}
-        //else if (playerIndex == 7)
-        //{
-        //    //controls.Enable();
-
-        //    controls.Player4.Move2.performed += OnMovementPerformed;
-        //    controls.Player4.Move2.canceled += OnMovementCanceled;
-        //}
-
     }
 
     void OnDisable()
@@ -161,51 +100,6 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.Move.performed -= OnMovementPerformed;
         controls.Player.Move.canceled -= OnMovementCanceled;
-
-
-        //if (playerIndex == 0)
-        //{
-        //    controls.Disable();
-        //    controls.Player.Move.performed -= OnMovementPerformed;
-        //    controls.Player.Move.canceled -= OnMovementCanceled;
-        //}
-        //else if (playerIndex == 1)
-        //{
-        //    controls.Player.Move2.performed -= OnMovementPerformed;
-        //    controls.Player.Move2.canceled -= OnMovementCanceled;
-        //}
-        ////left
-        //else if (playerIndex == 2)
-        //{
-        //    controls.Player2.Move.performed -= OnMovementPerformed;
-        //    controls.Player2.Move.canceled -= OnMovementCanceled;
-        //}
-        ////right
-        //else if (playerIndex == 3)
-        //{
-        //    controls.Player2.Move2.performed -= OnMovementPerformed;
-        //    controls.Player2.Move2.canceled -= OnMovementCanceled;
-        //}
-        //else if (playerIndex == 4)
-        //{
-        //    controls.Player3.Move.performed -= OnMovementPerformed;
-        //    controls.Player3.Move.canceled -= OnMovementCanceled;
-        //}
-        //else if (playerIndex == 5)
-        //{
-        //    controls.Player3.Move2.performed -= OnMovementPerformed;
-        //    controls.Player3.Move2.canceled -= OnMovementCanceled;
-        //}
-        //else if (playerIndex == 6)
-        //{
-        //    controls.Player4.Move.performed -= OnMovementPerformed;
-        //    controls.Player4.Move.canceled -= OnMovementCanceled;
-        //}
-        //else if (playerIndex == 7)
-        //{
-        //    controls.Player4.Move2.performed -= OnMovementPerformed;
-        //    controls.Player4.Move2.canceled -= OnMovementCanceled;
-        //}
 
 
     }

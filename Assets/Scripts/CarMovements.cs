@@ -94,7 +94,7 @@ public class CarMovements : MonoBehaviour
     }
     public void SetColor(Material currentMaterial, int driverIndex)
     {
-        currentMaterial = driverMaterials[driverIndex];
+        //currentMaterial = driverMaterials[driverIndex];
         ApplyMaterialToChild("body/top", currentMaterial);
         ApplyMaterialToChild("body/body", currentMaterial);
 
@@ -107,7 +107,7 @@ public class CarMovements : MonoBehaviour
 
         currentDriver = playerObject;
         currentDriverIndex = driverIndex;
-        SetColor(currentMaterial, driverIndex);
+        SetColor(currentDriver.GetComponent<MeshRenderer>().material, driverIndex);
 
     }
 
@@ -116,6 +116,7 @@ public class CarMovements : MonoBehaviour
         if(currentDriver != null)
         {
             currentDriver.SetActive(true);
+            currentDriver.GetComponent<PlayerController>().OnSpawn();
             currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
@@ -180,168 +181,6 @@ public class CarMovements : MonoBehaviour
                 }
             }
 
-            //if (currentDriverIndex == 0)
-            //{
-
-            //    if(GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft")
-            //    {
-
-            //    }
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    float buttonP = controls.Player.Drive.ReadValue<float>();
-
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    /* if (!Azine)
-            //     {
-            //         if (buttonP > 0)
-            //         {
-            //             moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //         }
-            //     }
-            //     else
-            //     {
-            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //     }*/
-
-
-            //}
-
-            //else if (currentDriverIndex == 1)
-            //{
-            //    Debug.Log(currentDriver.GetComponent<PlayerInput>().currentControlScheme);
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
-
-            //    /* if (buttonP > 0)
-            //     {
-            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //     }*/
-            //}
-            //else if (currentDriverIndex == 2)
-            //{
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    float buttonP = controls.Player.Drive.ReadValue<float>();
-
-
-            //    /* if (buttonP > 0)
-            //     {
-            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //     }*/
-
-
-
-            //}
-            //else if (currentDriverIndex == 3)
-            //{
-
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    /* float buttonP = controls.Player2.Drive1.ReadValue<float>();
-
-
-            //     if (buttonP > 0)
-            //     {
-            //         moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //     }*/
-            //}
-            //else if (currentDriverIndex == 4)
-            //{
-
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    float buttonP = controls.Player.Drive.ReadValue<float>();
-
-
-            //    if (buttonP > 0)
-            //    {
-            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //    }
-            //}
-            //else if (currentDriverIndex == 5)
-            //{
-
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
-
-
-            //    if (buttonP > 0)
-            //    {
-            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //    }
-            //}
-            //else if (currentDriverIndex == 6)
-            //{
-
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-            //    float buttonP = controls.Player.Drive.ReadValue<float>();
-
-
-            //    if (buttonP > 0)
-            //    {
-            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //    }
-            //}
-            //else if (currentDriverIndex == 7)
-            //{
-
-            //    Vector2 movementInput = controls.Player.Move.ReadValue<Vector2>();
-
-            //    moveInput = movementInput.y;
-            //    turnInput = movementInput.x;
-            //    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //    float buttonP = controls.Player.Drive1.ReadValue<float>();
-
-
-            //    if (buttonP > 0)
-            //    {
-            //        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-            //    }
-            //}
-
-
-
-
-
-            /* transform.position = sphereRB.transform.position;
-
-
-
-
-             float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-             transform.Rotate(0f, newRotation, 0f, Space.World);*/
 
             Quaternion currentRotation = transform.rotation;
             float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
