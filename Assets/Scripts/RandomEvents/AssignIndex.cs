@@ -8,6 +8,7 @@ public class AssignIndex : MonoBehaviour
 
     public void SetIndex(int i)
     {
+        Debug.Log("1");
         index = i;
     }
 

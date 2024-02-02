@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2103,7 +2103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &136387849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,6 +2120,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 4
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 136387855}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -6654,7 +6656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &505563381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6671,6 +6673,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 2
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 505563387}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -7345,6 +7349,7 @@ GameObject:
   - component: {fileID: 548596150}
   - component: {fileID: 548596153}
   - component: {fileID: 548596154}
+  - component: {fileID: 548596155}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7599,6 +7604,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &548596155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548596149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a24970537d6f1b44ba929b471eafe01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 2701567004596339129, guid: 1b4d6c478766703449eb07b772b2a56b, type: 3}
+  players: []
+  playerMats:
+  - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
+  - {fileID: 2100000, guid: aa6508a99b804a546bddc6c6ff7a29eb, type: 2}
+  - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
+  - {fileID: 2100000, guid: c1bacaf1d53c81d4bb1c28afd67d40b6, type: 2}
+  - {fileID: 2100000, guid: b2fe0d7fc2a4ff9489dd511db409db0c, type: 2}
+  - {fileID: 2100000, guid: 84857fa4fcc0e694582b9449de5d4dc2, type: 2}
+  - {fileID: 2100000, guid: 674403f84007b864b9bb4d8932349aec, type: 2}
+  - {fileID: 2100000, guid: 70a56583c14e2184abfa09cb39ef3828, type: 2}
+  scoreTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerSpawnParent: {fileID: 1554133457}
 --- !u!1001 &554661934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10990,7 +11028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &797877026
 Transform:
   m_ObjectHideFlags: 0
@@ -11123,6 +11161,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 0
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 797877032}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -15838,7 +15878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1167082967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15855,6 +15895,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 6
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 1167082973}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -16517,7 +16559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1204578627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16534,6 +16576,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 5
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 1204578633}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -21397,7 +21441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1507526893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21414,6 +21458,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 3
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 1507526899}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -28878,7 +28924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2073384912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28895,6 +28941,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 7
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 2073384918}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
@@ -29650,7 +29698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2102835072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29878,6 +29926,8 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 1
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 2102835077}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39

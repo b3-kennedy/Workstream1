@@ -40,20 +40,20 @@ public class CarSpawner : MonoBehaviour
         if (randomNumber <= 5)
         {
              car = Instantiate(carPrefab, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
+            //RandomEventController.Instance.drivableCars.Add(car);
 
         }
         else if (randomNumber <=8)
         {
              car = Instantiate(carPrefab2, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
+            //RandomEventController.Instance.drivableCars.Add(car);
 
         }
         else 
         {
 
              car = Instantiate(carPrefab3, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
+            //RandomEventController.Instance.drivableCars.Add(car);
 
         }
 

@@ -1482,6 +1482,7 @@ GameObject:
   - component: {fileID: 5452394544681679699}
   - component: {fileID: 1265656103750367511}
   - component: {fileID: 6534959783586165418}
+  - component: {fileID: 6851443165995845743}
   m_Layer: 3
   m_Name: SmallCar
   m_TagString: freeCar
@@ -1704,6 +1705,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.77, y: 0.66, z: 6.03}
   m_Center: {x: 0, y: 1.26, z: 0}
+--- !u!114 &6851443165995845743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050832578905188880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1128604659a352f4bac1ae7aaac6c7aa, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &7235531169498155573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1958,6 @@ GameObject:
   - component: {fileID: 4684232093476743573}
   - component: {fileID: 1956868833277328829}
   - component: {fileID: 3686290426614310061}
-  - component: {fileID: 7185718369752215510}
   - component: {fileID: 6080240328657251824}
   - component: {fileID: 8027102212931536395}
   m_Layer: 3
@@ -2029,20 +2059,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7185718369752215510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8971778388880727582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7041264f98f3641b54a33aa5e79c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colCRASH: {fileID: 8027102212931536395}
-  parentObj: {fileID: 6050832578905188880}
 --- !u!65 &6080240328657251824
 BoxCollider:
   m_ObjectHideFlags: 0
