@@ -5,24 +5,37 @@ using UnityEngine.UI;
 
 public class SelectScreenManager : MonoBehaviour
 {
-    public MeshRenderer mr;
-    public Image image;
+    [SerializeField] private GameObject collum;
     public List<Sprite> chars = new List<Sprite>();
     public List<Color> colors = new List<Color>(); 
     private int selectedSkin = 0;
-    public GameObject playerskin;
-
-
-
+    private GameObject tempGO;
+    private void Start()
+    {
+        tempGO = collum;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            NextOption();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            BackOption();
+        }
+    }
     public void NextOption()
     {
+    
         selectedSkin = selectedSkin + 1;
         if(selectedSkin == chars.Count)
         {
             selectedSkin = 0;
         }
-        image.sprite = chars[selectedSkin];
-        mr.material.color = colors[selectedSkin];
+        tempGO.GetComponentInChildren<Image>().sprite = chars[selectedSkin];
+        tempGO.GetComponent<Image>().material.color = colors[selectedSkin];
+        Instantiate(tempGO, this.transform);
     }
     public void BackOption()
     {
@@ -31,7 +44,9 @@ public class SelectScreenManager : MonoBehaviour
         {
             selectedSkin = chars.Count -1;
         }
-        image.sprite = chars[selectedSkin];
-        mr.material.color = colors[selectedSkin];
+        tempGO.GetComponentInChildren<Image>().sprite = chars[selectedSkin];
+        tempGO.GetComponent<Image>().material.color = colors[selectedSkin];
+        int numchild = this.transform.childCount;
+        Destroy(this.transform.GetChild(numchild - 1).gameObject);
     }
 }
