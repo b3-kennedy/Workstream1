@@ -139,47 +139,51 @@ public class CarMovements : MonoBehaviour
 
     private void Update()
     {
-        
-        if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
+        if(currentDriver != null)
         {
-
-
-            Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
-            Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
-
-            if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
+            if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
             {
 
-                for (int i = 0; i < Gamepad.all.Count; i++)
+
+                Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
+                Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
+
+                if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
                 {
-                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+
+                    for (int i = 0; i < Gamepad.all.Count; i++)
                     {
-                        Vector2 movementInput = new Vector2(stickL.x, stickL.y);
-                        moveInput = movementInput.y;
-                        turnInput = movementInput.x;
-                        float buttonP = controls.Player.Drive.ReadValue<float>();
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+                        if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+                        {
+                            Vector2 movementInput = new Vector2(stickL.x, stickL.y);
+                            moveInput = movementInput.y;
+                            turnInput = movementInput.x;
+                            float buttonP = controls.Player.Drive.ReadValue<float>();
+                            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 
+                        }
+                    }
+                }
+                else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
+                {
+                    for (int i = 0; i < Gamepad.all.Count; i++)
+                    {
+                        if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+                        {
+                            Vector2 movementInput = new Vector2(stickR.x, stickR.y);
+                            moveInput = movementInput.y;
+                            turnInput = movementInput.x;
+                            float buttonP = controls.Player.Drive.ReadValue<float>();
+                            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+
+                        }
                     }
                 }
             }
-            else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
-            {
-                for (int i = 0; i < Gamepad.all.Count; i++)
-                {
-                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-                    {
-                        Vector2 movementInput = new Vector2(stickR.x, stickR.y);
-                        moveInput = movementInput.y;
-                        turnInput = movementInput.x;
-                        float buttonP = controls.Player.Drive.ReadValue<float>();
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-                    }
-                }
-            }
+        
+        
 
 
             Quaternion currentRotation = transform.rotation;
@@ -276,7 +280,7 @@ public class CarMovements : MonoBehaviour
     private void FixedUpdate()
     {
 
-        //sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
+        sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
 
         if (isInputEnabled)
         {
