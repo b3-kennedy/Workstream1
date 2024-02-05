@@ -140,7 +140,7 @@ public class CarMovements : MonoBehaviour
     private void Update()
     {
         
-        if (isInputEnabled)
+        if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
         {
 
 
@@ -275,6 +275,9 @@ public class CarMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        //sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
+
         if (isInputEnabled)
         {
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
@@ -288,8 +291,8 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
-        Debug.Log("triggered");
+        //Debug.Log(collision.gameObject.name);
+        //Debug.Log("triggered");
         if (currentDriver != null)
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
 
         //deviceIndex = context.control.device.device.deviceId;
-        
+
 
 
         //Debug.Log(pad);
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         
 
         controls.Enable();
+
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
 
@@ -92,14 +93,13 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
 
-
     }
 
     void OnDisable()
     {
-
-        controls.Player.Move.performed -= OnMovementPerformed;
-        controls.Player.Move.canceled -= OnMovementCanceled;
+        //controls.Disable();
+        //controls.Player.Move.performed -= OnMovementPerformed;
+        //controls.Player.Move.canceled -= OnMovementCanceled;
 
 
     }
@@ -108,39 +108,44 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        Vector2 stickL = pad.leftStick.ReadValue();
-        Vector2 stickR = pad.rightStick.ReadValue();
-
-        if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x,stickL.y) != Vector2.zero)
+        if(pad != null)
         {
-            for (int i = 0; i < Gamepad.all.Count; i++)
+            Vector2 stickL = pad.leftStick.ReadValue();
+            Vector2 stickR = pad.rightStick.ReadValue();
+
+            if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
             {
-                if (Gamepad.all[i] == pad)
+                for (int i = 0; i < Gamepad.all.Count; i++)
                 {
-                    //scoreTextMesh.text = "" + score;
-                    Vector3 movement = new Vector3(stickL.x, 0f, stickL.y);
-                    //rigidbody.velocity =  movement;
-                    transform.Translate(movement * moveSpeed * Time.deltaTime);
+                    if (Gamepad.all[i] == pad)
+                    {
+                        //scoreTextMesh.text = "" + score;
+                        Vector3 movement = new Vector3(stickL.x, 0f, stickL.y);
+                        //rigidbody.velocity =  movement;
+                        transform.Translate(movement * moveSpeed * Time.deltaTime);
 
 
+                    }
+                }
+            }
+            else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
+            {
+                for (int i = 0; i < Gamepad.all.Count; i++)
+                {
+                    if (Gamepad.all[i] == pad)
+                    {
+                        //scoreTextMesh.text = "" + score;
+                        Vector3 movement = new Vector3(stickR.x, 0f, stickR.y);
+                        //rigidbody.velocity =  movement;
+                        transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+
+                    }
                 }
             }
         }
-        else if(GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
-        {
-            for (int i = 0; i < Gamepad.all.Count; i++)
-            {
-                if (Gamepad.all[i] == pad)
-                {
-                    //scoreTextMesh.text = "" + score;
-                    Vector3 movement = new Vector3(stickR.x, 0f, stickR.y);
-                    //rigidbody.velocity =  movement;
-                    transform.Translate(movement * moveSpeed * Time.deltaTime);
 
 
-                }
-            }
-        }
 
 
 
