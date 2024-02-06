@@ -6,7 +6,9 @@ public class PlayerCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && transform.parent.CompareTag("pickedUpCar"))
+        //Debug.Log(gameObject);
+        //Debug.Log(transform.parent);
+        if (collision.gameObject.CompareTag("Player") && transform.parent.CompareTag("pickedUpCar") && !transform.parent.GetComponent<CarMovements>().parked)
         {
             collision.gameObject.GetComponent<OnCollidedWith>().Collided();
             Vector3 dir = (transform.position - collision.transform.position).normalized;

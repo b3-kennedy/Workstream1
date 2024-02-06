@@ -57,6 +57,8 @@ public class CarMovements : MonoBehaviour
 
     private Quaternion previousRotation;
 
+    public bool parked;
+
     public float diff = 1f;
     public bool spawnDamage = false;
 
@@ -69,7 +71,7 @@ public class CarMovements : MonoBehaviour
 
 
         sphereRB.transform.parent = null;
-        carRB.transform.parent = null;
+        //carRB.transform.parent = null;
 
 
         previousRotation = transform.rotation;
@@ -202,6 +204,7 @@ public class CarMovements : MonoBehaviour
         transform.position = sphereRB.transform.position;
         float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
         transform.Rotate(0f, newRotation, 0f, Space.World);
+        //sphereRB.transform.Rotate(0f, newRotation, 0f, Space.World);
 
 
 
@@ -254,6 +257,7 @@ public class CarMovements : MonoBehaviour
                         break;
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
+                parked = true;
 
 
             }
@@ -280,7 +284,7 @@ public class CarMovements : MonoBehaviour
     private void FixedUpdate()
     {
 
-        sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
+        //sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
 
         if (isInputEnabled)
         {
@@ -302,7 +306,6 @@ public class CarMovements : MonoBehaviour
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("Player HIT: " + thisCar.life);
 
                 colOOF.Play();
                 colCRASH.Play();
@@ -312,21 +315,18 @@ public class CarMovements : MonoBehaviour
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("Object HIT: " + thisCar.life);
                 ShowFloatingLostLife();
 
             }
             else if (collision.gameObject.CompareTag("Walls"))
             {
                 ReduceLifeOnDamage(20);
-                Debug.Log("wall HIT: " + thisCar.life);
                 ShowFloatingLostLife();
 
             }
             else if (collision.gameObject.CompareTag("TrafficCone"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("wall HIT: " + thisCar.life);
                 colCRASH.Play();
                 ShowFloatingLostLife();
 
