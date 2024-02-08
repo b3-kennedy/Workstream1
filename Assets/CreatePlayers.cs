@@ -31,6 +31,7 @@ public class CreatePlayers : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
+
             var player1 = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[controllerIndex]);
             player1.GetComponent<PlayerController>().pad = Gamepad.all[i];
             player1.GetComponent<PlayerController>().controlScheme = "GamePadLeft";
@@ -52,6 +53,13 @@ public class CreatePlayers : MonoBehaviour
 
             index++;
             controllerIndex++;
+
+            if (Camera.main.GetComponent<MultipleTargetCamera>())
+            {
+                Camera.main.GetComponent<MultipleTargetCamera>().targets.Add(player1.transform);
+                Camera.main.GetComponent<MultipleTargetCamera>().targets.Add(player2.transform);
+            }
+
         }
 
         

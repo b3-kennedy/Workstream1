@@ -562,6 +562,15 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Brake"",
+                    ""type"": ""Value"",
+                    ""id"": ""bf8528f9-abae-47b6-80a6-939d5257e59c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Drive"",
                     ""type"": ""Button"",
                     ""id"": ""ffae8b0e-6758-4c10-98e4-70b72f3692e9"",
@@ -597,7 +606,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""id"": ""dc872f7a-889e-466e-b058-30961715b25e"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.3)"",
                     ""groups"": ""GamePadRight"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -608,7 +617,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""id"": ""5144a293-7db3-4eb9-af08-5b8f89372502"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.3)"",
                     ""groups"": ""GamePadLeft"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -644,6 +653,39 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Drive1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64d48382-ddb3-4a10-870a-b7cfa48608ac"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac7af60b-8191-4f06-bd1b-d29e41e2c364"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePadLeft"",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90c86fac-5359-4307-a679-1772c3c90f3d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePadRight"",
+                    ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -739,6 +781,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
+        m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
         m_Player_Drive = m_Player.FindAction("Drive", throwIfNotFound: true);
         m_Player_Drive1 = m_Player.FindAction("Drive1", throwIfNotFound: true);
     }
@@ -922,6 +965,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Switch;
+    private readonly InputAction m_Player_Brake;
     private readonly InputAction m_Player_Drive;
     private readonly InputAction m_Player_Drive1;
     public struct PlayerActions
@@ -930,6 +974,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
         public PlayerActions(@Player1Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
+        public InputAction @Brake => m_Wrapper.m_Player_Brake;
         public InputAction @Drive => m_Wrapper.m_Player_Drive;
         public InputAction @Drive1 => m_Wrapper.m_Player_Drive1;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -947,6 +992,9 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
             @Switch.started += instance.OnSwitch;
             @Switch.performed += instance.OnSwitch;
             @Switch.canceled += instance.OnSwitch;
+            @Brake.started += instance.OnBrake;
+            @Brake.performed += instance.OnBrake;
+            @Brake.canceled += instance.OnBrake;
             @Drive.started += instance.OnDrive;
             @Drive.performed += instance.OnDrive;
             @Drive.canceled += instance.OnDrive;
@@ -963,6 +1011,9 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
             @Switch.started -= instance.OnSwitch;
             @Switch.performed -= instance.OnSwitch;
             @Switch.canceled -= instance.OnSwitch;
+            @Brake.started -= instance.OnBrake;
+            @Brake.performed -= instance.OnBrake;
+            @Brake.canceled -= instance.OnBrake;
             @Drive.started -= instance.OnDrive;
             @Drive.performed -= instance.OnDrive;
             @Drive.canceled -= instance.OnDrive;
@@ -1066,6 +1117,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnBrake(InputAction.CallbackContext context);
         void OnDrive(InputAction.CallbackContext context);
         void OnDrive1(InputAction.CallbackContext context);
     }

@@ -540,6 +540,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Brake",
+                    "type": "Value",
+                    "id": "bf8528f9-abae-47b6-80a6-939d5257e59c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Drive",
                     "type": "Button",
                     "id": "ffae8b0e-6758-4c10-98e4-70b72f3692e9",
@@ -575,7 +584,7 @@
                     "id": "dc872f7a-889e-466e-b058-30961715b25e",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.3)",
                     "groups": "GamePadRight",
                     "action": "Move",
                     "isComposite": false,
@@ -586,7 +595,7 @@
                     "id": "5144a293-7db3-4eb9-af08-5b8f89372502",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.3)",
                     "groups": "GamePadLeft",
                     "action": "Move",
                     "isComposite": false,
@@ -622,6 +631,39 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Drive1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64d48382-ddb3-4a10-870a-b7cfa48608ac",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac7af60b-8191-4f06-bd1b-d29e41e2c364",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePadLeft",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90c86fac-5359-4307-a679-1772c3c90f3d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePadRight",
+                    "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

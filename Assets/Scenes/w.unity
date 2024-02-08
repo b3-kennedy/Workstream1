@@ -1661,6 +1661,8 @@ MonoBehaviour:
   audioSource: {fileID: 136387855}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 969389080}
 --- !u!54 &136387850
 Rigidbody:
@@ -4269,6 +4271,8 @@ MonoBehaviour:
   audioSource: {fileID: 505563387}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1033452225}
 --- !u!54 &505563382
 Rigidbody:
@@ -6472,7 +6476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &660391013
 Transform:
   m_ObjectHideFlags: 0
@@ -11592,6 +11596,8 @@ MonoBehaviour:
   audioSource: {fileID: 1167082973}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1255919251}
 --- !u!54 &1167082968
 Rigidbody:
@@ -12211,6 +12217,8 @@ MonoBehaviour:
   audioSource: {fileID: 1204578633}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1719604799}
 --- !u!54 &1204578628
 Rigidbody:
@@ -13874,9 +13882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641ca45d2c61df445af7901c8bb68e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToStart: 30
-  minTimeBetweenEvents: 10
-  maxTimeBetweenEvents: 30
+  timeToStart: 5
+  minTimeBetweenEvents: 5
+  maxTimeBetweenEvents: 25
   events:
   - eventName: Double Points
     randomEvent: {fileID: 642961290345391937, guid: 493afe79ede22a3458dd849dfa4f3747, type: 3}
@@ -15771,6 +15779,8 @@ MonoBehaviour:
   audioSource: {fileID: 1507526899}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 754398513}
 --- !u!54 &1507526894
 Rigidbody:
@@ -16962,9 +16972,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b552626659046449065796f08849ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
-  carPrefab2: {fileID: 5312223292022720695, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
-  carPrefab3: {fileID: 6050832578905188880, guid: ce0fa2aea4aa8174380a20192304bff6, type: 3}
+  carPrefab: {fileID: 7886231112632577714, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  carPrefab2: {fileID: 7886231112632577714, guid: 5048bde0e6fc57646b1d1b8ba4f4b99c, type: 3}
+  carPrefab3: {fileID: 7886231112632577714, guid: 0f48b19e3fcaf114baf53ba9e379344e, type: 3}
   car: {fileID: 0}
   spawnHeight: -10
   moveUpDuration: 1
@@ -21271,6 +21281,8 @@ MonoBehaviour:
   audioSource: {fileID: 2073384918}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1250350625}
 --- !u!54 &2073384913
 Rigidbody:
@@ -22150,6 +22162,8 @@ MonoBehaviour:
   audioSource: {fileID: 2102835077}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 754305646}
 --- !u!136 &2102835080
 CapsuleCollider:

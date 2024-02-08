@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2125,6 +2125,8 @@ MonoBehaviour:
   audioSource: {fileID: 136387855}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 969389080}
 --- !u!54 &136387850
 Rigidbody:
@@ -6678,6 +6680,8 @@ MonoBehaviour:
   audioSource: {fileID: 505563387}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1033452225}
 --- !u!54 &505563382
 Rigidbody:
@@ -7628,14 +7632,14 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 674403f84007b864b9bb4d8932349aec, type: 2}
   - {fileID: 2100000, guid: 70a56583c14e2184abfa09cb39ef3828, type: 2}
   scoreTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1281731979}
+  - {fileID: 754305646}
+  - {fileID: 1033452225}
+  - {fileID: 754398513}
+  - {fileID: 969389080}
+  - {fileID: 1719604799}
+  - {fileID: 1255919251}
+  - {fileID: 1250350625}
   playerSpawnParent: {fileID: 1554133457}
 --- !u!1001 &554661934
 PrefabInstance:
@@ -9739,7 +9743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Size.y
-      value: 3.6675656
+      value: 0.065111876
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Size.z
@@ -9751,7 +9755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Center.y
-      value: 1.8337828
+      value: 0.032555938
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Center.z
@@ -11166,6 +11170,8 @@ MonoBehaviour:
   audioSource: {fileID: 797877032}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1281731979}
 --- !u!82 &797877032
 AudioSource:
@@ -15900,6 +15906,8 @@ MonoBehaviour:
   audioSource: {fileID: 1167082973}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1255919251}
 --- !u!54 &1167082968
 Rigidbody:
@@ -16581,6 +16589,8 @@ MonoBehaviour:
   audioSource: {fileID: 1204578633}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1719604799}
 --- !u!54 &1204578628
 Rigidbody:
@@ -18731,15 +18741,7 @@ MonoBehaviour:
   smoothing: 0.5
   maxY: 320
   minY: 145
-  targets:
-  - {fileID: 797877026}
-  - {fileID: 2102835076}
-  - {fileID: 505563386}
-  - {fileID: 1507526898}
-  - {fileID: 136387854}
-  - {fileID: 1204578632}
-  - {fileID: 1167082972}
-  - {fileID: 2073384917}
+  targets: []
 --- !u!1001 &1297336938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21463,6 +21465,8 @@ MonoBehaviour:
   audioSource: {fileID: 1507526899}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 754398513}
 --- !u!54 &1507526894
 Rigidbody:
@@ -22778,9 +22782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b552626659046449065796f08849ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 7707067220034693487, guid: 283a3c7cef191084d90f60c02ab253e3, type: 3}
-  carPrefab2: {fileID: 5312223292022720695, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
-  carPrefab3: {fileID: 6050832578905188880, guid: ce0fa2aea4aa8174380a20192304bff6, type: 3}
+  carPrefab: {fileID: 7886231112632577714, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  carPrefab2: {fileID: 7886231112632577714, guid: 5048bde0e6fc57646b1d1b8ba4f4b99c, type: 3}
+  carPrefab3: {fileID: 7886231112632577714, guid: 0f48b19e3fcaf114baf53ba9e379344e, type: 3}
   car: {fileID: 0}
   spawnHeight: -10
   moveUpDuration: 1
@@ -23622,7 +23626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Size.y
-      value: 3.6675656
+      value: 0.15308253
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Size.z
@@ -23630,11 +23634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Center.x
-      value: -5.383354
+      value: -5.3833547
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Center.y
-      value: 1.8337828
+      value: 0.07654127
       objectReference: {fileID: 0}
     - target: {fileID: 2916385562404018719, guid: c9799bbb50f6705419ab2d945e1afa5e, type: 3}
       propertyPath: m_Center.z
@@ -28946,6 +28950,8 @@ MonoBehaviour:
   audioSource: {fileID: 2073384918}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 1250350625}
 --- !u!54 &2073384913
 Rigidbody:
@@ -29931,6 +29937,8 @@ MonoBehaviour:
   audioSource: {fileID: 2102835077}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 0
+  dashForce: 0
   scoreTextMesh: {fileID: 754305646}
 --- !u!136 &2102835080
 CapsuleCollider:

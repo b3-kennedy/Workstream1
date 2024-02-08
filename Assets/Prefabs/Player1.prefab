@@ -161,6 +161,8 @@ MonoBehaviour:
   audioSource: {fileID: 457595400917258163}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 1
+  dashForce: 200
   scoreTextMesh: {fileID: 0}
 --- !u!82 &457595400917258163
 AudioSource:
@@ -376,8 +378,8 @@ MonoBehaviour:
     m_ActionName: Player/Drive1[/XInputControllerWindows2/rightTrigger,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger,/XInputControllerWindows3/rightTrigger,/XInputControllerWindows4/rightTrigger,/XInputControllerWindows5/rightTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: a16e6fdc-b50c-47fb-84b6-ade233b867b7
-    m_ActionName: Player/KeyboardMove[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: bf8528f9-abae-47b6-80a6-939d5257e59c
+    m_ActionName: Player/Brake[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -395,6 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e59197bf3a65cb458e17a4ab1f45a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToReset: 3
+  timeToReset: 2
   nonTriggerCollider: {fileID: 8271459979058246132}
   cooldownTimerText: {fileID: 4244518369567231507, guid: 6c0f3db58d4923046b7d907d9d364889, type: 3}

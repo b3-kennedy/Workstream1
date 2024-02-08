@@ -7,13 +7,14 @@ public class CarMovements : MonoBehaviour
 {
     private Player1Input controls;
     private CarSpawner carSpawner;
-    private bool isInputEnabled = false;
+    [HideInInspector] public bool isInputEnabled = false;
 
     public float carSpeed = 100f;
     public float parkingSpaceRadius = 1.0f;
 
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
+    public Material defaultMat;
 
     public ParticleSystem explosionParticleSystem;
 
@@ -62,15 +63,16 @@ public class CarMovements : MonoBehaviour
     public float diff = 1f;
     public bool spawnDamage = false;
 
-   public GameObject explosionEffectPrefab;
+    public GameObject explosionEffectPrefab;
+
+    Vector3 testMove;
 
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
 
-
-        sphereRB.transform.parent = null;
+        //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
 
 
@@ -119,7 +121,7 @@ public class CarMovements : MonoBehaviour
         {
             currentDriver.SetActive(true);
             currentDriver.GetComponent<PlayerController>().OnSpawn();
-            currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
+            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
@@ -132,6 +134,11 @@ public class CarMovements : MonoBehaviour
             }
             currentDriver = null;
             isInputEnabled = false;
+            if (!parked)
+            {
+                transform.tag = "freeCar";
+                SetColor(defaultMat, currentDriverIndex);
+            }
         }
 
 
@@ -141,69 +148,71 @@ public class CarMovements : MonoBehaviour
 
     private void Update()
     {
-        if(currentDriver != null)
-        {
-            if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
-            {
+        //if(currentDriver != null)
+        //{
+        //    if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
+        //    {
 
 
-                Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
-                Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
+        //        Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
+        //        Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
 
-                if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
-                {
+        //        if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
+        //        {
 
-                    for (int i = 0; i < Gamepad.all.Count; i++)
-                    {
-                        if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-                        {
-                            Vector2 movementInput = new Vector2(stickL.x, stickL.y);
-                            moveInput = movementInput.y;
-                            turnInput = movementInput.x;
-                            float buttonP = controls.Player.Drive.ReadValue<float>();
-                            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-                        }
-                    }
-                }
-                else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
-                {
-                    for (int i = 0; i < Gamepad.all.Count; i++)
-                    {
-                        if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-                        {
-                            Vector2 movementInput = new Vector2(stickR.x, stickR.y);
-                            moveInput = movementInput.y;
-                            turnInput = movementInput.x;
-                            float buttonP = controls.Player.Drive.ReadValue<float>();
-                            moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+        //            for (int i = 0; i < Gamepad.all.Count; i++)
+        //            {
+        //                if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+        //                {
+        //                    Vector2 movementInput = new Vector2(stickL.x, stickL.y);
+        //                    testMove = new Vector3(stickL.x, 0, stickL.y);
+        //                    moveInput = movementInput.y;
+        //                    turnInput = movementInput.x;
+        //                    float buttonP = controls.Player.Drive.ReadValue<float>();
+        //                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
 
 
-                        }
-                    }
-                }
-            }
+        //                }
+        //            }
+        //        }
+        //        else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
+        //        {
+        //            for (int i = 0; i < Gamepad.all.Count; i++)
+        //            {
+        //                if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
+        //                {
+        //                    Vector2 movementInput = new Vector2(stickR.x, stickR.y);
+        //                    testMove = new Vector3(stickR.x, 0, stickR.y);
+        //                    moveInput = movementInput.y;
+        //                    turnInput = movementInput.x;
+        //                    float buttonP = controls.Player.Drive.ReadValue<float>();
+        //                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
+
+
+        //                }
+        //            }
+        //        }
+        //    }
         
         
 
 
-            Quaternion currentRotation = transform.rotation;
-            float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
+        //    Quaternion currentRotation = transform.rotation;
+        //    float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
 
-            if (rotationDifference > diff)  // Adjust the threshold as needed
-            {
-                screechAudio.Play();
-            }
+        //    if (rotationDifference > diff)  // Adjust the threshold as needed
+        //    {
+        //        screechAudio.Play();
+        //    }
 
-            previousRotation = currentRotation;
+        //    previousRotation = currentRotation;
 
-        }
+        //}
 
 
-        transform.position = sphereRB.transform.position;
-        float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-        transform.Rotate(0f, newRotation, 0f, Space.World);
+        //transform.position = sphereRB.transform.position;
+        //float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
+        //transform.Rotate(0f, newRotation, 0f, Space.World);
         //sphereRB.transform.Rotate(0f, newRotation, 0f, Space.World);
 
 
@@ -211,7 +220,7 @@ public class CarMovements : MonoBehaviour
 
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
-
+        
         //  change parking conditions 
         if (colliders.Length > 0 && moveInput < 1&& thisCar.isParked == false && currentDriver!=null)
         {
@@ -265,9 +274,9 @@ public class CarMovements : MonoBehaviour
             //makes car heavy after parking
             //carRB.drag = 15;
            // carRB.mass = 15;
-            sphereRB.drag = 5;
-            sphereRB.mass = 5;
-            transform.Rotate(0f, 0f, 0f, Space.World);
+            //sphereRB.drag = 5;
+            //sphereRB.mass = 5;
+            //transform.Rotate(0f, 0f, 0f, Space.World);
             // carRB.constraints = RigidbodyConstraints.FreezePositionY;
             /*thiscarRB.drag = 100;
             thiscarRB.mass = 100;*/
@@ -288,11 +297,13 @@ public class CarMovements : MonoBehaviour
 
         if (isInputEnabled)
         {
-            sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+            
+            //sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+            //transform.Translate(testMove * 100 * Time.deltaTime);
 
         }
 
-        carRB.MoveRotation(transform.rotation);
+        //carRB.MoveRotation(transform.rotation);
     }
 
     
@@ -452,7 +463,7 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void ShowFloatingLostLife()
+    public void ShowFloatingLostLife()
     {
         if (FloatingTextPrefab != null)
         {
