@@ -107,7 +107,7 @@ public class CarMovements : MonoBehaviour
     {
         isInputEnabled = true;
 
-        carSpawner.OnCarPickedUp(thisCar);
+        
 
         currentDriver = playerObject;
         currentDriverIndex = driverIndex;
@@ -139,10 +139,19 @@ public class CarMovements : MonoBehaviour
                 transform.tag = "freeCar";
                 SetColor(defaultMat, currentDriverIndex);
             }
+            else
+            {
+                carSpawner.OnCarPickedUp(thisCar);
+            }
         }
 
 
 
+    }
+
+    private void OnDestroy()
+    {
+        carSpawner.OnCarPickedUp(thisCar);
     }
 
 
