@@ -39,17 +39,17 @@ public class NewCarMovement : MonoBehaviour
 
                 if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft")
                 {
-                    if (movements.currentDriver.GetComponent<PlayerController>().pad.dpad.down.isPressed)
-                    {
-                        movements.DisableInput();
-                    }
-
                     for (int i = 0; i < Gamepad.all.Count; i++)
                     {
                         if (Gamepad.all[i] == movements.currentDriver.GetComponent<PlayerController>().pad)
                         {
 
                             brake = movements.currentDriver.GetComponent<PlayerController>().pad.leftTrigger.ReadValue();
+
+                            if (movements.currentDriver.GetComponent<PlayerController>().pad.dpad.down.isPressed)
+                            {
+                                movements.DisableInput();
+                            }
 
                             move = new Vector3(stickL.x, 0, stickL.y);
                             horizontal = stickL.x;
@@ -67,13 +67,16 @@ public class NewCarMovement : MonoBehaviour
                     {
                         if (Gamepad.all[i] == movements.currentDriver.GetComponent<PlayerController>().pad)
                         {
+
+
+
+
+                            brake = movements.currentDriver.GetComponent<PlayerController>().pad.rightTrigger.ReadValue();
+
                             if (movements.currentDriver.GetComponent<PlayerController>().pad.aButton.isPressed)
                             {
                                 movements.DisableInput();
                             }
-
-
-                            brake = movements.currentDriver.GetComponent<PlayerController>().pad.rightTrigger.ReadValue();
 
                             move = new Vector3(stickR.x, 0, stickR.y);
                             horizontal = stickR.x;
