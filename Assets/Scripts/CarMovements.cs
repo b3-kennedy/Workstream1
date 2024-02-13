@@ -32,6 +32,10 @@ public class CarMovements : MonoBehaviour
 
     public bool Azine = false;
 
+    bool invulnerable;
+    public float invulnerableTime;
+    float invulnerableTimer;
+
 
     public event Action OnCarParked;
     public int parkingScoreEarned;
@@ -157,75 +161,16 @@ public class CarMovements : MonoBehaviour
 
     private void Update()
     {
-        //if(currentDriver != null)
-        //{
-        //    if (isInputEnabled && currentDriver.GetComponent<PlayerController>().pad != null)
-        //    {
 
-
-        //        Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
-        //        Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
-
-        //        if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
-        //        {
-
-        //            for (int i = 0; i < Gamepad.all.Count; i++)
-        //            {
-        //                if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-        //                {
-        //                    Vector2 movementInput = new Vector2(stickL.x, stickL.y);
-        //                    testMove = new Vector3(stickL.x, 0, stickL.y);
-        //                    moveInput = movementInput.y;
-        //                    turnInput = movementInput.x;
-        //                    float buttonP = controls.Player.Drive.ReadValue<float>();
-        //                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-        //                }
-        //            }
-        //        }
-        //        else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
-        //        {
-        //            for (int i = 0; i < Gamepad.all.Count; i++)
-        //            {
-        //                if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-        //                {
-        //                    Vector2 movementInput = new Vector2(stickR.x, stickR.y);
-        //                    testMove = new Vector3(stickR.x, 0, stickR.y);
-        //                    moveInput = movementInput.y;
-        //                    turnInput = movementInput.x;
-        //                    float buttonP = controls.Player.Drive.ReadValue<float>();
-        //                    moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-        //                }
-        //            }
-        //        }
-        //    }
-        
-        
-
-
-        //    Quaternion currentRotation = transform.rotation;
-        //    float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
-
-        //    if (rotationDifference > diff)  // Adjust the threshold as needed
-        //    {
-        //        screechAudio.Play();
-        //    }
-
-        //    previousRotation = currentRotation;
-
-        //}
-
-
-        //transform.position = sphereRB.transform.position;
-        //float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-        //transform.Rotate(0f, newRotation, 0f, Space.World);
-        //sphereRB.transform.Rotate(0f, newRotation, 0f, Space.World);
-
-
-
+        if (invulnerable)
+        {
+            invulnerableTimer += Time.deltaTime;
+            if(invulnerableTimer >= invulnerableTime)
+            {
+                invulnerable = false;
+                invulnerableTimer = 0;
+            }
+        }
 
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
@@ -474,11 +419,12 @@ public class CarMovements : MonoBehaviour
 
     public void ShowFloatingLostLife()
     {
-        if (FloatingTextPrefab != null)
+        if (FloatingTextPrefab != null && !invulnerable)
         {
             var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
             go.GetComponent<TextMesh>().color = Color.red;
             go.GetComponent<TextMesh>().text = "" + thisCar.life;
+            invulnerable = true;
         }
     }
     

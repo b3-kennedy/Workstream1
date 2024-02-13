@@ -2718,7 +2718,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &238939211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 5d468fe6b5dc7394b846eed1357140ef, type: 3}
@@ -6834,7 +6834,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &607088966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8622,7 +8622,7 @@ MonoBehaviour:
   scores: 0000000000000000000000000000000000000000000000000000000000000000
   winLimit: 200
   timerTxt: {fileID: 1651820546}
-  TimeLeft: 300
+  TimeLeft: 180
   TimerOn: 0
 --- !u!4 &777878665 stripped
 Transform:
@@ -10163,7 +10163,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &915529723
 GameObject:
   m_ObjectHideFlags: 0
@@ -16155,7 +16155,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1387575765
 PrefabInstance:
   m_ObjectHideFlags: 0

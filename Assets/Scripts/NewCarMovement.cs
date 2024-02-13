@@ -15,12 +15,14 @@ public class NewCarMovement : MonoBehaviour
     public float breakPower;
     float brake;
     CarMovements movements;
+    string controlScheme;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         movements = GetComponent<CarMovements>();
+        
     }
 
     // Update is called once per frame
@@ -29,63 +31,69 @@ public class NewCarMovement : MonoBehaviour
 
         if (movements.currentDriver != null)
         {
-            if (movements.isInputEnabled && movements.currentDriver.GetComponent<PlayerController>().pad != null)
+            var playerController = movements.currentDriver.GetComponent<PlayerController>();
+            controlScheme = GetComponent<PlayerInput>().currentControlScheme;
+
+            if (movements.isInputEnabled && playerController.pad != null)
             {
 
 
-                Vector2 stickL = movements.currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
-                Vector2 stickR = movements.currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
+                Vector2 stickL = playerController.pad.leftStick.ReadValue();
+                Vector2 stickR = playerController.pad.rightStick.ReadValue();
                 
 
-                if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft")
+                if (controlScheme == "GamePadLeft")
                 {
-                    for (int i = 0; i < Gamepad.all.Count; i++)
+
+                    brake = playerController.pad.leftTrigger.ReadValue();
+
+                    if (playerController.pad.dpad.down.isPressed)
                     {
-                        if (Gamepad.all[i] == movements.currentDriver.GetComponent<PlayerController>().pad)
-                        {
-
-                            brake = movements.currentDriver.GetComponent<PlayerController>().pad.leftTrigger.ReadValue();
-
-                            if (movements.currentDriver.GetComponent<PlayerController>().pad.dpad.down.isPressed)
-                            {
-                                movements.DisableInput();
-                            }
-
-                            move = new Vector3(stickL.x, 0, stickL.y);
-                            horizontal = stickL.x;
-                            vertical = stickL.y;
-
-                        }
+                        movements.DisableInput();
                     }
+
+                    move = new Vector3(stickL.x, 0, stickL.y);
+                    horizontal = stickL.x;
+                    vertical = stickL.y;
+
+                    //for (int i = 0; i < Gamepad.all.Count; i++)
+                    //{
+                    //    if (Gamepad.all[i] == playerController.pad)
+                    //    {
+
+
+
+                    //    }
+                    //}
                 }
-                else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight")
+                else if (controlScheme == "GamePadRight")
                 {
 
-                    
+                    brake = playerController.pad.rightTrigger.ReadValue();
 
-                    for (int i = 0; i < Gamepad.all.Count; i++)
+                    if (playerController.pad.aButton.isPressed)
                     {
-                        if (Gamepad.all[i] == movements.currentDriver.GetComponent<PlayerController>().pad)
-                        {
+                        movements.DisableInput();
+                    }
+
+                    move = new Vector3(stickR.x, 0, stickR.y);
+                    horizontal = stickR.x;
+                    vertical = stickR.y;
+
+                    //for (int i = 0; i < Gamepad.all.Count; i++)
+                    //{
+                    //    if (Gamepad.all[i] == playerController.pad)
+                    //    {
 
 
 
 
-                            brake = movements.currentDriver.GetComponent<PlayerController>().pad.rightTrigger.ReadValue();
 
-                            if (movements.currentDriver.GetComponent<PlayerController>().pad.aButton.isPressed)
-                            {
-                                movements.DisableInput();
-                            }
-
-                            move = new Vector3(stickR.x, 0, stickR.y);
-                            horizontal = stickR.x;
-                            vertical = stickR.y;
                             
 
 
-                        }
-                    }
+                    //    }
+                    //}
                 }
             }
 

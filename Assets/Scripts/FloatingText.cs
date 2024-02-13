@@ -6,6 +6,7 @@ public class FloatingText : MonoBehaviour
 {
     private float destroyTime = 2.5f;
     private Vector3 changeScale = new Vector3(-0.1f, 0, 0);
+    TextMesh textMesh;
 
     public AudioSource audioSource;
         void Start()
@@ -13,11 +14,12 @@ public class FloatingText : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
         audioSource.Play();
         Destroy(gameObject, destroyTime);
+        textMesh = GetComponent<TextMesh>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMesh>().fontSize -= 1;
+        textMesh.fontSize -= 1;
     }
 }

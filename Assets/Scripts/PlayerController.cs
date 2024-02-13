@@ -36,20 +36,23 @@ public class PlayerController : MonoBehaviour
 
     public float dashForce;
     public TMP_Text scoreTextMesh;
-    Rigidbody rigidbody;
+    Rigidbody rb;
     CarMovements carMovement;
+    PlayerInput playerInput;
 
 
     public Gamepad pad;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
         //playerIndex = int.Parse(objectName) - 1;
         audioSource = GetComponent<AudioSource>();
+
+        playerInput = GetComponent<PlayerInput>();
 
 
         //deviceIndex = context.control.device.device.deviceId;
@@ -119,38 +122,23 @@ public class PlayerController : MonoBehaviour
             Vector2 stickL = pad.leftStick.ReadValue();
             Vector2 stickR = pad.rightStick.ReadValue();
 
-            if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft")
+            if (playerInput.currentControlScheme == "GamePadLeft")
             {
-                for (int i = 0; i < Gamepad.all.Count; i++)
-                {
-                    if (Gamepad.all[i] == pad)
-                    {
-                        dash = pad.leftShoulder.isPressed;
-                        //scoreTextMesh.text = "" + score;
-                        movement = new Vector3(stickL.x, 0f, stickL.y);
-                        //rigidbody.velocity =  movement;
-                        transform.Translate(movement * moveSpeed * Time.deltaTime);
 
-
-                    }
-                }
+                dash = pad.leftShoulder.isPressed;
+                //scoreTextMesh.text = "" + score;
+                movement = new Vector3(stickL.x, 0f, stickL.y);
+                //rigidbody.velocity =  movement;
+                transform.Translate(movement * moveSpeed * Time.deltaTime);
             }
-            else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight")
+            else if (playerInput.currentControlScheme == "GamePadRight")
             {
-                for (int i = 0; i < Gamepad.all.Count; i++)
-                {
-                    if (Gamepad.all[i] == pad)
-                    {
 
-                        dash = pad.rightShoulder.isPressed;
-                        //scoreTextMesh.text = "" + score;
-                        movement = new Vector3(stickR.x, 0f, stickR.y);
-                        //rigidbody.velocity =  movement;
-                        transform.Translate(movement * moveSpeed * Time.deltaTime);
-
-
-                    }
-                }
+                dash = pad.rightShoulder.isPressed;
+                //scoreTextMesh.text = "" + score;
+                movement = new Vector3(stickR.x, 0f, stickR.y);
+                //rigidbody.velocity =  movement;
+                transform.Translate(movement * moveSpeed * Time.deltaTime);
             }
         }
 
@@ -172,7 +160,7 @@ public class PlayerController : MonoBehaviour
     {
         if (dash && canDash)
         {
-            rigidbody.AddForce(movement * dashForce, ForceMode.Impulse);
+            rb.AddForce(movement * dashForce, ForceMode.Impulse);
             canDash = false;
         }
     }
