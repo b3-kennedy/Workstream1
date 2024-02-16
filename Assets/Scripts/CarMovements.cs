@@ -445,27 +445,30 @@ public class CarMovements : MonoBehaviour
 
     public void ReduceLifeOnDamage(int damage)
     {
-        
-        if (thisCar.life - damage <= 0 )
+        if (!invulnerable)
         {
+            if (thisCar.life - damage <= 0)
+            {
 
-            // colSCREAM.Play();
+                // colSCREAM.Play();
 
-            DisableInput();
+                DisableInput();
 
-            ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
+                ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
 
-            //play audio
+                //play audio
 
-            colSCREAM.Play();
+                colSCREAM.Play();
 
+            }
+            else
+            {
+                thisCar.life -= damage;
+            }
         }
-        else
-        {
-            thisCar.life -= damage;
-        }
+
     }
 
 }
