@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class SelectScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject collum;
-    public List<Sprite> chars = new List<Sprite>();
-    public List<Color> colors = new List<Color>(); 
+    public List<GameObject> list = new List<GameObject>();
     private int selectedSkin = 0;
     private GameObject tempGO;
     private void Start()
@@ -29,24 +28,13 @@ public class SelectScreenManager : MonoBehaviour
     {
     
         selectedSkin = selectedSkin + 1;
-        if(selectedSkin == chars.Count)
-        {
-            selectedSkin = 0;
-        }
-        tempGO.GetComponentInChildren<Image>().sprite = chars[selectedSkin];
-        tempGO.GetComponent<Image>().material.color = colors[selectedSkin];
-        Instantiate(tempGO, this.transform);
+       tempGO = list[selectedSkin];
+        tempGO.SetActive(true);
     }
     public void BackOption()
     {
         selectedSkin = selectedSkin - 1;
-        if (selectedSkin < 0)
-        {
-            selectedSkin = chars.Count -1;
-        }
-        tempGO.GetComponentInChildren<Image>().sprite = chars[selectedSkin];
-        tempGO.GetComponent<Image>().material.color = colors[selectedSkin];
-        int numchild = this.transform.childCount;
-        Destroy(this.transform.GetChild(numchild - 1).gameObject);
+        tempGO = list[selectedSkin];
+        tempGO.SetActive(false);
     }
 }
