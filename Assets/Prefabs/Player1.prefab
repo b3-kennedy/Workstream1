@@ -155,7 +155,7 @@ MonoBehaviour:
   moveSpeed: 12
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 7
   controllerSide: 0
   controlScheme: 
   audioSource: {fileID: 457595400917258163}
@@ -164,6 +164,7 @@ MonoBehaviour:
   dashCooldown: 1
   dashForce: 200
   scoreTextMesh: {fileID: 0}
+  playerNumberText: {fileID: 0}
 --- !u!82 &457595400917258163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -380,6 +381,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bf8528f9-abae-47b6-80a6-939d5257e59c
     m_ActionName: Player/Brake[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8f3894a-21f3-4652-91b6-5c4a2634f11d
+    m_ActionName: Player/SouthButton[/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

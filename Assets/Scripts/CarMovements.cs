@@ -137,6 +137,7 @@ public class CarMovements : MonoBehaviour
                     }
                 }
             }
+            GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
             currentDriver = null;
             isInputEnabled = false;
             if (!parked)
@@ -148,6 +149,8 @@ public class CarMovements : MonoBehaviour
             {
                 carSpawner.OnCarPickedUp(thisCar);
             }
+
+            
         }
 
 

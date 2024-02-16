@@ -609,6 +609,15 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SouthButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8f3894a-21f3-4652-91b6-5c4a2634f11d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -708,6 +717,17 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""GamePadRight"",
                     ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6287e589-2f7f-42a6-be26-f91d84144902"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SouthButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -811,6 +831,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
         m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
         m_Player_Drive = m_Player.FindAction("Drive", throwIfNotFound: true);
         m_Player_Drive1 = m_Player.FindAction("Drive1", throwIfNotFound: true);
+        m_Player_SouthButton = m_Player.FindAction("SouthButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -995,6 +1016,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Brake;
     private readonly InputAction m_Player_Drive;
     private readonly InputAction m_Player_Drive1;
+    private readonly InputAction m_Player_SouthButton;
     public struct PlayerActions
     {
         private @Player1Input m_Wrapper;
@@ -1004,6 +1026,7 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
         public InputAction @Brake => m_Wrapper.m_Player_Brake;
         public InputAction @Drive => m_Wrapper.m_Player_Drive;
         public InputAction @Drive1 => m_Wrapper.m_Player_Drive1;
+        public InputAction @SouthButton => m_Wrapper.m_Player_SouthButton;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1028,6 +1051,9 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
             @Drive1.started += instance.OnDrive1;
             @Drive1.performed += instance.OnDrive1;
             @Drive1.canceled += instance.OnDrive1;
+            @SouthButton.started += instance.OnSouthButton;
+            @SouthButton.performed += instance.OnSouthButton;
+            @SouthButton.canceled += instance.OnSouthButton;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1047,6 +1073,9 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
             @Drive1.started -= instance.OnDrive1;
             @Drive1.performed -= instance.OnDrive1;
             @Drive1.canceled -= instance.OnDrive1;
+            @SouthButton.started -= instance.OnSouthButton;
+            @SouthButton.performed -= instance.OnSouthButton;
+            @SouthButton.canceled -= instance.OnSouthButton;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1147,5 +1176,6 @@ public partial class @Player1Input: IInputActionCollection2, IDisposable
         void OnBrake(InputAction.CallbackContext context);
         void OnDrive(InputAction.CallbackContext context);
         void OnDrive1(InputAction.CallbackContext context);
+        void OnSouthButton(InputAction.CallbackContext context);
     }
 }

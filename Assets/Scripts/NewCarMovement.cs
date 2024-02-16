@@ -17,6 +17,7 @@ public class NewCarMovement : MonoBehaviour
     float brake;
     CarMovements movements;
     string controlScheme;
+    [HideInInspector] public FollowPlayer playerNumberText;
 
     // Start is called before the first frame update
     void Start()

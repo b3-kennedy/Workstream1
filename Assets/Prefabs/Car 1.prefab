@@ -1703,7 +1703,7 @@ MonoBehaviour:
   currentDriver: {fileID: 0}
   FloatingTextPrefab: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
   Azine: 1
-  invulnerableTime: 0.2
+  invulnerableTime: 0.5
   parkingScoreEarned: 0
   sphereRB: {fileID: 0}
   carRB: {fileID: 0}

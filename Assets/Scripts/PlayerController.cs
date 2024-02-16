@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     CarMovements carMovement;
     PlayerInput playerInput;
 
+    [HideInInspector] public FollowPlayer playerNumberText;
+
 
     public Gamepad pad;
 
@@ -201,6 +203,8 @@ public class PlayerController : MonoBehaviour
         currentCar = car;
         currentCar.SetActive(true);
 
+        playerNumberText.target = car.transform;
+        car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
 
 
 
