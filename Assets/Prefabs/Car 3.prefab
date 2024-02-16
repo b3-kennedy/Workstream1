@@ -1344,6 +1344,7 @@ MonoBehaviour:
   speed: 75
   rotSpeed: 10
   breakPower: 3
+  maxSpeed: 50
 --- !u!54 &3415613533756168473
 Rigidbody:
   m_ObjectHideFlags: 0

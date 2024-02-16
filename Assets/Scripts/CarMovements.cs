@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class CarMovements : MonoBehaviour
 {
@@ -421,9 +422,9 @@ public class CarMovements : MonoBehaviour
     {
         if (FloatingTextPrefab != null && !invulnerable)
         {
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().color = Color.red;
-            go.GetComponent<TextMesh>().text = "" + thisCar.life;
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            go.GetComponent<TextMeshPro>().color = Color.red;
+            go.GetComponent<TextMeshPro>().text = "" + thisCar.life;
             invulnerable = true;
         }
     }
@@ -434,8 +435,8 @@ public class CarMovements : MonoBehaviour
         if (FloatingTextPrefab != null)
         {
 
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            go.GetComponent<TextMeshPro>().text = parkingScoreFloatingText;
         }
 
         OnCarParked?.Invoke();

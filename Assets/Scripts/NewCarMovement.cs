@@ -13,6 +13,7 @@ public class NewCarMovement : MonoBehaviour
     public float speed;
     public float rotSpeed;
     public float breakPower;
+    public float maxSpeed;
     float brake;
     CarMovements movements;
     string controlScheme;
@@ -55,16 +56,6 @@ public class NewCarMovement : MonoBehaviour
                     move = new Vector3(stickL.x, 0, stickL.y);
                     horizontal = stickL.x;
                     vertical = stickL.y;
-
-                    //for (int i = 0; i < Gamepad.all.Count; i++)
-                    //{
-                    //    if (Gamepad.all[i] == playerController.pad)
-                    //    {
-
-
-
-                    //    }
-                    //}
                 }
                 else if (controlScheme == "GamePadRight")
                 {
@@ -79,21 +70,6 @@ public class NewCarMovement : MonoBehaviour
                     move = new Vector3(stickR.x, 0, stickR.y);
                     horizontal = stickR.x;
                     vertical = stickR.y;
-
-                    //for (int i = 0; i < Gamepad.all.Count; i++)
-                    //{
-                    //    if (Gamepad.all[i] == playerController.pad)
-                    //    {
-
-
-
-
-
-                            
-
-
-                    //    }
-                    //}
                 }
             }
 
@@ -120,8 +96,15 @@ public class NewCarMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         if(movements.currentDriver != null) 
         {
+
+            if(move == Vector3.zero)
+            {
+                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * 0.5f);
+            }
+            
             if(brake == 1)
             {
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * breakPower);

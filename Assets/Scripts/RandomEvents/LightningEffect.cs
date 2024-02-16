@@ -11,7 +11,7 @@ public class LightningEffect : MonoBehaviour
     {
         if (GetComponent<NewCarMovement>())
         {
-            GetComponent<NewCarMovement>().speed *= 5;
+            GetComponent<NewCarMovement>().maxSpeed *= 5;
         }
 
         Destroy(this, destroyTime);
@@ -21,7 +21,7 @@ public class LightningEffect : MonoBehaviour
     {
         if (GetComponent<NewCarMovement>())
         {
-            GetComponent<NewCarMovement>().speed /= 5;
+            GetComponent<NewCarMovement>().maxSpeed /= 5;
         }
     }
 
