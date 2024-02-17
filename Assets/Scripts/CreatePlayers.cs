@@ -43,7 +43,7 @@ public class CreatePlayers : MonoBehaviour
         {
             Camera.main.GetComponent<MultipleTargetCamera>().targets.Add(player.transform);
         }
-
+        ScoreUIController.Instance.playersJoined++;
         index++;
     }
 

@@ -34,9 +34,13 @@ public class SelectScreenManager : MonoBehaviour
     
     void Join(int i, PlayerWithController player)
     {
+        
+
         if (Gamepad.all[i].buttonSouth.wasPressedThisFrame && (player.controllerSide == PlayerWithController.ControllerSide.Right &&
     !       player.joined))
         {
+
+            Debug.Log(i);
             player.joined = true;
             player.card = list[index];
             player.card.SetActive(true);
@@ -92,20 +96,15 @@ public class SelectScreenManager : MonoBehaviour
     {
         for (int i = 0;i < Gamepad.all.Count;i++)
         {
-            foreach (var player in PlayerControllerManager.Instance.players)
-            {
-
-                Join(i, player);
-                Leave(i, player);
-
-            }
+            Join(i, PlayerControllerManager.Instance.players[i]);
+            Leave(i, PlayerControllerManager.Instance.players[i]);
 
             
         }
 
         if (Gamepad.all[0].startButton.wasPressedThisFrame)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
 
