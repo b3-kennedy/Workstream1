@@ -16,7 +16,7 @@ public class OnCollidedWith : MonoBehaviour
 
     private void Start()
     {
-        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.Euler(90,0,0));
+        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.Euler(90,0,0));
         spawnedTxt.GetComponent<FollowPlayer>().target = transform;
         spawnedTxt.SetActive(false);
     }
@@ -39,6 +39,7 @@ public class OnCollidedWith : MonoBehaviour
     {
         if (startTimer)
         {
+            GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(false);
             timer += Time.deltaTime;
             float timerText = Mathf.Round((timeToReset - timer) * 10f) * 0.1f;
             spawnedTxt.GetComponent<TextMeshPro>().text = (timerText).ToString();
@@ -47,8 +48,8 @@ public class OnCollidedWith : MonoBehaviour
 
             if (timer >= timeToReset)
             {
-                
-                
+
+                GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
                 timer = 0;
                 GetComponent<PlayerController>().enabled = true;
                 GetComponent<Rigidbody>().isKinematic = false;
