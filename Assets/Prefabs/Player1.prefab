@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 457595400917258163}
   - component: {fileID: 8271459979058246132}
   - component: {fileID: 6912950424151099376}
+  - component: {fileID: 4992095786908824364}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -32,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2701567004596339129}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.148302, y: 1.12, z: -4.024997}
   m_LocalScale: {x: 2.4375, y: 2.4685, z: 2.1750002}
   m_ConstrainProportionsScale: 0
@@ -138,7 +139,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &2263900869508581132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,11 +155,16 @@ MonoBehaviour:
   moveSpeed: 12
   carParked: 0
   score: 0
-  playerIndex: 0
+  playerIndex: 7
+  controllerSide: 0
+  controlScheme: 
   audioSource: {fileID: 457595400917258163}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
   volume: 0.39
+  dashCooldown: 1
+  dashForce: 200
   scoreTextMesh: {fileID: 0}
+  playerNumberText: {fileID: 0}
 --- !u!82 &457595400917258163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -371,8 +377,31 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: cafde7b2-4688-4b5f-9b71-15be7b0f1c8d
     m_ActionName: Player/Drive1[/XInputControllerWindows2/rightTrigger,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger,/XInputControllerWindows3/rightTrigger,/XInputControllerWindows4/rightTrigger,/XInputControllerWindows5/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf8528f9-abae-47b6-80a6-939d5257e59c
+    m_ActionName: Player/Brake[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8f3894a-21f3-4652-91b6-5c4a2634f11d
+    m_ActionName: Player/SouthButton[/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: GamePadLeft
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4992095786908824364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701567004596339129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e59197bf3a65cb458e17a4ab1f45a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReset: 2
+  nonTriggerCollider: {fileID: 8271459979058246132}
+  cooldownTimerText: {fileID: 4244518369567231507, guid: 6c0f3db58d4923046b7d907d9d364889, type: 3}

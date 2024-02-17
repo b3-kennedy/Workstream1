@@ -157,6 +157,7 @@ public class RandomEventController : MonoBehaviour
                     startEvents = true;
                     Debug.Log("Events Starting");
                     Debug.Log("Next Event In: " + betweenEventTime.ToString());
+                    Debug.Log("events");
                 }
             }
         }

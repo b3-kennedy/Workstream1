@@ -29,7 +29,7 @@ public class Meteor : MonoBehaviour
         foreach (Collider col in cols)
         {
 
-            if (col.GetComponent<Rigidbody>() && col.gameObject.layer != 3)
+            if (col.GetComponent<Rigidbody>())
             {
                 Vector3 dir = col.transform.position - transform.position;
 

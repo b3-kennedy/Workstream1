@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5976824152380698151}
   m_Layer: 8
   m_Name: 300ScoreSpots
-  m_TagString: Untagged
+  m_TagString: Parking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 9038618610931571704}
   m_Layer: 8
   m_Name: 300c
-  m_TagString: Untagged
+  m_TagString: Parking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,5 +241,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.69378203, y: 0.20000002, z: 0.76996523}
+  m_Center: {x: 0.020143084, y: 0, z: 0.01822703}

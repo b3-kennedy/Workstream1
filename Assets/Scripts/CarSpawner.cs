@@ -91,7 +91,6 @@ public class CarSpawner : MonoBehaviour
     IEnumerator waiter(CarObject pickedCar)
     {
         yield return new WaitForSeconds(3);
-        Debug.Log(pickedCar.carIndex);
         StartCoroutine(SpawnCar(pickedCar.carIndex));
     }
 

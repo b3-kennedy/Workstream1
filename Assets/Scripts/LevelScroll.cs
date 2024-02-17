@@ -95,6 +95,7 @@ public class LevelScroll : MonoBehaviour
 
     public void ScrollRight()
     {
+        Debug.Log("right");
         index++;
         if (index >= levels.Length)
         {
@@ -104,6 +105,7 @@ public class LevelScroll : MonoBehaviour
 
     public void ScrollLeft()
     {
+        Debug.Log("left");
         if (index <= 0)
         {
             index = levels.Length;

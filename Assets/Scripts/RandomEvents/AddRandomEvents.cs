@@ -16,7 +16,7 @@ public class AddRandomEvents : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("1");
 
         foreach (var e in ActivatedEvents.Instance.events)
         {
