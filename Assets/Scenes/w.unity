@@ -8908,7 +8908,7 @@ MonoBehaviour:
   - {fileID: 597185272}
   - {fileID: 338721173}
   playersJoined: 0
-  TimeLeft: 30
+  TimeLeft: 180
   TimerOn: 0
 --- !u!4 &777878665 stripped
 Transform:
