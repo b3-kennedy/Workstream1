@@ -1,25 +1,82 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ScoreUIController : MonoBehaviour
 {
-    public TMP_Text[] scoresTxt= new TMP_Text[8];
-    public event Action OnEndGame ;
+    public static ScoreUIController Instance;
+
+    public TMP_Text[] scoresTxt = new TMP_Text[8];
+    public event Action OnEndGame;
 
     public string endGameMsg;
     public int[] scores;
 
-    public int winLimit  ;
+    public int winLimit;
+
+    public TMP_Text timerTxt;
+
+    public GameObject[] playerImages;
+    public GameObject[] endGameImages;
+    [HideInInspector] public int playersJoined;
+
+    public float TimeLeft;
+    public bool TimerOn = false;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+
+    private void Start()
+    {
+        TimerOn = true;
+
+        for (int i = endGameImages.Length - 1; i >= 0; i--)
+        {
+            endGameImages[i].gameObject.SetActive(false);
+        }
+
+        for (int i = playersJoined - 1; i >= 0; i--)
+        {
+            endGameImages[i].gameObject.SetActive(true);
+        }
+
+        for (int i = 0; i < playerImages.Length; i++)
+        {
+            playerImages[i].gameObject.SetActive(false);
+            
+        }
+
+        for (int i = 0; i < playersJoined; i++) 
+        {
+            playerImages[i].gameObject.SetActive(true);
+        }
+    }
+
     void Update()
     {
-        for (int i =0; i < 8; i++)
+        if (TimerOn)
+        {
+            if (TimeLeft > 0)
+            {
+                TimeLeft -= Time.deltaTime;
+                UpdateTimer(TimeLeft);
+            }
+            else
+            {
+                endGameMsg = "Time Is Up!";
+                TimeLeft = 0;
+                TimerOn = false;
+                OnEndGame?.Invoke();
+            }
+        }
+        for (int i = 0; i < 8; i++)
         {
             TMP_Text score = scoresTxt[i];
             scores[i] = int.Parse(score.text);
-            if(scores[i] > 1500)
+            if (scores[i] > 20000)
             {
                 endGameMsg = "player #" + (i + 1) + " has won with " + scores[i] + " points!!";
                 Debug.Log(endGameMsg);
@@ -27,5 +84,15 @@ public class ScoreUIController : MonoBehaviour
             }
         }
 
+    }
+    void UpdateTimer(float currentTime)
+    {
+        currentTime += 1;
+
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        if (minutes == 0 && seconds < 30) { timerTxt.color = Color.red; } else { timerTxt.color = Color.white; }
+
+        timerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

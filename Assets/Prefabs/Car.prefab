@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 4515711036789224418}
   - component: {fileID: 2376597791302614665}
   - component: {fileID: 3400728042191974135}
+  - component: {fileID: 4176661897435177515}
   m_Layer: 9
   m_Name: GameObject
   m_TagString: CarCOLLL
@@ -229,8 +230,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0490103, y: 1.2595347, z: 1.2548075}
-  m_Center: {x: -0.31719923, y: 0, z: -0.011668112}
+  m_Size: {x: 3.486646, y: 1.7083969, z: 1.4187486}
+  m_Center: {x: -0.29711533, y: 0.22443092, z: 0.07030283}
 --- !u!54 &2376597791302614665
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,6 +274,18 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &4176661897435177515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859726182751269831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37314c04535fc743a473c8a76ef7af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1032038779212435196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1125,6 @@ GameObject:
   - component: {fileID: 3328564559769476195}
   - component: {fileID: 1851444681506826011}
   - component: {fileID: 2052106435786900484}
-  - component: {fileID: 4760144523002560976}
   - component: {fileID: 6735781363345565325}
   - component: {fileID: 3401457398139685879}
   m_Layer: 3
@@ -1214,20 +1226,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4760144523002560976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5913383536001482622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7041264f98f3641b54a33aa5e79c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colCRASH: {fileID: 3401457398139685879}
-  parentObj: {fileID: 7707067220034693487}
 --- !u!65 &6735781363345565325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1559,6 +1557,9 @@ GameObject:
   - component: {fileID: 8832537507843281090}
   - component: {fileID: 7432031745924120708}
   - component: {fileID: 4570270597839147735}
+  - component: {fileID: 4627084916756172408}
+  - component: {fileID: 6980586804522947572}
+  - component: {fileID: 8025304130307933617}
   m_Layer: 3
   m_Name: Car
   m_TagString: freeCar
@@ -1618,6 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743917b448179a54e8c27c17d2bb2ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInputEnabled: 0
   carSpeed: 40
   parkingSpaceRadius: 1
   driverMaterials:
@@ -1648,6 +1650,7 @@ MonoBehaviour:
   colOOF: {fileID: 7920656987651182496}
   colCRASH: {fileID: 8397564726876504369}
   colSCREAM: {fileID: 3153361140477861548}
+  parked: 0
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
@@ -1781,6 +1784,77 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.77, y: 0.66, z: 6.03}
   m_Center: {x: 0, y: 1.26, z: 0}
+--- !u!114 &4627084916756172408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707067220034693487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1128604659a352f4bac1ae7aaac6c7aa, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &6980586804522947572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707067220034693487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509c3c5253aeb534ab11a9b64d010ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rotSpeed: 10
+--- !u!54 &8025304130307933617
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707067220034693487}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &7996087586216919162
 GameObject:
   m_ObjectHideFlags: 0

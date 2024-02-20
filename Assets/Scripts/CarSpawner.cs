@@ -40,17 +40,20 @@ public class CarSpawner : MonoBehaviour
         if (randomNumber <= 5)
         {
              car = Instantiate(carPrefab, target, Quaternion.identity);
+            RandomEventController.Instance.drivableCars.Add(car);
 
         }
         else if (randomNumber <=8)
         {
              car = Instantiate(carPrefab2, target, Quaternion.identity);
+            RandomEventController.Instance.drivableCars.Add(car);
 
         }
         else 
         {
 
              car = Instantiate(carPrefab3, target, Quaternion.identity);
+            RandomEventController.Instance.drivableCars.Add(car);
 
         }
 
@@ -88,7 +91,6 @@ public class CarSpawner : MonoBehaviour
     IEnumerator waiter(CarObject pickedCar)
     {
         yield return new WaitForSeconds(3);
-        Debug.Log(pickedCar.carIndex);
         StartCoroutine(SpawnCar(pickedCar.carIndex));
     }
 

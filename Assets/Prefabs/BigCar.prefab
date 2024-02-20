@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 5738759279199824462}
   - component: {fileID: 4091045661548724769}
   - component: {fileID: 8543407051351125812}
+  - component: {fileID: 3515205794451580943}
   m_Layer: 9
   m_Name: GameObject
   m_TagString: CarCOLLL
@@ -449,6 +450,18 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &3515205794451580943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007324899049825679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37314c04535fc743a473c8a76ef7af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2448576305894322735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1317,9 @@ GameObject:
   - component: {fileID: 7153236553003093674}
   - component: {fileID: 8735468574777826649}
   - component: {fileID: 3026602803252252482}
+  - component: {fileID: -4088369188851011627}
+  - component: {fileID: 2405367296833332352}
+  - component: {fileID: 7438662127298281089}
   m_Layer: 3
   m_Name: BigCar
   m_TagString: freeCar
@@ -1319,7 +1335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5312223292022720695}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 34.301575, y: 3.48, z: -215.62346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1329,7 +1345,7 @@ Transform:
   - {fileID: 5136332163127830547}
   - {fileID: 4277301484408831769}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3863716316897201200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1363,6 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743917b448179a54e8c27c17d2bb2ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInputEnabled: 0
   carSpeed: 40
   parkingSpaceRadius: 1
   driverMaterials:
@@ -1374,6 +1391,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
   - {fileID: 2100000, guid: dc6ccda1c7d05e64fb3e544015a69e52, type: 2}
   - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
+  defaultMat: {fileID: 0}
   explosionParticleSystem: {fileID: 6479615144095782382, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   currentDriver: {fileID: 0}
   FloatingTextPrefab: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
@@ -1393,6 +1411,7 @@ MonoBehaviour:
   colOOF: {fileID: 7211832043098707230}
   colCRASH: {fileID: 4473245991405568922}
   colSCREAM: {fileID: 4548300079913050715}
+  parked: 0
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
@@ -1526,6 +1545,78 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.77, y: 0.66, z: 6.03}
   m_Center: {x: 0, y: 1.26, z: 0}
+--- !u!114 &-4088369188851011627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312223292022720695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1128604659a352f4bac1ae7aaac6c7aa, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2405367296833332352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312223292022720695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509c3c5253aeb534ab11a9b64d010ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rotSpeed: 10
+  breakPower: 0
+--- !u!54 &7438662127298281089
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312223292022720695}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &6635117309526485147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1757,6 @@ GameObject:
   - component: {fileID: 6520270588281647856}
   - component: {fileID: 7450493020698263698}
   - component: {fileID: 3693196163132774717}
-  - component: {fileID: 129343683006201375}
   - component: {fileID: 4792310345772472578}
   - component: {fileID: 4039676525077673981}
   m_Layer: 3
@@ -1768,20 +1858,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &129343683006201375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7267657231775357299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7041264f98f3641b54a33aa5e79c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colCRASH: {fileID: 4039676525077673981}
-  parentObj: {fileID: 5312223292022720695}
 --- !u!65 &4792310345772472578
 BoxCollider:
   m_ObjectHideFlags: 0
