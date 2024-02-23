@@ -168,7 +168,16 @@ public class SelectScreenManager : MonoBehaviour
     private void Update()
     {
 
+        
 
+        if(index < 0)
+        {
+            index = 0;
+        }
+        else if(index > 7)
+        {
+            index = 7;
+        }
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
@@ -213,6 +222,10 @@ public class SelectScreenManager : MonoBehaviour
                     if (player.pad.buttonWest.wasPressedThisFrame)
                     {
                         player.colourIndex++;
+                        if(player.colourIndex > availableColours.Length-1)
+                        {
+                            player.colourIndex = 0;
+                        }
                         player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
                         player.selectedColour = availableColours[player.colourIndex].color;
                         player.selectedMaterial = availableColours[player.colourIndex].material;
@@ -224,6 +237,10 @@ public class SelectScreenManager : MonoBehaviour
                     if (player.pad.dpad.left.wasPressedThisFrame)
                     {
                         player.colourIndex++;
+                        if (player.colourIndex > availableColours.Length-1)
+                        {
+                            player.colourIndex = 0;
+                        }
                         player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
                         player.selectedColour = availableColours[player.colourIndex].color;
                         player.selectedMaterial = availableColours[player.colourIndex].material;
