@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using UnityEditor;
-using UnityEngine.UI;
 
-public class ChangeScene : MonoBehaviour
+public class EndMenuControl : MonoBehaviour
 {
 
     Gamepad pad;
@@ -26,23 +23,24 @@ public class ChangeScene : MonoBehaviour
 
     void Input()
     {
-        float vertical = pad.leftStick.y.value;
+        float horizontal = pad.leftStick.x.value;
 
-        if ((vertical < 0 && !moved) || (pad.dpad.down.isPressed && !moved))
-        {
-            buttonIndex++;
-            if(buttonIndex > buttons.Length - 1)
-            {
-                buttonIndex = 0;
-            }
-            moved = true;
-        }
-        else if ((vertical > 0 && !moved) || (pad.dpad.up.isPressed && !moved))
+        if ((horizontal < 0 && !moved) || (pad.dpad.left.isPressed && !moved))
         {
             buttonIndex--;
-            if(buttonIndex < 0)
+            if (buttonIndex < 0)
             {
                 buttonIndex = buttons.Length - 1;
+            }
+
+            moved = true;
+        }
+        else if ((horizontal > 0 && !moved) || (pad.dpad.right.isPressed && !moved))
+        {
+            buttonIndex++;
+            if (buttonIndex > buttons.Length - 1)
+            {
+                buttonIndex = 0;
             }
             moved = true;
         }
@@ -79,14 +77,14 @@ public class ChangeScene : MonoBehaviour
 
     private void Update()
     {
-        if(pad != null)
+        if (pad != null)
         {
 
             Input();
             Selection();
             Timer();
 
-            if (pad.aButton.wasPressedThisFrame)
+            if (pad.aButton.isPressed)
             {
                 buttons[buttonIndex].GetComponent<MenuButton>().Activate();
             }
@@ -96,7 +94,7 @@ public class ChangeScene : MonoBehaviour
 
     public void startScene()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
     }
 
     public void quit()

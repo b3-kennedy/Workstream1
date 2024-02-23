@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,6 +9,14 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+[System.Serializable]
+public class ColourMaterialPair
+{
+    public Color color;
+    public Material material;
+}
+
 public class SelectScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject collum;
@@ -15,6 +24,8 @@ public class SelectScreenManager : MonoBehaviour
     private int selectedSkin = 0;
     private GameObject tempGO;
     public GameObject startText;
+
+    public ColourMaterialPair[] availableColours;
 
     public int index = 0;
 
@@ -35,11 +46,21 @@ public class SelectScreenManager : MonoBehaviour
             //    PlayerControllerManager.Instance.players[i].controllerSide = PlayerWithController.ControllerSide.Right;
             //}
         }
+
+        for(int i = 0; transform.childCount > 0; i++)
+        {
+            availableColours[i].color = transform.GetChild(i).GetComponent<Image>().color;
+            //PlayerControllerManager.Instance.players[i].selectedMaterial = availableColours[i].material;
+        }
+
         
         tempGO = collum;
     }
 
+    void PlayerSetup(int i, PlayerWithController player, Controller controller, PlayerWithController.ControllerSide side)
+    {
 
+    }
     
     void Join(int i, PlayerWithController player, Controller controller)
     {
@@ -49,34 +70,49 @@ public class SelectScreenManager : MonoBehaviour
         {
 
             Debug.Log(i);
+            PlayerSetup(i, player, controller, PlayerWithController.ControllerSide.Right);
             player.joined = true;
             player.card = list[index];
-            player.card.SetActive(true);
+            player.card.transform.GetChild(2).gameObject.SetActive(false);
+            //player.card.SetActive(true);
             player.controllerSide = PlayerWithController.ControllerSide.Right;
             controller.right = true;
             controller.playerCard = player.card;
+            player.selectedColour = player.card.GetComponent<Image>().color;
             player.controllerIndex = i;
             player.playerNumber = index;
+            player.card.transform.GetChild(0).gameObject.SetActive(true);
+            player.card.transform.GetChild(3).gameObject.SetActive(true);
+            player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press X/Square button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
+            player.pad = Gamepad.all[i];
+            Debug.Log(player.pad);
             //NextOption();
-            if(index < PlayerControllerManager.Instance.players.Count)
+            if (index < PlayerControllerManager.Instance.players.Count)
             {
                 index++;
             }
             
         }
 
-        if (Gamepad.all[i].dpad.down.wasPressedThisFrame && !player.joined && !controller.left)
+        else if (Gamepad.all[i].dpad.down.wasPressedThisFrame && !player.joined && !controller.left)
         {
             player.joined = true;
             player.card = list[index];
-            player.card.SetActive(true);
+            player.card.transform.GetChild(2).gameObject.SetActive(false);
+            //player.card.SetActive(true);
             player.controllerSide = PlayerWithController.ControllerSide.Left;
             controller.left = true;
             controller.playerCard = player.card;
+            player.selectedColour = player.card.GetComponent<Image>().color;
             player.controllerIndex = i;
             player.playerNumber = index;
+            player.card.transform.GetChild(0).gameObject.SetActive(true);
+            player.card.transform.GetChild(3).gameObject.SetActive(true);
+            player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press Left Dpad button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
+            player.pad = Gamepad.all[i];
+            Debug.Log(player.pad);
             //NextOption();
             if (index < PlayerControllerManager.Instance.players.Count)
             {
@@ -94,7 +130,9 @@ public class SelectScreenManager : MonoBehaviour
                 if(controller.left && (player.controllerIndex == i && player.controllerSide == PlayerWithController.ControllerSide.Left))
                 {
                     player.joined = false;
-                    player.card.SetActive(false);
+                    player.card.transform.GetChild(0).gameObject.SetActive(false);
+                    player.card.transform.GetChild(3).gameObject.SetActive(false);
+                    player.card.transform.GetChild(2).gameObject.SetActive(true);
                     controller.left = false;
                     index--;
 
@@ -113,7 +151,9 @@ public class SelectScreenManager : MonoBehaviour
                 if (controller.right && (player.controllerIndex == i && player.controllerSide == PlayerWithController.ControllerSide.Right))
                 {
                     player.joined = false;
-                    player.card.SetActive(false);
+                    player.card.transform.GetChild(0).gameObject.SetActive(false);
+                    player.card.transform.GetChild(3).gameObject.SetActive(false);
+                    player.card.transform.GetChild(2).gameObject.SetActive(true);
                     controller.right = false;
                     index--;
                 }
@@ -127,6 +167,8 @@ public class SelectScreenManager : MonoBehaviour
 
     private void Update()
     {
+
+
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
@@ -155,6 +197,39 @@ public class SelectScreenManager : MonoBehaviour
         if (Gamepad.all[0].buttonNorth.wasPressedThisFrame && index > 0)
         {
             SceneManager.LoadScene(2);
+        }
+
+        foreach (var player in PlayerControllerManager.Instance.players)
+        {
+            if (player.joined)
+            {
+                if (player.colourIndex > availableColours.Length)
+                {
+                    player.colourIndex = 0;
+                }
+
+                if (player.controllerSide == PlayerWithController.ControllerSide.Right)
+                {
+                    if (player.pad.buttonWest.wasPressedThisFrame)
+                    {
+                        player.colourIndex++;
+                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
+                        player.selectedColour = availableColours[player.colourIndex].color;
+                        player.selectedMaterial = availableColours[player.colourIndex].material;
+
+                    }
+                }
+                else if (player.controllerSide == PlayerWithController.ControllerSide.Left)
+                {
+                    if (player.pad.dpad.left.wasPressedThisFrame)
+                    {
+                        player.colourIndex++;
+                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
+                        player.selectedColour = availableColours[player.colourIndex].color;
+                        player.selectedMaterial = availableColours[player.colourIndex].material;
+                    }
+                }
+            }
         }
 
 
