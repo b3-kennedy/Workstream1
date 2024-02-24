@@ -56,7 +56,7 @@ public class RandomEventController : MonoBehaviour
         {
             for (var i = 0; i < spots.transform.childCount; i++)
             {
-                if (spots.gameObject.activeSelf)
+                if (spots.GetChild(i).gameObject.activeSelf)
                 {
                     parkingSpots.Add(spots.GetChild(i).gameObject);
                 }

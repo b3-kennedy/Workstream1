@@ -7,19 +7,58 @@ public class Meteor : MonoBehaviour
 {
     public float explosionRadius;
     public float explosionForce;
+    public GameObject shadow;
+    GameObject spawnedShadow;
+    public LayerMask groundLayer;
+    public float shadowSizeSpeed;
+    public float maxShadowSize;
+    bool spawned;
+    public float timeBeforeFall;
+    float timer;
+    bool fall;
+    bool timerActive = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().AddForce(-transform.up * 200, ForceMode.Impulse);
+        GetComponent<Rigidbody>().isKinematic = true;
         Destroy(gameObject, 20);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (timerActive)
+        {
+            timer += Time.deltaTime;
+            if (timer >= timeBeforeFall)
+            {
+                GetComponent<Rigidbody>().isKinematic = false;
+                fall = true;
+                GetComponent<Rigidbody>().AddForce(-transform.up * 200, ForceMode.Impulse);
+                timerActive = false;
+
+            }
+        }
+
+
+        if (!spawned) 
+        {
+            if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, 1000, groundLayer))
+            {
+                spawnedShadow = Instantiate(shadow, hit.point + new Vector3(0, 5, 0), Quaternion.identity);
+                spawned = true;
+            }
+
+            Debug.DrawRay(transform.position, -Vector3.up * 1000, Color.red);
+        }
+
+        if(spawnedShadow != null)
+        {
+            spawnedShadow.transform.localScale = Vector3.Lerp(spawnedShadow.transform.localScale, new Vector3(maxShadowSize, spawnedShadow.transform.localScale.y, maxShadowSize), Time.deltaTime * shadowSizeSpeed);
+        }
+
     }
 
     void Explode()
@@ -33,7 +72,6 @@ public class Meteor : MonoBehaviour
             {
                 Vector3 dir = col.transform.position - transform.position;
 
-                Debug.Log(col.gameObject);
                 col.GetComponent<Rigidbody>().AddForce(dir * explosionForce);
             }
 
@@ -42,9 +80,15 @@ public class Meteor : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("pickedUpCar"))
+        Debug.Log(other.collider);
+        if (other.collider.GetComponentInParent<CarMovements>())
         {
-            other.collider.GetComponent<CarMovements>().ReduceLifeOnDamage(1000);
+            other.collider.GetComponentInParent<CarMovements>().ReduceLifeOnDamage(1000);
+        }
+
+        if (other.collider.CompareTag("Player"))
+        {
+            other.collider.GetComponent<OnCollidedWith>().Collided(5);
         }
 
         if(other.collider.gameObject.layer == 7)
@@ -52,6 +96,10 @@ public class Meteor : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
         }
 
+        if(spawnedShadow != null)
+        {
+            Destroy(spawnedShadow);
+        }
         Explode();
     }
 }

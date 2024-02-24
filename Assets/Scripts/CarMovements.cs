@@ -189,11 +189,12 @@ public class CarMovements : MonoBehaviour
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {
-                switch (c.gameObject.GetComponent<ParkingSpot>().points)
+                var spot = c.GetComponent<ParkingSpot>();
+                switch (spot.points)
                 {
                     
                     case ParkingSpot.Points.ONE:
-                        if (c.transform.parent.GetChild(0).GetComponent<DoublePointParkingSpot>())
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 200 * thisCar.life / 100;
                         }
@@ -203,7 +204,7 @@ public class CarMovements : MonoBehaviour
                         }
                         break;
                     case ParkingSpot.Points.TWO:
-                        if (c.transform.parent.GetChild(0).GetComponent<DoublePointParkingSpot>())
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 400 * thisCar.life / 100;
                         }
@@ -213,7 +214,7 @@ public class CarMovements : MonoBehaviour
                         }
                         break;
                     case ParkingSpot.Points.THREE:
-                        if (c.transform.parent.GetChild(0).GetComponent<DoublePointParkingSpot>())
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 600 * thisCar.life / 100;
                         }
@@ -343,7 +344,6 @@ public class CarMovements : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            Debug.Log("On Speedbump");
             fwdspeed = 40;
             colOOF.Play();
         }
@@ -392,7 +392,6 @@ public class CarMovements : MonoBehaviour
 
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            Debug.Log("Off Speedbump");
             fwdspeed = 150;
 
 

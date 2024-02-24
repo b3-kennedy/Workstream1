@@ -42,9 +42,15 @@ public class AddRandomEvents : MonoBehaviour
             int index = 0;
             foreach (var e in ActivatedEvents.Instance.events)
             {
-                e.active = true;
+                if (e.active == disable)
+                {
+                    e.active = true;
+                }
+                
                 contentTransform.GetChild(index).GetChild(1).GetComponent<Toggle>().isOn = false;
                 index++;
+
+
             }
             buttonText.text = "Enable All";
         }
@@ -53,9 +59,15 @@ public class AddRandomEvents : MonoBehaviour
             int index = 0;
             foreach (var e in ActivatedEvents.Instance.events)
             {
-                e.active = false;
+
+                if (e.active == disable)
+                {
+                    e.active = false;
+                }
                 contentTransform.GetChild(index).GetChild(1).GetComponent<Toggle>().isOn = true;
                 index++;
+
+
             }
             buttonText.text = "Disable All";
         }
