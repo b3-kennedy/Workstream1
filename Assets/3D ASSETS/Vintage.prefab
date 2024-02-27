@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8791907204782514857}
   - component: {fileID: 6812719809193457312}
   - component: {fileID: 6221214958797800770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBR.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: -1746943845657152935}
   - component: {fileID: 5073087593844449082}
   - component: {fileID: -8438856971381792236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vintage
-  m_TagString: Untagged
+  m_TagString: freeCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 7632188216592789630}
   - component: {fileID: 9111220655698613848}
   - component: {fileID: 224956020516767954}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBR.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1585234597826229454}
   - component: {fileID: 3649108651998318917}
   - component: {fileID: 6858034237202173922}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBR.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 5309334202066297068}
   - component: {fileID: 2090706967343636961}
   - component: {fileID: 6357492915468744948}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBR.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

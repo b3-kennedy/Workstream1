@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: 5955495107425563116}
   - component: {fileID: -6191153834656559250}
   - component: {fileID: 6902372230492393911}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Police car
-  m_TagString: Untagged
+  m_TagString: freeCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 8113501438838736014}
   - component: {fileID: 3858878159652706298}
   - component: {fileID: 479544545097807255}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBL.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3074991398544532461}
   - component: {fileID: 2560869274440933246}
   - component: {fileID: 3864721748508744998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBL.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1081004772761912054}
   - component: {fileID: 8100656369663447047}
   - component: {fileID: 1927798320783717767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBL.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 2902474667780114640}
   - component: {fileID: 1346456006363247344}
   - component: {fileID: 711829580058339551}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBL.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 2783346893495427678}
   - component: {fileID: 162253635028825470}
   - component: {fileID: 7104156540757409570}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car03_2_WhBL.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}

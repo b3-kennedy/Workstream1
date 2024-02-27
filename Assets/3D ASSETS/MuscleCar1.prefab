@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2501891417393172597}
   - component: {fileID: 883434411222531575}
   - component: {fileID: 8187465552270281972}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car02_1_WhBR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: 4248207096026563424}
   - component: {fileID: 4330093006058766831}
   - component: {fileID: 6015114917388988231}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MuscleCar1
-  m_TagString: Untagged
+  m_TagString: freeCar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 3568880550418953352}
   - component: {fileID: 7042892800249093991}
   - component: {fileID: 6242061624828599889}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car02_1_WhFR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 8930781645030926501}
   - component: {fileID: 4983737392483530466}
   - component: {fileID: 2005294664854757248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car02_1_WhBL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 6730270872578816007}
   - component: {fileID: 3174530046222219679}
   - component: {fileID: 2135460151611660738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car02_1_WhFL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
