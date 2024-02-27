@@ -45,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public Gamepad pad;
     private bool Oncar = false;
-    private ParticleSystem carSmoke;
-    private ParticleSystem carSmoke2;
+
 
     void Start()
     {
@@ -113,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDisable()
     {
-        //controls.Disable();
+        controls.Disable();
         //controls.Player.Move.performed -= OnMovementPerformed;
         //controls.Player.Move.canceled -= OnMovementCanceled;
 
@@ -138,11 +137,6 @@ public class PlayerController : MonoBehaviour
                 movement = new Vector3(stickL.x, 0f, stickL.y);
                 //rigidbody.velocity =  movement;
                 transform.Translate(movement * moveSpeed * Time.deltaTime);
-                if (Oncar && movement != new Vector3(0, 0, 0))
-                {
-                    carSmoke.Play();
-                    carSmoke2.Play();
-                }
             }
             else if (playerInput.currentControlScheme == "GamePadRight")
             {
@@ -152,11 +146,6 @@ public class PlayerController : MonoBehaviour
                 movement = new Vector3(stickR.x, 0f, stickR.y);
                 //rigidbody.velocity =  movement;
                 transform.Translate(movement * moveSpeed * Time.deltaTime);
-                if (Oncar && movement != new Vector3(0, 0, 0))
-                {
-                    carSmoke.Play();
-                    carSmoke2.Play();
-                }
             }
 
         }
@@ -200,6 +189,9 @@ public class PlayerController : MonoBehaviour
                         Camera.main.GetComponent<MultipleTargetCamera>().targets[i] = other.transform;
                     }
                 }
+
+                //other.GetComponent<NewCarMovement>().playerController = this;
+                
             }
 
             SwitchToCar(other.gameObject);
@@ -221,14 +213,15 @@ public class PlayerController : MonoBehaviour
         currentCar.SetActive(true);
 
         playerNumberText.target = car.transform;
+        car.GetComponent<NewCarMovement>().SetupCar();
         car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        car.GetComponent<NewCarMovement>().playerController = this;
+        car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
 
 
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
-        carSmoke = currentCar.GetComponent<CarMovements>().particle;
-        carSmoke2 = currentCar.GetComponent<CarMovements>().particle2;
         if (carMovement != null)
         {
             Oncar = true;

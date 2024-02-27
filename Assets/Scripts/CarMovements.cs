@@ -78,6 +78,7 @@ public class CarMovements : MonoBehaviour
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
+        newMove = GetComponent<NewCarMovement>();
 
         //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
@@ -228,8 +229,10 @@ public class CarMovements : MonoBehaviour
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
                 parked = true;
-                //this.enabled = false;
-                //newMove.enabled = false;
+                this.enabled = false;
+                newMove.enabled = false;
+                GetComponent<PlayerInput>().enabled = false;
+                Destroy(gameObject);
 
 
             }

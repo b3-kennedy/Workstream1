@@ -16,8 +16,12 @@ public class NewCarMovement : MonoBehaviour
     public float maxSpeed;
     float brake;
     CarMovements movements;
-    string controlScheme;
+    public string controlScheme;
     [HideInInspector] public FollowPlayer playerNumberText;
+    public ParticleSystem carSmoke;
+    public ParticleSystem carSmoke2;
+    public PlayerController playerController;
+    Player1Input player1Input;
 
     // Start is called before the first frame update
     void Start()
@@ -27,14 +31,18 @@ public class NewCarMovement : MonoBehaviour
         
     }
 
+    public void SetupCar()
+    {
+        controlScheme = GetComponent<PlayerInput>().currentControlScheme;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         if (movements.currentDriver != null)
         {
-            var playerController = movements.currentDriver.GetComponent<PlayerController>();
-            controlScheme = GetComponent<PlayerInput>().currentControlScheme;
+            
 
             if (movements.isInputEnabled && playerController.pad != null)
             {
@@ -42,7 +50,7 @@ public class NewCarMovement : MonoBehaviour
 
                 Vector2 stickL = playerController.pad.leftStick.ReadValue();
                 Vector2 stickR = playerController.pad.rightStick.ReadValue();
-                
+
 
                 if (controlScheme == "GamePadLeft")
                 {
@@ -55,6 +63,11 @@ public class NewCarMovement : MonoBehaviour
                     }
 
                     move = new Vector3(stickL.x, 0, stickL.y);
+
+
+                    //carSmoke.Play();
+                    //carSmoke2.Play();
+                    
                     horizontal = stickL.x;
                     vertical = stickL.y;
                 }
@@ -69,6 +82,12 @@ public class NewCarMovement : MonoBehaviour
                     }
 
                     move = new Vector3(stickR.x, 0, stickR.y);
+
+
+                    //carSmoke.Play();
+                    //carSmoke2.Play();
+                    
+
                     horizontal = stickR.x;
                     vertical = stickR.y;
                 }
@@ -95,6 +114,11 @@ public class NewCarMovement : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        player1Input.Disable(); 
+    }
+
     private void FixedUpdate()
     {
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
@@ -104,6 +128,11 @@ public class NewCarMovement : MonoBehaviour
             if(move == Vector3.zero)
             {
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * 0.5f);
+
+                //carSmoke.Stop();
+                //carSmoke2.Stop();
+
+
             }
             
             if(brake == 1)
