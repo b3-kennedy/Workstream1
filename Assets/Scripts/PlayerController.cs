@@ -44,10 +44,15 @@ public class PlayerController : MonoBehaviour
 
 
     public Gamepad pad;
+    private bool Oncar = false;
+    private ParticleSystem carSmoke;
+    private ParticleSystem carSmoke2;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -127,21 +132,33 @@ public class PlayerController : MonoBehaviour
             if (playerInput.currentControlScheme == "GamePadLeft")
             {
 
+            
                 dash = pad.leftShoulder.isPressed;
                 //scoreTextMesh.text = "" + score;
                 movement = new Vector3(stickL.x, 0f, stickL.y);
                 //rigidbody.velocity =  movement;
                 transform.Translate(movement * moveSpeed * Time.deltaTime);
+                if (Oncar && movement != new Vector3(0, 0, 0))
+                {
+                    carSmoke.Play();
+                    carSmoke2.Play();
+                }
             }
             else if (playerInput.currentControlScheme == "GamePadRight")
             {
-
+               
                 dash = pad.rightShoulder.isPressed;
                 //scoreTextMesh.text = "" + score;
                 movement = new Vector3(stickR.x, 0f, stickR.y);
                 //rigidbody.velocity =  movement;
                 transform.Translate(movement * moveSpeed * Time.deltaTime);
+                if (Oncar && movement != new Vector3(0, 0, 0))
+                {
+                    carSmoke.Play();
+                    carSmoke2.Play();
+                }
             }
+
         }
 
 
@@ -210,9 +227,11 @@ public class PlayerController : MonoBehaviour
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
-
+        carSmoke = currentCar.GetComponent<CarMovements>().particle;
+        carSmoke2 = currentCar.GetComponent<CarMovements>().particle2;
         if (carMovement != null)
         {
+            Oncar = true;
             carMovement.EnableInput(playerIndex, gameObject, originalPosition);
             carMovement.OnSwitch();
             carMovement.OnCarParked += UpdateScore;
@@ -223,7 +242,7 @@ public class PlayerController : MonoBehaviour
     public void ExitCar()
     {
         gameObject.SetActive(true);
-
+        Oncar = false;
       
     }
 

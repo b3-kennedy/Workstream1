@@ -1544,6 +1544,8 @@ MonoBehaviour:
   colOOF: {fileID: 4541494893660527122}
   colCRASH: {fileID: 4948473877253553838}
   colSCREAM: {fileID: 5992154489871587086}
+  particle: {fileID: 7671080274818628222}
+  particle2: {fileID: 8363581876175598869}
   parked: 0
   diff: 0.03
   spawnDamage: 0
@@ -1947,6 +1949,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6856621775052932746, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1955,6 +1961,11 @@ PrefabInstance:
 --- !u!4 &2055753848565480422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013117873689544825, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
+  m_PrefabInstance: {fileID: 3113944792487850911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8363581876175598869 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6856621775052932746, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
   m_PrefabInstance: {fileID: 3113944792487850911}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3842340074875059444
@@ -2009,6 +2020,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6856621775052932746, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2017,5 +2032,10 @@ PrefabInstance:
 --- !u!4 &208237062613480589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013117873689544825, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
+  m_PrefabInstance: {fileID: 3842340074875059444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7671080274818628222 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6856621775052932746, guid: cc3dca65e3965484abf0a0547df784a5, type: 3}
   m_PrefabInstance: {fileID: 3842340074875059444}
   m_PrefabAsset: {fileID: 0}
