@@ -12,7 +12,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player") && transform.CompareTag("pickedUpCar") && !transform.GetComponent<CarMovements>().parked)
             {
-                collision.gameObject.GetComponent<OnCollidedWith>().Collided();
+                collision.gameObject.GetComponent<OnCollidedWith>().Collided(2);
                 Vector3 dir = (transform.position - collision.transform.position).normalized;
                 collision.gameObject.GetComponent<Rigidbody>().AddForce(-dir * (10 * GetComponent<Rigidbody>().velocity.magnitude), ForceMode.Impulse);
             }

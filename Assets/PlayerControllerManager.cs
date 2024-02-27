@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class Controller
@@ -21,6 +21,10 @@ public class PlayerWithController
     public bool joined;
     public GameObject card;
     public int playerNumber;
+    public Gamepad pad;
+    public int colourIndex;
+    public Color selectedColour;
+    public Material selectedMaterial;
 }
 
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
+
 
 public class CreatePlayers : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class CreatePlayers : MonoBehaviour
         txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber+1).ToString();
         txt.GetComponent<FollowPlayer>().target = player.transform;
         player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
+        if(pwc.selectedMaterial != null)
+        {
+            player.GetComponent<MeshRenderer>().material = pwc.selectedMaterial;
+        }
+        
 
         if (Camera.main.GetComponent<MultipleTargetCamera>())
         {

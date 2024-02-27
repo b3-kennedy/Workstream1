@@ -186,8 +186,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5663306, y: 0.67412007, z: 1}
-  m_Center: {x: 0.01873002, y: 0.16293998, z: -3.101527e-16}
+  m_Size: {x: 0.5663306, y: 0.67412007, z: 0.61987585}
+  m_Center: {x: 0.018730022, y: 0.16293998, z: -0.0041581034}
 --- !u!1 &2268770012725861472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   rotSpeed: 10
   breakPower: 1
   maxSpeed: 30
+  playerNumberText: {fileID: 0}
 --- !u!54 &3415613533756168473
 Rigidbody:
   m_ObjectHideFlags: 0

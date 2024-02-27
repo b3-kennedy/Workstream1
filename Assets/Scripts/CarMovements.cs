@@ -59,6 +59,8 @@ public class CarMovements : MonoBehaviour
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
 
+    NewCarMovement newMove;
+
 
 
     private Quaternion previousRotation;
@@ -180,18 +182,19 @@ public class CarMovements : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
         
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput < 1&& thisCar.isParked == false && currentDriver!=null)
+        if (colliders.Length > 0 && moveInput < 1&& !parked && currentDriver!=null)
         {
 
             
             thisCar.isParked = (true);
             foreach (Collider c in colliders)
             {
-                switch (c.gameObject.name.Split('c')[0])
+                var spot = c.GetComponent<ParkingSpot>();
+                switch (spot.points)
                 {
-
-                    case "100":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    
+                    case ParkingSpot.Points.ONE:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 200 * thisCar.life / 100;
                         }
@@ -200,8 +203,8 @@ public class CarMovements : MonoBehaviour
                             parkingScoreEarned = 100 * thisCar.life / 100;
                         }
                         break;
-                    case "200":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    case ParkingSpot.Points.TWO:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 400 * thisCar.life / 100;
                         }
@@ -210,8 +213,8 @@ public class CarMovements : MonoBehaviour
                             parkingScoreEarned = 200 * thisCar.life / 100;
                         }
                         break;
-                    case "300":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    case ParkingSpot.Points.THREE:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 600 * thisCar.life / 100;
                         }
@@ -225,6 +228,8 @@ public class CarMovements : MonoBehaviour
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
                 parked = true;
+                //this.enabled = false;
+                //newMove.enabled = false;
 
 
             }
@@ -339,12 +344,10 @@ public class CarMovements : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            Debug.Log("On Speedbump");
             fwdspeed = 40;
             colOOF.Play();
-
-
         }
+
 
 
 
@@ -389,7 +392,6 @@ public class CarMovements : MonoBehaviour
 
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            Debug.Log("Off Speedbump");
             fwdspeed = 150;
 
 
