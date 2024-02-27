@@ -11,6 +11,13 @@ GameObject:
   - component: {fileID: 2502888622291259763}
   - component: {fileID: 739486061035154447}
   - component: {fileID: 5943368872028116810}
+  - component: {fileID: 5195395852236817453}
+  - component: {fileID: -2921056857762790224}
+  - component: {fileID: -7162226407748636208}
+  - component: {fileID: 39979524504224641}
+  - component: {fileID: 5955495107425563116}
+  - component: {fileID: -6191153834656559250}
+  - component: {fileID: 6902372230492393911}
   m_Layer: 0
   m_Name: Police car
   m_TagString: Untagged
@@ -26,8 +33,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161601442595913760}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.642303, y: -0.36658332, z: -0.8132191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6427618, y: 3.6790922, z: 7.3354273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90,6 +97,258 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5195395852236817453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509c3c5253aeb534ab11a9b64d010ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
+  rotSpeed: 10
+  breakPower: 1
+  maxSpeed: 30
+  playerNumberText: {fileID: 0}
+--- !u!54 &-2921056857762790224
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!114 &-7162226407748636208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743917b448179a54e8c27c17d2bb2ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInputEnabled: 0
+  carSpeed: 40
+  parkingSpaceRadius: 1
+  driverMaterials:
+  - {fileID: 2100000, guid: 70a56583c14e2184abfa09cb39ef3828, type: 2}
+  - {fileID: 2100000, guid: 674403f84007b864b9bb4d8932349aec, type: 2}
+  - {fileID: 2100000, guid: 84857fa4fcc0e694582b9449de5d4dc2, type: 2}
+  - {fileID: 2100000, guid: b2fe0d7fc2a4ff9489dd511db409db0c, type: 2}
+  - {fileID: 2100000, guid: c1bacaf1d53c81d4bb1c28afd67d40b6, type: 2}
+  - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
+  - {fileID: 2100000, guid: dc6ccda1c7d05e64fb3e544015a69e52, type: 2}
+  - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
+  defaultMat: {fileID: 2100000, guid: 7a9b163658ec02e4086801683f2121cc, type: 2}
+  explosionParticleSystem: {fileID: 6479615144095782382, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
+  currentDriver: {fileID: 0}
+  FloatingTextPrefab: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
+  Azine: 1
+  invulnerableTime: 0.5
+  parkingScoreEarned: 0
+  sphereRB: {fileID: 0}
+  carRB: {fileID: 0}
+  moveInput: 0
+  turnInput: 0
+  fwdspeed: 150
+  revSpeed: 70
+  turnSpeed: 2.5
+  parkingSpaceLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  screechAudio: {fileID: 5090345230998354621, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  colOOF: {fileID: 4321318486342179215, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  colCRASH: {fileID: 554250856173116533, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  colSCREAM: {fileID: 8946024728161671172, guid: f41ddab33bca07541898812643cfc039, type: 3}
+  parked: 0
+  diff: 0.03
+  spawnDamage: 0
+  explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
+--- !u!114 &39979524504224641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1128604659a352f4bac1ae7aaac6c7aa, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &5955495107425563116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37314c04535fc743a473c8a76ef7af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &-6191153834656559250
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b6a5a7f8186acb04592c0e8b2366164e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.027
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &6902372230492393911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161601442595913760}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.0534291, y: 2.925691, z: 5.6160808}
+  m_Center: {x: 0, y: 1.4628452, z: 0.23901534}
 --- !u!1 &2714360474964541775
 GameObject:
   m_ObjectHideFlags: 0
