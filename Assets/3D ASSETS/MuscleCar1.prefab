@@ -101,7 +101,11 @@ GameObject:
   - component: {fileID: 4248207096026563424}
   - component: {fileID: 4330093006058766831}
   - component: {fileID: 6015114917388988231}
+<<<<<<< HEAD
   m_Layer: 3
+=======
+  m_Layer: 0
+>>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   m_Name: MuscleCar1
   m_TagString: freeCar
   m_Icon: {fileID: 0}

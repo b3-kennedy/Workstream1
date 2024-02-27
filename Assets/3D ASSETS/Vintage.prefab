@@ -101,7 +101,11 @@ GameObject:
   - component: {fileID: -1746943845657152935}
   - component: {fileID: 5073087593844449082}
   - component: {fileID: -8438856971381792236}
+<<<<<<< HEAD
   m_Layer: 3
+=======
+  m_Layer: 0
+>>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   m_Name: Vintage
   m_TagString: freeCar
   m_Icon: {fileID: 0}
@@ -194,7 +198,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+<<<<<<< HEAD
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
