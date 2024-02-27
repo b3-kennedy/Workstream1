@@ -8,6 +8,9 @@ public class CarSpawner : MonoBehaviour
     public GameObject carPrefab;
     public GameObject carPrefab2;
     public GameObject carPrefab3;
+    public GameObject carPrefab4;
+    public GameObject carPrefab5;
+    public GameObject carPrefab6;
     public GameObject car;
 
 
