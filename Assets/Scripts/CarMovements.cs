@@ -106,9 +106,16 @@ public class CarMovements : MonoBehaviour
     }
     public void SetColor(Material currentMaterial, int driverIndex)
     {
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        var mats = renderer.materials;
+        mats[0] = currentMaterial;
+        renderer.materials = mats;
+
         //currentMaterial = driverMaterials[driverIndex];
-        ApplyMaterialToChild("body/top", currentMaterial);
-        ApplyMaterialToChild("body/body", currentMaterial);
+        Debug.Log("Changing material to " + currentMaterial.name);
+        //GetComponent<MeshRenderer>().materials[0] = currentMaterial;
+        //ApplyMaterialToChild("body/top", currentMaterial);
+        //ApplyMaterialToChild("body/body", currentMaterial);
 
     }
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
