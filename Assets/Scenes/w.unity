@@ -1617,6 +1617,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 969389080}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &136387850
 Rigidbody:
@@ -4856,6 +4859,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 1033452225}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &505563382
 Rigidbody:
@@ -8449,7 +8455,7 @@ MonoBehaviour:
   - {fileID: 1250350625}
   endGameMsg: 
   scores: 0000000000000000000000000000000000000000000000000000000000000000
-  winLimit: 200
+  winLimit: 1000
   timerTxt: {fileID: 1651820546}
   playerImages:
   - {fileID: 2083670461}
@@ -13823,6 +13829,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 1255919251}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &1167082968
 Rigidbody:
@@ -14444,6 +14453,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 1719604799}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &1204578628
 Rigidbody:
@@ -18663,6 +18675,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 754398513}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &1507526894
 Rigidbody:
@@ -20424,6 +20439,9 @@ MonoBehaviour:
   carPrefab: {fileID: 7886231112632577714, guid: f41ddab33bca07541898812643cfc039, type: 3}
   carPrefab2: {fileID: 7886231112632577714, guid: 5048bde0e6fc57646b1d1b8ba4f4b99c, type: 3}
   carPrefab3: {fileID: 7886231112632577714, guid: 0f48b19e3fcaf114baf53ba9e379344e, type: 3}
+  carPrefab4: {fileID: 0}
+  carPrefab5: {fileID: 0}
+  carPrefab6: {fileID: 0}
   car: {fileID: 0}
   spawnHeight: -10
   moveUpDuration: 1
@@ -24906,6 +24924,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 1250350625}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!54 &2073384913
 Rigidbody:
@@ -25912,6 +25933,9 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 754305646}
+  triggerCollider: {fileID: 0}
+  normalCollider: {fileID: 0}
+  inCar: 0
   playerNumberText: {fileID: 0}
 --- !u!136 &2102835080
 CapsuleCollider:
