@@ -20424,11 +20424,7 @@ MonoBehaviour:
   carPrefab: {fileID: 1161601442595913760, guid: 8e7a9d3326247410480425f8abbd2a95, type: 3}
   carPrefab2: {fileID: 774569476592554389, guid: 52ae1566c639b4fea9fe7a275e823385, type: 3}
   carPrefab3: {fileID: 2544123402416219799, guid: e940904fb6d204db2ab89c9e5cbd0f8c, type: 3}
-<<<<<<< HEAD
-  carPrefab4: {fileID: 1161601442595913760, guid: 8e7a9d3326247410480425f8abbd2a95, type: 3}
-=======
   carPrefab4: {fileID: 484392159399146763, guid: c07b6cb37851e4e7f96cae53bcd362c8, type: 3}
->>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   carPrefab5: {fileID: 6454332491029345483, guid: 4abe0bc49255742c5bf20b9de5d207f7, type: 3}
   carPrefab6: {fileID: 2060431255269217476, guid: 4de48c9b94ef7491dba1e6014e64af01, type: 3}
   car: {fileID: 0}
