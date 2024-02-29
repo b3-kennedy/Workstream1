@@ -18,11 +18,7 @@ GameObject:
   - component: {fileID: -5607730659930119300}
   - component: {fileID: -624245927057471594}
   - component: {fileID: -5053726688677002268}
-<<<<<<< HEAD
   m_Layer: 3
-=======
-  m_Layer: 0
->>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   m_Name: SportCar1
   m_TagString: freeCar
   m_Icon: {fileID: 0}

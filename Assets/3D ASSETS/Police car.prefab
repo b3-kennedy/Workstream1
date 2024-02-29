@@ -18,11 +18,7 @@ GameObject:
   - component: {fileID: 5955495107425563116}
   - component: {fileID: -6191153834656559250}
   - component: {fileID: 6902372230492393911}
-<<<<<<< HEAD
   m_Layer: 3
-=======
-  m_Layer: 0
->>>>>>> 56e17dfabed613bcfc8608b74e7ac148342e8c5b
   m_Name: Police car
   m_TagString: freeCar
   m_Icon: {fileID: 0}
