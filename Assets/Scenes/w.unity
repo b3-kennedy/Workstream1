@@ -10895,8 +10895,7 @@ MonoBehaviour:
   - {fileID: 1782819625}
   - {fileID: 994207119}
   powerups:
-  - {fileID: 1218860048210678475, guid: e61965fe61f281b4bb998b0b69aac6b9, type: 3}
-  - {fileID: 5991704058615970256, guid: 60c73edc7790a2848bdf114d0f87237f, type: 3}
+  - {fileID: 195916031988004605, guid: 1c9a67e9d719cc5428c20910a3801716, type: 3}
 --- !u!4 &940141295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 5d468fe6b5dc7394b846eed1357140ef, type: 3}

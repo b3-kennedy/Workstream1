@@ -1,17 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PowerUpController : MonoBehaviour
 {
     public PowerUp powerUp;
 
+    bool activated = false;
+    float timer = 7;
+
+    GameObject carGO = null;
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         
-        //powerUp.Apply(other.gameObject);
+        if (other.GetComponentInParent<NewCarMovement>() && !activated)
+        {   
+            carGO = other.gameObject;
+            powerUp.Apply(carGO);
+            activated = true;
+           gameObject.GetComponent<MeshRenderer>().enabled = false;
+            
+        }
 
-        //Destroy(gameObject);
+
+    }
+    private void Update()
+    {
+        if (timer > 0 && activated)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                
+                timer = 20;
+                if(carGO != null)
+                {
+                     powerUp.Cancel(carGO);
+                }
+                Destroy(gameObject);
+
+            }
+
+        }
     }
 }

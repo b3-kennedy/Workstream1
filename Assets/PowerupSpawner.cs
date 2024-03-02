@@ -15,7 +15,7 @@ public class PowerupSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer < 0)
         {
-            timer = Random.Range(3, 10);
+            timer = Random.Range(7, 10);
             
             SpawnPowerUp();
         }

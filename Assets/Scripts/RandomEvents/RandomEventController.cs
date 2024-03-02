@@ -128,7 +128,7 @@ public class RandomEventController : MonoBehaviour
     {
         if(activeEvents.Count > 0)
         {
-            Debug.Log("spawned event");
+            //Debug.Log("spawned event");
             int num = Random.Range(0, activeEvents.Count);
             Instantiate(activeEvents[num]);
         }
@@ -142,7 +142,7 @@ public class RandomEventController : MonoBehaviour
         {
             PickEvent();
             betweenEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
-            Debug.Log("Next Event In: " + betweenEventTime.ToString());
+            //Debug.Log("Next Event In: " + betweenEventTime.ToString());
             betweenEventTimer = 0;
         }
     }
@@ -159,9 +159,9 @@ public class RandomEventController : MonoBehaviour
                 {
                     betweenEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
                     startEvents = true;
-                    Debug.Log("Events Starting");
-                    Debug.Log("Next Event In: " + betweenEventTime.ToString());
-                    Debug.Log("events");
+                    //Debug.Log("Events Starting");
+                    //Debug.Log("Next Event In: " + betweenEventTime.ToString());
+                    //Debug.Log("events");
                 }
             }
         }

@@ -69,7 +69,7 @@ public class SelectScreenManager : MonoBehaviour
         if (Gamepad.all[i].buttonSouth.wasPressedThisFrame && !player.joined && !controller.right)
         {
 
-            Debug.Log(i);
+            //Debug.Log(i);
             PlayerSetup(i, player, controller, PlayerWithController.ControllerSide.Right);
             player.joined = true;
             player.card = list[index];
@@ -86,7 +86,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press X/Square button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
             player.pad = Gamepad.all[i];
-            Debug.Log(player.pad);
+            //Debug.Log(player.pad);
             //NextOption();
             if (index < PlayerControllerManager.Instance.players.Count)
             {
@@ -112,7 +112,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press Left Dpad button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
             player.pad = Gamepad.all[i];
-            Debug.Log(player.pad);
+            //Debug.Log(player.pad);
             //NextOption();
             if (index < PlayerControllerManager.Instance.players.Count)
             {
