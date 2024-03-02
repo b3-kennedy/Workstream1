@@ -37,17 +37,35 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public TMP_Text scoreTextMesh;
     Rigidbody rb;
-    CarMovements carMovement;
+    
     PlayerInput playerInput;
+
+    public CapsuleCollider triggerCollider;
+    public CapsuleCollider normalCollider;
+
+    public bool inCar;
 
     [HideInInspector] public FollowPlayer playerNumberText;
 
 
     public Gamepad pad;
+    private bool Oncar = false;
+
+    [Header("Car Controls")]
+    float brake;
+    Vector3 carMove;
+    float horizontal;
+    float vertical;
+    CarMovements carMovement;
+    NewCarMovement newCarMovement;
+    Rigidbody carRb;
+
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -88,7 +106,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<PlayerInput>().SwitchCurrentControlScheme(controlScheme);
 
         controls = new Player1Input();
-        controls.devices = new[] {pad};
+        //controls.devices = new[] {pad};
 
         Debug.Log(GetComponent<PlayerInput>().currentControlScheme);
         
@@ -108,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDisable()
     {
-        //controls.Disable();
+        controls.Disable();
         //controls.Player.Move.performed -= OnMovementPerformed;
         //controls.Player.Move.canceled -= OnMovementCanceled;
 
@@ -127,21 +145,87 @@ public class PlayerController : MonoBehaviour
             if (playerInput.currentControlScheme == "GamePadLeft")
             {
 
-                dash = pad.leftShoulder.isPressed;
-                //scoreTextMesh.text = "" + score;
-                movement = new Vector3(stickL.x, 0f, stickL.y);
-                //rigidbody.velocity =  movement;
-                transform.Translate(movement * moveSpeed * Time.deltaTime);
+                if (!inCar)
+                {
+                    dash = pad.leftShoulder.isPressed;
+                    //scoreTextMesh.text = "" + score;
+                    movement = new Vector3(stickL.x, 0f, stickL.y);
+                    //rigidbody.velocity =  movement;
+                    transform.Translate(movement * moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    brake = pad.leftTrigger.ReadValue();
+
+                    if (pad.dpad.down.isPressed)
+                    {
+                        carMovement.DisableInput();
+                    }
+
+                    carMove = new Vector3(stickL.x, 0, stickL.y);
+
+
+                    //carSmoke.Play();
+                    //carSmoke2.Play();
+
+                    horizontal = stickL.x;
+                    vertical = stickL.y;
+
+                    carMovement.moveInput = carRb.velocity.magnitude;
+
+                    float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
+
+                    if (carMove != Vector3.zero)
+                    {
+                        Vector3 newAngle = new Vector3(0, rot, 0);
+                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z), 
+                            Time.deltaTime * newCarMovement.rotSpeed);
+                    }
+                }
+
             }
             else if (playerInput.currentControlScheme == "GamePadRight")
             {
+                if (!inCar)
+                {
+                    dash = pad.rightShoulder.isPressed;
+                    //scoreTextMesh.text = "" + score;
+                    movement = new Vector3(stickR.x, 0f, stickR.y);
+                    //rigidbody.velocity =  movement;
+                    transform.Translate(movement * moveSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    brake = pad.rightTrigger.ReadValue();
 
-                dash = pad.rightShoulder.isPressed;
-                //scoreTextMesh.text = "" + score;
-                movement = new Vector3(stickR.x, 0f, stickR.y);
-                //rigidbody.velocity =  movement;
-                transform.Translate(movement * moveSpeed * Time.deltaTime);
+                    if (pad.buttonSouth.isPressed)
+                    {
+                        carMovement.DisableInput();
+                    }
+
+                    carMove = new Vector3(stickR.x, 0, stickR.y);
+
+
+                    //carSmoke.Play();
+                    //carSmoke2.Play();
+
+                    horizontal = stickR.x;
+                    vertical = stickR.y;
+
+                    carMovement.moveInput = carRb.velocity.magnitude;
+
+                    float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
+
+                    if (carMove != Vector3.zero)
+                    {
+                        Vector3 newAngle = new Vector3(0, rot, 0);
+                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
+                            Time.deltaTime * newCarMovement.rotSpeed);
+                    }
+                }
+
             }
+
         }
 
 
@@ -165,6 +249,32 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(movement * dashForce, ForceMode.Impulse);
             canDash = false;
         }
+
+        if (inCar)
+        {
+            currentCar.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(currentCar.GetComponent<Rigidbody>().velocity, currentCar.GetComponent<NewCarMovement>().maxSpeed);
+
+                if (carMove == Vector3.zero)
+                {
+                    currentCar.GetComponent<Rigidbody>().velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * 0.5f);
+
+                    //carSmoke.Stop();
+                    //carSmoke2.Stop();
+
+
+                }
+
+                if (brake == 1)
+                {
+                    currentCar.GetComponent<Rigidbody>().velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * currentCar.GetComponent<NewCarMovement>().breakPower);
+                }
+                else
+                {
+                    currentCar.GetComponent<Rigidbody>().AddForce(carMove * currentCar.GetComponent<NewCarMovement>().speed, ForceMode.Acceleration);
+                }
+
+            
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -183,6 +293,9 @@ public class PlayerController : MonoBehaviour
                         Camera.main.GetComponent<MultipleTargetCamera>().targets[i] = other.transform;
                     }
                 }
+
+                //other.GetComponent<NewCarMovement>().playerController = this;
+                
             }
 
             SwitchToCar(other.gameObject);
@@ -197,22 +310,33 @@ public class PlayerController : MonoBehaviour
     {
         SlamDoor();
 
-        gameObject.SetActive(false);
+        normalCollider.enabled = false;
+        triggerCollider.enabled = false;
 
+        inCar = true;
+
+        transform.localPosition = Vector3.zero;
+        GetComponent<MeshRenderer>().enabled = false;
+        
+        
 
         currentCar = car;
         currentCar.SetActive(true);
 
         playerNumberText.target = car.transform;
+        car.GetComponent<NewCarMovement>().SetupCar();
         car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        car.GetComponent<NewCarMovement>().playerController = this;
+        car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
 
-
+        carRb = currentCar.GetComponent<Rigidbody>();
+        newCarMovement = currentCar.GetComponent<NewCarMovement>();
 
         // Enable car input
         carMovement = currentCar.GetComponent<CarMovements>();
-
         if (carMovement != null)
         {
+            Oncar = true;
             carMovement.EnableInput(playerIndex, gameObject, originalPosition);
             carMovement.OnSwitch();
             carMovement.OnCarParked += UpdateScore;
@@ -223,7 +347,7 @@ public class PlayerController : MonoBehaviour
     public void ExitCar()
     {
         gameObject.SetActive(true);
-
+        Oncar = false;
       
     }
 

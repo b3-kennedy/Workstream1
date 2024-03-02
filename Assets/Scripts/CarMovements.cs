@@ -3,10 +3,10 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.ConstrainedExecution;
 
 public class CarMovements : MonoBehaviour
 {
-    private Player1Input controls;
     private CarSpawner carSpawner;
     [HideInInspector] public bool isInputEnabled = false;
 
@@ -59,9 +59,9 @@ public class CarMovements : MonoBehaviour
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
 
+    public ParticleSystem particle;
+    public ParticleSystem particle2;
     NewCarMovement newMove;
-
-
 
     private Quaternion previousRotation;
 
@@ -78,6 +78,7 @@ public class CarMovements : MonoBehaviour
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
+        newMove = GetComponent<NewCarMovement>();
 
         //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
@@ -94,9 +95,9 @@ public class CarMovements : MonoBehaviour
 
     public void OnSwitch()
     {
-        controls = new Player1Input();
-        GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
-        controls.Enable();
+        //controls = new Player1Input();
+        //GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
+        //controls.Enable();
     }
 
     private void OnDisable()
@@ -105,9 +106,16 @@ public class CarMovements : MonoBehaviour
     }
     public void SetColor(Material currentMaterial, int driverIndex)
     {
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        var mats = renderer.materials;
+        mats[0] = currentMaterial;
+        renderer.materials = mats;
+
         //currentMaterial = driverMaterials[driverIndex];
-        ApplyMaterialToChild("body/top", currentMaterial);
-        ApplyMaterialToChild("body/body", currentMaterial);
+        Debug.Log("Changing material to " + currentMaterial.name);
+        //GetComponent<MeshRenderer>().materials[0] = currentMaterial;
+        //ApplyMaterialToChild("body/top", currentMaterial);
+        //ApplyMaterialToChild("body/body", currentMaterial);
 
     }
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
@@ -126,8 +134,13 @@ public class CarMovements : MonoBehaviour
     {
         if(currentDriver != null)
         {
-            currentDriver.SetActive(true);
-            currentDriver.GetComponent<PlayerController>().OnSpawn();
+            //currentDriver.SetActive(true);
+            currentDriver.GetComponent<PlayerController>().triggerCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().normalCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().inCar = false;
+            currentDriver.GetComponent<MeshRenderer>().enabled = true;
+            
+            //currentDriver.GetComponent<PlayerController>().OnSpawn();
             currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
@@ -228,8 +241,10 @@ public class CarMovements : MonoBehaviour
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
                 parked = true;
-                //this.enabled = false;
-                //newMove.enabled = false;
+                this.enabled = false;
+                newMove.enabled = false;
+                //GetComponent<PlayerInput>().enabled = false;
+                //Destroy(gameObject);
 
 
             }

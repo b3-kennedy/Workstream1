@@ -66,7 +66,7 @@ public class SelectScreenManager : MonoBehaviour
     {
         
 
-        if (Gamepad.all[i].buttonSouth.wasPressedThisFrame && !player.joined && !controller.right)
+        if (Gamepad.all[i].startButton.wasPressedThisFrame && !player.joined && !controller.right)
         {
 
             //Debug.Log(i);
@@ -95,7 +95,7 @@ public class SelectScreenManager : MonoBehaviour
             
         }
 
-        else if (Gamepad.all[i].dpad.down.wasPressedThisFrame && !player.joined && !controller.left)
+        else if (Gamepad.all[i].selectButton.wasPressedThisFrame && !player.joined && !controller.left)
         {
             player.joined = true;
             player.card = list[index];
@@ -121,9 +121,9 @@ public class SelectScreenManager : MonoBehaviour
         }
     }
 
-    void Leave(int i , Controller controller)
+    void Leave(int i , Controller controller, PlayerWithController pwc)
     {
-        if (Gamepad.all[i].dpad.right.wasPressedThisFrame)
+        if (Gamepad.all[i].selectButton.wasPressedThisFrame && pwc.joined)
         {
             foreach (var player in PlayerControllerManager.Instance.players)
             {
@@ -144,7 +144,7 @@ public class SelectScreenManager : MonoBehaviour
         }
 
 
-        else if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
+        else if (Gamepad.all[i].startButton.wasPressedThisFrame)
         {
             foreach (var player in PlayerControllerManager.Instance.players)
             {
@@ -181,15 +181,17 @@ public class SelectScreenManager : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            if(index < PlayerControllerManager.Instance.players.Count)
+            if (index > 0)
+            {
+                //Leave(i, PlayerControllerManager.Instance.controllers[i], PlayerControllerManager.Instance.players[index]);
+            }
+
+            if (index < PlayerControllerManager.Instance.players.Count)
             {
                 Join(i, PlayerControllerManager.Instance.players[index], PlayerControllerManager.Instance.controllers[i]);
             }
             
-            if(index > 0)
-            {
-                Leave(i, PlayerControllerManager.Instance.controllers[i]);
-            }
+
            
         }
 
@@ -202,11 +204,18 @@ public class SelectScreenManager : MonoBehaviour
             startText.SetActive(false);
         }
 
-
-        if (Gamepad.all[0].buttonNorth.wasPressedThisFrame && index > 0)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            SceneManager.LoadScene(2);
+            if (Gamepad.all[i].buttonNorth.wasPressedThisFrame && index > 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
+
 
         foreach (var player in PlayerControllerManager.Instance.players)
         {
