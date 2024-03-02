@@ -13,8 +13,9 @@ public class PowerUpController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.GetComponentInParent<NewCarMovement>() && !activated)
+        if (other.GetComponent<NewCarMovement>() && !activated)
         {   
+            
             carGO = other.gameObject;
             powerUp.Apply(carGO);
             activated = true;

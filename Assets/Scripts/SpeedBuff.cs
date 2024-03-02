@@ -10,13 +10,12 @@ public class SpeedBuff : PowerUp
     public GameObject text;
     public override void Apply(GameObject go)
     {
-        if (go.GetComponentInParent<NewCarMovement>())
+        if (go.GetComponent<NewCarMovement>())
         {
             
             Debug.Log("power up effect activated");
-            go.transform.GetComponentInParent<NewCarMovement>().speed += SpeedPlus;
-            //var txt = Instantiate(text, new Vector3(go.transform.position.x, 2, go.transform.position.z), Quaternion.Euler(90, 0, 0), go.transform);
-            //go.GetComponent<TextMeshPro>().text = "+Speed";
+            go.transform.GetComponent<NewCarMovement>().speed += SpeedPlus;
+           
           
             
         }
@@ -27,7 +26,7 @@ public class SpeedBuff : PowerUp
 
     public override void Cancel(GameObject gameObject)
     {
-        gameObject.GetComponentInParent<NewCarMovement>().speed -= SpeedPlus;
+        gameObject.GetComponent<NewCarMovement>().speed -= SpeedPlus;
         Debug.Log("power up effect ended");
     }
 }
