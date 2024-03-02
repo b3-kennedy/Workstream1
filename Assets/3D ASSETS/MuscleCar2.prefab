@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 1100455950675913643}
   - component: {fileID: -6631319788356109669}
   - component: {fileID: 2500497461745937486}
+  - component: {fileID: 3960053867816415583}
   m_Layer: 3
   m_Name: MuscleCar2
   m_TagString: freeCar
@@ -638,6 +639,7 @@ MonoBehaviour:
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
+  isShielded: 0
 --- !u!82 &-2404870173334871057
 AudioSource:
   m_ObjectHideFlags: 0
@@ -795,6 +797,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3960053867816415583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454332491029345483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37314c04535fc743a473c8a76ef7af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9165506862098154064
 GameObject:
   m_ObjectHideFlags: 0

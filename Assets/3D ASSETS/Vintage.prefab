@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: -4022968159915370410}
   - component: {fileID: 5073087593844449082}
   - component: {fileID: -8438856971381792236}
+  - component: {fileID: 3704895336141265554}
   m_Layer: 3
   m_Name: Vintage
   m_TagString: freeCar
@@ -389,6 +390,7 @@ MonoBehaviour:
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
+  isShielded: 0
 --- !u!82 &1256054145960759152
 AudioSource:
   m_ObjectHideFlags: 0
@@ -546,6 +548,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3704895336141265554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2544123402416219799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37314c04535fc743a473c8a76ef7af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3942765679034371028
 GameObject:
   m_ObjectHideFlags: 0
