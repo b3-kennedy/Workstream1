@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
 
                 if (!inCar)
                 {
+                    carMovement.Emissionparticle.Pause();
                     dash = pad.leftShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
                     movement = new Vector3(stickL.x, 0f, stickL.y);
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
+                    carMovement.Emissionparticle.Play();
                     brake = pad.leftTrigger.ReadValue();
 
                     if (pad.dpad.down.isPressed)
