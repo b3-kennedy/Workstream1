@@ -8647,7 +8647,7 @@ MonoBehaviour:
   - {fileID: 597185272}
   - {fileID: 338721173}
   playersJoined: 0
-  TimeLeft: 120
+  TimeLeft: 300
   TimerOn: 0
   crownIconPositions:
   - {fileID: 1801498785}

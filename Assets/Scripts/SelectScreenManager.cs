@@ -104,6 +104,7 @@ public class SelectScreenManager : MonoBehaviour
         {
             player.joined = true;
             player.card = GetNextCard();
+            Debug.Log(GetNextCard());
             player.card.transform.GetChild(2).gameObject.SetActive(false);
             player.card.GetComponent<PlayerCard>().cardJoined = true;
             player.card.GetComponent<PlayerCard>().padIndex = i;
@@ -198,14 +199,17 @@ public class SelectScreenManager : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            if (index >= 0)
+            if (index > 0)
             {
                 //Leave(i, PlayerControllerManager.Instance.controllers[i], PlayerControllerManager.Instance.players[index]);
-                Join(i, PlayerControllerManager.Instance.players[index-1], PlayerControllerManager.Instance.controllers[i]);
+            }
+
+            if (index < PlayerControllerManager.Instance.players.Count)
+            {
+                Join(i, PlayerControllerManager.Instance.players[index], PlayerControllerManager.Instance.controllers[i]);
             }
             
 
-           
            
         }
 
