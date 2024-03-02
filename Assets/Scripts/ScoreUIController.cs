@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreUIController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ScoreUIController : MonoBehaviour
 
     public float TimeLeft;
     public bool TimerOn = false;
+
+    public GameObject[] crownIconPositions;
 
     private void Awake()
     {
@@ -54,7 +57,7 @@ public class ScoreUIController : MonoBehaviour
             playerImages[i].gameObject.SetActive(true);
         }
     }
-
+    public int winnerIndex = 0;
     void Update()
     {
         if (TimerOn)
@@ -74,6 +77,7 @@ public class ScoreUIController : MonoBehaviour
         }
         for (int i = 0; i < 8; i++)
         {
+           
             TMP_Text score = scoresTxt[i];
             scores[i] = int.Parse(score.text);
             if (scores[i] > 20000)
@@ -83,7 +87,28 @@ public class ScoreUIController : MonoBehaviour
                 OnEndGame?.Invoke();
             }
         }
+        UpdateWinner();
 
+    }
+    void UpdateWinner()
+    {
+        for (int i = 0; i < scores.Length; i++)
+        {
+            if (scores[i] > scores[winnerIndex] && i!=winnerIndex)
+            {
+                winnerIndex = i;
+            }
+
+        }
+        for (int i = 0; i < crownIconPositions.Length; i++)
+        {   if(i== winnerIndex) {
+                crownIconPositions[i].SetActive(true);
+            } else
+            {
+                crownIconPositions[i].SetActive(false);
+            }
+           
+        }
     }
     void UpdateTimer(float currentTime)
     {

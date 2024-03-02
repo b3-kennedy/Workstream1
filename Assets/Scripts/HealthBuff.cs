@@ -23,9 +23,14 @@ public class HealthBuff : PowerUp
         if (powerUpFloatingText != null)
         {
             var go = Instantiate(powerUpFloatingText, new Vector3(gameObject.transform.position.x, 2, gameObject.transform.position.z), Quaternion.Euler(90, 0, 0), gameObject.transform);
-            go.GetComponent<TextMesh>().color = Color.green;
-            go.GetComponent<TextMesh>().text = "" + gameObject.GetComponent<CarMovements>().thisCar.life;
+            go.GetComponent<TextMeshPro>().color = Color.green;
+            go.GetComponent<TextMeshPro>().text = "" + gameObject.GetComponent<CarMovements>().thisCar.life;
         }
 
+    }
+
+    public override void Cancel(GameObject gameObject)
+    {
+       
     }
 }

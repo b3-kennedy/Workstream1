@@ -16,12 +16,12 @@ public class OnCollidedWith : MonoBehaviour
 
     private void Start()
     {
-        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.Euler(90,0,0));
+        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.Euler(90,0,0));
         spawnedTxt.GetComponent<FollowPlayer>().target = transform;
         spawnedTxt.SetActive(false);
     }
 
-    public void Collided()
+    public void Collided(float stunTime)
     {
         if (!collided)
         {
@@ -29,6 +29,7 @@ public class OnCollidedWith : MonoBehaviour
             GetComponent<PlayerController>().enabled = false;
             //nonTriggerCollider.enabled = false;
             startTimer = true;
+            timer = stunTime;
             Debug.Log("collided");
             spawnedTxt.SetActive(true);
         }
@@ -39,16 +40,17 @@ public class OnCollidedWith : MonoBehaviour
     {
         if (startTimer)
         {
-            timer += Time.deltaTime;
-            float timerText = Mathf.Round((timeToReset - timer) * 10f) * 0.1f;
+            GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(false);
+            timer -= Time.deltaTime;
+            float timerText = Mathf.Round((timer) * 10f) * 0.1f;
             spawnedTxt.GetComponent<TextMeshPro>().text = (timerText).ToString();
 
             //Debug.Log(timer);
 
-            if (timer >= timeToReset)
+            if (timer <= 0)
             {
-                
-                
+
+                GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
                 timer = 0;
                 GetComponent<PlayerController>().enabled = true;
                 GetComponent<Rigidbody>().isKinematic = false;

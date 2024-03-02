@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339cfd7ddb718d042886c49348509660, type: 3}
   m_Name: majorHealthBuff
   m_EditorClassIdentifier: 
-  amount: 40
+  amount: 30
   powerUpFloatingText: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}

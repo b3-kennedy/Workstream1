@@ -88,7 +88,8 @@ public class GameManagerController : MonoBehaviour
     {
         Debug.Log("game over scene load");
         EndMessage.text = scoreUIController.endGameMsg;
-        for (int i = 7; i >= 0; i--)
+
+        for (int i = 0; i < 8; i++)
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
         }

@@ -18,34 +18,35 @@ public class ChangeScene : MonoBehaviour
 
     private void Start()
     {
-        if (Gamepad.all.Count > 0)
-        {
-            pad = Gamepad.all[0];
-        }
     }
 
     void Input()
     {
-        float vertical = pad.leftStick.y.value;
 
-        if ((vertical < 0 && !moved) || (pad.dpad.down.isPressed && !moved))
+        for (int i = 0; i < Gamepad.all.Count; i++) 
         {
-            buttonIndex++;
-            if(buttonIndex > buttons.Length - 1)
+            float vertical = Gamepad.all[i].leftStick.y.value;
+
+            if ((vertical < 0 && !moved) || (Gamepad.all[i].dpad.down.isPressed && !moved))
             {
-                buttonIndex = 0;
+                buttonIndex++;
+                if (buttonIndex > buttons.Length - 1)
+                {
+                    buttonIndex = 0;
+                }
+                moved = true;
             }
-            moved = true;
-        }
-        else if ((vertical > 0 && !moved) || (pad.dpad.up.isPressed && !moved))
-        {
-            buttonIndex--;
-            if(buttonIndex < 0)
+            else if ((vertical > 0 && !moved) || (Gamepad.all[i].dpad.up.isPressed && !moved))
             {
-                buttonIndex = buttons.Length - 1;
+                buttonIndex--;
+                if (buttonIndex < 0)
+                {
+                    buttonIndex = buttons.Length - 1;
+                }
+                moved = true;
             }
-            moved = true;
         }
+
     }
 
     void Selection()
@@ -79,14 +80,14 @@ public class ChangeScene : MonoBehaviour
 
     private void Update()
     {
-        if(pad != null)
-        {
 
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
             Input();
             Selection();
             Timer();
 
-            if (pad.aButton.isPressed)
+            if (Gamepad.all[i].buttonSouth.wasPressedThisFrame)
             {
                 buttons[buttonIndex].GetComponent<MenuButton>().Activate();
             }
