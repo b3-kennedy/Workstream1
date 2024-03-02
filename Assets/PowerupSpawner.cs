@@ -22,9 +22,26 @@ public class PowerupSpawner : MonoBehaviour
     }
     void SpawnPowerUp()
     {
-        int index = Random.Range(0, powerups.Length);
-        int pos = Random.Range(0, positions.Length);
 
+        int index=Random.Range(0, powerups.Length);
+        int pos = -1;
+        for (int i = 0; i < positions.Length; i++)
+        {
+         if (positions[i].GetComponentInChildren<PowerUpController>()!=null)
+            {
+                Debug.Log("position"+ i+" is full.");
+            }   else
+            {
+                Debug.Log("position"+ i+" is empty.");
+                pos = i;
+                break;
+            }
+        }
+
+        if (pos > -1)
+        {
         Instantiate(powerups[index], positions[pos].gameObject.transform,false);
+        
+        }
     }
 }

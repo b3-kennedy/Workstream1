@@ -19,7 +19,8 @@ public class PowerUpController : MonoBehaviour
             powerUp.Apply(carGO);
             activated = true;
            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+
         }
 
 
