@@ -74,6 +74,8 @@ public class CarMovements : MonoBehaviour
 
     Vector3 testMove;
 
+    public bool isShielded = false;
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -357,46 +359,48 @@ public class CarMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("SpeedBump"))
+        if (!isShielded)
         {
-            fwdspeed = 40;
-            colOOF.Play();
-        }
-
-
-
-
-        if (other.gameObject.CompareTag("freeCar"))
-        {
-            ReduceLifeOnDamage(10);
-            Debug.Log("wall HIT: " + thisCar.life);
-            colCRASH.Play();
-            ShowFloatingLostLife();
-
-        }
-
-        if (other.CompareTag("test"))
-        {
-            Debug.Log("hello");
-        }
-
-        if (other.gameObject.CompareTag("Water"))
-        {
-            Debug.Log("Water");
-            DisableInput();
-            if(currentDriver != null)
+            if (other.gameObject.CompareTag("SpeedBump"))
             {
-                currentDriver.transform.position = Vector3.zero;
+                fwdspeed = 40;
+                colOOF.Play();
             }
-            Destroy(gameObject);
 
+
+
+
+            if (other.gameObject.CompareTag("freeCar"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("wall HIT: " + thisCar.life);
+                colCRASH.Play();
+                ShowFloatingLostLife();
+
+            }
+
+            if (other.CompareTag("test"))
+            {
+                Debug.Log("hello");
+            }
+
+            if (other.gameObject.CompareTag("Water"))
+            {
+                Debug.Log("Water");
+                DisableInput();
+                if (currentDriver != null)
+                {
+                    currentDriver.transform.position = Vector3.zero;
+                }
+                Destroy(gameObject);
+
+            }
         }
-
-
-
-
-
-
+       
+        else
+        {
+            Debug.Log("shield is on so collision didnt affect you.");
+        }
 
 
     }

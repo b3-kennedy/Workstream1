@@ -57,7 +57,7 @@ public class CreatePlayers : MonoBehaviour
     void Start()
     {
 
-        Debug.Log(Gamepad.all.Count);
+       // Debug.Log(Gamepad.all.Count);
 
 
         foreach (var player in PlayerControllerManager.Instance.players)
