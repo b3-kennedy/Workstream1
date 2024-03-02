@@ -363,7 +363,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 152d9e243b28a2a489e247827b6d8b3a, type: 2}
   - {fileID: 2100000, guid: dc6ccda1c7d05e64fb3e544015a69e52, type: 2}
   - {fileID: 2100000, guid: 1445c4e6b62f0c3449befb20b0ccb254, type: 2}
-  defaultMat: {fileID: 0}
+  defaultMat: {fileID: 2100000, guid: 7a9b163658ec02e4086801683f2121cc, type: 2}
   explosionParticleSystem: {fileID: 6479615144095782382, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   currentDriver: {fileID: 0}
   FloatingTextPrefab: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}

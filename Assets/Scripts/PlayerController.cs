@@ -302,6 +302,19 @@ public class PlayerController : MonoBehaviour
             other.gameObject.tag = "pickedUpCar";
 
         }
+        else if (other.CompareTag("OutOfBounds"))
+        {
+            transform.position = Vector3.zero;
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+
+        if (other.collider.gameObject.layer == 10) 
+        {
+            rb.AddForce(-movement * 1000);
+        }
     }
 
 
