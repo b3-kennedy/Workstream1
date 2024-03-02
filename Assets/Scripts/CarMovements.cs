@@ -59,8 +59,7 @@ public class CarMovements : MonoBehaviour
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
 
-    public ParticleSystem particle;
-    public ParticleSystem particle2;
+    public ParticleSystem Emissionparticle;
     NewCarMovement newMove;
 
     private Quaternion previousRotation;
