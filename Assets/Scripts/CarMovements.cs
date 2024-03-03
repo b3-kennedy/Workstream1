@@ -291,7 +291,7 @@ public class CarMovements : MonoBehaviour
     {
         //Debug.Log(collision.gameObject.name);
         //Debug.Log("triggered");
-        if (currentDriver != null)
+        if (currentDriver != null && !isShielded)
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
@@ -341,25 +341,13 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Parking"))
-    //    {
-    //        Debug.Log(moveInput);
-    //        if(moveInput == 0)
-    //        {
-
-
-    //            Debug.Log("PARK");
-    //        }
-            
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(isShielded);
         if (!isShielded)
         {
+            
             if (other.gameObject.CompareTag("SpeedBump"))
             {
                 fwdspeed = 40;
@@ -396,10 +384,7 @@ public class CarMovements : MonoBehaviour
             }
         }
        
-        else
-        {
-            Debug.Log("shield is on so collision didnt affect you.");
-        }
+       
 
 
     }

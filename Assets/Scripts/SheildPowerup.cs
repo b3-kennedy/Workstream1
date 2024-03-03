@@ -9,7 +9,9 @@ public class SheildPowerup : PowerUp
     public override void Apply(GameObject gameObject)
     {
         if (gameObject.GetComponent<CarMovements>()) {
+
             gameObject.GetComponent<CarMovements>().isShielded = true;
+            Debug.Log("shield activated");
         }
     }
 
@@ -18,6 +20,8 @@ public class SheildPowerup : PowerUp
         if (gameObject.GetComponent<CarMovements>())
         {
             gameObject.GetComponent<CarMovements>().isShielded = false;
+            Debug.Log("shield deactivated");
+
         }
     }
 
