@@ -24,7 +24,7 @@ public class SelectScreenManager : MonoBehaviour
     private int selectedSkin = 0;
     private GameObject tempGO;
     public GameObject startText;
-
+    public List<int> joinedIndex;
     public ColourMaterialPair[] availableColours;
 
     public int index = 0;
@@ -66,13 +66,17 @@ public class SelectScreenManager : MonoBehaviour
     {
         
 
-        if (Gamepad.all[i].buttonSouth.wasPressedThisFrame && !player.joined && !controller.right)
+        if (Gamepad.all[i].startButton.wasPressedThisFrame && !player.joined && !controller.right)
         {
 
-            Debug.Log(i);
+            //Debug.Log(i);
             PlayerSetup(i, player, controller, PlayerWithController.ControllerSide.Right);
             player.joined = true;
-            player.card = list[index];
+            
+            player.card = GetNextCard();
+            player.card.GetComponent<PlayerCard>().cardJoined = true;
+            player.card.GetComponent<PlayerCard>().padIndex = i;
+            player.card.GetComponent<PlayerCard>().side = PlayerWithController.ControllerSide.Right;
             player.card.transform.GetChild(2).gameObject.SetActive(false);
             //player.card.SetActive(true);
             player.controllerSide = PlayerWithController.ControllerSide.Right;
@@ -86,20 +90,25 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press X/Square button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
             player.pad = Gamepad.all[i];
-            Debug.Log(player.pad);
+            joinedIndex.Add(index);
+            //Debug.Log(player.pad);
             //NextOption();
-            if (index < PlayerControllerManager.Instance.players.Count)
-            {
-                index++;
-            }
+            //if (index < PlayerControllerManager.Instance.players.Count)
+            //{
+            //    index++;
+            //}
             
         }
 
-        else if (Gamepad.all[i].dpad.down.wasPressedThisFrame && !player.joined && !controller.left)
+        else if (Gamepad.all[i].selectButton.wasPressedThisFrame && !player.joined && !controller.left)
         {
             player.joined = true;
-            player.card = list[index];
+            player.card = GetNextCard();
+            Debug.Log(GetNextCard());
             player.card.transform.GetChild(2).gameObject.SetActive(false);
+            player.card.GetComponent<PlayerCard>().cardJoined = true;
+            player.card.GetComponent<PlayerCard>().padIndex = i;
+            player.card.GetComponent<PlayerCard>().side = PlayerWithController.ControllerSide.Left;
             //player.card.SetActive(true);
             player.controllerSide = PlayerWithController.ControllerSide.Left;
             controller.left = true;
@@ -112,56 +121,65 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press Left Dpad button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
             player.pad = Gamepad.all[i];
-            Debug.Log(player.pad);
+            joinedIndex.Add(player.card.GetComponent<PlayerCard>().cardIndex);
+            //Debug.Log(player.pad);
             //NextOption();
-            if (index < PlayerControllerManager.Instance.players.Count)
-            {
-                index++;
-            }
+            //if (index < PlayerControllerManager.Instance.players.Count)
+            //{
+            //    index++;
+            //}
         }
     }
 
-    void Leave(int i , Controller controller)
+    public void Leave()
     {
-        if (Gamepad.all[i].dpad.right.wasPressedThisFrame)
+
+    }
+
+    GameObject GetNextCard()
+    {
+        index = 0;
+        foreach (var card in list)
         {
-            foreach (var player in PlayerControllerManager.Instance.players)
+            index++;
+            if (!card.GetComponent<PlayerCard>().cardJoined)
             {
-                if(controller.left && (player.controllerIndex == i && player.controllerSide == PlayerWithController.ControllerSide.Left))
-                {
-                    player.joined = false;
-                    player.card.transform.GetChild(0).gameObject.SetActive(false);
-                    player.card.transform.GetChild(3).gameObject.SetActive(false);
-                    player.card.transform.GetChild(2).gameObject.SetActive(true);
-                    controller.left = false;
-                    index--;
-
-                }
+                
+                return card;
             }
-            
-            //BackOption();
-            
         }
+        return null;
+    }
+
+    void Leave(int i , Controller controller, PlayerWithController pwc)
+    {
+        //if (Gamepad.all[i].selectButton.wasPressedThisFrame && pwc.joined)
+        //{
+
+            
+            
+            
+        //}
 
 
-        else if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
-        {
-            foreach (var player in PlayerControllerManager.Instance.players)
-            {
-                if (controller.right && (player.controllerIndex == i && player.controllerSide == PlayerWithController.ControllerSide.Right))
-                {
-                    player.joined = false;
-                    player.card.transform.GetChild(0).gameObject.SetActive(false);
-                    player.card.transform.GetChild(3).gameObject.SetActive(false);
-                    player.card.transform.GetChild(2).gameObject.SetActive(true);
-                    controller.right = false;
-                    index--;
-                }
-            }
+        //else if (Gamepad.all[i].startButton.wasPressedThisFrame)
+        //{
+        //    foreach (var player in PlayerControllerManager.Instance.players)
+        //    {
+        //        if (controller.right && (player.controllerIndex == i && player.controllerSide == PlayerWithController.ControllerSide.Right))
+        //        {
+        //            player.joined = false;
+        //            player.card.transform.GetChild(0).gameObject.SetActive(false);
+        //            player.card.transform.GetChild(3).gameObject.SetActive(false);
+        //            player.card.transform.GetChild(2).gameObject.SetActive(true);
+        //            controller.right = false;
+        //            index--;
+        //        }
+        //    }
             
-            //BackOption();
+        //    //BackOption();
             
-        }
+        //}
         
     }
 
@@ -181,15 +199,17 @@ public class SelectScreenManager : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            if(index < PlayerControllerManager.Instance.players.Count)
+            if (index > 0)
+            {
+                //Leave(i, PlayerControllerManager.Instance.controllers[i], PlayerControllerManager.Instance.players[index]);
+            }
+
+            if (index < PlayerControllerManager.Instance.players.Count)
             {
                 Join(i, PlayerControllerManager.Instance.players[index], PlayerControllerManager.Instance.controllers[i]);
             }
             
-            if(index > 0)
-            {
-                Leave(i, PlayerControllerManager.Instance.controllers[i]);
-            }
+
            
         }
 
@@ -202,11 +222,18 @@ public class SelectScreenManager : MonoBehaviour
             startText.SetActive(false);
         }
 
-
-        if (Gamepad.all[0].buttonNorth.wasPressedThisFrame && index > 0)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            SceneManager.LoadScene(2);
+            if (Gamepad.all[i].buttonNorth.wasPressedThisFrame && index > 0)
+            {
+                SceneManager.LoadScene(2);
+            }
+            else if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
+
 
         foreach (var player in PlayerControllerManager.Instance.players)
         {

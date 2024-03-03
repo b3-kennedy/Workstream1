@@ -3,10 +3,10 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.ConstrainedExecution;
 
 public class CarMovements : MonoBehaviour
 {
-    private Player1Input controls;
     private CarSpawner carSpawner;
     [HideInInspector] public bool isInputEnabled = false;
 
@@ -59,9 +59,8 @@ public class CarMovements : MonoBehaviour
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
 
+    public ParticleSystem Emissionparticle;
     NewCarMovement newMove;
-
-
 
     private Quaternion previousRotation;
 
@@ -74,10 +73,13 @@ public class CarMovements : MonoBehaviour
 
     Vector3 testMove;
 
+    public bool isShielded = false;
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
+        newMove = GetComponent<NewCarMovement>();
 
         //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
@@ -94,9 +96,9 @@ public class CarMovements : MonoBehaviour
 
     public void OnSwitch()
     {
-        controls = new Player1Input();
-        GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
-        controls.Enable();
+        //controls = new Player1Input();
+        //GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
+        //controls.Enable();
     }
 
     private void OnDisable()
@@ -133,8 +135,13 @@ public class CarMovements : MonoBehaviour
     {
         if(currentDriver != null)
         {
-            currentDriver.SetActive(true);
-            currentDriver.GetComponent<PlayerController>().OnSpawn();
+            //currentDriver.SetActive(true);
+            currentDriver.GetComponent<PlayerController>().triggerCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().normalCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().inCar = false;
+            currentDriver.GetComponent<MeshRenderer>().enabled = true;
+            
+            //currentDriver.GetComponent<PlayerController>().OnSpawn();
             currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
@@ -235,8 +242,10 @@ public class CarMovements : MonoBehaviour
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
                 parked = true;
-                //this.enabled = false;
-                //newMove.enabled = false;
+                this.enabled = false;
+                newMove.enabled = false;
+                //GetComponent<PlayerInput>().enabled = false;
+                //Destroy(gameObject);
 
 
             }
@@ -349,46 +358,48 @@ public class CarMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("SpeedBump"))
+        if (!isShielded)
         {
-            fwdspeed = 40;
-            colOOF.Play();
-        }
-
-
-
-
-        if (other.gameObject.CompareTag("freeCar"))
-        {
-            ReduceLifeOnDamage(10);
-            Debug.Log("wall HIT: " + thisCar.life);
-            colCRASH.Play();
-            ShowFloatingLostLife();
-
-        }
-
-        if (other.CompareTag("test"))
-        {
-            Debug.Log("hello");
-        }
-
-        if (other.gameObject.CompareTag("Water"))
-        {
-            Debug.Log("Water");
-            DisableInput();
-            if(currentDriver != null)
+            if (other.gameObject.CompareTag("SpeedBump"))
             {
-                currentDriver.transform.position = Vector3.zero;
+                fwdspeed = 40;
+                colOOF.Play();
             }
-            Destroy(gameObject);
 
+
+
+
+            if (other.gameObject.CompareTag("freeCar"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("wall HIT: " + thisCar.life);
+                colCRASH.Play();
+                ShowFloatingLostLife();
+
+            }
+
+            if (other.CompareTag("test"))
+            {
+                Debug.Log("hello");
+            }
+
+            if (other.gameObject.CompareTag("Water"))
+            {
+                Debug.Log("Water");
+                DisableInput();
+                if (currentDriver != null)
+                {
+                    currentDriver.transform.position = Vector3.zero;
+                }
+                Destroy(gameObject);
+
+            }
         }
-
-
-
-
-
-
+       
+        else
+        {
+            Debug.Log("shield is on so collision didnt affect you.");
+        }
 
 
     }

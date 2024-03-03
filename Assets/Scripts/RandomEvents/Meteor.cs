@@ -51,7 +51,7 @@ public class Meteor : MonoBehaviour
                 spawned = true;
             }
 
-            Debug.DrawRay(transform.position, -Vector3.up * 1000, Color.red);
+            //Debug.DrawRay(transform.position, -Vector3.up * 1000, Color.red);
         }
 
         if(spawnedShadow != null)
@@ -80,7 +80,7 @@ public class Meteor : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.collider);
+        //Debug.Log(other.collider);
         if (other.collider.GetComponentInParent<CarMovements>())
         {
             other.collider.GetComponentInParent<CarMovements>().ReduceLifeOnDamage(1000);
