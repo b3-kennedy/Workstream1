@@ -14,7 +14,7 @@ public class SpeedBuff : PowerUp
         {
             
             Debug.Log("power up effect activated");
-            go.transform.GetComponent<NewCarMovement>().speed += SpeedPlus;
+            go.transform.GetComponent<CarMovements>().carSpeed += SpeedPlus;
            
           
             
@@ -26,7 +26,7 @@ public class SpeedBuff : PowerUp
 
     public override void Cancel(GameObject gameObject)
     {
-        gameObject.GetComponent<NewCarMovement>().speed -= SpeedPlus;
+        gameObject.GetComponent<CarMovements>().carSpeed -= SpeedPlus;
         Debug.Log("power up effect ended");
     }
 }

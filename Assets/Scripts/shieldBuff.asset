@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8c3936d9f1244c8c0a13658e4ffb2, type: 3}
   m_Name: shieldBuff
   m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 2011743763627944465, guid: 8dbc3fa3dd7cf114c9c6f5eb232550fe, type: 3}
