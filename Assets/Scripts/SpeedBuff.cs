@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedBuff : PowerUp
 {
 
-    public float SpeedPlus = 30;
+    public float SpeedPlus = 10;
 
     public GameObject text;
     public override void Apply(GameObject go)

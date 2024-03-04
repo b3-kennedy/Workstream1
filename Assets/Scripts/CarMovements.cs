@@ -201,6 +201,7 @@ public class CarMovements : MonoBehaviour
 
             
             thisCar.isParked = (true);
+            Debug.Log("here");
             foreach (Collider c in colliders)
             {
                 var spot = c.GetComponent<ParkingSpot>();
