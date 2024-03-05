@@ -34,7 +34,15 @@ public class CreatePlayers : MonoBehaviour
         players.Add(player.gameObject);
         player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
         player.transform.position = playerSpawnParent.GetChild(index).position;
-        player.GetComponent<MeshRenderer>().material = playerMats[index];
+        if(player.transform.childCount > 0)
+        {
+            player.transform.GetChild(0).GetComponent<MeshRenderer>().material = playerMats[index];
+        }
+        else
+        {
+            player.GetComponent<MeshRenderer>().material = playerMats[index];
+        }
+        
         GameObject txt = Instantiate(playerNumberText);
         txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber+1).ToString();
         txt.GetComponent<FollowPlayer>().target = player.transform;
