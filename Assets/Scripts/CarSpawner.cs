@@ -40,13 +40,13 @@ public class CarSpawner : MonoBehaviour
 
         randomNumber = Random.Range(1,11);
       
-        if (randomNumber <= 5)
+        if (randomNumber <= 8)
         {
              car = Instantiate(carPrefab, target, Quaternion.identity);
             RandomEventController.Instance.drivableCars.Add(car);
 
         }
-        else if (randomNumber <=8)
+        else if (randomNumber <=11)
         {
              car = Instantiate(carPrefab2, target, Quaternion.identity);
             RandomEventController.Instance.drivableCars.Add(car);
