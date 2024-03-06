@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,6 +88,7 @@ public class GameManagerController : MonoBehaviour
 
     private void LoadEndGameScene()
     {
+        //SortScores();
         Debug.Log("game over scene load");
         EndMessage.text = scoreUIController.endGameMsg;
 
@@ -93,11 +96,28 @@ public class GameManagerController : MonoBehaviour
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
         }
+
         endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
         gameMode = "End";
+
+    }
+    void SortScores()
+    {
+       
+        int[] l = new int[8];
+        for (int i = 0; i < 8; i++)
+        {
+            
+            l[i] = int.Parse(scoreUIController.scoresTxt[i].text);
+        }
+        l = l.OrderByDescending(x => x).ToArray();
+        for (int i = 0; i < 8; i++)
+        {
+            scoresTxt[i].text = l[i].ToString();
+        }
 
     }
     IEnumerator PlayEndMusic()
