@@ -30,6 +30,7 @@ public class CarMovements : MonoBehaviour
     private string parkingScoreFloatingText;
 
     public GameObject FloatingTextPrefab;
+    public GameObject dmgFloatingText;
 
     public bool Azine = false;
 
@@ -352,7 +353,7 @@ public class CarMovements : MonoBehaviour
             if (other.gameObject.CompareTag("SpeedBump"))
             {
                 fwdspeed = 40;
-                colOOF.Play();
+                //colOOF.Play();
             }
 
 
@@ -444,7 +445,7 @@ public class CarMovements : MonoBehaviour
         if (FloatingTextPrefab != null)
         {
 
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            var go = Instantiate(dmgFloatingText, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
             go.GetComponent<TextMeshPro>().text = parkingScoreFloatingText;
         }
 

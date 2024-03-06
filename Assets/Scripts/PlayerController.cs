@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -94,8 +95,15 @@ public class PlayerController : MonoBehaviour
 
     void SlamDoor()
     {
-
-        audioSource.PlayOneShot(audioSource.clip, volume);
+        if(transform.childCount > 0)
+        {
+            transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(transform.GetChild(0).GetComponent<AudioSource>().clip, volume);
+        }
+        else
+        {
+            audioSource.PlayOneShot(audioSource.clip, volume);
+        }
+        
 
 
     }
@@ -163,6 +171,12 @@ public class PlayerController : MonoBehaviour
                     movement = new Vector3(stickL.x, 0f, stickL.y);
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+                    if(transform.childCount > 0)
+                    {
+                        transform.GetChild(0).rotation = Quaternion.LookRotation(movement, Vector3.up);
+                    }
+                    
                 }
                 else
                 {

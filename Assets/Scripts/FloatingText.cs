@@ -12,8 +12,12 @@ public class FloatingText : MonoBehaviour
     public AudioSource audioSource;
         void Start()
     {
+        if(audioSource != null)
+        {
             audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
+            audioSource.Play();
+        }
+
         Destroy(gameObject, destroyTime);
         textMesh = GetComponent<TextMeshPro>();
     }
