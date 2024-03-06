@@ -10,6 +10,8 @@ public class PowerUpController : MonoBehaviour
 
     GameObject carGO = null;
 
+    public AudioSource powerUpCollectAudio;
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -23,6 +25,8 @@ public class PowerUpController : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
 
+
+            powerUpCollectAudio.Play();
         }
 
 
