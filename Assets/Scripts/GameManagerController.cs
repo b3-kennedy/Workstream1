@@ -107,7 +107,7 @@ public class GameManagerController : MonoBehaviour
     void SortScores()
     {
        
-        int[] l = null;
+        int[] l = new int[8];
         for (int i = 0; i < 8; i++)
         {
             
@@ -116,7 +116,7 @@ public class GameManagerController : MonoBehaviour
         l = l.OrderByDescending(x => x).ToArray();
         for (int i = 0; i < 8; i++)
         {
-            scoresTxt[i].text = l[i]+"";
+            scoresTxt[i].text = l[i].ToString();
         }
 
     }
