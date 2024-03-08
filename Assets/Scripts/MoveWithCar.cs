@@ -14,5 +14,8 @@ public class MoveWithCar : MonoBehaviour
         {
             gameObject.transform.position = car.transform.position;
         }
+        if(car.GetComponent<CarMovements>().parked ) {
+            Destroy(gameObject);
+        }
     }
 }
