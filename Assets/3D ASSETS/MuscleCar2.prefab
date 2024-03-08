@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &180151678746230715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3718802085530937942}
+  m_Layer: 3
+  m_Name: NormalCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3718802085530937942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180151678746230715}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7015660213607798836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482132912335407851
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3718802085530937942}
   - {fileID: 5377795216990646842}
   - {fileID: 7686839820065312517}
   - {fileID: 4020895508014788112}
@@ -616,6 +648,7 @@ MonoBehaviour:
   explosionParticleSystem: {fileID: 6479615144095782382, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   currentDriver: {fileID: 0}
   FloatingTextPrefab: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
+  dmgFloatingText: {fileID: 0}
   Azine: 1
   invulnerableTime: 0
   parkingScoreEarned: 0
@@ -638,6 +671,7 @@ MonoBehaviour:
   diff: 0.03
   spawnDamage: 0
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
+  groundNormalCheck: {fileID: 3718802085530937942}
   isShielded: 0
 --- !u!82 &-2404870173334871057
 AudioSource:
@@ -769,6 +803,7 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 0}
   playerController: {fileID: 0}
+  speedBoost: 0
 --- !u!54 &2500497461745937486
 Rigidbody:
   m_ObjectHideFlags: 0

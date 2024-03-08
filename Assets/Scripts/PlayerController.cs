@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour
     public CapsuleCollider triggerCollider;
     public CapsuleCollider normalCollider;
 
+    public float gravity = -1f;
+    float yVal;
+
     public bool inCar;
 
     [HideInInspector] public FollowPlayer playerNumberText;
@@ -59,6 +63,8 @@ public class PlayerController : MonoBehaviour
     CarMovements carMovement;
     NewCarMovement newCarMovement;
     Rigidbody carRb;
+
+    public Transform groundCheckPos;
 
 
 
@@ -95,14 +101,9 @@ public class PlayerController : MonoBehaviour
 
     void SlamDoor()
     {
-        if(transform.childCount > 0)
-        {
-            transform.GetChild(0).GetComponent<AudioSource>().PlayOneShot(transform.GetChild(0).GetComponent<AudioSource>().clip, volume);
-        }
-        else
-        {
-            audioSource.PlayOneShot(audioSource.clip, volume);
-        }
+
+        audioSource.PlayOneShot(audioSource.clip, volume);
+        
         
 
 
@@ -141,9 +142,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    bool GroundCheck()
+    {
+        if(Physics.Raycast(groundCheckPos.position, -Vector3.up, out RaycastHit hit, 0.5f))
+        {
+            return true;
+        }
+        return false;
+    }
+
 
     void Update()
     {
+
+
+
+        
 
         if(pad != null)
         {
@@ -155,7 +169,19 @@ public class PlayerController : MonoBehaviour
 
                 if (!inCar)
                 {
-                    if(carMovement != null)
+
+                    if (!GroundCheck())
+                    {
+
+                        yVal =  1 + (gravity * Time.deltaTime);
+
+                    }
+                    else
+                    {
+                        yVal = 0;
+                    }
+
+                    if (carMovement != null)
                     {
                         if (carMovement.Emissionparticle.isPlaying)
                         {
@@ -168,14 +194,16 @@ public class PlayerController : MonoBehaviour
                     
                     dash = pad.leftShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
-                    movement = new Vector3(stickL.x, 0f, stickL.y);
+
+
+                    movement = new Vector3(stickL.x, -yVal, stickL.y);
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
 
-                    if(transform.childCount > 0)
-                    {
-                        transform.GetChild(0).rotation = Quaternion.LookRotation(movement, Vector3.up);
-                    }
+                    //if(transform.childCount > 0)
+                    //{
+                    //    transform.GetChild(0).rotation = Quaternion.LookRotation(movement, Vector3.up);
+                    //}
                     
                 }
                 else
@@ -218,9 +246,21 @@ public class PlayerController : MonoBehaviour
             {
                 if (!inCar)
                 {
+
+                    if (!GroundCheck())
+                    {
+
+                        yVal = 1 + (gravity * Time.deltaTime);
+
+                    }
+                    else
+                    {
+                        yVal = 0;
+                    }
+
                     dash = pad.rightShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
-                    movement = new Vector3(stickR.x, 0f, stickR.y);
+                    movement = new Vector3(stickR.x,-yVal , stickR.y);
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
                 }
@@ -245,6 +285,8 @@ public class PlayerController : MonoBehaviour
                     carMovement.moveInput = carRb.velocity.magnitude;
 
                     float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
+
+
 
                     if (carMove != Vector3.zero)
                     {

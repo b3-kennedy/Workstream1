@@ -18,6 +18,8 @@ public class CreatePlayers : MonoBehaviour
     int controllerIndex = 0;
     public GameObject playerNumberText;
 
+    public GameObject[] playerPrefabs;
+
     //public InputActionAsset controlScheme;
 
 
@@ -34,17 +36,11 @@ public class CreatePlayers : MonoBehaviour
         players.Add(player.gameObject);
         player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
         player.transform.position = playerSpawnParent.GetChild(index).position;
-        if(player.transform.childCount > 0)
-        {
-            player.transform.GetChild(0).GetComponent<MeshRenderer>().material = playerMats[index];
-        }
-        else
-        {
-            player.GetComponent<MeshRenderer>().material = playerMats[index];
-        }
+        player.GetComponent<MeshRenderer>().material = playerMats[index];
+        
         
         GameObject txt = Instantiate(playerNumberText);
-        txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber+1).ToString();
+        txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber).ToString();
         txt.GetComponent<FollowPlayer>().target = player.transform;
         player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
         if(pwc.selectedMaterial != null)
@@ -74,12 +70,12 @@ public class CreatePlayers : MonoBehaviour
             {
                 if (player.controllerSide == PlayerWithController.ControllerSide.Left)
                 {
-                    var playerSpawn = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
+                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber], controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadLeft", player);
                 }
                 else
                 {
-                    var playerSpawn = PlayerInput.Instantiate(playerPrefab, controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[player.controllerIndex]);
+                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber], controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadRight", player);
                 }
             }

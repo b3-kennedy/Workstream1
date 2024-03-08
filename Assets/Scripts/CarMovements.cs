@@ -74,14 +74,18 @@ public class CarMovements : MonoBehaviour
 
     Vector3 testMove;
 
+    public Transform groundNormalCheck;
+
     public bool isShielded = false;
+
+    float normalSpeed;
 
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
         newMove = GetComponent<NewCarMovement>();
-
+        normalSpeed = GetComponent<NewCarMovement>().speed;
         //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
 
@@ -143,7 +147,7 @@ public class CarMovements : MonoBehaviour
             currentDriver.GetComponent<MeshRenderer>().enabled = true;
             
             //currentDriver.GetComponent<PlayerController>().OnSpawn();
-            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5);
+            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y + 1, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
@@ -186,13 +190,22 @@ public class CarMovements : MonoBehaviour
         if (invulnerable)
         {
             invulnerableTimer += Time.deltaTime;
-            if(invulnerableTimer >= invulnerableTime)
+            if (invulnerableTimer >= invulnerableTime)
             {
                 invulnerable = false;
                 invulnerableTimer = 0;
             }
-        }
 
+
+            if (groundNormalCheck != null)
+            {
+
+                if (Physics.Raycast(groundNormalCheck.position, -Vector3.up, out RaycastHit hit, 1f))
+                {
+                    transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                }
+            }
+        }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
         
@@ -352,7 +365,7 @@ public class CarMovements : MonoBehaviour
             
             if (other.gameObject.CompareTag("SpeedBump"))
             {
-                fwdspeed = 40;
+                GetComponent<Rigidbody>().velocity /= 2;
                 //colOOF.Play();
             }
 
@@ -397,7 +410,7 @@ public class CarMovements : MonoBehaviour
 
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            fwdspeed = 150;
+            //GetComponent<NewCarMovement>().speed = normalSpeed;
 
 
         }
