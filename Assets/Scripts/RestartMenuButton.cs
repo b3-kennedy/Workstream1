@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class RestartMenuButton : MenuButton
 {
+
+    public int sceneToLoad = 3;
     public override void Activate()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

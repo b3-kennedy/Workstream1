@@ -15,7 +15,7 @@ public class MainMenuMenuButton : MenuButton
         {
             Destroy(ActivatedEvents.Instance.gameObject);
         }
-        
+        PauseMenu.Instance.gameObject.SetActive(false);
         SceneManager.LoadScene(0);
     }
 }

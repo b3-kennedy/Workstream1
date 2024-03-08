@@ -22,7 +22,6 @@ public class NewCarMovement : MonoBehaviour
     public ParticleSystem carSmoke2;
     public PlayerController playerController;
 
-    public bool speedBoost;
 
     Player1Input player1Input;
 

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameManagerController : MonoBehaviour
 {
@@ -61,6 +62,26 @@ public class GameManagerController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            if (Gamepad.all[i].startButton.wasPressedThisFrame && !endScene.activeSelf)
+            {
+                if (!PauseMenu.Instance.gameObject.activeSelf)
+                {
+                    PauseMenu.Instance.gameObject.SetActive(true);
+                    PauseMenu.Instance.Freeze();
+                }
+                else
+                {
+                    PauseMenu.Instance.gameObject.SetActive(false);
+                    PauseMenu.Instance.Unfreeze();
+                }
+                
+            }
+        }
+    }
     void Start()
     {
 
@@ -90,6 +111,7 @@ public class GameManagerController : MonoBehaviour
     {
         //SortScores();
         Debug.Log("game over scene load");
+        PauseMenu.Instance.gameObject.SetActive(false);
         EndMessage.text = scoreUIController.endGameMsg;
 
         for (int i = 0; i < 8; i++)

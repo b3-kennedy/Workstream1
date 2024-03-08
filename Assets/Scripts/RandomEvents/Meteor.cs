@@ -17,6 +17,7 @@ public class Meteor : MonoBehaviour
     float timer;
     bool fall;
     bool timerActive = true;
+    bool hasExploded;
 
 
     // Start is called before the first frame update
@@ -63,6 +64,7 @@ public class Meteor : MonoBehaviour
 
     void Explode()
     {
+        hasExploded = true;
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider col in cols)
@@ -80,26 +82,30 @@ public class Meteor : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //Debug.Log(other.collider);
-        if (other.collider.GetComponentInParent<CarMovements>())
+        if (!hasExploded)
         {
-            other.collider.GetComponentInParent<CarMovements>().ReduceLifeOnDamage(1000);
+            //Debug.Log(other.collider);
+            if (other.collider.GetComponentInParent<CarMovements>())
+            {
+                other.collider.GetComponentInParent<CarMovements>().ReduceLifeOnDamage(1000);
+            }
+
+            if (other.collider.CompareTag("Player"))
+            {
+                other.collider.GetComponent<OnCollidedWith>().Collided(5);
+            }
+
+            if (other.collider.gameObject.layer == 7)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+            }
+
+            if (spawnedShadow != null)
+            {
+                Destroy(spawnedShadow);
+            }
         }
 
-        if (other.collider.CompareTag("Player"))
-        {
-            other.collider.GetComponent<OnCollidedWith>().Collided(5);
-        }
-
-        if(other.collider.gameObject.layer == 7)
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
-        }
-
-        if(spawnedShadow != null)
-        {
-            Destroy(spawnedShadow);
-        }
         Explode();
     }
 }
