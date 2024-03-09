@@ -30,6 +30,7 @@ public class CarMovements : MonoBehaviour
     private string parkingScoreFloatingText;
 
     public GameObject FloatingTextPrefab;
+    public GameObject dmgFloatingText;
 
     public bool Azine = false;
 
@@ -73,14 +74,18 @@ public class CarMovements : MonoBehaviour
 
     Vector3 testMove;
 
+    public Transform groundNormalCheck;
+
     public bool isShielded = false;
+
+    float normalSpeed;
 
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
         newMove = GetComponent<NewCarMovement>();
-
+        normalSpeed = GetComponent<NewCarMovement>().speed;
         //sphereRB.transform.parent = null;
         //carRB.transform.parent = null;
 
@@ -142,7 +147,7 @@ public class CarMovements : MonoBehaviour
             currentDriver.GetComponent<MeshRenderer>().enabled = true;
             
             //currentDriver.GetComponent<PlayerController>().OnSpawn();
-            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5);
+            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y + 1, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
@@ -185,13 +190,22 @@ public class CarMovements : MonoBehaviour
         if (invulnerable)
         {
             invulnerableTimer += Time.deltaTime;
-            if(invulnerableTimer >= invulnerableTime)
+            if (invulnerableTimer >= invulnerableTime)
             {
                 invulnerable = false;
                 invulnerableTimer = 0;
             }
-        }
 
+
+            if (groundNormalCheck != null)
+            {
+
+                if (Physics.Raycast(groundNormalCheck.position, -Vector3.up, out RaycastHit hit, 1f))
+                {
+                    transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                }
+            }
+        }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
         
@@ -201,6 +215,7 @@ public class CarMovements : MonoBehaviour
 
             
             thisCar.isParked = (true);
+            Debug.Log("here");
             foreach (Collider c in colliders)
             {
                 var spot = c.GetComponent<ParkingSpot>();
@@ -291,7 +306,7 @@ public class CarMovements : MonoBehaviour
     {
         //Debug.Log(collision.gameObject.name);
         //Debug.Log("triggered");
-        if (currentDriver != null)
+        if (currentDriver != null && !isShielded)
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
@@ -341,29 +356,17 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Parking"))
-    //    {
-    //        Debug.Log(moveInput);
-    //        if(moveInput == 0)
-    //        {
-
-
-    //            Debug.Log("PARK");
-    //        }
-            
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(isShielded);
         if (!isShielded)
         {
+            
             if (other.gameObject.CompareTag("SpeedBump"))
             {
-                fwdspeed = 40;
-                colOOF.Play();
+                GetComponent<Rigidbody>().velocity /= 2;
+                //colOOF.Play();
             }
 
 
@@ -396,10 +399,7 @@ public class CarMovements : MonoBehaviour
             }
         }
        
-        else
-        {
-            Debug.Log("shield is on so collision didnt affect you.");
-        }
+       
 
 
     }
@@ -410,7 +410,7 @@ public class CarMovements : MonoBehaviour
 
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            fwdspeed = 150;
+            //GetComponent<NewCarMovement>().speed = normalSpeed;
 
 
         }
@@ -458,7 +458,7 @@ public class CarMovements : MonoBehaviour
         if (FloatingTextPrefab != null)
         {
 
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            var go = Instantiate(dmgFloatingText, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
             go.GetComponent<TextMeshPro>().text = parkingScoreFloatingText;
         }
 

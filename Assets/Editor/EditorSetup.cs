@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-using UnityEngine;
 using UnityEditor;
-using System.Collections;
 public class EditorSetup
 {
     static Component[] copiedComponents;

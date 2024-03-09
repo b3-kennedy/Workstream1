@@ -150,7 +150,7 @@ MonoBehaviour:
   startCountdown: 0
   explodeTime: 2
   radius: 10
-  damage: 1
+  damage: 10
   grenadeTimerObj: {fileID: 0}
   explosion: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
 --- !u!120 &-7840197352103960311

@@ -10,18 +10,22 @@ public class PowerUpController : MonoBehaviour
 
     GameObject carGO = null;
 
+    public AudioSource powerUpCollectAudio;
+
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.GetComponent<NewCarMovement>() && !activated)
+        if (other.GetComponent<NewCarMovement>() && !activated && other.GetComponent<CarMovements>().currentDriver)
         {   
             
             carGO = other.gameObject;
             powerUp.Apply(carGO);
             activated = true;
-           gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
 
+
+            powerUpCollectAudio.Play();
         }
 
 

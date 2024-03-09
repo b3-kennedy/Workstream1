@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: Lightning
-  lightningEffectDuration: 100
+  lightningEffectDuration: 10
 --- !u!120 &4976648764646344574
 LineRenderer:
   serializedVersion: 2

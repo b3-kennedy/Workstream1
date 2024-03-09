@@ -27,16 +27,19 @@ public class ChangeScene : MonoBehaviour
         {
             float vertical = Gamepad.all[i].leftStick.y.value;
 
-            if ((vertical < 0 && !moved) || (Gamepad.all[i].dpad.down.isPressed && !moved))
+            
+
+            if ((vertical < -0.5f && !moved) || (Gamepad.all[i].dpad.down.wasPressedThisFrame && !moved))
             {
                 buttonIndex++;
+                Debug.Log(vertical);
                 if (buttonIndex > buttons.Length - 1)
                 {
                     buttonIndex = 0;
                 }
                 moved = true;
             }
-            else if ((vertical > 0 && !moved) || (Gamepad.all[i].dpad.up.isPressed && !moved))
+            else if ((vertical > 0.5f && !moved) || (Gamepad.all[i].dpad.up.wasPressedThisFrame && !moved))
             {
                 buttonIndex--;
                 if (buttonIndex < 0)
