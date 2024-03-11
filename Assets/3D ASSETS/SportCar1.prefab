@@ -155,7 +155,6 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 0}
   playerController: {fileID: 0}
-  speedBoost: 0
 --- !u!54 &790503724338219264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -236,6 +235,7 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   groundNormalCheck: {fileID: 7882941253069129145}
   isShielded: 0
+  isUsingPowerups: 0
 --- !u!65 &-5478956365109004072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -687,7 +687,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6641dd4265c04a409a8d0683ba53c49, type: 2}
+  - {fileID: 2100000, guid: 3654145c490b25344bc70899d9ac0f49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1117,7 +1117,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6641dd4265c04a409a8d0683ba53c49, type: 2}
+  - {fileID: 2100000, guid: 3654145c490b25344bc70899d9ac0f49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
