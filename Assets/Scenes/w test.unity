@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5845,16 +5845,8 @@ MonoBehaviour:
   gameAudio: {fileID: 548596150}
   endAudio: {fileID: 548596154}
   EndMessage: {fileID: 659402870}
-  scoresTxt:
-  - {fileID: 1334233980}
-  - {fileID: 504600364}
-  - {fileID: 132551785}
-  - {fileID: 1818780781}
-  - {fileID: 1803364260}
-  - {fileID: 350339962}
-  - {fileID: 951715096}
-  - {fileID: 715834534}
   audioToggle: {fileID: 1144091398}
+  gameMode: start
 --- !u!82 &548596154
 AudioSource:
   m_ObjectHideFlags: 0

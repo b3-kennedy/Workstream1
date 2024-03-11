@@ -5,7 +5,7 @@ public class PowerUpController : MonoBehaviour
 {
     public PowerUp powerUp;
 
-    bool activated = false;
+    public bool activated = false;
     float timer = 7;
 
     GameObject carGO = null;
