@@ -20,20 +20,20 @@ public class PlayerCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(side == PlayerWithController.ControllerSide.Left)
-        {
-            if (Gamepad.all[padIndex].leftShoulder.wasPressedThisFrame && cardJoined)
-            {
-                Leave();
-            }
-        }
-        else if(side == PlayerWithController.ControllerSide.Right)
-        {
-            if (Gamepad.all[padIndex].rightShoulder.wasPressedThisFrame && cardJoined)
-            {
-                Leave();
-            }
-        }
+        //if(side == PlayerWithController.ControllerSide.Left)
+        //{
+        //    if (Gamepad.all[padIndex].leftShoulder.wasPressedThisFrame && cardJoined)
+        //    {
+        //        Leave();
+        //    }
+        //}
+        //else if(side == PlayerWithController.ControllerSide.Right)
+        //{
+        //    if (Gamepad.all[padIndex].rightShoulder.wasPressedThisFrame && cardJoined)
+        //    {
+        //        Leave();
+        //    }
+        //}
 
     }
 
