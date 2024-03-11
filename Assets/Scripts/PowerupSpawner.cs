@@ -6,7 +6,7 @@ public class PowerupSpawner : MonoBehaviour
 {
     public GameObject[] positions;
 
-    float  timer=13;
+    float  timer=5;
 
     public GameObject[] powerups;
    
@@ -15,7 +15,7 @@ public class PowerupSpawner : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer < 0)
         {
-            timer = Random.Range(7, 10);
+            timer = Random.Range(3, 7);
             
             SpawnPowerUp();
         }
