@@ -119,11 +119,7 @@ public class CarMovements : MonoBehaviour
         mats[0] = currentMaterial;
         renderer.materials = mats;
 
-        //currentMaterial = driverMaterials[driverIndex];
         Debug.Log("Changing material to " + currentMaterial.name);
-        //GetComponent<MeshRenderer>().materials[0] = currentMaterial;
-        //ApplyMaterialToChild("body/top", currentMaterial);
-        //ApplyMaterialToChild("body/body", currentMaterial);
 
     }
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
@@ -306,9 +302,8 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject.name);
-        //Debug.Log("triggered");
-        if (currentDriver != null && !isShielded)
+        
+        if (currentDriver != null && !isShielded && !gameObject.CompareTag("freeCar"))
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
