@@ -15,7 +15,7 @@ public class PowerUpController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.GetComponent<NewCarMovement>() && !activated && other.GetComponent<CarMovements>().currentDriver)
+        if (other.GetComponent<NewCarMovement>() && !activated && other.GetComponent<CarMovements>().currentDriver && other.GetComponent<CarMovements>().isUsingPowerups== false)
         {   
             
             carGO = other.gameObject;
@@ -24,7 +24,7 @@ public class PowerUpController : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
 
-
+            other.GetComponent<CarMovements>().isUsingPowerups = true;
             powerUpCollectAudio.Play();
         }
 
@@ -43,6 +43,7 @@ public class PowerUpController : MonoBehaviour
                 {
                      powerUp.Cancel(carGO);
                 }
+                carGO.GetComponent<CarMovements>().isUsingPowerups = false;
                 Destroy(gameObject);
 
             }
