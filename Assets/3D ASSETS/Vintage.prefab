@@ -551,9 +551,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9050852433512280616, guid: 6f4f825f985ca4d46b289ad72b7b5ca7, type: 3}
-  - {fileID: -213150381197032823, guid: 6f4f825f985ca4d46b289ad72b7b5ca7, type: 3}
-  - {fileID: 8556262120643298411, guid: 6f4f825f985ca4d46b289ad72b7b5ca7, type: 3}
+  - {fileID: 2100000, guid: bfe3e2e6789d74372a8c44cbf9c0fe04, type: 2}
+  - {fileID: 2100000, guid: bfe3e2e6789d74372a8c44cbf9c0fe04, type: 2}
+  - {fileID: 2100000, guid: bfe3e2e6789d74372a8c44cbf9c0fe04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -779,7 +779,6 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 0}
   playerController: {fileID: 0}
-  speedBoost: 0
 --- !u!54 &-8438856971381792236
 Rigidbody:
   m_ObjectHideFlags: 0
