@@ -33,6 +33,8 @@ public class GameManagerController : MonoBehaviour
 
     public static int playerNum;
 
+    public GameObject[] crownIconPositions;
+
 
     private void OnEnable()
     {
@@ -126,7 +128,15 @@ public class GameManagerController : MonoBehaviour
             endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
         }
         playerNum = scoreUIController.playersJoined;
-
+        
+        for(int i=0; i< 8; i++)
+        {
+            if(i== scoreUIController.winnerIndex)
+            {
+                crownIconPositions[i].SetActive(true);
+            }
+            else crownIconPositions[i].SetActive(false);
+        }
         endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
