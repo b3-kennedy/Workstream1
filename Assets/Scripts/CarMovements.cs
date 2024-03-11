@@ -306,9 +306,8 @@ public class CarMovements : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log(collision.gameObject.name);
-        //Debug.Log("triggered");
-        if (currentDriver != null && !isShielded)
+        
+        if (currentDriver != null && !isShielded && !gameObject.CompareTag("freeCar"))
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
