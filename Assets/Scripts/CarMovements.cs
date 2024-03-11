@@ -78,6 +78,8 @@ public class CarMovements : MonoBehaviour
 
     public bool isShielded = false;
 
+    public bool isUsingPowerups = false;
+
     float normalSpeed;
 
     private void Start()
