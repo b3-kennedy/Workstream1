@@ -153,7 +153,6 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 0}
   playerController: {fileID: 0}
-  speedBoost: 0
 --- !u!54 &-2921056857762790224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234,6 +233,8 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   groundNormalCheck: {fileID: 6242946010567663047}
   isShielded: 0
+  isUsingPowerups: 0
+  carSmoke: {fileID: 0}
 --- !u!114 &5955495107425563116
 MonoBehaviour:
   m_ObjectHideFlags: 0

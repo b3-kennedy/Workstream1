@@ -82,6 +82,7 @@ public class CarMovements : MonoBehaviour
 
     float normalSpeed;
 
+    public ParticleSystem carSmoke;
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -495,6 +496,15 @@ public class CarMovements : MonoBehaviour
         }
 
     }
+    public void activateCarSmoke()
+    {
+        carSmoke.Play();
+    }
 
+    public void deactivateCarSmoke()
+    {
+        carSmoke.Clear();
+        carSmoke.Stop();
+    }
 }
 
