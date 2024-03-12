@@ -163,10 +163,10 @@ MonoBehaviour:
   levels:
   - levelName: Parking Lot
     levelObj: {fileID: 1627175454}
-    sceneIndex: 7
+    sceneIndex: 6
   - levelName: Parking Lot 2
     levelObj: {fileID: 480594386}
-    sceneIndex: 6
+    sceneIndex: 5
   - levelName: New Level 1
     levelObj: {fileID: 116531051}
     sceneIndex: 3
