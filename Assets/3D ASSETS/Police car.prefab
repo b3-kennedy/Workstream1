@@ -222,7 +222,6 @@ MonoBehaviour:
   parkingSpaceLayer:
     serializedVersion: 2
     m_Bits: 256
-  screechAudio: {fileID: -6191153834656559250}
   colOOF: {fileID: 8427404258932758368}
   colCRASH: {fileID: 30143458308519568}
   colSCREAM: {fileID: 7298995976997382509}
@@ -253,7 +252,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161601442595913760}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6a5a7f8186acb04592c0e8b2366164e, type: 3}
