@@ -12,6 +12,8 @@ public class PowerUpController : MonoBehaviour
 
     public AudioSource powerUpCollectAudio;
 
+    public GameObject powerupIcon;
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -23,6 +25,8 @@ public class PowerUpController : MonoBehaviour
             activated = true;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
+
+            powerupIcon.SetActive(false);
 
             other.GetComponent<CarMovements>().isUsingPowerups = true;
             powerUpCollectAudio.Play();
