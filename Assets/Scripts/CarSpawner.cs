@@ -153,11 +153,7 @@ public class CarSpawner : MonoBehaviour
 
             cars.Remove(pickedCar);
 
-            if(gameObject != null)
-            {
-                StartCoroutine(waiter(pickedCar));
-            }
-            
+            StartCoroutine(waiter(pickedCar));
 
         }
     }
