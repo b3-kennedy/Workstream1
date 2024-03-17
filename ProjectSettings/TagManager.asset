@@ -23,6 +23,7 @@ TagManager:
   - test
   - Parking
   - OutOfBounds
+  - Barrier
   layers:
   - Default
   - TransparentFX

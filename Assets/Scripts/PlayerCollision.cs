@@ -15,6 +15,7 @@ public class PlayerCollision : MonoBehaviour
                 collision.gameObject.GetComponent<OnCollidedWith>().Collided(2);
                 Vector3 dir = (transform.position - collision.transform.position).normalized;
                 collision.gameObject.GetComponent<Rigidbody>().AddForce(-dir * (10 * GetComponent<Rigidbody>().velocity.magnitude), ForceMode.Impulse);
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
 

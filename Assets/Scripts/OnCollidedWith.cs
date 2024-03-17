@@ -26,7 +26,9 @@ public class OnCollidedWith : MonoBehaviour
         if (!collided)
         {
             collided = true;
-            GetComponent<PlayerController>().enabled = false;
+            GetComponent<PlayerController>().canMove = false;
+            GetComponent<PlayerController>().stickL = Vector2.zero;
+            GetComponent<PlayerController>().stickR = Vector2.zero;
             //nonTriggerCollider.enabled = false;
             startTimer = true;
             timer = stunTime;
@@ -52,8 +54,7 @@ public class OnCollidedWith : MonoBehaviour
 
                 GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
                 timer = 0;
-                GetComponent<PlayerController>().enabled = true;
-                GetComponent<Rigidbody>().isKinematic = false;
+                GetComponent<PlayerController>().canMove = true;
                 nonTriggerCollider.enabled = true;
                 spawnedTxt.SetActive(false);
                 collided = false;

@@ -172,7 +172,7 @@ MonoBehaviour:
     sceneIndex: 3
   - levelName: 
     levelObj: {fileID: 665407944}
-    sceneIndex: 3
+    sceneIndex: 7
   index: 0
 --- !u!114 &54279196
 MonoBehaviour:

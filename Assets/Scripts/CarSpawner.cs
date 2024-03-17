@@ -22,6 +22,10 @@ public class CarSpawner : MonoBehaviour
 
     public int randomNumber;
 
+    [Header("For non uniform car spawns:")]
+    public bool newSpawner;
+    public Transform[] spawnPoints;
+
     void Start()
     {
         for (var i = 0; i < 8; i++)
@@ -34,44 +38,89 @@ public class CarSpawner : MonoBehaviour
 
     IEnumerator SpawnCar(int i)
     {
-        Vector3 start = new Vector3(60 - 12 * i, 0, -90);
-        Vector3 target = new Vector3(60 - 12 * i, 0, -75);
 
 
-        randomNumber = Random.Range(1,11);
-      
-        if (randomNumber <= 8)
-        {
-             car = Instantiate(carPrefab, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
-
-        }
-        else if (randomNumber <=11)
-        {
-             car = Instantiate(carPrefab2, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
-
-        }
-        else 
+        if (!newSpawner)
         {
 
-             car = Instantiate(carPrefab3, target, Quaternion.identity);
-            RandomEventController.Instance.drivableCars.Add(car);
+            Vector3 start = new Vector3(60 - 12 * i, 0, -90);
+            Vector3 target = new Vector3(60 - 12 * i, 0, -75);
 
+            randomNumber = Random.Range(1, 11);
+
+            if (randomNumber <= 8)
+            {
+                car = Instantiate(carPrefab, target, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+            else if (randomNumber <= 11)
+            {
+                car = Instantiate(carPrefab2, target, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+            else
+            {
+
+                car = Instantiate(carPrefab3, target, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+
+
+            //GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
+            //car.transform.position = start;
+            car.transform.position = target;
+            car.name = "Car" + (totalCount);
+            //car.transform.SetParent(transform);
+            totalCount += 1;
+
+            CarObject carObj = new CarObject(i, Color.blue, car.name, car);
+            cars.Add(carObj);
+            float elapsedTime = 0f;
+            int moveInSpeed = 10;
+        }
+        else
+        {
+            Transform target = spawnPoints[i];
+
+            randomNumber = Random.Range(1, 11);
+
+            if (randomNumber <= 8)
+            {
+                car = Instantiate(carPrefab, target.position, target.rotation);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+            else if (randomNumber <= 11)
+            {
+                car = Instantiate(carPrefab2, target.position, target.rotation);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+            else
+            {
+
+                car = Instantiate(carPrefab3, target.position, target.rotation);
+                RandomEventController.Instance.drivableCars.Add(car);
+
+            }
+
+
+            //GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
+            //car.transform.position = start;
+            car.transform.position = target.position;
+            car.name = "Car" + (totalCount);
+            //car.transform.SetParent(transform);
+            totalCount += 1;
+
+            CarObject carObj = new CarObject(i, Color.blue, car.name, car);
+            cars.Add(carObj);
+            float elapsedTime = 0f;
+            int moveInSpeed = 10;
         }
 
-
-        //GameObject car = Instantiate(carPrefab,target, Quaternion.identity);
-        //car.transform.position = start;
-        car.transform.position = target;
-        car.name = "Car" + (totalCount);
-        //car.transform.SetParent(transform);
-        totalCount += 1;
-
-        CarObject carObj = new CarObject(i, Color.blue, car.name, car);
-        cars.Add(carObj);
-        float elapsedTime = 0f;
-        int moveInSpeed = 10;
 
 
         /* while (car.transform.position.z < target.z && elapsedTime<1.5f)
@@ -104,8 +153,11 @@ public class CarSpawner : MonoBehaviour
 
             cars.Remove(pickedCar);
 
-
-            StartCoroutine(waiter(pickedCar));
+            if(gameObject != null)
+            {
+                StartCoroutine(waiter(pickedCar));
+            }
+            
 
         }
     }

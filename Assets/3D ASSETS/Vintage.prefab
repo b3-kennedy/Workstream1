@@ -649,6 +649,7 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   groundNormalCheck: {fileID: 1128818856753732423}
   isShielded: 0
+  isUsingPowerups: 0
 --- !u!82 &1256054145960759152
 AudioSource:
   m_ObjectHideFlags: 0
@@ -779,6 +780,7 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 0}
   playerController: {fileID: 0}
+  groundCheck: {fileID: 1128818856753732423}
 --- !u!54 &-8438856971381792236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -790,7 +792,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -2, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -799,7 +801,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0

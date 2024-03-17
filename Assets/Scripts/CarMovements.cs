@@ -166,7 +166,11 @@ public class CarMovements : MonoBehaviour
             }
             else
             {
-                carSpawner.OnCarPickedUp(thisCar);
+                if(carSpawner != null)
+                {
+                    carSpawner.OnCarPickedUp(thisCar);
+                }
+                
             }
 
             
@@ -178,7 +182,11 @@ public class CarMovements : MonoBehaviour
 
     private void OnDestroy()
     {
-        carSpawner.OnCarPickedUp(thisCar);
+        if(carSpawner != null)
+        {
+            carSpawner.OnCarPickedUp(thisCar);
+        }
+        
     }
 
 
@@ -366,7 +374,11 @@ public class CarMovements : MonoBehaviour
                 //colOOF.Play();
             }
 
-
+            if (other.CompareTag("OutOfBounds"))
+            {
+                DisableInput();
+                Destroy(gameObject);
+            }
 
 
             if (other.gameObject.CompareTag("freeCar"))

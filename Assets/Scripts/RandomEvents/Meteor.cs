@@ -72,6 +72,10 @@ public class Meteor : MonoBehaviour
 
             if (col.GetComponent<Rigidbody>())
             {
+                if(col.tag == "Barrier")
+                {
+                    col.GetComponent<Rigidbody>().isKinematic = false;
+                }
                 Vector3 dir = col.transform.position - transform.position;
 
                 col.GetComponent<Rigidbody>().AddForce(dir * explosionForce);
