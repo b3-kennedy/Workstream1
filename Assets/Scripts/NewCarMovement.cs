@@ -43,7 +43,7 @@ public class NewCarMovement : MonoBehaviour
     {
         if(Physics.Raycast(groundCheck.transform.position, -Vector3.up, out RaycastHit hit ,0.25f))
         {
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            //transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
             return true;
         }
         return false;

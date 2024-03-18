@@ -108,8 +108,9 @@ public class Meteor : MonoBehaviour
             {
                 Destroy(spawnedShadow);
             }
+            Explode();
         }
 
-        Explode();
+        
     }
 }

@@ -254,14 +254,12 @@ public class PlayerController : MonoBehaviour
 
                     Debug.Log(currentCar.GetComponent<NewCarMovement>().GroundCheck());
 
-                    if (currentCar.GetComponent<NewCarMovement>().GroundCheck())
+
+                    if (carMove != Vector3.zero)
                     {
-                        if (carMove != Vector3.zero)
-                        {
-                            Vector3 newAngle = new Vector3(0, rot, 0);
-                            currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
-                                Time.deltaTime * newCarMovement.rotSpeed);
-                        }
+                        Vector3 newAngle = new Vector3(0, rot, 0);
+                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
+                            Time.deltaTime * newCarMovement.rotSpeed);
                     }
                 }
 
@@ -310,15 +308,11 @@ public class PlayerController : MonoBehaviour
 
                     float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
 
-
-                    if (currentCar.GetComponent<NewCarMovement>().GroundCheck())
+                    if (carMove != Vector3.zero)
                     {
-                        if (carMove != Vector3.zero)
-                        {
-                            Vector3 newAngle = new Vector3(0, rot, 0);
-                            currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
-                                Time.deltaTime * newCarMovement.rotSpeed);
-                        }
+                        Vector3 newAngle = new Vector3(0, rot, 0);
+                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
+                            Time.deltaTime * newCarMovement.rotSpeed);
                     }
 
                 }

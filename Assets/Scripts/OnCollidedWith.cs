@@ -12,7 +12,7 @@ public class OnCollidedWith : MonoBehaviour
     public Collider nonTriggerCollider;
     public GameObject cooldownTimerText;
     GameObject spawnedTxt;
-    bool collided;
+    public bool collided;
 
     private void Start()
     {
