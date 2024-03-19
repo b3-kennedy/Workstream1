@@ -1748,6 +1748,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 4
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 136387855}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -1761,6 +1762,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &136387850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5056,6 +5059,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 2
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 505563387}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -5069,6 +5073,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &505563382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5704,7 +5710,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0869bcc8afadcbd4182169d7dc3e6484, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12881,6 +12887,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 6
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 1167082973}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -12894,6 +12901,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &1167082968
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13507,6 +13516,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 5
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 1204578633}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -13520,6 +13530,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &1204578628
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17017,6 +17029,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 3
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 1507526899}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -17030,6 +17043,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &1507526894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18502,6 +18517,8 @@ MonoBehaviour:
   spawnHeight: -10
   moveUpDuration: 1
   randomNumber: 0
+  newSpawner: 0
+  spawnPoints: []
 --- !u!4 &1585901880
 Transform:
   m_ObjectHideFlags: 0
@@ -22617,6 +22634,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 7
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 2073384918}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -22630,6 +22648,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!54 &2073384913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23517,6 +23537,7 @@ MonoBehaviour:
   score: 0
   playerIndex: 1
   controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 2102835077}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -23530,6 +23551,8 @@ MonoBehaviour:
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
 --- !u!136 &2102835080
 CapsuleCollider:
   m_ObjectHideFlags: 0
