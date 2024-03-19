@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public enum ControllerSide { LEFT, RIGHT };
     public ControllerSide controllerSide;
 
+    public bool canMove;
+
     int deviceIndex;
     public string controlScheme;
     public AudioSource audioSource;
@@ -66,6 +68,11 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheckPos;
 
+    Vector3 startPos;
+
+    [HideInInspector] public Vector2 stickL;
+    [HideInInspector] public Vector2 stickR;
+
 
 
 
@@ -73,6 +80,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
+        startPos = transform.position;
+
+        canMove = true;
 
         originalPosition = transform.position;
         string objectName = gameObject.name.Split('r')[1];
@@ -157,12 +167,21 @@ public class PlayerController : MonoBehaviour
 
 
 
-        
 
-        if(pad != null)
+
+        if (pad != null)
         {
-            Vector2 stickL = pad.leftStick.ReadValue();
-            Vector2 stickR = pad.rightStick.ReadValue();
+            if (canMove)
+            {
+                stickL = pad.leftStick.ReadValue();
+                stickR = pad.rightStick.ReadValue();
+            }
+            else
+            {
+                stickL = Vector2.zero;
+                stickR = Vector2.zero;
+            }
+
 
             if (playerInput.currentControlScheme == "GamePadLeft")
             {
@@ -233,10 +252,13 @@ public class PlayerController : MonoBehaviour
 
                     float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
 
+                    Debug.Log(currentCar.GetComponent<NewCarMovement>().GroundCheck());
+
+
                     if (carMove != Vector3.zero)
                     {
                         Vector3 newAngle = new Vector3(0, rot, 0);
-                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z), 
+                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
                             Time.deltaTime * newCarMovement.rotSpeed);
                     }
                 }
@@ -286,14 +308,13 @@ public class PlayerController : MonoBehaviour
 
                     float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
 
-
-
                     if (carMove != Vector3.zero)
                     {
                         Vector3 newAngle = new Vector3(0, rot, 0);
                         currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
                             Time.deltaTime * newCarMovement.rotSpeed);
                     }
+
                 }
 
             }
@@ -324,26 +345,36 @@ public class PlayerController : MonoBehaviour
 
         if (inCar)
         {
-            currentCar.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(currentCar.GetComponent<Rigidbody>().velocity, currentCar.GetComponent<NewCarMovement>().maxSpeed);
+            carRb.velocity = Vector3.ClampMagnitude(carRb.velocity, currentCar.GetComponent<NewCarMovement>().maxSpeed);
 
-                if (carMove == Vector3.zero)
+            if (carMove == Vector3.zero)
+            {
+                carRb.velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * 0.5f);
+
+                //carSmoke.Stop();
+                //carSmoke2.Stop();
+
+
+            }
+
+            if (brake == 1)
+            {
+                carRb.velocity = Vector3.Lerp(carRb.velocity, Vector3.zero, Time.deltaTime * currentCar.GetComponent<NewCarMovement>().breakPower);
+            }
+            else
+            {
+                if (currentCar.GetComponent<NewCarMovement>().GroundCheck())
                 {
-                    currentCar.GetComponent<Rigidbody>().velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * 0.5f);
-
-                    //carSmoke.Stop();
-                    //carSmoke2.Stop();
-
-
-                }
-
-                if (brake == 1)
-                {
-                    currentCar.GetComponent<Rigidbody>().velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * currentCar.GetComponent<NewCarMovement>().breakPower);
+                    carRb.AddForce(carMove * currentCar.GetComponent<NewCarMovement>().speed, ForceMode.Acceleration);
                 }
                 else
                 {
-                    currentCar.GetComponent<Rigidbody>().AddForce(carMove * currentCar.GetComponent<NewCarMovement>().speed, ForceMode.Acceleration);
+                    carRb.AddForce(-Vector3.up * 10);
                 }
+
+            }
+
+
 
             
         }
@@ -376,7 +407,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("OutOfBounds"))
         {
-            transform.position = Vector3.zero;
+            transform.position = startPos;
         }
     }
 

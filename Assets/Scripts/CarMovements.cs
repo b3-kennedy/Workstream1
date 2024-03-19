@@ -55,7 +55,7 @@ public class CarMovements : MonoBehaviour
 
     public LayerMask parkingSpaceLayer;
 
-    public AudioSource screechAudio;
+    //public AudioSource screechAudio;
     public AudioSource colOOF;
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
@@ -119,11 +119,7 @@ public class CarMovements : MonoBehaviour
         mats[0] = currentMaterial;
         renderer.materials = mats;
 
-        //currentMaterial = driverMaterials[driverIndex];
         Debug.Log("Changing material to " + currentMaterial.name);
-        //GetComponent<MeshRenderer>().materials[0] = currentMaterial;
-        //ApplyMaterialToChild("body/top", currentMaterial);
-        //ApplyMaterialToChild("body/body", currentMaterial);
 
     }
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
@@ -170,7 +166,11 @@ public class CarMovements : MonoBehaviour
             }
             else
             {
-                carSpawner.OnCarPickedUp(thisCar);
+                if(carSpawner != null)
+                {
+                    carSpawner.OnCarPickedUp(thisCar);
+                }
+                
             }
 
             
@@ -182,7 +182,11 @@ public class CarMovements : MonoBehaviour
 
     private void OnDestroy()
     {
-        carSpawner.OnCarPickedUp(thisCar);
+        if(carSpawner != null)
+        {
+            carSpawner.OnCarPickedUp(thisCar);
+        }
+        
     }
 
 
@@ -370,7 +374,11 @@ public class CarMovements : MonoBehaviour
                 //colOOF.Play();
             }
 
-
+            if (other.CompareTag("OutOfBounds"))
+            {
+                DisableInput();
+                Destroy(gameObject);
+            }
 
 
             if (other.gameObject.CompareTag("freeCar"))

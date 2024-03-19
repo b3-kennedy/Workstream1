@@ -47,7 +47,7 @@ public class SelectScreenManager : MonoBehaviour
             //}
         }
 
-        for(int i = 0; transform.childCount > 0; i++)
+        for(int i = 0; i < transform.childCount-1; i++)
         {
             availableColours[i].color = transform.GetChild(i).GetComponent<Image>().color;
             //PlayerControllerManager.Instance.players[i].selectedMaterial = availableColours[i].material;
@@ -88,7 +88,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(0).gameObject.SetActive(true);
             player.card.transform.GetChild(3).gameObject.SetActive(true);
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press X/Square button to change colour";
-            player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
+            player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
             player.pad = Gamepad.all[i];
             joinedIndex.Add(index);
             //Debug.Log(player.pad);
@@ -119,7 +119,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(0).gameObject.SetActive(true);
             player.card.transform.GetChild(3).gameObject.SetActive(true);
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press Left Dpad button to change colour";
-            player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber + 1).ToString();
+            player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
             player.pad = Gamepad.all[i];
             joinedIndex.Add(player.card.GetComponent<PlayerCard>().cardIndex);
             //Debug.Log(player.pad);
