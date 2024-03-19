@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody carRb;
 
     public Transform groundCheckPos;
-
+    private Animator animator;
 
 
 
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
 
-
+        animator = GetComponent<Animator>();
         //deviceIndex = context.control.device.device.deviceId;
 
 
@@ -261,6 +261,15 @@ public class PlayerController : MonoBehaviour
                     dash = pad.rightShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
                     movement = new Vector3(stickR.x,-yVal , stickR.y);
+
+                    if (movement != new Vector3(0,0,0))
+                    { 
+                        animator.SetBool("IsWalk", true);
+                    }
+                    else
+                    {
+                        animator.SetBool("IsWalk", false);
+                    }
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
                 }
