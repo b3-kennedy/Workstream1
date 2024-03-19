@@ -66,16 +66,18 @@ public class CreatePlayers : MonoBehaviour
 
         foreach (var player in PlayerControllerManager.Instance.players)
         {
+            
             if (player.joined)
             {
                 if (player.controllerSide == PlayerWithController.ControllerSide.Left)
                 {
-                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber], controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
+                    Debug.Log(player.playerNumber);
+                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber-1], controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadLeft", player);
                 }
                 else
                 {
-                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber], controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[player.controllerIndex]);
+                    var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber-1], controlScheme: "GamePadRight", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadRight", player);
                 }
             }

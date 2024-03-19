@@ -252,7 +252,6 @@ public class PlayerController : MonoBehaviour
 
                     float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
 
-                    Debug.Log(currentCar.GetComponent<NewCarMovement>().GroundCheck());
 
 
                     if (carMove != Vector3.zero)
