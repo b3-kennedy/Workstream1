@@ -9,9 +9,9 @@ public class LightningEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GetComponent<CarMovements>())
+        if (GetComponent<NewCarMovement>())
         {
-            GetComponent<CarMovements>().fwdspeed *= 5;
+            GetComponent<NewCarMovement>().maxSpeed *= 5;
         }
 
         Destroy(this, destroyTime);
@@ -19,9 +19,9 @@ public class LightningEffect : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (GetComponent<CarMovements>())
+        if (GetComponent<NewCarMovement>())
         {
-            GetComponent<CarMovements>().fwdspeed /= 5;
+            GetComponent<NewCarMovement>().maxSpeed /= 5;
         }
     }
 

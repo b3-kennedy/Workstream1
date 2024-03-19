@@ -2,18 +2,20 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using System.Runtime.ConstrainedExecution;
 
 public class CarMovements : MonoBehaviour
 {
-    private Player1Input controls;
     private CarSpawner carSpawner;
-    private bool isInputEnabled = false;
+    [HideInInspector] public bool isInputEnabled = false;
 
     public float carSpeed = 100f;
     public float parkingSpaceRadius = 1.0f;
 
     public Material[] driverMaterials = new Material[8];
     private Material currentMaterial;
+    public Material defaultMat;
 
     public ParticleSystem explosionParticleSystem;
 
@@ -28,8 +30,13 @@ public class CarMovements : MonoBehaviour
     private string parkingScoreFloatingText;
 
     public GameObject FloatingTextPrefab;
+    public GameObject dmgFloatingText;
 
     public bool Azine = false;
+
+    bool invulnerable;
+    public float invulnerableTime;
+    float invulnerableTimer;
 
 
     public event Action OnCarParked;
@@ -48,28 +55,41 @@ public class CarMovements : MonoBehaviour
 
     public LayerMask parkingSpaceLayer;
 
-    public AudioSource screechAudio;
+    //public AudioSource screechAudio;
     public AudioSource colOOF;
     public AudioSource colCRASH;
     public AudioSource colSCREAM;
 
-
+    public ParticleSystem Emissionparticle;
+    NewCarMovement newMove;
 
     private Quaternion previousRotation;
+
+    public bool parked;
 
     public float diff = 1f;
     public bool spawnDamage = false;
 
-   public GameObject explosionEffectPrefab;
+    public GameObject explosionEffectPrefab;
+
+    Vector3 testMove;
+
+    public Transform groundNormalCheck;
+
+    public bool isShielded = false;
+
+    public bool isUsingPowerups = false;
+
+    float normalSpeed;
 
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
         thisCar = carSpawner.GetCarObject(gameObject);
-
-
-        sphereRB.transform.parent = null;
-        carRB.transform.parent = null;
+        newMove = GetComponent<NewCarMovement>();
+        normalSpeed = GetComponent<NewCarMovement>().speed;
+        //sphereRB.transform.parent = null;
+        //carRB.transform.parent = null;
 
 
         previousRotation = transform.rotation;
@@ -83,9 +103,9 @@ public class CarMovements : MonoBehaviour
 
     public void OnSwitch()
     {
-        controls = new Player1Input();
-        GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
-        controls.Enable();
+        //controls = new Player1Input();
+        //GetComponent<PlayerInput>().SwitchCurrentControlScheme(currentDriver.GetComponent<PlayerController>().controlScheme);
+        //controls.Enable();
     }
 
     private void OnDisable()
@@ -94,16 +114,19 @@ public class CarMovements : MonoBehaviour
     }
     public void SetColor(Material currentMaterial, int driverIndex)
     {
-        //currentMaterial = driverMaterials[driverIndex];
-        ApplyMaterialToChild("body/top", currentMaterial);
-        ApplyMaterialToChild("body/body", currentMaterial);
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        var mats = renderer.materials;
+        mats[0] = currentMaterial;
+        renderer.materials = mats;
+
+        Debug.Log("Changing material to " + currentMaterial.name);
 
     }
     public void EnableInput(int driverIndex, GameObject playerObject, Vector3 pos)
     {
         isInputEnabled = true;
 
-        carSpawner.OnCarPickedUp(thisCar);
+        
 
         currentDriver = playerObject;
         currentDriverIndex = driverIndex;
@@ -115,9 +138,14 @@ public class CarMovements : MonoBehaviour
     {
         if(currentDriver != null)
         {
-            currentDriver.SetActive(true);
-            currentDriver.GetComponent<PlayerController>().OnSpawn();
-            currentDriver.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z + 3);
+            //currentDriver.SetActive(true);
+            currentDriver.GetComponent<PlayerController>().triggerCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().normalCollider.enabled = true;
+            currentDriver.GetComponent<PlayerController>().inCar = false;
+            currentDriver.GetComponent<MeshRenderer>().enabled = true;
+            
+            //currentDriver.GetComponent<PlayerController>().OnSpawn();
+            currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y + 1, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 for (int i = 0; i < Camera.main.GetComponent<MultipleTargetCamera>().targets.Count; i++)
@@ -128,96 +156,80 @@ public class CarMovements : MonoBehaviour
                     }
                 }
             }
+            GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
             currentDriver = null;
             isInputEnabled = false;
+            if (!parked)
+            {
+                transform.tag = "freeCar";
+                SetColor(defaultMat, currentDriverIndex);
+            }
+            else
+            {
+                if(carSpawner != null)
+                {
+                    carSpawner.OnCarPickedUp(thisCar);
+                }
+                
+            }
+
+            
         }
 
 
 
     }
 
+    private void OnDestroy()
+    {
+        if(carSpawner != null)
+        {
+            carSpawner.OnCarPickedUp(thisCar);
+        }
+        
+    }
+
 
     private void Update()
     {
-        
-        if (isInputEnabled)
+
+        if (invulnerable)
         {
+            invulnerableTimer += Time.deltaTime;
+            if (invulnerableTimer >= invulnerableTime)
+            {
+                invulnerable = false;
+                invulnerableTimer = 0;
+            }
 
 
-            Vector2 stickL = currentDriver.GetComponent<PlayerController>().pad.leftStick.ReadValue();
-            Vector2 stickR = currentDriver.GetComponent<PlayerController>().pad.rightStick.ReadValue();
-
-            if (GetComponent<PlayerInput>().currentControlScheme == "GamePadLeft" && new Vector2(stickL.x, stickL.y) != Vector2.zero)
+            if (groundNormalCheck != null)
             {
 
-                for (int i = 0; i < Gamepad.all.Count; i++)
+                if (Physics.Raycast(groundNormalCheck.position, -Vector3.up, out RaycastHit hit, 1f))
                 {
-                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-                    {
-                        Vector2 movementInput = new Vector2(stickL.x, stickL.y);
-                        moveInput = movementInput.y;
-                        turnInput = movementInput.x;
-                        float buttonP = controls.Player.Drive.ReadValue<float>();
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-                    }
+                    transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
                 }
             }
-            else if (GetComponent<PlayerInput>().currentControlScheme == "GamePadRight" && new Vector2(stickR.x, stickR.y) != Vector2.zero)
-            {
-                for (int i = 0; i < Gamepad.all.Count; i++)
-                {
-                    if (Gamepad.all[i] == currentDriver.GetComponent<PlayerController>().pad)
-                    {
-                        Vector2 movementInput = new Vector2(stickR.x, stickR.y);
-                        moveInput = movementInput.y;
-                        turnInput = movementInput.x;
-                        float buttonP = controls.Player.Drive.ReadValue<float>();
-                        moveInput *= moveInput > 0 ? fwdspeed : revSpeed;
-
-
-                    }
-                }
-            }
-
-
-            Quaternion currentRotation = transform.rotation;
-            float rotationDifference = Quaternion.Angle(previousRotation, currentRotation);
-
-            if (rotationDifference > diff)  // Adjust the threshold as needed
-            {
-                screechAudio.Play();
-            }
-
-            previousRotation = currentRotation;
-
         }
 
-
-        transform.position = sphereRB.transform.position;
-        float newRotation = turnInput * turnSpeed * Time.deltaTime * moveInput;
-        transform.Rotate(0f, newRotation, 0f, Space.World);
-
-
-
-
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, parkingSpaceRadius, parkingSpaceLayer);
-
+        
         //  change parking conditions 
-        if (colliders.Length > 0 && moveInput < 1&& thisCar.isParked == false && currentDriver!=null)
+        if (colliders.Length > 0 && moveInput < 1&& !parked && currentDriver!=null)
         {
 
             
             thisCar.isParked = (true);
+            Debug.Log("here");
             foreach (Collider c in colliders)
             {
-                switch (c.gameObject.name.Split('c')[0])
+                var spot = c.GetComponent<ParkingSpot>();
+                switch (spot.points)
                 {
-
-                    case "100":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    
+                    case ParkingSpot.Points.ONE:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 200 * thisCar.life / 100;
                         }
@@ -226,8 +238,8 @@ public class CarMovements : MonoBehaviour
                             parkingScoreEarned = 100 * thisCar.life / 100;
                         }
                         break;
-                    case "200":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    case ParkingSpot.Points.TWO:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 400 * thisCar.life / 100;
                         }
@@ -236,8 +248,8 @@ public class CarMovements : MonoBehaviour
                             parkingScoreEarned = 200 * thisCar.life / 100;
                         }
                         break;
-                    case "300":
-                        if (c.transform.parent.GetComponentInChildren<DoublePointParkingSpot>())
+                    case ParkingSpot.Points.THREE:
+                        if (spot.doublePoints)
                         {
                             parkingScoreEarned = 600 * thisCar.life / 100;
                         }
@@ -250,6 +262,11 @@ public class CarMovements : MonoBehaviour
                         break;
                 }
                 parkingScoreFloatingText = "+ " + parkingScoreEarned;
+                parked = true;
+                this.enabled = false;
+                newMove.enabled = false;
+                //GetComponent<PlayerInput>().enabled = false;
+                //Destroy(gameObject);
 
 
             }
@@ -257,9 +274,9 @@ public class CarMovements : MonoBehaviour
             //makes car heavy after parking
             //carRB.drag = 15;
            // carRB.mass = 15;
-            sphereRB.drag = 5;
-            sphereRB.mass = 5;
-            transform.Rotate(0f, 0f, 0f, Space.World);
+            //sphereRB.drag = 5;
+            //sphereRB.mass = 5;
+            //transform.Rotate(0f, 0f, 0f, Space.World);
             // carRB.constraints = RigidbodyConstraints.FreezePositionY;
             /*thiscarRB.drag = 100;
             thiscarRB.mass = 100;*/
@@ -275,27 +292,30 @@ public class CarMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        //sphereRB.AddForce(transform.forward * 500, ForceMode.Acceleration);
+
         if (isInputEnabled)
         {
-            sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+            
+            //sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration);
+            //transform.Translate(testMove * 100 * Time.deltaTime);
 
         }
 
-        carRB.MoveRotation(transform.rotation);
+        //carRB.MoveRotation(transform.rotation);
     }
 
     
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
-        Debug.Log("triggered");
-        if (currentDriver != null)
+        
+        if (currentDriver != null && !isShielded && !gameObject.CompareTag("freeCar"))
         {
             if (collision.gameObject.CompareTag("Player") && !gameObject.CompareTag("freeCar"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("Player HIT: " + thisCar.life);
 
                 colOOF.Play();
                 colCRASH.Play();
@@ -305,21 +325,18 @@ public class CarMovements : MonoBehaviour
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("Object HIT: " + thisCar.life);
                 ShowFloatingLostLife();
 
             }
             else if (collision.gameObject.CompareTag("Walls"))
             {
                 ReduceLifeOnDamage(20);
-                Debug.Log("wall HIT: " + thisCar.life);
                 ShowFloatingLostLife();
 
             }
             else if (collision.gameObject.CompareTag("TrafficCone"))
             {
                 ReduceLifeOnDamage(10);
-                Debug.Log("wall HIT: " + thisCar.life);
                 colCRASH.Play();
                 ShowFloatingLostLife();
 
@@ -344,65 +361,54 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Parking"))
-    //    {
-    //        Debug.Log(moveInput);
-    //        if(moveInput == 0)
-    //        {
-
-
-    //            Debug.Log("PARK");
-    //        }
-            
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("SpeedBump"))
+        Debug.Log(isShielded);
+        if (!isShielded)
         {
-            Debug.Log("On Speedbump");
-            fwdspeed = 40;
-            colOOF.Play();
-
-
-        }
-
-
-
-        if (other.gameObject.CompareTag("freeCar"))
-        {
-            ReduceLifeOnDamage(10);
-            Debug.Log("wall HIT: " + thisCar.life);
-            colCRASH.Play();
-            ShowFloatingLostLife();
-
-        }
-
-        if (other.CompareTag("test"))
-        {
-            Debug.Log("hello");
-        }
-
-        if (other.gameObject.CompareTag("Water"))
-        {
-            Debug.Log("Water");
-            DisableInput();
-            if(currentDriver != null)
+            
+            if (other.gameObject.CompareTag("SpeedBump"))
             {
-                currentDriver.transform.position = Vector3.zero;
+                GetComponent<Rigidbody>().velocity /= 2;
+                //colOOF.Play();
             }
-            Destroy(gameObject);
 
+            if (other.CompareTag("OutOfBounds"))
+            {
+                DisableInput();
+                Destroy(gameObject);
+            }
+
+
+            if (other.gameObject.CompareTag("freeCar"))
+            {
+                ReduceLifeOnDamage(10);
+                Debug.Log("wall HIT: " + thisCar.life);
+                colCRASH.Play();
+                ShowFloatingLostLife();
+
+            }
+
+            if (other.CompareTag("test"))
+            {
+                Debug.Log("hello");
+            }
+
+            if (other.gameObject.CompareTag("Water"))
+            {
+                Debug.Log("Water");
+                DisableInput();
+                if (currentDriver != null)
+                {
+                    currentDriver.transform.position = Vector3.zero;
+                }
+                Destroy(gameObject);
+
+            }
         }
-
-
-
-
-
-
+       
+       
 
 
     }
@@ -413,8 +419,7 @@ public class CarMovements : MonoBehaviour
 
         if (other.gameObject.CompareTag("SpeedBump"))
         {
-            Debug.Log("Off Speedbump");
-            fwdspeed = 150;
+            //GetComponent<NewCarMovement>().speed = normalSpeed;
 
 
         }
@@ -445,13 +450,14 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    void ShowFloatingLostLife()
+    public void ShowFloatingLostLife()
     {
-        if (FloatingTextPrefab != null)
+        if (FloatingTextPrefab != null && !invulnerable)
         {
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().color = Color.red;
-            go.GetComponent<TextMesh>().text = "" + thisCar.life;
+            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            go.GetComponent<TextMeshPro>().color = Color.red;
+            go.GetComponent<TextMeshPro>().text = "" + thisCar.life;
+            invulnerable = true;
         }
     }
     
@@ -461,8 +467,8 @@ public class CarMovements : MonoBehaviour
         if (FloatingTextPrefab != null)
         {
 
-            var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0), transform);
-            go.GetComponent<TextMesh>().text = parkingScoreFloatingText;
+            var go = Instantiate(dmgFloatingText, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
+            go.GetComponent<TextMeshPro>().text = parkingScoreFloatingText;
         }
 
         OnCarParked?.Invoke();
@@ -471,27 +477,30 @@ public class CarMovements : MonoBehaviour
 
     public void ReduceLifeOnDamage(int damage)
     {
-        
-        if (thisCar.life - damage <= 0 )
+        if (!invulnerable)
         {
+            if (thisCar.life - damage <= 0)
+            {
 
-            // colSCREAM.Play();
+                // colSCREAM.Play();
 
-            DisableInput();
+                DisableInput();
 
-            ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
+                ParticleSystem explosion = Instantiate(explosionParticleSystem, transform.position, Quaternion.identity);
 
-            Destroy(gameObject);
+                Destroy(gameObject);
 
-            //play audio
+                //play audio
 
-            colSCREAM.Play();
+                colSCREAM.Play();
 
+            }
+            else
+            {
+                thisCar.life -= damage;
+            }
         }
-        else
-        {
-            thisCar.life -= damage;
-        }
+
     }
 
 }

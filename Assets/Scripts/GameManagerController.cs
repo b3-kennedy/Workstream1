@@ -1,11 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameManagerController : MonoBehaviour
 {
+   
+
     public ScoreUIController scoreUIController;
     public GameObject mainScene;
     public GameObject endScene;
@@ -20,10 +25,13 @@ public class GameManagerController : MonoBehaviour
     public TMP_Text[] scoresTxt = new TMP_Text[8];
 
     public Toggle audioToggle;
+      
+    public static float[] endScores = new float[8];
 
 
+    public string gameMode = "start";
 
-    string gameMode = "start";
+    public static int playerNum;
 
 
     private void OnEnable()
@@ -34,6 +42,7 @@ public class GameManagerController : MonoBehaviour
         playerControls.Start.action.performed += ctx => StartGame();
         playerControls.Exit.action.performed += ctx => QuitGame();
 
+       
     }
     private void OnDisable()
     {
@@ -59,6 +68,26 @@ public class GameManagerController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            if (Gamepad.all[i].startButton.wasPressedThisFrame && !endScene.activeSelf)
+            {
+                if (!PauseMenu.Instance.gameObject.activeSelf)
+                {
+                    PauseMenu.Instance.gameObject.SetActive(true);
+                    PauseMenu.Instance.Freeze();
+                }
+                else
+                {
+                    PauseMenu.Instance.gameObject.SetActive(false);
+                    PauseMenu.Instance.Unfreeze();
+                }
+                
+            }
+        }
+    }
     void Start()
     {
 
@@ -86,17 +115,28 @@ public class GameManagerController : MonoBehaviour
 
     private void LoadEndGameScene()
     {
+        //SortScores();
         Debug.Log("game over scene load");
+        PauseMenu.Instance.gameObject.SetActive(false);
         EndMessage.text = scoreUIController.endGameMsg;
-        for (int i = 7; i >= 0; i--)
+
+        for (int i = 0; i < 8; i++)
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
+            endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
         }
+        playerNum = scoreUIController.playersJoined;
+
         endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
         gameMode = "End";
+       // SceneManager.LoadScene(4);
+
+    }
+    void SortScores()
+    {
 
     }
     IEnumerator PlayEndMusic()

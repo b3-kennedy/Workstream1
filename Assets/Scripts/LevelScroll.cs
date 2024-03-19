@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class LevelImage
@@ -34,12 +35,20 @@ public class LevelScroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("1");
     }
 
 
     void UserInput()
     {
+
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene(1);
+            }
+        }
+
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             if (!useAxis)
@@ -96,6 +105,7 @@ public class LevelScroll : MonoBehaviour
 
     public void ScrollRight()
     {
+        Debug.Log("right");
         index++;
         if (index >= levels.Length)
         {
@@ -105,6 +115,7 @@ public class LevelScroll : MonoBehaviour
 
     public void ScrollLeft()
     {
+        Debug.Log("left");
         if (index <= 0)
         {
             index = levels.Length;

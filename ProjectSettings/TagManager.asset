@@ -22,6 +22,8 @@ TagManager:
   - Water
   - test
   - Parking
+  - OutOfBounds
+  - Barrier
   layers:
   - Default
   - TransparentFX

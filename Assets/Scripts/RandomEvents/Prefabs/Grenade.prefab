@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4262229759458803641}
   - component: {fileID: 4485880719714287567}
   - component: {fileID: -7840197352103960311}
+  - component: {fileID: -716268084782216698}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   startCountdown: 0
   explodeTime: 2
   radius: 10
-  damage: 1
+  damage: 10
   grenadeTimerObj: {fileID: 0}
   explosion: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
 --- !u!120 &-7840197352103960311
@@ -257,3 +258,16 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-716268084782216698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476527387456704411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4faca47efa575eb42980243c559257d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 10

@@ -1,9 +1,12 @@
-using System;
+ using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreUIController : MonoBehaviour
 {
+    public static ScoreUIController Instance;
+
     public TMP_Text[] scoresTxt = new TMP_Text[8];
     public event Action OnEndGame;
 
@@ -14,13 +17,47 @@ public class ScoreUIController : MonoBehaviour
 
     public TMP_Text timerTxt;
 
+    public GameObject[] playerImages;
+    public GameObject[] endGameImages;
+    [HideInInspector] public int playersJoined;
+
     public float TimeLeft;
     public bool TimerOn = false;
+
+    public GameObject[] crownIconPositions;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+
     private void Start()
     {
         TimerOn = true;
-    }
 
+        for (int i = endGameImages.Length - 1; i >= 0; i--)
+        {
+            endGameImages[i].gameObject.SetActive(false);
+        }
+
+        for (int i = playersJoined - 1; i >= 0; i--)
+        {
+            endGameImages[i].gameObject.SetActive(true);
+        }
+
+        for (int i = 0; i < playerImages.Length; i++)
+        {
+            playerImages[i].gameObject.SetActive(false);
+            
+        }
+
+        for (int i = 0; i < playersJoined; i++) 
+        {
+            playerImages[i].gameObject.SetActive(true);
+        }
+    }
+    public int winnerIndex = 0;
     void Update()
     {
         if (TimerOn)
@@ -40,6 +77,7 @@ public class ScoreUIController : MonoBehaviour
         }
         for (int i = 0; i < 8; i++)
         {
+           
             TMP_Text score = scoresTxt[i];
             scores[i] = int.Parse(score.text);
             if (scores[i] > 20000)
@@ -49,7 +87,28 @@ public class ScoreUIController : MonoBehaviour
                 OnEndGame?.Invoke();
             }
         }
+        UpdateWinner();
 
+    }
+    void UpdateWinner()
+    {
+        for (int i = 0; i < scores.Length; i++)
+        {
+            if (scores[i] > scores[winnerIndex] && i!=winnerIndex)
+            {
+                winnerIndex = i;
+            }
+
+        }
+        for (int i = 0; i < crownIconPositions.Length; i++)
+        {   if(i== winnerIndex) {
+                crownIconPositions[i].SetActive(true);
+            } else
+            {
+                crownIconPositions[i].SetActive(false);
+            }
+           
+        }
     }
     void UpdateTimer(float currentTime)
     {

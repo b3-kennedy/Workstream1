@@ -7,4 +7,5 @@ public abstract class PowerUp : ScriptableObject
 {
     public abstract void Apply(GameObject gameObject);
 
+    public abstract void Cancel(GameObject gameObject);
 }

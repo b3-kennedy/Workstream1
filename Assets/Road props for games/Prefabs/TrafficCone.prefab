@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1071012509893646920}
   - component: {fileID: 8651681885357297259}
   - component: {fileID: 1770938260329941325}
-  - component: {fileID: 7143171122945048683}
+  - component: {fileID: 4215146846344332385}
   m_Layer: 0
   m_Name: TrafficCone
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4908254231211520169}
-  m_Mesh: {fileID: 4653924363292288924, guid: 5cc0dc82a7b7e6f4a8ea3797e6588ba5, type: 3}
+  m_Mesh: {fileID: 7901568066644674479, guid: 874b02e01dfe74f09bcb8cf838a689a3, type: 3}
 --- !u!23 &1770938260329941325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd1975821d392a94d91a58c890003a41, type: 2}
+  - {fileID: -876546973899608171, guid: 874b02e01dfe74f09bcb8cf838a689a3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7143171122945048683
+--- !u!65 &4215146846344332385
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,5 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.43233913, y: 0.7483919, z: 0.43233913}
-  m_Center: {x: 0, y: 0.37419572, z: 0}
+  m_Size: {x: 0.18339746, y: 0.3001615, z: 0.18339746}
+  m_Center: {x: 0, y: 0.15008076, z: 0}
