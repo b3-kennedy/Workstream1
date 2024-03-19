@@ -5,17 +5,19 @@ public class PowerUpController : MonoBehaviour
 {
     public PowerUp powerUp;
 
-    bool activated = false;
+    public bool activated = false;
     float timer = 7;
 
     GameObject carGO = null;
 
     public AudioSource powerUpCollectAudio;
 
+    public GameObject powerupIcon;
+
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.GetComponent<NewCarMovement>() && !activated && other.GetComponent<CarMovements>().currentDriver && other.GetComponent<CarMovements>().isUsingPowerups== false)
+        if (other.GetComponent<CarMovements>() && !activated && other.GetComponent<CarMovements>().currentDriver && other.GetComponent<CarMovements>().isUsingPowerups == false)
         {   
             
             carGO = other.gameObject;
@@ -23,6 +25,8 @@ public class PowerUpController : MonoBehaviour
             activated = true;
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
+
+            powerupIcon.SetActive(false);
 
             other.GetComponent<CarMovements>().isUsingPowerups = true;
             powerUpCollectAudio.Play();
@@ -38,12 +42,13 @@ public class PowerUpController : MonoBehaviour
             if (timer <= 0)
             {
                 
-                timer = 20;
+               
                 if(carGO != null)
                 {
                      powerUp.Cancel(carGO);
+                     carGO.GetComponent<CarMovements>().isUsingPowerups = false;
                 }
-                carGO.GetComponent<CarMovements>().isUsingPowerups = false;
+                
                 Destroy(gameObject);
 
             }

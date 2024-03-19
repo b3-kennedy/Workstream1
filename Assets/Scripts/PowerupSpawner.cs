@@ -29,10 +29,9 @@ public class PowerupSpawner : MonoBehaviour
         {
          if (positions[i].GetComponentInChildren<PowerUpController>()!=null)
             {
-                Debug.Log("position"+ i+" is full.");
+              
             }   else
             {
-                Debug.Log("position"+ i+" is empty.");
                 pos = i;
                 break;
             }

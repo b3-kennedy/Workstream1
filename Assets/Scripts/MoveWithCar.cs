@@ -7,10 +7,17 @@ public class MoveWithCar : MonoBehaviour
     public bool move = false;
 
     public GameObject car;
-    
+
+    float timer = 7;
+
     void Update()
     {
-        if(move && car)
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            Destroy(gameObject);
+        }
+        if (move && car)
         {
             gameObject.transform.position = car.transform.position;
         }

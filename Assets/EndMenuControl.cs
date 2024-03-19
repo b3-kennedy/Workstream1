@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class EndMenuControl : MonoBehaviour
 {
@@ -92,9 +93,9 @@ public class EndMenuControl : MonoBehaviour
     }
 
 
-    public void startScene()
+    public void StartScene()
     {
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void quit()

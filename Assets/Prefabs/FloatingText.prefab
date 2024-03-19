@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821929495596066008}
   m_LocalRotation: {x: 0.68294996, y: -0, z: -0, w: 0.7304651}
-  m_LocalPosition: {x: 0, y: 0, z: -0.69174}
+  m_LocalPosition: {x: 0, y: 0, z: -1.4964}
   m_LocalScale: {x: 0.703125, y: 0.77642167, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 86.149, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.046561}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -1.1265, y: -0.0466}
+  m_SizeDelta: {x: 49.526, y: 21.4119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6931565142722310335
 MeshRenderer:
@@ -162,8 +162,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 166
+  m_fontSizeBase: 166
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

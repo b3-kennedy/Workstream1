@@ -245,7 +245,6 @@ MonoBehaviour:
   parkingSpaceLayer:
     serializedVersion: 2
     m_Bits: 256
-  screechAudio: {fileID: 7153236553003093674, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
   colOOF: {fileID: 7211832043098707230, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
   colCRASH: {fileID: 4473245991405568922, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
   colSCREAM: {fileID: 4548300079913050715, guid: 21ec4d751e299bb478448a1e38f02a1e, type: 3}
@@ -256,6 +255,7 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 943711573677764440, guid: e05a39b4e57b4134aa7e48dad706763e, type: 3}
   groundNormalCheck: {fileID: 3918988434488490035}
   isShielded: 0
+  isUsingPowerups: 0
 --- !u!82 &4386208547430174810
 AudioSource:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060431255269217476}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b6a5a7f8186acb04592c0e8b2366164e, type: 3}
@@ -386,7 +386,6 @@ MonoBehaviour:
   carSmoke: {fileID: 0}
   carSmoke2: {fileID: 8938087244445601379}
   playerController: {fileID: 0}
-  speedBoost: 0
 --- !u!54 &6015114917388988231
 Rigidbody:
   m_ObjectHideFlags: 0

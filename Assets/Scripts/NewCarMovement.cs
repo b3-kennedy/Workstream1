@@ -21,6 +21,7 @@ public class NewCarMovement : MonoBehaviour
     public ParticleSystem carSmoke;
     public ParticleSystem carSmoke2;
     public PlayerController playerController;
+    public Transform groundCheck;
 
 
     Player1Input player1Input;
@@ -36,6 +37,16 @@ public class NewCarMovement : MonoBehaviour
     public void SetupCar()
     {
         //controlScheme = GetComponent<PlayerInput>().currentControlScheme;
+    }
+
+    public bool GroundCheck()
+    {
+        if(Physics.Raycast(groundCheck.transform.position, -Vector3.up, out RaycastHit hit ,0.25f))
+        {
+            //transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            return true;
+        }
+        return false;
     }
 
     // Update is called once per frame

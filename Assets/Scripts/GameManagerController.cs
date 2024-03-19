@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 
 public class GameManagerController : MonoBehaviour
 {
+   
+
     public ScoreUIController scoreUIController;
     public GameObject mainScene;
     public GameObject endScene;
@@ -23,10 +25,13 @@ public class GameManagerController : MonoBehaviour
     public TMP_Text[] scoresTxt = new TMP_Text[8];
 
     public Toggle audioToggle;
+      
+    public static float[] endScores = new float[8];
 
 
+    public string gameMode = "start";
 
-    string gameMode = "start";
+    public static int playerNum;
 
 
     private void OnEnable()
@@ -37,6 +42,7 @@ public class GameManagerController : MonoBehaviour
         playerControls.Start.action.performed += ctx => StartGame();
         playerControls.Exit.action.performed += ctx => QuitGame();
 
+       
     }
     private void OnDisable()
     {
@@ -117,29 +123,20 @@ public class GameManagerController : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
+            endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
         }
+        playerNum = scoreUIController.playersJoined;
 
         endScene.SetActive(true);
         mainScene.SetActive(false);
         gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
         gameMode = "End";
+       // SceneManager.LoadScene(4);
 
     }
     void SortScores()
     {
-       
-        int[] l = new int[8];
-        for (int i = 0; i < 8; i++)
-        {
-            
-            l[i] = int.Parse(scoreUIController.scoresTxt[i].text);
-        }
-        l = l.OrderByDescending(x => x).ToArray();
-        for (int i = 0; i < 8; i++)
-        {
-            scoresTxt[i].text = l[i].ToString();
-        }
 
     }
     IEnumerator PlayEndMusic()
