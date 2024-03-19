@@ -52,20 +52,21 @@ public class CarSpawner : MonoBehaviour
             {
                 car = Instantiate(carPrefab, target, Quaternion.identity);
                 RandomEventController.Instance.drivableCars.Add(car);
+                car.transform.tag = "freeCar";
 
             }
             else if (randomNumber <= 11)
             {
                 car = Instantiate(carPrefab2, target, Quaternion.identity);
                 RandomEventController.Instance.drivableCars.Add(car);
-
+                car.transform.tag = "freeCar";
             }
             else
             {
 
                 car = Instantiate(carPrefab3, target, Quaternion.identity);
                 RandomEventController.Instance.drivableCars.Add(car);
-
+                car.transform.tag = "freeCar";
             }
 
 
