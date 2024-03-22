@@ -228,7 +228,6 @@ public class CarMovements : MonoBehaviour
 
             
             thisCar.isParked = (true);
-            Debug.Log("here");
             foreach (Collider c in colliders)
             {
                 var spot = c.GetComponent<ParkingSpot>();
@@ -349,7 +348,7 @@ public class CarMovements : MonoBehaviour
                 ShowFloatingLostLife(20);
 
             }
-            else if (collision.gameObject.CompareTag("TrafficCone"))
+            else if (collision.gameObject.CompareTag("TrafficCone") || collision.gameObject.CompareTag("Barrier"))
             {
                 ReduceLifeOnDamage(10);
                 colCRASH.Play();
@@ -379,6 +378,13 @@ public class CarMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("OutOfBounds"))
+        {
+            DisableInput();
+            Destroy(gameObject);
+        }
+
         if (!isShielded)
         {
             
@@ -386,12 +392,6 @@ public class CarMovements : MonoBehaviour
             {
                 GetComponent<Rigidbody>().velocity /= 2;
                 //colOOF.Play();
-            }
-
-            if (other.CompareTag("OutOfBounds"))
-            {
-                DisableInput();
-                Destroy(gameObject);
             }
 
 

@@ -13,10 +13,15 @@ public class OnCollidedWith : MonoBehaviour
     public GameObject cooldownTimerText;
     GameObject spawnedTxt;
     public bool collided;
+    [HideInInspector] public bool isProtected;
+    float protectedTimer;
+    public float protectedTime;
+    public GameObject spawnProtectionPrefab;
+    GameObject spawnProtectionObj;
 
     private void Start()
     {
-        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.Euler(90,0,0));
+        spawnedTxt = Instantiate(cooldownTimerText, new Vector3(transform.position.x, transform.position.y + 7f, transform.position.z), Quaternion.Euler(90,0,0));
         spawnedTxt.GetComponent<FollowPlayer>().target = transform;
         spawnedTxt.SetActive(false);
     }
@@ -34,12 +39,30 @@ public class OnCollidedWith : MonoBehaviour
             timer = stunTime;
             Debug.Log("collided");
             spawnedTxt.SetActive(true);
+            
         }
 
     }
 
     private void Update()
     {
+
+        if (isProtected)
+        {
+            if(spawnProtectionObj == null)
+            {
+                spawnProtectionObj = Instantiate(spawnProtectionPrefab, transform);
+            }
+
+            protectedTimer += Time.deltaTime;
+            if(protectedTimer >= protectedTime)
+            {
+                isProtected = false;
+                protectedTimer = 0;
+                Destroy(spawnProtectionObj);
+            }
+        }
+
         if (startTimer)
         {
             GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(false);
@@ -51,7 +74,7 @@ public class OnCollidedWith : MonoBehaviour
 
             if (timer <= 0)
             {
-
+                isProtected = true;
                 GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
                 timer = 0;
                 GetComponent<PlayerController>().canMove = true;

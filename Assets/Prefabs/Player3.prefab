@@ -416,6 +416,9 @@ MonoBehaviour:
   nonTriggerCollider: {fileID: 8271459979058246132}
   cooldownTimerText: {fileID: 4244518369567231507, guid: 6c0f3db58d4923046b7d907d9d364889, type: 3}
   collided: 0
+  isProtected: 0
+  protectedTime: 1
+  spawnProtectionPrefab: {fileID: 3697036726444748944, guid: 27e55a32960e3ca4188ed94b07845609, type: 3}
 --- !u!95 &4363251722314490038
 Animator:
   serializedVersion: 5

@@ -35,7 +35,7 @@ public class CreatePlayers : MonoBehaviour
         player.GetComponent<PlayerController>().OnSpawn();
         players.Add(player.gameObject);
         player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
-        player.transform.position = playerSpawnParent.GetChild(index).position;
+        player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, 3, playerSpawnParent.GetChild(index).position.z);
         player.GetComponent<MeshRenderer>().material = playerMats[index];
         
         

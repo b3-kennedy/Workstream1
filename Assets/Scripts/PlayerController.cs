@@ -406,6 +406,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("OutOfBounds"))
         {
             transform.position = prevPos;
+            GetComponent<OnCollidedWith>().isProtected = true;
         }
     }
 
