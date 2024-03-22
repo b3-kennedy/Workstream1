@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Runtime.ConstrainedExecution;
+using UnityEngine.PlayerLoop;
+using Unity.VisualScripting;
 
 public class CarMovements : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class CarMovements : MonoBehaviour
     public Material defaultMat;
 
     public ParticleSystem explosionParticleSystem;
+    public ParticleSystem FireParticleSystem;
+
+    public bool isOnFire = false;
 
     [HideInInspector]
     public CarObject thisCar;
@@ -188,6 +193,7 @@ public class CarMovements : MonoBehaviour
         }
         
     }
+  
 
 
     private void Update()
@@ -286,6 +292,13 @@ public class CarMovements : MonoBehaviour
             RandomEventController.Instance.drivableCars.Remove(gameObject);
         }
 
+           if(!isOnFire  && thisCar.life < 40)
+        {
+            ParticleSystem fire = Instantiate(FireParticleSystem, new Vector3(transform.position.x, transform.position.y+4,transform.position.z ), Quaternion.identity);
+            fire.gameObject.transform.parent = gameObject.transform;
+            isOnFire = true;
+
+        } 
     }
 
 
@@ -304,6 +317,7 @@ public class CarMovements : MonoBehaviour
         }
 
         //carRB.MoveRotation(transform.rotation);
+        
     }
 
     
@@ -320,25 +334,25 @@ public class CarMovements : MonoBehaviour
                 colOOF.Play();
                 colCRASH.Play();
 
-                ShowFloatingLostLife();
+                ShowFloatingLostLife(10);
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
-                ShowFloatingLostLife();
+                ShowFloatingLostLife(10);
 
             }
             else if (collision.gameObject.CompareTag("Walls"))
             {
                 ReduceLifeOnDamage(20);
-                ShowFloatingLostLife();
+                ShowFloatingLostLife(20);
 
             }
             else if (collision.gameObject.CompareTag("TrafficCone"))
             {
                 ReduceLifeOnDamage(10);
                 colCRASH.Play();
-                ShowFloatingLostLife();
+                ShowFloatingLostLife(10);
 
             }
             /*else if (collision.gameObject.CompareTag("SpeedBump"))
@@ -386,7 +400,7 @@ public class CarMovements : MonoBehaviour
                 ReduceLifeOnDamage(10);
                 Debug.Log("wall HIT: " + thisCar.life);
                 colCRASH.Play();
-                ShowFloatingLostLife();
+                ShowFloatingLostLife(10);
 
             }
 
@@ -450,13 +464,13 @@ public class CarMovements : MonoBehaviour
     }
 
 
-    public void ShowFloatingLostLife()
+    public void ShowFloatingLostLife(int damage)
     {
         if (FloatingTextPrefab != null && !invulnerable)
         {
             var go = Instantiate(FloatingTextPrefab, new Vector3(transform.position.x, 2, transform.position.z), Quaternion.Euler(90, 0, 0));
             go.GetComponent<TextMeshPro>().color = Color.red;
-            go.GetComponent<TextMeshPro>().text = "" + thisCar.life;
+            go.GetComponent<TextMeshPro>().text = "-" + damage;
             invulnerable = true;
         }
     }
