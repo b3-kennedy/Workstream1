@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         startPos = transform.position;
+        prevPos = startPos;
 
         canMove = true;
 
@@ -167,16 +168,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        posTimer += Time.deltaTime;
-        if(posTimer >= 1)
-        {
-            prevPos = transform.position;
-            posTimer = 0;
-        }
-
-
-
         if (pad != null)
         {
             if (canMove)
@@ -415,6 +406,19 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("OutOfBounds"))
         {
             transform.position = prevPos;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("InBounds"))
+        {
+            posTimer += Time.deltaTime;
+            if (posTimer >= 1)
+            {
+                prevPos = transform.position;
+                posTimer = 0;
+            }
         }
     }
 

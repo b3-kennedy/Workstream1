@@ -24,6 +24,7 @@ TagManager:
   - Parking
   - OutOfBounds
   - Barrier
+  - InBounds
   layers:
   - Default
   - TransparentFX

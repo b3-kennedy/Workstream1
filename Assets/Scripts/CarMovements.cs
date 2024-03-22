@@ -365,7 +365,6 @@ public class CarMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(isShielded);
         if (!isShielded)
         {
             
