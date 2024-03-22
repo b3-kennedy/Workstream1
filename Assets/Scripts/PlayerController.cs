@@ -68,6 +68,9 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheckPos;
 
+    Vector3 prevPos;
+    float posTimer;
+
     Vector3 startPos;
 
     [HideInInspector] public Vector2 stickL;
@@ -165,7 +168,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
+        posTimer += Time.deltaTime;
+        if(posTimer >= 1)
+        {
+            prevPos = transform.position;
+            posTimer = 0;
+        }
 
 
 
@@ -406,7 +414,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("OutOfBounds"))
         {
-            transform.position = startPos;
+            transform.position = prevPos;
         }
     }
 
