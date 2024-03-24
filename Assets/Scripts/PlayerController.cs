@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public int playerIndex;
 
-    public enum ControllerSide { LEFT, RIGHT };
-    public ControllerSide controllerSide;
+    //public enum ControllerSide { LEFT, RIGHT };
+    //public ControllerSide controllerSide;
 
     public bool canMove;
 
@@ -170,10 +170,13 @@ public class PlayerController : MonoBehaviour
     {
         if (pad != null)
         {
+            
+
             if (canMove)
             {
                 stickL = pad.leftStick.ReadValue();
                 stickR = pad.rightStick.ReadValue();
+                
             }
             else
             {
@@ -184,7 +187,6 @@ public class PlayerController : MonoBehaviour
 
             if (playerInput.currentControlScheme == "GamePadLeft")
             {
-
                 if (!inCar)
                 {
 

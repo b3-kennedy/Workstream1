@@ -30,31 +30,35 @@ public class CreatePlayers : MonoBehaviour
 
     void SpawnPlayer(PlayerInput player, int controllerIndex, string controlScheme, PlayerWithController pwc)
     {
-        player.GetComponent<PlayerController>().pad = Gamepad.all[controllerIndex];
-        player.GetComponent<PlayerController>().controlScheme = controlScheme;
-        player.GetComponent<PlayerController>().OnSpawn();
-        players.Add(player.gameObject);
-        player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
-        player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, 3, playerSpawnParent.GetChild(index).position.z);
-        player.GetComponent<MeshRenderer>().material = playerMats[index];
-        
-        
-        GameObject txt = Instantiate(playerNumberText);
-        txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber).ToString();
-        txt.GetComponent<FollowPlayer>().target = player.transform;
-        player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
-        if(pwc.selectedMaterial != null)
+        if (pwc.isReady)
         {
-            player.GetComponent<MeshRenderer>().material = pwc.selectedMaterial;
-        }
-        
+            player.GetComponent<PlayerController>().pad = Gamepad.all[controllerIndex];
+            player.GetComponent<PlayerController>().controlScheme = controlScheme;
+            player.GetComponent<PlayerController>().OnSpawn();
+            players.Add(player.gameObject);
+            player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
+            player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, 3, playerSpawnParent.GetChild(index).position.z);
+            player.GetComponent<MeshRenderer>().material = playerMats[index];
 
-        if (Camera.main.GetComponent<MultipleTargetCamera>())
-        {
-            Camera.main.GetComponent<MultipleTargetCamera>().targets.Add(player.transform);
+
+            GameObject txt = Instantiate(playerNumberText);
+            txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber).ToString();
+            txt.GetComponent<FollowPlayer>().target = player.transform;
+            player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
+            if (pwc.selectedMaterial != null)
+            {
+                player.GetComponent<MeshRenderer>().material = pwc.selectedMaterial;
+            }
+
+
+            if (Camera.main.GetComponent<MultipleTargetCamera>())
+            {
+                Camera.main.GetComponent<MultipleTargetCamera>().targets.Add(player.transform);
+            }
+            ScoreUIController.Instance.playersJoined++;
+            index++;
         }
-        ScoreUIController.Instance.playersJoined++;
-        index++;
+
     }
 
     // Start is called before the first frame update
