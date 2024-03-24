@@ -88,6 +88,8 @@ public class CarMovements : MonoBehaviour
     float normalSpeed;
 
     public ParticleSystem carSmoke;
+
+    [HideInInspector] public GameObject icon;
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -162,7 +164,12 @@ public class CarMovements : MonoBehaviour
                     }
                 }
             }
-            GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
+            if(GetComponent<NewCarMovement>().playerNumberText != null)
+            {
+                GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
+            }
+            
+            icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
             currentDriver = null;
             isInputEnabled = false;
             if (!parked)

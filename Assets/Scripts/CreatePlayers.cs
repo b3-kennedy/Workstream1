@@ -19,6 +19,7 @@ public class CreatePlayers : MonoBehaviour
     public GameObject playerNumberText;
 
     public GameObject[] playerPrefabs;
+    public GameObject[] playerIcons;
 
     //public InputActionAsset controlScheme;
 
@@ -40,11 +41,24 @@ public class CreatePlayers : MonoBehaviour
             player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, 3, playerSpawnParent.GetChild(index).position.z);
             player.GetComponent<MeshRenderer>().material = playerMats[index];
 
+            if (ActivatedEvents.Instance.showPlayerNumber)
+            {
+                GameObject txt = Instantiate(playerNumberText);
+                txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber).ToString();
+                txt.GetComponent<FollowPlayer>().target = player.transform;
+                player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
+            }
 
-            GameObject txt = Instantiate(playerNumberText);
-            txt.GetComponent<TextMeshPro>().text = "P" + (pwc.playerNumber).ToString();
-            txt.GetComponent<FollowPlayer>().target = player.transform;
-            player.GetComponent<PlayerController>().playerNumberText = txt.GetComponent<FollowPlayer>();
+            if (ActivatedEvents.Instance.showPlayerIcon)
+            {
+                GameObject icon = Instantiate(playerIcons[pwc.playerNumber-1]);
+                icon.GetComponent<FollowPlayer>().target = player.transform;
+                icon.GetComponent<FollowPlayer>().yOffset = 2;
+                player.GetComponent<PlayerController>().icon = icon;
+                icon.transform.localScale = new Vector3(1, 1, 1);
+                
+            }
+
             if (pwc.selectedMaterial != null)
             {
                 player.GetComponent<MeshRenderer>().material = pwc.selectedMaterial;

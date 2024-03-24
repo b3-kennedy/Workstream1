@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1747,7 +1747,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 4
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 136387855}
@@ -1756,6 +1755,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -5058,7 +5058,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 2
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 505563387}
@@ -5067,6 +5066,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -5989,6 +5989,15 @@ MonoBehaviour:
   - {fileID: 2701567004596339129, guid: ac3931fdb5ba80944a29de492df3d513, type: 3}
   - {fileID: 2701567004596339129, guid: 26eaffd5fed24c344acf5a04ae36c6ec, type: 3}
   - {fileID: 2701567004596339129, guid: d4beb3c26b958eb43b759ee4d10b96b5, type: 3}
+  playerIcons:
+  - {fileID: 2192748535687979961, guid: 32883167a26a2a548a5c47917bb415cc, type: 3}
+  - {fileID: 778763893212567878, guid: 3e18276c90464c146a6d4e0046836b3b, type: 3}
+  - {fileID: 5883469604017207752, guid: 00d56e4331741eb46b99678b59e1f705, type: 3}
+  - {fileID: 1305650429374045714, guid: 9dc30435d290dbe41859d55a73522ed2, type: 3}
+  - {fileID: 5431224710075488240, guid: 9d8d1b7c6b5a0a44bad8b392ec65c995, type: 3}
+  - {fileID: 1168187743124608237, guid: 56c80b3460d1b3840bad86dd0fe07920, type: 3}
+  - {fileID: 7616405770327014182, guid: fd435dcb4f2ce724bb4426239553f5be, type: 3}
+  - {fileID: 6734553816774124355, guid: 100c055133fee1d4ba94f602601c9c19, type: 3}
 --- !u!4 &556851724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1316972958701208559, guid: 244bbe73ea80baf41b6378264518d315, type: 3}
@@ -12886,7 +12895,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 6
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 1167082973}
@@ -12895,6 +12903,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -13515,7 +13524,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 5
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 1204578633}
@@ -13524,6 +13532,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -17028,7 +17037,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 3
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 1507526899}
@@ -17037,6 +17045,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -22633,7 +22642,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 7
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 2073384918}
@@ -22642,6 +22650,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81
@@ -23536,7 +23545,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 1
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 2102835077}
@@ -23545,6 +23553,7 @@ MonoBehaviour:
   dashCooldown: 0
   dashForce: 0
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 0}
   normalCollider: {fileID: 0}
   gravity: -9.81

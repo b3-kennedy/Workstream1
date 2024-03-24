@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public TMP_Text scoreTextMesh;
     Rigidbody rb;
+
+    public GameObject icon;
     
     PlayerInput playerInput;
 
@@ -96,6 +98,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
 
+
         //deviceIndex = context.control.device.device.deviceId;
 
 
@@ -138,8 +141,8 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
+       
 
-        
     }
 
     void OnEnable()
@@ -453,11 +456,19 @@ public class PlayerController : MonoBehaviour
         currentCar = car;
         currentCar.SetActive(true);
 
-        playerNumberText.target = car.transform;
+        
         car.GetComponent<NewCarMovement>().SetupCar();
-        car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        if(playerNumberText != null)
+        {
+            playerNumberText.target = car.transform;
+            car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        }
+
         car.GetComponent<NewCarMovement>().playerController = this;
         car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
+
+        car.GetComponent<CarMovements>().icon = icon;
+        icon.GetComponent<FollowPlayer>().target = car.transform;
 
         carRb = currentCar.GetComponent<Rigidbody>();
         newCarMovement = currentCar.GetComponent<NewCarMovement>();

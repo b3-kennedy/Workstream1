@@ -181,7 +181,6 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 7
-  controllerSide: 0
   canMove: 0
   controlScheme: 
   audioSource: {fileID: 457595400917258163}
@@ -190,6 +189,7 @@ MonoBehaviour:
   dashCooldown: 1
   dashForce: 200
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 5870631330687764665}
   normalCollider: {fileID: 8271459979058246132}
   gravity: -9.81
