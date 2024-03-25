@@ -198,6 +198,7 @@ MonoBehaviour:
   groundCheckPos: {fileID: 7753822357479603475}
   stickL: {x: 0, y: 0}
   stickR: {x: 0, y: 0}
+  splash: {fileID: 4111495251303188563, guid: 7ecf5ac268bfa614ca179ca399ba7664, type: 3}
 --- !u!82 &457595400917258163
 AudioSource:
   m_ObjectHideFlags: 0

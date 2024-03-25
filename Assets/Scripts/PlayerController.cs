@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 stickR;
 
 
-
+    public ParticleSystem splash;
 
     void Start()
     {
@@ -410,6 +410,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("OutOfBounds"))
         {
+            transform.position = prevPos;
+            GetComponent<OnCollidedWith>().isProtected = true;
+        }
+        else if (other.CompareTag("Water"))
+        {
+            ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
+            newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
             transform.position = prevPos;
             GetComponent<OnCollidedWith>().isProtected = true;
         }

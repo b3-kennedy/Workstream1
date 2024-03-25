@@ -90,6 +90,10 @@ public class CarMovements : MonoBehaviour
     public ParticleSystem carSmoke;
 
     [HideInInspector] public GameObject icon;
+
+
+    public ParticleSystem splash;
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -389,6 +393,7 @@ public class CarMovements : MonoBehaviour
         if (other.CompareTag("OutOfBounds"))
         {
             DisableInput();
+            RandomEventController.Instance.drivableCars.Remove(gameObject);
             Destroy(gameObject);
         }
 
@@ -418,12 +423,9 @@ public class CarMovements : MonoBehaviour
 
             if (other.gameObject.CompareTag("Water"))
             {
-                Debug.Log("Water");
                 DisableInput();
-                if (currentDriver != null)
-                {
-                    currentDriver.transform.position = Vector3.zero;
-                }
+                Instantiate(splash, transform.position, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Remove(gameObject);
                 Destroy(gameObject);
 
             }

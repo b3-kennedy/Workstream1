@@ -53,7 +53,7 @@ public class CreatePlayers : MonoBehaviour
             {
                 GameObject icon = Instantiate(playerIcons[pwc.playerNumber-1]);
                 icon.GetComponent<FollowPlayer>().target = player.transform;
-                icon.GetComponent<FollowPlayer>().yOffset = 2;
+                icon.GetComponent<FollowPlayer>().yOffset = 0.25f;
                 player.GetComponent<PlayerController>().icon = icon;
                 icon.transform.localScale = new Vector3(1, 1, 1);
                 
