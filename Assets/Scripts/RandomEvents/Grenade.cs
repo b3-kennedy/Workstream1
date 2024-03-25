@@ -41,7 +41,7 @@ public class Grenade : MonoBehaviour
                     if (col.GetComponent<CarMovements>())
                     {
                         col.GetComponent<CarMovements>().ReduceLifeOnDamage(damage);
-                        col.GetComponent<CarMovements>().ShowFloatingLostLife();
+                        col.GetComponent<CarMovements>().ShowFloatingLostLife(10);
                     }
                 }
                 

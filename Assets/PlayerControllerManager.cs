@@ -25,6 +25,7 @@ public class PlayerWithController
     public int colourIndex;
     public Color selectedColour;
     public Material selectedMaterial;
+    public bool isReady;
 }
 
 

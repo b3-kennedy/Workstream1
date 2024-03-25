@@ -23,7 +23,6 @@ public class NewCarMovement : MonoBehaviour
     public PlayerController playerController;
     public Transform groundCheck;
 
-
     Player1Input player1Input;
 
     // Start is called before the first frame update
