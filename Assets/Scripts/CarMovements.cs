@@ -173,7 +173,11 @@ public class CarMovements : MonoBehaviour
                 GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
             }
             
-            icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
+            if(icon != null)
+            {
+                icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
+            }
+
             currentDriver = null;
             isInputEnabled = false;
             if (!parked)

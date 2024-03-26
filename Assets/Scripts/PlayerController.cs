@@ -475,7 +475,11 @@ public class PlayerController : MonoBehaviour
         car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
 
         car.GetComponent<CarMovements>().icon = icon;
-        icon.GetComponent<FollowPlayer>().target = car.transform;
+        if(icon != null)
+        {
+            icon.GetComponent<FollowPlayer>().target = car.transform;
+        }
+        
 
         carRb = currentCar.GetComponent<Rigidbody>();
         newCarMovement = currentCar.GetComponent<NewCarMovement>();
