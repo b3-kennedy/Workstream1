@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public int playerIndex;
 
-    public enum ControllerSide { LEFT, RIGHT };
-    public ControllerSide controllerSide;
+    //public enum ControllerSide { LEFT, RIGHT };
+    //public ControllerSide controllerSide;
 
     public bool canMove;
 
@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public TMP_Text scoreTextMesh;
     Rigidbody rb;
+
+    public GameObject icon;
     
     PlayerInput playerInput;
 
@@ -68,19 +70,23 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheckPos;
 
+    Vector3 prevPos;
+    float posTimer;
+
     Vector3 startPos;
 
     [HideInInspector] public Vector2 stickL;
     [HideInInspector] public Vector2 stickR;
 
 
-
+    public ParticleSystem splash;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         startPos = transform.position;
+        prevPos = startPos;
 
         canMove = true;
 
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         playerInput = GetComponent<PlayerInput>();
+
 
 
         //deviceIndex = context.control.device.device.deviceId;
@@ -134,8 +141,8 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.Move.performed += OnMovementPerformed;
         controls.Player.Move.canceled += OnMovementCanceled;
+       
 
-        
     }
 
     void OnEnable()
@@ -164,17 +171,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-
-
-
-
         if (pad != null)
         {
+            
+
             if (canMove)
             {
                 stickL = pad.leftStick.ReadValue();
                 stickR = pad.rightStick.ReadValue();
+                
             }
             else
             {
@@ -185,7 +190,6 @@ public class PlayerController : MonoBehaviour
 
             if (playerInput.currentControlScheme == "GamePadLeft")
             {
-
                 if (!inCar)
                 {
 
@@ -406,7 +410,28 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("OutOfBounds"))
         {
-            transform.position = startPos;
+            transform.position = prevPos;
+            GetComponent<OnCollidedWith>().isProtected = true;
+        }
+        else if (other.CompareTag("Water"))
+        {
+            ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
+            newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
+            transform.position = prevPos;
+            GetComponent<OnCollidedWith>().isProtected = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("InBounds"))
+        {
+            posTimer += Time.deltaTime;
+            if (posTimer >= 1)
+            {
+                prevPos = transform.position;
+                posTimer = 0;
+            }
         }
     }
 
@@ -438,11 +463,23 @@ public class PlayerController : MonoBehaviour
         currentCar = car;
         currentCar.SetActive(true);
 
-        playerNumberText.target = car.transform;
+        
         car.GetComponent<NewCarMovement>().SetupCar();
-        car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        if(playerNumberText != null)
+        {
+            playerNumberText.target = car.transform;
+            car.GetComponent<NewCarMovement>().playerNumberText = playerNumberText;
+        }
+
         car.GetComponent<NewCarMovement>().playerController = this;
         car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
+
+        car.GetComponent<CarMovements>().icon = icon;
+        if(icon != null)
+        {
+            icon.GetComponent<FollowPlayer>().target = car.transform;
+        }
+        
 
         carRb = currentCar.GetComponent<Rigidbody>();
         newCarMovement = currentCar.GetComponent<NewCarMovement>();

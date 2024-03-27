@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 360513432468905547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,7 +212,7 @@ MonoBehaviour:
   carParked: 0
   score: 0
   playerIndex: 7
-  controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 457595400917258163}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -220,12 +220,16 @@ MonoBehaviour:
   dashCooldown: 1
   dashForce: 200
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 5870631330687764665}
   normalCollider: {fileID: 8271459979058246132}
   gravity: -9.81
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 478896980173403985}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
+  splash: {fileID: 4111495251303188563, guid: 7ecf5ac268bfa614ca179ca399ba7664, type: 3}
 --- !u!82 &457595400917258163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -443,6 +447,10 @@ MonoBehaviour:
   timeToReset: 2
   nonTriggerCollider: {fileID: 8271459979058246132}
   cooldownTimerText: {fileID: 4244518369567231507, guid: 6c0f3db58d4923046b7d907d9d364889, type: 3}
+  collided: 0
+  isProtected: 0
+  protectedTime: 1
+  spawnProtectionPrefab: {fileID: 3697036726444748944, guid: 27e55a32960e3ca4188ed94b07845609, type: 3}
 --- !u!95 &1574068360133510414
 Animator:
   serializedVersion: 5

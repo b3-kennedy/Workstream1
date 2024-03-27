@@ -24,26 +24,33 @@ public class EndMenuControl : MonoBehaviour
 
     void Input()
     {
-        float horizontal = pad.leftStick.x.value;
 
-        if ((horizontal < 0 && !moved) || (pad.dpad.left.isPressed && !moved))
+        if (Gamepad.all.Count > 0)
         {
-            buttonIndex--;
-            if (buttonIndex < 0)
+            for (int i = 0; i < Gamepad.all.Count; i++) 
             {
-                buttonIndex = buttons.Length - 1;
-            }
+                float horizontal = Gamepad.all[i].leftStick.x.value;
 
-            moved = true;
-        }
-        else if ((horizontal > 0 && !moved) || (pad.dpad.right.isPressed && !moved))
-        {
-            buttonIndex++;
-            if (buttonIndex > buttons.Length - 1)
-            {
-                buttonIndex = 0;
+                if ((horizontal < 0 && !moved) || (Gamepad.all[i].dpad.left.isPressed && !moved))
+                {
+                    buttonIndex--;
+                    if (buttonIndex < 0)
+                    {
+                        buttonIndex = buttons.Length - 1;
+                    }
+
+                    moved = true;
+                }
+                else if ((horizontal > 0 && !moved) || (Gamepad.all[i].dpad.right.isPressed && !moved))
+                {
+                    buttonIndex++;
+                    if (buttonIndex > buttons.Length - 1)
+                    {
+                        buttonIndex = 0;
+                    }
+                    moved = true;
+                }
             }
-            moved = true;
         }
     }
 
@@ -85,10 +92,14 @@ public class EndMenuControl : MonoBehaviour
             Selection();
             Timer();
 
-            if (pad.aButton.isPressed)
+            for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                buttons[buttonIndex].GetComponent<MenuButton>().Activate();
+                if (Gamepad.all[i].aButton.isPressed)
+                {
+                    buttons[buttonIndex].GetComponent<MenuButton>().Activate();
+                }
             }
+
         }
     }
 

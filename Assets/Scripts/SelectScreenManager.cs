@@ -26,7 +26,11 @@ public class SelectScreenManager : MonoBehaviour
     public GameObject startText;
     public List<int> joinedIndex;
     public ColourMaterialPair[] availableColours;
-
+    public GameObject timerPanel;
+    public TextMeshProUGUI timerText;
+    float readyTimer;
+    bool startTimer;
+    public float maxTimeAfterReady;
     public int index = 0;
 
 
@@ -89,6 +93,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).gameObject.SetActive(true);
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press X/Square button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
+            player.card.transform.GetChild(4).gameObject.SetActive(true);
             player.pad = Gamepad.all[i];
             joinedIndex.Add(index);
             //Debug.Log(player.pad);
@@ -104,7 +109,6 @@ public class SelectScreenManager : MonoBehaviour
         {
             player.joined = true;
             player.card = GetNextCard();
-            Debug.Log(GetNextCard());
             player.card.transform.GetChild(2).gameObject.SetActive(false);
             player.card.GetComponent<PlayerCard>().cardJoined = true;
             player.card.GetComponent<PlayerCard>().padIndex = i;
@@ -120,6 +124,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(3).gameObject.SetActive(true);
             player.card.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = "Press Left Dpad button to change colour";
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
+            player.card.transform.GetChild(4).gameObject.SetActive(true);
             player.pad = Gamepad.all[i];
             joinedIndex.Add(player.card.GetComponent<PlayerCard>().cardIndex);
             //Debug.Log(player.pad);
@@ -213,19 +218,11 @@ public class SelectScreenManager : MonoBehaviour
            
         }
 
-        if(index > 0)
-        {
-            startText.SetActive(true);
-        }
-        else
-        {
-            startText.SetActive(false);
-        }
-
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
-            if (Gamepad.all[i].buttonNorth.wasPressedThisFrame && index > 0)
+            if (Gamepad.all[i].buttonNorth.wasPressedThisFrame && startText.activeSelf)
             {
+                //RemoveUnreadyPlayers();
                 SceneManager.LoadScene(2);
             }
             else if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
@@ -235,47 +232,8 @@ public class SelectScreenManager : MonoBehaviour
         }
 
 
-        foreach (var player in PlayerControllerManager.Instance.players)
-        {
-            if (player.joined)
-            {
-                if (player.colourIndex > availableColours.Length)
-                {
-                    player.colourIndex = 0;
-                }
-
-                if (player.controllerSide == PlayerWithController.ControllerSide.Right)
-                {
-                    if (player.pad.buttonWest.wasPressedThisFrame)
-                    {
-                        player.colourIndex++;
-                        if(player.colourIndex > availableColours.Length-1)
-                        {
-                            player.colourIndex = 0;
-                        }
-                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
-                        player.selectedColour = availableColours[player.colourIndex].color;
-                        player.selectedMaterial = availableColours[player.colourIndex].material;
-
-                    }
-                }
-                else if (player.controllerSide == PlayerWithController.ControllerSide.Left)
-                {
-                    if (player.pad.dpad.left.wasPressedThisFrame)
-                    {
-                        player.colourIndex++;
-                        if (player.colourIndex > availableColours.Length-1)
-                        {
-                            player.colourIndex = 0;
-                        }
-                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
-                        player.selectedColour = availableColours[player.colourIndex].color;
-                        player.selectedMaterial = availableColours[player.colourIndex].material;
-                    }
-                }
-            }
-        }
-
+        ColourChange();
+        ReadyTimer();
 
         //for (int i = 0; i < Gamepad.all.Count; i++)
         //{
@@ -301,8 +259,8 @@ public class SelectScreenManager : MonoBehaviour
     }
     //public void NextOption()
     //{
-    
-        
+
+
     //    tempGO = list[selectedSkin];
     //    selectedSkin = selectedSkin + 1;
     //    tempGO.SetActive(true);
@@ -312,6 +270,146 @@ public class SelectScreenManager : MonoBehaviour
     //    //tempGO.SetActive(false);
     //    selectedSkin = selectedSkin - 1;
     //    tempGO = list[selectedSkin];
-        
+
     //}
+    void ColourChange()
+    {
+        foreach (var player in PlayerControllerManager.Instance.players)
+        {
+            if (player.joined)
+            {
+                if (player.colourIndex > availableColours.Length)
+                {
+                    player.colourIndex = 0;
+                }
+
+                if (player.controllerSide == PlayerWithController.ControllerSide.Right)
+                {
+                    if (player.pad.buttonWest.wasPressedThisFrame)
+                    {
+                        player.colourIndex++;
+                        if (player.colourIndex > availableColours.Length - 1)
+                        {
+                            player.colourIndex = 0;
+                        }
+                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
+                        player.selectedColour = availableColours[player.colourIndex].color;
+                        player.selectedMaterial = availableColours[player.colourIndex].material;
+
+                    }
+                }
+                else if (player.controllerSide == PlayerWithController.ControllerSide.Left)
+                {
+                    if (player.pad.dpad.left.wasPressedThisFrame)
+                    {
+                        player.colourIndex++;
+                        if (player.colourIndex > availableColours.Length - 1)
+                        {
+                            player.colourIndex = 0;
+                        }
+                        player.card.GetComponent<Image>().color = availableColours[player.colourIndex].color;
+                        player.selectedColour = availableColours[player.colourIndex].color;
+                        player.selectedMaterial = availableColours[player.colourIndex].material;
+                    }
+                }
+            }
+        }
+    }
+
+    void ReadyTimer()
+    {
+        if (startTimer)
+        {
+            readyTimer -= Time.deltaTime;
+
+            timerText.text =  "Starting In:\n" + Mathf.Round(readyTimer).ToString();
+
+            if(readyTimer <= 0)
+            {
+                SceneManager.LoadScene(2);
+                //RemoveUnreadyPlayers();
+            }
+        }
+    }
+
+    void RemoveUnreadyPlayers()
+    {
+        foreach (var player in PlayerControllerManager.Instance.players)
+        {
+            if (!player.card.GetComponent<PlayerCard>().ready)
+            {
+                player.joined = false;
+            }
+        }
+    }
+
+    public void ReadyCheck()
+    {
+        float ready = 0;
+        float notReady = 0;
+        foreach (var card in list)
+        {
+            if (card.GetComponent<PlayerCard>().cardJoined)
+            {
+                if (card.GetComponent<PlayerCard>().ready)
+                {
+                    ready++;
+                }
+                else
+                {
+                    notReady++;
+                }
+            }
+
+        }
+
+        foreach (var player in PlayerControllerManager.Instance.players)
+        {
+            if(player.card != null)
+            {
+                if (player.card.GetComponent<PlayerCard>().ready)
+                {
+                    player.isReady = true;
+                }
+                else
+                {
+                    player.isReady = false;
+                }
+            }
+
+        }
+
+        float total = ready + notReady;
+
+        
+
+        float percent = (ready / total) * 100;
+
+        if(percent >= 50)
+        {
+            startTimer = true;
+            timerPanel.SetActive(true);
+            readyTimer = maxTimeAfterReady;
+        }
+        else
+        {
+            startTimer = false;
+            timerPanel.SetActive(false);
+            readyTimer = maxTimeAfterReady;
+        }
+
+
+        if (percent >= 100)
+        {
+            startText.SetActive(true);
+        }
+        else
+        {
+            startText.SetActive(false);
+        }
+
+    }
+
 }
+
+

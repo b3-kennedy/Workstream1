@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerCard : MonoBehaviour
 {
@@ -11,31 +12,83 @@ public class PlayerCard : MonoBehaviour
     public int padIndex;
     public PlayerWithController.ControllerSide side;
     SelectScreenManager manager;
+    public bool ready;
+    float timer;
+    bool startTimer;
+    bool canLeave;
+    Image readyImage;
+
+
     // Start is called before the first frame update
     void Start()
     {
         manager = transform.parent.gameObject.GetComponent<SelectScreenManager>();
+        readyImage = transform.GetChild(4).GetChild(1).GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(side == PlayerWithController.ControllerSide.Left)
-        //{
-        //    if (Gamepad.all[padIndex].leftShoulder.wasPressedThisFrame && cardJoined)
-        //    {
-        //        Leave();
-        //    }
-        //}
-        //else if(side == PlayerWithController.ControllerSide.Right)
-        //{
-        //    if (Gamepad.all[padIndex].rightShoulder.wasPressedThisFrame && cardJoined)
-        //    {
-        //        Leave();
-        //    }
-        //}
+        if (side == PlayerWithController.ControllerSide.Left)
+        {
+            if (Gamepad.all[padIndex].leftShoulder.wasPressedThisFrame && cardJoined && !ready)
+            {
+                startTimer = true;
+                ready = true;
+                readyImage.color = Color.green;
+                manager.ReadyCheck();
+            }
+        }
+        else if (side == PlayerWithController.ControllerSide.Right)
+        {
+            if (Gamepad.all[padIndex].rightShoulder.wasPressedThisFrame && cardJoined && !ready)
+            {
+                startTimer = true;
+                ready = true;
+                readyImage.color = Color.green;
+                manager.ReadyCheck();
+            }
+        }
+
+
+        if (startTimer)
+        {
+            timer += Time.deltaTime;
+            if(timer >= 0.1f)
+            {
+                canLeave = true;
+                startTimer = false;
+                timer = 0;
+            }
+        }
+
+        if (canLeave)
+        {
+            if (side == PlayerWithController.ControllerSide.Right)
+            {
+                if (Gamepad.all[padIndex].rightShoulder.wasPressedThisFrame && cardJoined && ready)
+                {
+                    ready = false;
+                    canLeave = false;
+                    readyImage.color = Color.red;
+                    manager.ReadyCheck();
+                }
+            }
+            else if (side == PlayerWithController.ControllerSide.Left)
+            {
+                if (Gamepad.all[padIndex].leftShoulder.wasPressedThisFrame && cardJoined && ready)
+                {
+                    ready = false;
+                    canLeave = false;
+                    readyImage.color = Color.red;
+                    manager.ReadyCheck();
+                }
+            }
+        }
+
 
     }
+
 
     void Leave()
     {

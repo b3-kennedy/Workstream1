@@ -88,6 +88,12 @@ public class CarMovements : MonoBehaviour
     float normalSpeed;
 
     public ParticleSystem carSmoke;
+
+    [HideInInspector] public GameObject icon;
+
+
+    public ParticleSystem splash;
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -162,7 +168,16 @@ public class CarMovements : MonoBehaviour
                     }
                 }
             }
-            GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
+            if(GetComponent<NewCarMovement>().playerNumberText != null)
+            {
+                GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
+            }
+            
+            if(icon != null)
+            {
+                icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
+            }
+
             currentDriver = null;
             isInputEnabled = false;
             if (!parked)
@@ -228,7 +243,6 @@ public class CarMovements : MonoBehaviour
 
             
             thisCar.isParked = (true);
-            Debug.Log("here");
             foreach (Collider c in colliders)
             {
                 var spot = c.GetComponent<ParkingSpot>();
@@ -350,7 +364,7 @@ public class CarMovements : MonoBehaviour
                 ShowFloatingLostLife(20);
 
             }
-            else if (collision.gameObject.CompareTag("TrafficCone"))
+            else if (collision.gameObject.CompareTag("TrafficCone") || collision.gameObject.CompareTag("Barrier"))
             {
                 ReduceLifeOnDamage(10);
                 colCRASH.Play();
@@ -380,7 +394,14 @@ public class CarMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(isShielded);
+
+        if (other.CompareTag("OutOfBounds"))
+        {
+            DisableInput();
+            RandomEventController.Instance.drivableCars.Remove(gameObject);
+            Destroy(gameObject);
+        }
+
         if (!isShielded)
         {
             
@@ -388,12 +409,6 @@ public class CarMovements : MonoBehaviour
             {
                 GetComponent<Rigidbody>().velocity /= 2;
                 //colOOF.Play();
-            }
-
-            if (other.CompareTag("OutOfBounds"))
-            {
-                DisableInput();
-                Destroy(gameObject);
             }
 
 
@@ -413,12 +428,9 @@ public class CarMovements : MonoBehaviour
 
             if (other.gameObject.CompareTag("Water"))
             {
-                Debug.Log("Water");
                 DisableInput();
-                if (currentDriver != null)
-                {
-                    currentDriver.transform.position = Vector3.zero;
-                }
+                Instantiate(splash, transform.position, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Remove(gameObject);
                 Destroy(gameObject);
 
             }

@@ -258,6 +258,9 @@ MonoBehaviour:
   groundNormalCheck: {fileID: 3918988434488490035}
   isShielded: 0
   isUsingPowerups: 0
+  carSmoke: {fileID: 0}
+  icon: {fileID: 0}
+  splash: {fileID: 4111495251303188563, guid: 7ecf5ac268bfa614ca179ca399ba7664, type: 3}
 --- !u!82 &4386208547430174810
 AudioSource:
   m_ObjectHideFlags: 0
