@@ -92,10 +92,14 @@ public class EndMenuControl : MonoBehaviour
             Selection();
             Timer();
 
-            if (pad.aButton.isPressed)
+            for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                buttons[buttonIndex].GetComponent<MenuButton>().Activate();
+                if (Gamepad.all[i].aButton.isPressed)
+                {
+                    buttons[buttonIndex].GetComponent<MenuButton>().Activate();
+                }
             }
+
         }
     }
 

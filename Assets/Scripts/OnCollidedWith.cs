@@ -65,7 +65,11 @@ public class OnCollidedWith : MonoBehaviour
 
         if (startTimer)
         {
-            GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(false);
+            if(GetComponent<PlayerController>().playerNumberText != null)
+            {
+                GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(false);
+            }
+            
             timer -= Time.deltaTime;
             float timerText = Mathf.Round((timer) * 10f) * 0.1f;
             spawnedTxt.GetComponent<TextMeshPro>().text = (timerText).ToString();
@@ -75,7 +79,11 @@ public class OnCollidedWith : MonoBehaviour
             if (timer <= 0)
             {
                 isProtected = true;
-                GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
+                if (GetComponent<PlayerController>().playerNumberText != null) 
+                {
+                    GetComponent<PlayerController>().playerNumberText.gameObject.SetActive(true);
+                }
+                
                 timer = 0;
                 GetComponent<PlayerController>().canMove = true;
                 nonTriggerCollider.enabled = true;
