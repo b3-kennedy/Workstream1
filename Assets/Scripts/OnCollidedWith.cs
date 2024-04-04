@@ -39,7 +39,11 @@ public class OnCollidedWith : MonoBehaviour
             timer = stunTime;
             Debug.Log("collided");
             spawnedTxt.SetActive(true);
-            
+
+            GetComponent<PlayerController>().UpdateScoreText();
+           
+
+
         }
 
     }

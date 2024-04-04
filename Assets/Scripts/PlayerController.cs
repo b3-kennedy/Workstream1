@@ -116,6 +116,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void UpdateScoreText() {
+        if (score > 1) {
+            score -= 1;
+            scoreTextMesh.text = score.ToString();
+        }
+       
+    }
+
     void SlamDoor()
     {
 
