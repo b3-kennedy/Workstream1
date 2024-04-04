@@ -13,6 +13,7 @@ public class AssignIndex : MonoBehaviour
 
     public void OnCheckBoxChange()
     {
+        Debug.Log("check");
         ActivatedEvents.Instance.events[index].active = !ActivatedEvents.Instance.events[index].active;
     }
 }
