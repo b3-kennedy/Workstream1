@@ -201,15 +201,12 @@ MonoBehaviour:
   levelNameText: {fileID: 127242217}
   levels:
   - levelName: Parking Lot
-    levelObj: {fileID: 1627175454}
-    sceneIndex: 6
-  - levelName: Parking Lot 2
     levelObj: {fileID: 480594386}
     sceneIndex: 5
   - levelName: New Level 1
     levelObj: {fileID: 116531051}
     sceneIndex: 3
-  - levelName: 
+  - levelName: Docks
     levelObj: {fileID: 665407944}
     sceneIndex: 7
   index: 0
