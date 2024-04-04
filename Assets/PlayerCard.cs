@@ -17,6 +17,7 @@ public class PlayerCard : MonoBehaviour
     bool startTimer;
     bool canLeave;
     Image readyImage;
+    public TextMeshProUGUI readyText;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,8 @@ public class PlayerCard : MonoBehaviour
     {
         manager = transform.parent.gameObject.GetComponent<SelectScreenManager>();
         readyImage = transform.GetChild(4).GetChild(1).GetComponent<Image>();
+
+
     }
 
     // Update is called once per frame
@@ -50,6 +53,15 @@ public class PlayerCard : MonoBehaviour
             }
         }
 
+
+        if (side == PlayerWithController.ControllerSide.Left)
+        {
+            readyText.text = "Press Left Bumper to Ready Up";
+        }
+        else if (side == PlayerWithController.ControllerSide.Right)
+        {
+            readyText.text = "Press Right Bumber to Ready Up";
+        }
 
         if (startTimer)
         {

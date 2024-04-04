@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEditor;
 using UnityEngine.UI;
+using System.Linq;
+using UnityEngine.InputSystem.Controls;
 
 public class ChangeScene : MonoBehaviour
 {
@@ -32,7 +34,6 @@ public class ChangeScene : MonoBehaviour
             if ((vertical < -0.5f && !moved) || (Gamepad.all[i].dpad.down.wasPressedThisFrame && !moved))
             {
                 buttonIndex++;
-                Debug.Log(vertical);
                 if (buttonIndex > buttons.Length - 1)
                 {
                     buttonIndex = 0;
@@ -86,9 +87,11 @@ public class ChangeScene : MonoBehaviour
 
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
+
             Input();
             Selection();
             Timer();
+
 
             if (Gamepad.all[i].buttonSouth.wasPressedThisFrame)
             {
