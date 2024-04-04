@@ -8,6 +8,8 @@ public class Selected : LevelSelectSelection
 {
 
     LevelScroll levelScroll;
+    bool moved;
+    float timer;
 
     private void Start()
     {
@@ -46,17 +48,26 @@ public class Selected : LevelSelectSelection
         if (activated)
         {
             inputManager.canScroll = false;
+            
 
             for (int i = 0; i < Gamepad.all.Count; i++)
             {
-                if (Gamepad.all[i].dpad.left.wasPressedThisFrame)
+                if (!moved)
                 {
-                    levelScroll.ScrollLeft();
+                    float horizontal = -Gamepad.all[i].leftStick.x.value;
+
+                    if (horizontal > 0.5f || Gamepad.all[i].dpad.left.wasPressedThisFrame)
+                    {
+                        levelScroll.ScrollLeft();
+                        moved = true;
+                    }
+                    else if (horizontal < -0.5f || Gamepad.all[i].dpad.right.wasPressedThisFrame)
+                    {
+                        levelScroll.ScrollRight();
+                        moved = true;
+                    }
                 }
-                else if (Gamepad.all[i].dpad.right.wasPressedThisFrame)
-                {
-                    levelScroll.ScrollRight();
-                }
+
 
                 if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
                 {
@@ -64,6 +75,16 @@ public class Selected : LevelSelectSelection
                     inputManager.startBackTimer = true;
                     activated = false;
                     inputManager.canScroll = true;
+                }
+            }
+
+            if (moved)
+            {
+                timer += Time.deltaTime;
+                if(timer >= 0.25f)
+                {
+                    moved = false;
+                    timer = 0;
                 }
             }
         }

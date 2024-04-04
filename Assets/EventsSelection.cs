@@ -24,6 +24,7 @@ public class EventsSelection : LevelSelectSelection
     {
         buttonPrompt.text = "Press B/Circle to Deselect";
         startStartTimer = true;
+        index = 0;
         for (int i = 0; i < outline.transform.childCount; i++) 
         {
             if (outline.transform.GetChild(i).GetComponent<Image>())
@@ -35,6 +36,12 @@ public class EventsSelection : LevelSelectSelection
 
     void OnDeactivation()
     {
+        foreach (var obj in selectionObjects)
+        {
+            obj.GetComponent<EventsButtons>().selectionOutline.SetActive(false);
+            Debug.Log(obj.GetComponent<EventsButtons>().selectionOutline);
+        }
+
         buttonPrompt.text = "Press A/X to Select";
         for (int i = 0; i < outline.transform.childCount; i++)
         {
@@ -63,6 +70,9 @@ public class EventsSelection : LevelSelectSelection
 
         if (activated)
         {
+
+            Selection();
+
             inputManager.canScroll = false;
 
             for (int i = 0; i < Gamepad.all.Count; i++)
@@ -111,16 +121,17 @@ public class EventsSelection : LevelSelectSelection
 
                 if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
                 {
+                    activated = false;
                     OnDeactivation();
                     inputManager.startBackTimer = true;
-                    activated = false;
+                    
                     inputManager.canScroll = true;
                 }
             }
 
 
 
-            Selection();
+            
             Timer();
         }
     }
