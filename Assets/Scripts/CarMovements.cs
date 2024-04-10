@@ -308,10 +308,11 @@ public class CarMovements : MonoBehaviour
         }
 
            if(!isOnFire  && thisCar.life < 40)
-        {
+        { 
             ParticleSystem fire = Instantiate(FireParticleSystem, new Vector3(transform.position.x, transform.position.y+4,transform.position.z ), Quaternion.identity);
             fire.gameObject.transform.parent = gameObject.transform;
             isOnFire = true;
+            Destroy(fire, 30);
 
         } 
     }
