@@ -251,7 +251,10 @@ MonoBehaviour:
   eventName: Grenade Rain
   activeTime: 10
   active: 1
-  grenade: {fileID: 8476527387456704411, guid: 5dc21f67f0f32f845acdbd8b2be3c412, type: 3}
+  ended:
+    m_PersistentCalls:
+      m_Calls: []
+  grenade: {fileID: 3279352178240341483, guid: 70dfc8b4a0458324baeac01a47fc6f90, type: 3}
   grenadeSpawnInterval: 0.5
   minForce: 10
   maxForce: 100
