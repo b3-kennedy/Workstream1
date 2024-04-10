@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector2 stickR;
 
 
-
+    public ParticleSystem splash;
 
     void Start()
     {
@@ -114,6 +114,14 @@ public class PlayerController : MonoBehaviour
 
         scoreTextMesh.text = score.ToString();
 
+    }
+
+    public void UpdateScoreText() {
+        if (score > 1) {
+            score -= 1;
+            scoreTextMesh.text = score.ToString();
+        }
+       
     }
 
     void SlamDoor()
@@ -413,6 +421,13 @@ public class PlayerController : MonoBehaviour
             transform.position = prevPos;
             GetComponent<OnCollidedWith>().isProtected = true;
         }
+        else if (other.CompareTag("Water"))
+        {
+            ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
+            newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
+            transform.position = prevPos;
+            GetComponent<OnCollidedWith>().isProtected = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -468,7 +483,11 @@ public class PlayerController : MonoBehaviour
         car.GetComponent<NewCarMovement>().controlScheme = controlScheme;
 
         car.GetComponent<CarMovements>().icon = icon;
-        icon.GetComponent<FollowPlayer>().target = car.transform;
+        if(icon != null)
+        {
+            icon.GetComponent<FollowPlayer>().target = car.transform;
+        }
+        
 
         carRb = currentCar.GetComponent<Rigidbody>();
         newCarMovement = currentCar.GetComponent<NewCarMovement>();

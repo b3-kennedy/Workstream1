@@ -41,14 +41,6 @@ public class LevelScroll : MonoBehaviour
     void UserInput()
     {
 
-        for (int i = 0; i < Gamepad.all.Count; i++)
-        {
-            if (Gamepad.all[i].buttonEast.wasPressedThisFrame)
-            {
-                SceneManager.LoadScene(1);
-            }
-        }
-
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             if (!useAxis)

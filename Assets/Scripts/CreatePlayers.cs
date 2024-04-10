@@ -38,7 +38,7 @@ public class CreatePlayers : MonoBehaviour
             player.GetComponent<PlayerController>().OnSpawn();
             players.Add(player.gameObject);
             player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
-            player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, 3, playerSpawnParent.GetChild(index).position.z);
+            player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, playerSpawnParent.GetChild(index).position.y + 1, playerSpawnParent.GetChild(index).position.z);
             player.GetComponent<MeshRenderer>().material = playerMats[index];
 
             if (ActivatedEvents.Instance.showPlayerNumber)
@@ -53,7 +53,7 @@ public class CreatePlayers : MonoBehaviour
             {
                 GameObject icon = Instantiate(playerIcons[pwc.playerNumber-1]);
                 icon.GetComponent<FollowPlayer>().target = player.transform;
-                icon.GetComponent<FollowPlayer>().yOffset = 2;
+                icon.GetComponent<FollowPlayer>().yOffset = 0.25f;
                 player.GetComponent<PlayerController>().icon = icon;
                 icon.transform.localScale = new Vector3(1, 1, 1);
                 

@@ -365,14 +365,18 @@ public class SelectScreenManager : MonoBehaviour
 
         foreach (var player in PlayerControllerManager.Instance.players)
         {
-            if (player.card.GetComponent<PlayerCard>().ready)
+            if(player.card != null)
             {
-                player.isReady = true;
+                if (player.card.GetComponent<PlayerCard>().ready)
+                {
+                    player.isReady = true;
+                }
+                else
+                {
+                    player.isReady = false;
+                }
             }
-            else
-            {
-                player.isReady = false;
-            }
+
         }
 
         float total = ready + notReady;

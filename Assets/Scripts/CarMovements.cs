@@ -90,6 +90,10 @@ public class CarMovements : MonoBehaviour
     public ParticleSystem carSmoke;
 
     [HideInInspector] public GameObject icon;
+
+
+    public ParticleSystem splash;
+
     private void Start()
     {
         carSpawner = FindObjectOfType<CarSpawner>();
@@ -169,7 +173,11 @@ public class CarMovements : MonoBehaviour
                 GetComponent<NewCarMovement>().playerNumberText.target = currentDriver.transform;
             }
             
-            icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
+            if(icon != null)
+            {
+                icon.GetComponent<FollowPlayer>().target = currentDriver.transform;
+            }
+
             currentDriver = null;
             isInputEnabled = false;
             if (!parked)
@@ -300,10 +308,11 @@ public class CarMovements : MonoBehaviour
         }
 
            if(!isOnFire  && thisCar.life < 40)
-        {
+        { 
             ParticleSystem fire = Instantiate(FireParticleSystem, new Vector3(transform.position.x, transform.position.y+4,transform.position.z ), Quaternion.identity);
             fire.gameObject.transform.parent = gameObject.transform;
             isOnFire = true;
+            Destroy(fire, 30);
 
         } 
     }
@@ -389,6 +398,7 @@ public class CarMovements : MonoBehaviour
         if (other.CompareTag("OutOfBounds"))
         {
             DisableInput();
+            RandomEventController.Instance.drivableCars.Remove(gameObject);
             Destroy(gameObject);
         }
 
@@ -418,12 +428,9 @@ public class CarMovements : MonoBehaviour
 
             if (other.gameObject.CompareTag("Water"))
             {
-                Debug.Log("Water");
                 DisableInput();
-                if (currentDriver != null)
-                {
-                    currentDriver.transform.position = Vector3.zero;
-                }
+                Instantiate(splash, transform.position, Quaternion.identity);
+                RandomEventController.Instance.drivableCars.Remove(gameObject);
                 Destroy(gameObject);
 
             }

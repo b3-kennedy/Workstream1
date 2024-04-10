@@ -21,6 +21,7 @@ public class AddRandomEvents : MonoBehaviour
         {
             e.active = true;
             GameObject eList = Instantiate(eventListPrefab, contentTransform);
+            GetComponent<EventsSelection>().selectionObjects.Add(eList);
             eList.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = e.eventName;
             eList.GetComponent<AssignIndex>().SetIndex(index);
             index++;
