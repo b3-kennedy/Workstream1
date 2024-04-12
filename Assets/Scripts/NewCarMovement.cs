@@ -22,6 +22,7 @@ public class NewCarMovement : MonoBehaviour
     public ParticleSystem carSmoke2;
     public PlayerController playerController;
     public Transform groundCheck;
+    public Transform sparkPoints;
 
     Player1Input player1Input;
 
