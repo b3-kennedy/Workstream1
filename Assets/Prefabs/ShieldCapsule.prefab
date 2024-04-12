@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 648945957204165697}
   - component: {fileID: 3138795936819867396}
   - component: {fileID: 4734837617366841153}
-  - component: {fileID: 6800934068695887623}
   - component: {fileID: 8596576848069742442}
+  - component: {fileID: 2137103710270360355}
   m_Layer: 0
   m_Name: ShieldCapsule
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 70.4279, y: 4.95, z: -62.3652}
-  m_LocalScale: {x: -13.612773, y: 7.7738967, z: 13.072324}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011743763627944465}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4734837617366841153
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2895b49accc9224187f48d99be8543d, type: 2}
+  - {fileID: 2100000, guid: 0bf03bd6eeede444cbe53e41d20e74de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,8 +85,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6800934068695887623
-CapsuleCollider:
+--- !u!114 &8596576848069742442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011743763627944465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173630b622ebeb643bd897cf5dda4778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move: 0
+  car: {fileID: 0}
+--- !u!135 &2137103710270360355
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,22 +117,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8596576848069742442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011743763627944465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 173630b622ebeb643bd897cf5dda4778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 0
-  car: {fileID: 0}
