@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 7514546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 156.4, y: 0, z: -62.8}
+  m_LocalPosition: {x: 164.9, y: 0, z: -62.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -667,6 +667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -915,6 +919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1058,6 +1066,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1534,6 +1546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1705,6 +1721,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1972,6 +1992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2109,6 +2133,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2277,6 +2305,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2834,6 +2866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2946,6 +2982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3022,6 +3062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3097,6 +3141,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
       propertyPath: m_Name
       value: ground_riverCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3267,6 +3315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3405,6 +3457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3511,6 +3567,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3626,6 +3686,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d2adf1900c0ed4772937cafa4fc2fda6, type: 3}
       propertyPath: m_Name
       value: ground_riverEndClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2adf1900c0ed4772937cafa4fc2fda6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4009,7 +4073,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229455631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4061,7 +4125,7 @@ Transform:
   m_GameObject: {fileID: 229455631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710695, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: 129.3774, y: -0, z: 204.6}
+  m_LocalPosition: {x: 129.4, y: -0, z: 70.2}
   m_LocalScale: {x: 9.771099, y: 34.99958, z: 269.39478}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4230,6 +4294,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4489,6 +4557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4595,6 +4667,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4704,6 +4780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4779,6 +4859,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
       propertyPath: m_Name
       value: ground_riverCorner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4864,6 +4948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4939,6 +5027,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5495,6 +5587,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5669,6 +5765,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5984,6 +6084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6226,8 +6330,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1568521890}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &414083796
-BoxCollider:
+--- !u!64 &414083798
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6243,10 +6347,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.49999994, z: 0.21261756}
-  m_Center: {x: 2.3851406e-15, y: 0.24999997, z: -0.3936937}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &416415561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: b3b40426691f619418225e82a8f321d8, type: 3}
@@ -6319,6 +6424,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0e46c5cb03ca4464eae48e584d968233, type: 3}
       propertyPath: m_Name
       value: ground_pathCross
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e46c5cb03ca4464eae48e584d968233, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6565,13 +6674,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 625244441}
+      addedObject: {fileID: 625244443}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &455218719
 PrefabInstance:
@@ -6640,6 +6757,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6721,6 +6842,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6951,6 +7076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7140,6 +7269,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7437,6 +7570,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8076,6 +8213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8151,6 +8292,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
       propertyPath: m_Name
       value: ground_pathStraight (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8427,6 +8572,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8897,6 +9046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9053,7 +9206,7 @@ Transform:
   m_GameObject: {fileID: 569207422}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.9, y: 0, z: -170.2}
+  m_LocalPosition: {x: 6.9, y: 0, z: -173.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9345,6 +9498,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9647,7 +9804,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605747609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9699,7 +9856,7 @@ Transform:
   m_GameObject: {fileID: 605747609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -77.1, y: 0, z: -10.5741}
+  m_LocalPosition: {x: -5.8, y: 0, z: -10.5741}
   m_LocalScale: {x: 24.487352, y: 34.99958, z: 178.16254}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10000,8 +10157,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 452181726}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &625244441
-BoxCollider:
+--- !u!64 &625244443
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10017,10 +10174,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 0.49999994, z: 0.16135257}
-  m_Center: {x: -0, y: 0.24999997, z: -0.41932392}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &626624957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10163,6 +10321,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
       propertyPath: m_Name
       value: ground_riverCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10385,7 +10547,7 @@ Transform:
   m_GameObject: {fileID: 653360288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -106.2, y: 0, z: -62.8}
+  m_LocalPosition: {x: -125, y: 0, z: -62.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15460,6 +15622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15598,8 +15764,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 866028264}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &680700081
-BoxCollider:
+--- !u!64 &680700083
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15615,10 +15781,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 0.49999994, z: 0.23101151}
-  m_Center: {x: 0, y: 0.24999997, z: -0.38449427}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &685576733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: b3b40426691f619418225e82a8f321d8, type: 3}
@@ -15691,6 +15858,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15925,6 +16096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16134,6 +16309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16219,8 +16398,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1653307596}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &734534117
-BoxCollider:
+--- !u!64 &734534119
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16236,10 +16415,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.49999994, z: 0.2587418}
-  m_Center: {x: 2.58563e-15, y: 0.24999997, z: -0.37063107}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &739300595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16307,6 +16487,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16565,8 +16749,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1695100925}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &759320977
-BoxCollider:
+--- !u!64 &759320979
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16582,10 +16766,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.5126216, z: 0.19151784}
-  m_Center: {x: -0.000000097435695, y: 0.2563108, z: -0.47804874}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &761412397
 GameObject:
   m_ObjectHideFlags: 0
@@ -16737,6 +16922,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17326,6 +17515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17401,6 +17594,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
       propertyPath: m_Name
       value: ground_pathEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17939,6 +18136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18020,13 +18221,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 680700081}
+      addedObject: {fileID: 680700083}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &872977824 stripped
 Transform:
@@ -18202,6 +18411,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
       propertyPath: m_Name
       value: ground_pathStraight (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18381,7 +18594,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914802521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18433,7 +18646,7 @@ Transform:
   m_GameObject: {fileID: 914802521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 129.8, y: 0, z: -159.6}
+  m_LocalPosition: {x: 129.8, y: 0, z: -96.9}
   m_LocalScale: {x: 9.7711, y: 34.99958, z: 273.00204}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19163,6 +19376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19369,6 +19586,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19602,6 +19823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19708,6 +19933,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20111,6 +20340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20308,6 +20541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20503,6 +20740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathEnd (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20578,6 +20819,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20825,6 +21070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20900,6 +21149,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21207,6 +21460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21225,8 +21482,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1561321435}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1132693582
-BoxCollider:
+--- !u!64 &1132693584
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21242,10 +21499,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 0.49999994, z: 0.21121053}
-  m_Center: {x: 0, y: 0.24999997, z: -0.3943949}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1134009121
 GameObject:
   m_ObjectHideFlags: 0
@@ -21795,6 +22053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathCross (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e46c5cb03ca4464eae48e584d968233, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21870,6 +22132,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22359,6 +22625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22482,8 +22752,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 2125415377}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1194356827
-BoxCollider:
+--- !u!64 &1194356829
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22499,10 +22769,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.49999994, z: 0.20642158}
-  m_Center: {x: -2.3582202e-15, y: 0.24999997, z: -0.3967904}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &1199569929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22636,6 +22907,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23287,6 +23562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23834,6 +24113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24001,8 +24284,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1476945575}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1280629137
-BoxCollider:
+--- !u!64 &1280629139
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -24018,10 +24301,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9999999, y: 0.49999994, z: 0.19572535}
-  m_Center: {x: -0, y: 0.24999997, z: -0.40213743}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!114 &1281731979 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3408552171214075700, guid: 6aeb1ea1765854041ba678dad3682afe, type: 3}
@@ -24226,6 +24510,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24775,6 +25063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25098,6 +25390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25173,6 +25469,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25311,6 +25611,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25833,7 +26137,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384018192}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25885,8 +26189,8 @@ Transform:
   m_GameObject: {fileID: 1384018192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 310.1, y: 0, z: -12.1609}
-  m_LocalScale: {x: 24.325151, y: 34.99958, z: 179.57545}
+  m_LocalPosition: {x: 252.3, y: 0.2, z: -13.3832}
+  m_LocalScale: {x: 24.325151, y: 34.99958, z: 155.20706}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 47838694}
@@ -26232,6 +26536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26318,6 +26626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26394,6 +26706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26469,6 +26785,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
       propertyPath: m_Name
       value: ground_pathEnd (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26866,13 +27186,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1458926720}
+      addedObject: {fileID: 1458926722}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &1458926718 stripped
 Transform:
@@ -26884,8 +27212,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1458926717}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1458926720
-BoxCollider:
+--- !u!64 &1458926722
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -26901,10 +27229,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.5126216, z: 0.19151784}
-  m_Center: {x: -0.000000097435695, y: 0.2563108, z: -0.47804874}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &1460929806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26972,6 +27301,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27277,13 +27610,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1280629137}
+      addedObject: {fileID: 1280629139}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &1483678676
 PrefabInstance:
@@ -27511,6 +27852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27550,63 +27895,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 0.24999999, z: 0.99999994}
   m_Center: {x: 0, y: 0.12499999, z: 0}
---- !u!1001 &1494151162
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1862700561}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 265.38196
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 376.6305
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -46.51154
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-      propertyPath: m_Name
-      value: crop_carrot
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
 --- !u!1001 &1499671143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28147,6 +28435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28606,6 +28898,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29098,6 +29394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29174,13 +29474,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1132693582}
+      addedObject: {fileID: 1132693584}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1563317036
 GameObject:
@@ -29280,6 +29588,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29414,13 +29726,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 414083796}
+      addedObject: {fileID: 414083798}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1573588847 stripped
 GameObject:
@@ -29853,6 +30173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_riverStraight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0489a204575a4e7390618f76b5e134d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30046,6 +30370,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
       propertyPath: m_Name
       value: ground_pathStraight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30324,13 +30652,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 734534117}
+      addedObject: {fileID: 734534119}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1654520542
 GameObject:
@@ -35233,6 +35569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_riverCorner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cc315cc7543a4879aea5ad2ccd9d600, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35366,6 +35706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35447,13 +35791,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1671918900}
+      addedObject: {fileID: 1671918902}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &1671918898 stripped
 Transform:
@@ -35465,8 +35817,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1671918897}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1671918900
-BoxCollider:
+--- !u!64 &1671918902
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -35482,10 +35834,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.5126216, z: 0.19151784}
-  m_Center: {x: -0.000000097435695, y: 0.2563108, z: -0.47804874}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1681593743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4327637453472551345, guid: 6aeb1ea1765854041ba678dad3682afe, type: 3}
@@ -35558,6 +35911,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
       propertyPath: m_Name
       value: ground_pathEnd (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35635,13 +35992,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 759320977}
+      addedObject: {fileID: 759320979}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &1701513164 stripped
 GameObject:
@@ -35921,6 +36286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36179,13 +36548,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1737115345}
+      addedObject: {fileID: 1737115347}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!4 &1737115343 stripped
 Transform:
@@ -36197,8 +36574,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
   m_PrefabInstance: {fileID: 1737115342}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1737115345
-BoxCollider:
+--- !u!64 &1737115347
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -36214,10 +36591,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 0.5126216, z: 0.19151784}
-  m_Center: {x: -0.000000097435695, y: 0.2563108, z: -0.47804874}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7885637569152767144, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1001 &1738746488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36285,6 +36663,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36496,6 +36878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36571,6 +36957,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36900,6 +37290,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
       propertyPath: m_Name
       value: ground_pathStraight (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37288,6 +37682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37451,6 +37849,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37641,6 +38043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37771,16 +38177,6 @@ Transform:
   - {fileID: 518808482}
   - {fileID: 247116207}
   - {fileID: 1433910313}
-  - {fileID: 2121261821}
-  - {fileID: 1470688734}
-  - {fileID: 98290090}
-  - {fileID: 710945388}
-  - {fileID: 368542512}
-  - {fileID: 710765045}
-  - {fileID: 1749396100}
-  - {fileID: 1023676723}
-  - {fileID: 1616232284}
-  - {fileID: 742247660}
   - {fileID: 394728061}
   - {fileID: 569629546}
   - {fileID: 752005751}
@@ -37863,7 +38259,6 @@ Transform:
   - {fileID: 665135581}
   - {fileID: 463190749}
   - {fileID: 1208360999}
-  - {fileID: 38604937}
   - {fileID: 1701513165}
   - {fileID: 946091369}
   - {fileID: 1380339412}
@@ -37886,6 +38281,16 @@ Transform:
   - {fileID: 97961311}
   - {fileID: 1832241447}
   - {fileID: 1369442079}
+  - {fileID: 38604937}
+  - {fileID: 710765045}
+  - {fileID: 1749396100}
+  - {fileID: 1023676723}
+  - {fileID: 1616232284}
+  - {fileID: 742247660}
+  - {fileID: 1470688734}
+  - {fileID: 98290090}
+  - {fileID: 710945388}
+  - {fileID: 368542512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1863961789
@@ -37955,6 +38360,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38092,6 +38501,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38261,6 +38674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38426,6 +38843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_pathStraight (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b267ee3f865f4f17b6a306f0f0d1c15, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38501,6 +38922,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38705,6 +39130,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
       propertyPath: m_Name
       value: ground_pathEnd (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38998,6 +39427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_riverStraight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0489a204575a4e7390618f76b5e134d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39141,6 +39574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39277,6 +39714,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39735,6 +40176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39815,6 +40260,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
       propertyPath: m_Name
       value: ground_pathEnd (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33c1944026f8b41e8857a4cb213cd31a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40404,6 +40853,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 1a251e93287950547bfd385d8096129d, type: 3}
   m_PrefabInstance: {fileID: 2051022242}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2052065193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052065197}
+  - component: {fileID: 2052065196}
+  - component: {fileID: 2052065195}
+  - component: {fileID: 2052065194}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2052065194
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052065193}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2052065195
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052065193}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2052065196
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052065193}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2052065197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052065193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -59.67063, y: -26.4, z: -101.86068}
+  m_LocalScale: {x: 1000, y: 6, z: 1000}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053912276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40607,6 +41161,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41197,6 +41755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ground_riverEndClosed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2adf1900c0ed4772937cafa4fc2fda6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41614,6 +42176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42013,11 +42579,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &2121261821 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d659f225e50f9432f8bad3c207d7ecab, type: 3}
-  m_PrefabInstance: {fileID: 1494151162}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2125024812 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976824152380698151, guid: 1a251e93287950547bfd385d8096129d, type: 3}
@@ -42091,13 +42652,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_half_stone (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
+      propertyPath: m_TagString
+      value: TrafficCone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1194356827}
+      addedObject: {fileID: 1194356829}
   m_SourcePrefab: {fileID: 100100000, guid: 79516fc98d2ab4f448fc03eb80c5a997, type: 3}
 --- !u!1 &2135067919 stripped
 GameObject:
@@ -42235,6 +42804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cliff_blockQuarter_rock (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76e3a095a1f5a4f0d95c1e528ad71c31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42269,7 +42842,7 @@ Transform:
   m_GameObject: {fileID: 2143029039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.9, y: 0, z: 43.2}
+  m_LocalPosition: {x: 6.9, y: 0, z: 46.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43169,3 +43742,4 @@ SceneRoots:
   - {fileID: 1862700561}
   - {fileID: 394248388}
   - {fileID: 1847481162}
+  - {fileID: 2052065197}
