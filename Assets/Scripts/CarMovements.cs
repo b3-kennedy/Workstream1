@@ -154,8 +154,12 @@ public class CarMovements : MonoBehaviour
             currentDriver.GetComponent<PlayerController>().triggerCollider.enabled = true;
             currentDriver.GetComponent<PlayerController>().normalCollider.enabled = true;
             currentDriver.GetComponent<PlayerController>().inCar = false;
-            currentDriver.GetComponent<MeshRenderer>().enabled = true;
-            
+            if(currentDriver.transform.childCount < 2)
+            {
+                currentDriver.GetComponent<MeshRenderer>().enabled = true;
+            }
+
+
             //currentDriver.GetComponent<PlayerController>().OnSpawn();
             currentDriver.transform.position = new Vector3(transform.position.x + 5, transform.position.y + 1, transform.position.z + 5);
             if (Camera.main.GetComponent<MultipleTargetCamera>())

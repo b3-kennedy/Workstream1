@@ -40,6 +40,14 @@ public class CreatePlayers : MonoBehaviour
             player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
             player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, playerSpawnParent.GetChild(index).position.y + 1, playerSpawnParent.GetChild(index).position.z);
             player.GetComponent<MeshRenderer>().material = playerMats[index];
+            if(player.transform.childCount > 1)
+            {
+                if (player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>())
+                {
+                    player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().material = playerMats[index];
+                }
+            }
+
 
             if (ActivatedEvents.Instance.showPlayerNumber)
             {

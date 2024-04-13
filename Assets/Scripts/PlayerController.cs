@@ -8,11 +8,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Animator animator;
+    Animator animator;
     private GameObject currentCar;
 
     private Vector2 movementInput;
-    Vector3 movement;
+    [HideInInspector] public Vector3 movement;
     private Vector3 originalPosition; 
 
     public bool carParked = false;
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
 
-        animator = GetComponent<Animator>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
 
         //deviceIndex = context.control.device.device.deviceId;
 
@@ -155,7 +155,6 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-
     }
 
     void OnDisable()
@@ -302,16 +301,23 @@ public class PlayerController : MonoBehaviour
                     dash = pad.rightShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
                     movement = new Vector3(stickR.x,-yVal , stickR.y);
-                    if(movement != Vector3.zero)
+
+                    if(animator != null)
                     {
-                        animator.SetBool("IsWalk", true);
+                        if (movement != Vector3.zero)
+                        {
+                            animator.SetBool("IsWalk", true);
+                        }
+                        else
+                        {
+                            animator.SetBool("IsWalk", false);
+                        }
                     }
-                    else
-                    {
-                        animator.SetBool("IsWalk", false);
-                    }
+
                     //rigidbody.velocity =  movement;
+
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
+                    
                 }
                 else
                 {

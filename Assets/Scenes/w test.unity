@@ -1695,6 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 4
@@ -5085,6 +5086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 2
@@ -12586,6 +12588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 6
@@ -13216,6 +13219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 5
@@ -16549,6 +16553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 3
@@ -21537,6 +21542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 7
@@ -22441,6 +22447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 1
