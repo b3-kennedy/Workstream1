@@ -37,6 +37,8 @@ public class SelectScreenManager : MonoBehaviour
     private void Start()
     {
 
+        Time.timeScale = 1;
+
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             PlayerControllerManager.Instance.controllers.Add(new Controller());

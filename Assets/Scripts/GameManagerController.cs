@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 
 public class GameManagerController : MonoBehaviour
 {
-   
+
 
     public ScoreUIController scoreUIController;
     public GameObject mainScene;
@@ -33,6 +33,9 @@ public class GameManagerController : MonoBehaviour
 
     public static int playerNum;
 
+    private void Awake()
+    {
+    }
 
     private void OnEnable()
     {
@@ -115,7 +118,7 @@ public class GameManagerController : MonoBehaviour
 
     private void LoadEndGameScene()
     {
-        //SortScores();
+        
         Debug.Log("game over scene load");
         PauseMenu.Instance.gameObject.SetActive(false);
         EndMessage.text = scoreUIController.endGameMsg;
@@ -124,6 +127,7 @@ public class GameManagerController : MonoBehaviour
         {
             scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
             endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
+            scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(scoreUIController.scoresTxt[i].text);
         }
         playerNum = scoreUIController.playersJoined;
 
@@ -132,12 +136,13 @@ public class GameManagerController : MonoBehaviour
         gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
         gameMode = "End";
-       // SceneManager.LoadScene(4);
+        SortScores();
+        // SceneManager.LoadScene(4);
 
     }
     void SortScores()
     {
-
+        
     }
     IEnumerator PlayEndMusic()
     {

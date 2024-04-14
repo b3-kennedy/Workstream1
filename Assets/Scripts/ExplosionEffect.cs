@@ -9,7 +9,7 @@ public class ExplosionEffect : MonoBehaviour
 
     void Start()
     {
-        
+        crashAudio.mute = false;
         //Debug.Log("explosion effect instantiated");
         gameObject.name = "explosion";
         crashAudio = GetComponent<AudioSource>();
@@ -20,6 +20,9 @@ public class ExplosionEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (ScoreUIController.Instance.end)
+        {
+            crashAudio.mute = true;
+        }
     }
 }
