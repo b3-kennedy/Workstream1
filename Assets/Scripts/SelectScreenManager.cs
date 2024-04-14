@@ -95,6 +95,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
             player.card.transform.GetChild(4).gameObject.SetActive(true);
             player.pad = Gamepad.all[i];
+            player.colourIndex = index-1;
             joinedIndex.Add(index);
             //Debug.Log(player.pad);
             //NextOption();
@@ -126,6 +127,7 @@ public class SelectScreenManager : MonoBehaviour
             player.card.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "P" + (player.playerNumber).ToString();
             player.card.transform.GetChild(4).gameObject.SetActive(true);
             player.pad = Gamepad.all[i];
+            player.colourIndex = index - 1;
             joinedIndex.Add(player.card.GetComponent<PlayerCard>().cardIndex);
             //Debug.Log(player.pad);
             //NextOption();

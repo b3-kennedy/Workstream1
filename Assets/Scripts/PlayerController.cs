@@ -227,13 +227,13 @@ public class PlayerController : MonoBehaviour
 
 
                     movement = new Vector3(stickL.x, -yVal, stickL.y);
-                    if (movement != Vector3.zero)
+                    if (new Vector3(stickL.x, 0, stickL.y) != Vector3.zero)
                     {
-                        animator.SetBool("IsWalk", true);
+                        animator.SetBool("isWalking", true);
                     }
                     else
                     {
-                        animator.SetBool("IsWalk", false);
+                        animator.SetBool("isWalking", false);
                     }
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
@@ -304,13 +304,13 @@ public class PlayerController : MonoBehaviour
 
                     if(animator != null)
                     {
-                        if (movement != Vector3.zero)
+                        if (new Vector3(stickR.x,0, stickR.y) != Vector3.zero)
                         {
-                            animator.SetBool("IsWalk", true);
+                            animator.SetBool("isWalking", true);
                         }
                         else
                         {
-                            animator.SetBool("IsWalk", false);
+                            animator.SetBool("isWalking", false);
                         }
                     }
 
@@ -419,6 +419,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && other.gameObject.CompareTag("freeCar"))
         {
 
+            transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 Debug.Log("cam");
@@ -448,6 +450,7 @@ public class PlayerController : MonoBehaviour
             ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
             newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
             transform.position = prevPos;
+
             GetComponent<OnCollidedWith>().isProtected = true;
         }
     }

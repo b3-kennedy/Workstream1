@@ -158,6 +158,10 @@ public class CarMovements : MonoBehaviour
             {
                 currentDriver.GetComponent<MeshRenderer>().enabled = true;
             }
+            else
+            {
+                currentDriver.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
 
 
             //currentDriver.GetComponent<PlayerController>().OnSpawn();

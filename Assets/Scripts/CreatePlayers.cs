@@ -39,12 +39,21 @@ public class CreatePlayers : MonoBehaviour
             players.Add(player.gameObject);
             player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
             player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, playerSpawnParent.GetChild(index).position.y + 1, playerSpawnParent.GetChild(index).position.z);
-            player.GetComponent<MeshRenderer>().material = playerMats[index];
-            if(player.transform.childCount > 1)
+            player.GetComponent<MeshRenderer>().material = playerMats[pwc.colourIndex];
+            if (player.transform.childCount > 1)
             {
-                if (player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>())
+                var skinnedRenderer = player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
+
+                for (int i = 0; i < skinnedRenderer.materials.Length; i++)
                 {
-                    player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().material = playerMats[index];
+                    Debug.Log(skinnedRenderer.materials[i]);
+                    Debug.Log(player.transform.GetChild(0).GetChild(1).GetComponent<ChangeColour>().materialToChange);
+                    if (skinnedRenderer.materials[i].name == player.transform.GetChild(0).GetChild(1).GetComponent<ChangeColour>().materialToChange.name + " (Instance)")
+                    {
+                        Material[] mats = skinnedRenderer.materials;
+                        mats[i] = playerMats[pwc.colourIndex];
+                        skinnedRenderer.materials = mats;
+                    }
                 }
             }
 
