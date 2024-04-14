@@ -476,14 +476,14 @@ public class PlayerController : MonoBehaviour
 
             if (score > 0 && !inWater)
             {
-                score -= 50;
+                score -= 25;
                 if(score < 0)
                 {
                     score = 0;
                 }
                 scoreTextMesh.text = score.ToString();
                 GameObject txt = Instantiate(floatingText, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.Euler(90,0,0));
-                txt.GetComponent<TextMeshPro>().text = "-50";
+                txt.GetComponent<TextMeshPro>().text = "-25";
                 txt.GetComponent<TextMeshPro>().color = Color.red;
                 
                 inWater = true;
