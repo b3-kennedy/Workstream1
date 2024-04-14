@@ -9,10 +9,11 @@ public class ExplosionEffect : MonoBehaviour
 
     void Start()
     {
+        crashAudio = GetComponent<AudioSource>();
         crashAudio.mute = false;
         //Debug.Log("explosion effect instantiated");
         gameObject.name = "explosion";
-        crashAudio = GetComponent<AudioSource>();
+        
         crashAudio.Play();
         Destroy(gameObject, 0.75f);
     }
