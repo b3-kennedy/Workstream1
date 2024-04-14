@@ -49,10 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
+  movement: {x: 0, y: 0, z: 0}
   carParked: 0
   score: 0
   playerIndex: 7
-  controllerSide: 0
+  canMove: 0
   controlScheme: 
   audioSource: {fileID: 8741326640625753192}
   clip: {fileID: 8300000, guid: 29a03a25f8f1fe2418b09258b982d82b, type: 3}
@@ -60,12 +61,17 @@ MonoBehaviour:
   dashCooldown: 1
   dashForce: 200
   scoreTextMesh: {fileID: 0}
+  icon: {fileID: 0}
   triggerCollider: {fileID: 3345742161567210338}
   normalCollider: {fileID: 998950111680586287}
   gravity: -9.81
   inCar: 0
   playerNumberText: {fileID: 0}
   groundCheckPos: {fileID: 0}
+  stickL: {x: 0, y: 0}
+  stickR: {x: 0, y: 0}
+  splash: {fileID: 0}
+  floatingText: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
 --- !u!114 &4782019122845032396
 MonoBehaviour:
   m_ObjectHideFlags: 0

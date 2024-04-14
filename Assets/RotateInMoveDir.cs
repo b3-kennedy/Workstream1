@@ -15,7 +15,7 @@ public class RotateInMoveDir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controller.movement != Vector3.zero)
+        if(new Vector3(controller.movement.x, 0, controller.movement.z) != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(new Vector3(controller.movement.x, 0, controller.movement.z));
         }

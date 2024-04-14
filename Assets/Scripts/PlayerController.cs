@@ -77,9 +77,15 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Vector2 stickL;
     [HideInInspector] public Vector2 stickR;
-
+    bool inWater;
+    float waterTimer;
 
     public ParticleSystem splash;
+
+    public GameObject floatingText;
+
+    public AudioClip waterSplash;
+    public AudioSource spashSource;
 
     void Start()
     {
@@ -107,6 +113,8 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    
 
     private void UpdateScore()
     {
@@ -142,7 +150,6 @@ public class PlayerController : MonoBehaviour
         controls = new Player1Input();
         //controls.devices = new[] {pad};
 
-        Debug.Log(GetComponent<PlayerInput>().currentControlScheme);
         
 
         controls.Enable();
@@ -176,8 +183,24 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void WaterTimer()
+    {
+        if (inWater)
+        {
+            waterTimer += Time.deltaTime;
+            if(waterTimer >= 0.1f)
+            {
+                waterTimer = 0;
+                inWater = false;
+            }
+        }
+    }
+
     void Update()
     {
+
+        WaterTimer();
+
         if (pad != null)
         {
             
@@ -449,8 +472,23 @@ public class PlayerController : MonoBehaviour
         {
             ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
             newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
-            transform.position = prevPos;
+            spashSource.Play();
 
+            if (score > 0 && !inWater)
+            {
+                score -= 50;
+                if(score < 0)
+                {
+                    score = 0;
+                }
+                scoreTextMesh.text = score.ToString();
+                GameObject txt = Instantiate(floatingText, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.Euler(90,0,0));
+                txt.GetComponent<TextMeshPro>().text = "-50";
+                txt.GetComponent<TextMeshPro>().color = Color.red;
+                
+                inWater = true;
+            }
+            transform.position = prevPos;
             GetComponent<OnCollidedWith>().isProtected = true;
         }
     }

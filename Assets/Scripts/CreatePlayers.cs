@@ -46,8 +46,6 @@ public class CreatePlayers : MonoBehaviour
 
                 for (int i = 0; i < skinnedRenderer.materials.Length; i++)
                 {
-                    Debug.Log(skinnedRenderer.materials[i]);
-                    Debug.Log(player.transform.GetChild(0).GetChild(1).GetComponent<ChangeColour>().materialToChange);
                     if (skinnedRenderer.materials[i].name == player.transform.GetChild(0).GetChild(1).GetComponent<ChangeColour>().materialToChange.name + " (Instance)")
                     {
                         Material[] mats = skinnedRenderer.materials;
@@ -106,7 +104,6 @@ public class CreatePlayers : MonoBehaviour
             {
                 if (player.controllerSide == PlayerWithController.ControllerSide.Left)
                 {
-                    Debug.Log(player.playerNumber);
                     var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber-1], controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadLeft", player);
                 }
