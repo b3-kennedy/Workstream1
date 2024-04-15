@@ -18,6 +18,7 @@ public class Meteor : MonoBehaviour
     bool fall;
     bool timerActive = true;
     bool hasExploded;
+    public ParticleSystem explosion;
 
 
     // Start is called before the first frame update
@@ -82,6 +83,8 @@ public class Meteor : MonoBehaviour
             }
 
         }
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -109,6 +112,7 @@ public class Meteor : MonoBehaviour
                 Destroy(spawnedShadow);
             }
             Explode();
+            
         }
 
         
