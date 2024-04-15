@@ -205,6 +205,7 @@ MonoBehaviour:
   floatingText: {fileID: 2821929495596066008, guid: d82aa6985fc72ae488eb9a259cdbe032, type: 3}
   waterSplash: {fileID: 8300000, guid: 6d274fa0a6774234c87e4fb6366eac3e, type: 3}
   spashSource: {fileID: 2972529567926059656}
+  dashSmoke: {fileID: 265766274217486953, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
 --- !u!82 &457595400917258163
 AudioSource:
   m_ObjectHideFlags: 0

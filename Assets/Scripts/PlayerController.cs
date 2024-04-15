@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip waterSplash;
     public AudioSource spashSource;
+    public ParticleSystem dashSmoke;
 
     void Start()
     {
@@ -396,6 +397,7 @@ public class PlayerController : MonoBehaviour
         if (dash && canDash)
         {
             rb.AddForce(movement * dashForce, ForceMode.Impulse);
+            Instantiate(dashSmoke,gameObject.transform.position, Quaternion.identity);
             canDash = false;
         }
 
