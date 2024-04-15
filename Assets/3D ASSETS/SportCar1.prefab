@@ -1479,6 +1479,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7891230104491890452}
     m_Modifications:
+    - target: {fileID: 2722778172486238798, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701492876538099847, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6653335573723503646, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1522,6 +1530,14 @@ PrefabInstance:
     - target: {fileID: 7194384774461560595, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
       propertyPath: m_Name
       value: SparkPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638567301445813750, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9017084805291485086, guid: 7e1917f7f586f0444bd4303dd28b996f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
