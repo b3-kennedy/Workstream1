@@ -130,7 +130,6 @@ public class RandomEventController : MonoBehaviour
         {
             //Debug.Log("spawned event");
             int num = Random.Range(0, activeEvents.Count);
-            Instantiate(activeEvents[num]);
         }
 
     }

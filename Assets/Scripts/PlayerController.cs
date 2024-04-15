@@ -8,11 +8,11 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Animator animator;
+    Animator animator;
     private GameObject currentCar;
 
     private Vector2 movementInput;
-    Vector3 movement;
+    [HideInInspector] public Vector3 movement;
     private Vector3 originalPosition; 
 
     public bool carParked = false;
@@ -77,9 +77,15 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Vector2 stickL;
     [HideInInspector] public Vector2 stickR;
-
+    bool inWater;
+    float waterTimer;
 
     public ParticleSystem splash;
+
+    public GameObject floatingText;
+
+    public AudioClip waterSplash;
+    public AudioSource spashSource;
 
     void Start()
     {
@@ -97,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
 
-        animator = GetComponent<Animator>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
 
         //deviceIndex = context.control.device.device.deviceId;
 
@@ -107,6 +113,8 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    
 
     private void UpdateScore()
     {
@@ -142,7 +150,6 @@ public class PlayerController : MonoBehaviour
         controls = new Player1Input();
         //controls.devices = new[] {pad};
 
-        Debug.Log(GetComponent<PlayerInput>().currentControlScheme);
         
 
         controls.Enable();
@@ -155,7 +162,6 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-
     }
 
     void OnDisable()
@@ -177,8 +183,24 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void WaterTimer()
+    {
+        if (inWater)
+        {
+            waterTimer += Time.deltaTime;
+            if(waterTimer >= 0.1f)
+            {
+                waterTimer = 0;
+                inWater = false;
+            }
+        }
+    }
+
     void Update()
     {
+
+        WaterTimer();
+
         if (pad != null)
         {
             
@@ -228,13 +250,13 @@ public class PlayerController : MonoBehaviour
 
 
                     movement = new Vector3(stickL.x, -yVal, stickL.y);
-                    if (movement != Vector3.zero)
+                    if (new Vector3(stickL.x, 0, stickL.y) != Vector3.zero)
                     {
-                        animator.SetBool("IsWalk", true);
+                        animator.SetBool("isWalking", true);
                     }
                     else
                     {
-                        animator.SetBool("IsWalk", false);
+                        animator.SetBool("isWalking", false);
                     }
                     //rigidbody.velocity =  movement;
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
@@ -302,16 +324,23 @@ public class PlayerController : MonoBehaviour
                     dash = pad.rightShoulder.isPressed;
                     //scoreTextMesh.text = "" + score;
                     movement = new Vector3(stickR.x,-yVal , stickR.y);
-                    if(movement != Vector3.zero)
+
+                    if(animator != null)
                     {
-                        animator.SetBool("IsWalk", true);
+                        if (new Vector3(stickR.x,0, stickR.y) != Vector3.zero)
+                        {
+                            animator.SetBool("isWalking", true);
+                        }
+                        else
+                        {
+                            animator.SetBool("isWalking", false);
+                        }
                     }
-                    else
-                    {
-                        animator.SetBool("IsWalk", false);
-                    }
+
                     //rigidbody.velocity =  movement;
+
                     transform.Translate(movement * moveSpeed * Time.deltaTime);
+                    
                 }
                 else
                 {
@@ -413,6 +442,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Cars") && other.gameObject.CompareTag("freeCar"))
         {
 
+            transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+
             if (Camera.main.GetComponent<MultipleTargetCamera>())
             {
                 Debug.Log("cam");
@@ -441,6 +472,22 @@ public class PlayerController : MonoBehaviour
         {
             ParticleSystem newSplash = Instantiate(splash, transform.position, Quaternion.identity);
             newSplash.transform.localScale = new Vector3(4f, 4f, 4f);
+            spashSource.Play();
+
+            if (score > 0 && !inWater)
+            {
+                score -= 25;
+                if(score < 0)
+                {
+                    score = 0;
+                }
+                scoreTextMesh.text = score.ToString();
+                GameObject txt = Instantiate(floatingText, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.Euler(90,0,0));
+                txt.GetComponent<TextMeshPro>().text = "-25";
+                txt.GetComponent<TextMeshPro>().color = Color.red;
+                
+                inWater = true;
+            }
             transform.position = prevPos;
             GetComponent<OnCollidedWith>().isProtected = true;
         }

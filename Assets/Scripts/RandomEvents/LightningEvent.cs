@@ -7,21 +7,25 @@ public class LightningEvent : StrikeEvent
 
     public float lightningEffectDuration;
     LineRenderer lr;
+    public ParticleSystem lightning;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        lr = GetComponent<LineRenderer>();
+        //lr = GetComponent<LineRenderer>();
 
         int num = Random.Range(0, RandomEventController.Instance.drivableCars.Count);
         RandomEventController.Instance.drivableCars[num].AddComponent<LightningEffect>();
         RandomEventController.Instance.drivableCars[num].GetComponent<LightningEffect>().destroyTime = lightningEffectDuration;
 
-        lr.SetPosition(1, RandomEventController.Instance.drivableCars[num].transform.position);
+        //lr.SetPosition(1, RandomEventController.Instance.drivableCars[num].transform.position);
 
-        Destroy(gameObject, 0.3f);
+        
+        ParticleSystem strike = Instantiate(lightning, RandomEventController.Instance.drivableCars[num].transform.position, Quaternion.identity);
+        Destroy(strike, 1f);
+        Destroy(gameObject, 1.3f);
     }
 
 

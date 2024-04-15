@@ -39,7 +39,22 @@ public class CreatePlayers : MonoBehaviour
             players.Add(player.gameObject);
             player.GetComponent<PlayerController>().scoreTextMesh = scoreTexts[index];
             player.transform.position = new Vector3(playerSpawnParent.GetChild(index).position.x, playerSpawnParent.GetChild(index).position.y + 1, playerSpawnParent.GetChild(index).position.z);
-            player.GetComponent<MeshRenderer>().material = playerMats[index];
+            player.GetComponent<MeshRenderer>().material = playerMats[pwc.colourIndex];
+            if (player.transform.childCount > 1)
+            {
+                var skinnedRenderer = player.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
+
+                for (int i = 0; i < skinnedRenderer.materials.Length; i++)
+                {
+                    if (skinnedRenderer.materials[i].name == player.transform.GetChild(0).GetChild(1).GetComponent<ChangeColour>().materialToChange.name + " (Instance)")
+                    {
+                        Material[] mats = skinnedRenderer.materials;
+                        mats[i] = playerMats[pwc.colourIndex];
+                        skinnedRenderer.materials = mats;
+                    }
+                }
+            }
+
 
             if (ActivatedEvents.Instance.showPlayerNumber)
             {
@@ -89,7 +104,6 @@ public class CreatePlayers : MonoBehaviour
             {
                 if (player.controllerSide == PlayerWithController.ControllerSide.Left)
                 {
-                    Debug.Log(player.playerNumber);
                     var playerSpawn = PlayerInput.Instantiate(playerPrefabs[player.playerNumber-1], controlScheme: "GamePadLeft", pairWithDevice: Gamepad.all[player.controllerIndex]);
                     SpawnPlayer(playerSpawn, player.controllerIndex, "GamePadLeft", player);
                 }

@@ -1,6 +1,7 @@
  using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreUIController : MonoBehaviour
@@ -26,6 +27,8 @@ public class ScoreUIController : MonoBehaviour
 
     public GameObject[] crownIconPositions;
 
+    public bool end;
+
     private void Awake()
     {
         Instance = this;
@@ -34,6 +37,10 @@ public class ScoreUIController : MonoBehaviour
 
     private void Start()
     {
+        end = false;
+
+        Time.timeScale = 1;
+
         TimerOn = true;
 
         for (int i = endGameImages.Length - 1; i >= 0; i--)
@@ -72,7 +79,9 @@ public class ScoreUIController : MonoBehaviour
                 endGameMsg = "Time Is Up!";
                 TimeLeft = 0;
                 TimerOn = false;
+                //Time.timeScale = 0;
                 OnEndGame?.Invoke();
+                end = true;
             }
         }
         for (int i = 0; i < 8; i++)
@@ -85,6 +94,7 @@ public class ScoreUIController : MonoBehaviour
                 endGameMsg = "player #" + (i + 1) + " has won with " + scores[i] + " points!!";
                 Debug.Log(endGameMsg);
                 OnEndGame?.Invoke();
+                end = true;
             }
         }
         UpdateWinner();

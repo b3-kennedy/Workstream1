@@ -8,6 +8,11 @@ public class startScript : MonoBehaviour
 {
     public Button[] buttons;
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     private void OnEnable()
     {
         buttons[0].onClick.AddListener(Play);

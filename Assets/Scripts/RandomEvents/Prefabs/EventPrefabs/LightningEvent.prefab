@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: Lightning
   lightningEffectDuration: 10
+  lightning: {fileID: 19828376, guid: 2205d3d59cb0ab447a4d3e381fbe6b4f, type: 3}
 --- !u!120 &4976648764646344574
 LineRenderer:
   serializedVersion: 2

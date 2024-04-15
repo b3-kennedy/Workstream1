@@ -49,11 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: Meteor
-  meteor: {fileID: 5603529759836274038, guid: 45a0e825fe7bb614b906855fe1df1436, type: 3}
-  topLeft: {fileID: 4180798502657090865}
-  topRight: {fileID: 5586963399801200881}
-  bottomLeft: {fileID: 8777601534855015476}
-  bottomRight: {fileID: 4048666130171366936}
+  meteor: {fileID: 700713193220223704, guid: 067c3a295008d5c49b7f9dc1e0329efb, type: 3}
 --- !u!1 &5044236668475055850
 GameObject:
   m_ObjectHideFlags: 0

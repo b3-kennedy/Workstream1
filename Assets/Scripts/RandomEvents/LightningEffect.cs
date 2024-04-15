@@ -5,10 +5,15 @@ using UnityEngine;
 public class LightningEffect : MonoBehaviour
 {
     [HideInInspector] public float destroyTime;
+    Transform sparkPoints;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        sparkPoints = GetComponent<NewCarMovement>().sparkPoints;
+
         if (GetComponent<NewCarMovement>())
         {
             GetComponent<NewCarMovement>().maxSpeed *= 5;
@@ -16,6 +21,8 @@ public class LightningEffect : MonoBehaviour
 
         Destroy(this, destroyTime);
     }
+
+    
 
     private void OnDestroy()
     {
@@ -29,6 +36,14 @@ public class LightningEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if(timer >= 0.5f)
+        {
+            int randomNum = Random.Range(0, sparkPoints.childCount);
+            ParticleSystem spark = sparkPoints.GetChild(randomNum).GetComponent<ParticleSystem>();
+            spark.Play();
+            timer = 0;
+        }
+
     }
 }

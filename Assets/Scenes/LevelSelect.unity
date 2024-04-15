@@ -203,10 +203,10 @@ MonoBehaviour:
   - levelName: Parking Lot
     levelObj: {fileID: 480594386}
     sceneIndex: 5
-  - levelName: New Level 1
+  - levelName: Meadows
     levelObj: {fileID: 116531051}
     sceneIndex: 3
-  - levelName: Docks
+  - levelName: Twin Bridge
     levelObj: {fileID: 665407944}
     sceneIndex: 7
   index: 0
