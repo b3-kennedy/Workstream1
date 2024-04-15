@@ -8,7 +8,9 @@ public class DoublePointParkingSpot : TimedEvent
     public Transform parkingSpot;
     public GameObject doublePointsIndicator;
     public Material goldMat;
+    public ParticleSystem goldParticle;
     Material normalMat;
+    private ParticleSystem particle;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class DoublePointParkingSpot : TimedEvent
         parkingSpot = RandomEventController.Instance.parkingSpots[num].transform;
 
         normalMat = parkingSpot.GetChild(1).GetComponent<MeshRenderer>().material;
+        particle = Instantiate(goldParticle, parkingSpot.transform);
+       
 
         parkingSpot.GetChild(1).GetComponent<MeshRenderer>().material = goldMat;
 
@@ -34,7 +38,7 @@ public class DoublePointParkingSpot : TimedEvent
     {
         parkingSpot.GetComponentInChildren<ParkingSpot>().doublePoints = false;
         parkingSpot.GetChild(1).GetComponent<MeshRenderer>().material = normalMat;
-
+        Destroy(particle.gameObject);
 
     }
 
