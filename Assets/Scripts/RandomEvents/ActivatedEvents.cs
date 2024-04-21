@@ -14,7 +14,6 @@ public class ActivatedEvents : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Debug.Log("events");
     }
 
     public void ChangeIconValue()
