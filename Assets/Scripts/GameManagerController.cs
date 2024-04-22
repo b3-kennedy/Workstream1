@@ -100,21 +100,21 @@ public class GameManagerController : MonoBehaviour
 
         
        
-        if (audioToggle != null)
-            audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
+        //if (audioToggle != null)
+        //    audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
 
     }
-    void OnToggleValueChanged(bool isOn)
-    {
-        if (isOn)
-        {
-            gameAudio.Stop();
-        }
-        if (!isOn)
-        {
-            gameAudio.Play();
-        }
-    }
+    //void OnToggleValueChanged(bool isOn)
+    //{
+    //    if (isOn)
+    //    {
+    //        gameAudio.Stop();
+    //    }
+    //    if (!isOn)
+    //    {
+    //        gameAudio.Play();
+    //    }
+    //}
 
     private void LoadEndGameScene()
     {
@@ -133,7 +133,7 @@ public class GameManagerController : MonoBehaviour
 
         endScene.SetActive(true);
         mainScene.SetActive(false);
-        gameAudio.Stop();
+        //gameAudio.Stop();
         StartCoroutine(PlayEndMusic());
         gameMode = "End";
         SortScores();

@@ -116,6 +116,8 @@ public class LevelScroll : MonoBehaviour
 
     public void LoadLevel()
     {
+        AudioManager.Instance.ChangeMusic(index);
+
         SceneManager.LoadScene(levels[index].sceneIndex);
     }
     void SnapTo(RectTransform target)
