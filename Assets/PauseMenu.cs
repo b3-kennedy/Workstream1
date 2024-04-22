@@ -43,7 +43,6 @@ public class PauseMenu : MonoBehaviour
             if ((vertical < -0.5f && !moved) || (Gamepad.all[i].dpad.down.wasPressedThisFrame && !moved))
             {
                 buttonIndex++;
-                Debug.Log(vertical);
                 if (buttonIndex > buttons.Length - 1)
                 {
                     buttonIndex = 0;

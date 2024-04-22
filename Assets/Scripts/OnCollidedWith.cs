@@ -37,7 +37,6 @@ public class OnCollidedWith : MonoBehaviour
             //nonTriggerCollider.enabled = false;
             startTimer = true;
             timer = stunTime;
-            Debug.Log("collided");
             spawnedTxt.SetActive(true);
 
             GetComponent<PlayerController>().UpdateScoreText();

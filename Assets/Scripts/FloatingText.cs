@@ -25,6 +25,6 @@ public class FloatingText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMesh.fontSize -= Time.deltaTime * 100;
+        textMesh.fontSize -= Time.deltaTime * 80;
     }
 }
