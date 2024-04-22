@@ -11537,11 +11537,11 @@ MonoBehaviour:
   gameMusic: {fileID: 1900143852}
   musicOptoins:
   - {fileID: 8300000, guid: 9cedc9cc58956624686cd8942766342c, type: 3}
-  - {fileID: 8300000, guid: dc89fc2132f847945b665e40ab2de8ad, type: 3}
   - {fileID: 8300000, guid: 02739c7924dfa184f96e93d780f05dc7, type: 3}
+  - {fileID: 8300000, guid: dc89fc2132f847945b665e40ab2de8ad, type: 3}
   - {fileID: 8300000, guid: 65d2d8763ea7d5b43b4460e6d8db8f18, type: 3}
-  - {fileID: 8300000, guid: 0869bcc8afadcbd4182169d7dc3e6484, type: 3}
   - {fileID: 8300000, guid: 68555d1896b9aac418853a35be8b19f4, type: 3}
+  - {fileID: 8300000, guid: 0869bcc8afadcbd4182169d7dc3e6484, type: 3}
 --- !u!4 &1900143851
 Transform:
   m_ObjectHideFlags: 0
