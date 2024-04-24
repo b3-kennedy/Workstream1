@@ -127,9 +127,9 @@ public class GameManagerController : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
+            scoresTxt[i].text = ScoreUIController.Instance.scoresTxt[i].text;
             endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
-            scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(scoreUIController.scoresTxt[i].text);
+            scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(ScoreUIController.Instance.scoresTxt[i].text);
         }
         playerNum = scoreUIController.playersJoined;
 
@@ -139,12 +139,12 @@ public class GameManagerController : MonoBehaviour
         endAudio.Play();
         gameMode = "End";
         SortScores();
-        //for (int i = 0;i<8;i++)
-        //{
-        //    if (i == ScoreUIController.Instance.winnerIndex)
-        //        crownIcons[i].SetActive(true);
-        //    else crownIcons[i].SetActive(false);
-        //}
+        for (int i = 0; i < 8; i++)
+        {
+            if (i   == ScoreUIController.Instance.winnerIndex)
+                crownIcons[i].SetActive(true);
+            else crownIcons[i].SetActive(false);
+        }
 
 
         // SceneManager.LoadScene(4);
