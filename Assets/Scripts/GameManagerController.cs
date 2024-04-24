@@ -33,6 +33,8 @@ public class GameManagerController : MonoBehaviour
 
     public static int playerNum;
 
+    public GameObject[] crownIcons;
+
     private void Awake()
     {
     }
@@ -134,9 +136,17 @@ public class GameManagerController : MonoBehaviour
         endScene.SetActive(true);
         mainScene.SetActive(false);
         //gameAudio.Stop();
-        StartCoroutine(PlayEndMusic());
+        endAudio.Play();
         gameMode = "End";
         SortScores();
+        //for (int i = 0;i<8;i++)
+        //{
+        //    if (i == ScoreUIController.Instance.winnerIndex)
+        //        crownIcons[i].SetActive(true);
+        //    else crownIcons[i].SetActive(false);
+        //}
+
+
         // SceneManager.LoadScene(4);
 
     }
@@ -144,12 +154,7 @@ public class GameManagerController : MonoBehaviour
     {
         
     }
-    IEnumerator PlayEndMusic()
-    {
-
-        yield return new WaitForSeconds(1.5f);
-        endAudio.Play();
-    }
+    
 
 
     void RestartGame()
