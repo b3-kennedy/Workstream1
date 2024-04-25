@@ -126,11 +126,12 @@ public class ScoreUIController : MonoBehaviour
 
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
-        if (currentTime < 10) { timerTxt.color = new Color32(183, 28, 28, 100); }
-        else { timerTxt.color = new Color32(0,0,0, 100); }
+        
+        
         if (minutes==0 && seconds == 5)
         {
             AudioManager.Instance.PlayCountDownMusic();
+            timerTxt.color = Color.red;
         }
         timerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
