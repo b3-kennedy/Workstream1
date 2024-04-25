@@ -125,13 +125,15 @@ public class GameManagerController : MonoBehaviour
         PauseMenu.Instance.gameObject.SetActive(false);
         EndMessage.text = scoreUIController.endGameMsg;
 
-        for (int i = 0; i < 8; i++)
+       
+        playerNum = scoreUIController.playersJoined;
+
+        for (int i = 0; i < playerNum; i++)
         {
             scoresTxt[i].text = ScoreUIController.Instance.scoresTxt[i].text;
             endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
             scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(ScoreUIController.Instance.scoresTxt[i].text);
         }
-        playerNum = scoreUIController.playersJoined;
 
         endScene.SetActive(true);
         mainScene.SetActive(false);
