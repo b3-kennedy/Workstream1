@@ -19,7 +19,7 @@ public class PitchRandAudio : MonoBehaviour
 
     public void randPitch(AudioSource audioSource)
     {
-        float rand = Random.Range(0.0f, 1.0f);
+        float rand = Random.Range(0.8f, 1.2f);
         if (audioSource != null && rand != audioSource.pitch) 
         { 
             audioSource.pitch = rand;
