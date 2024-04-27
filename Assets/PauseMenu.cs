@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
 
+    public bool paused;
     public static PauseMenu Instance;
     bool moved;
     int buttonIndex;
@@ -20,12 +21,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Freeze()
     {
-        //Time.timeScale = 0;
+        paused = true;
+        Time.timeScale = 0.000000001f;
     }
 
     public void Unfreeze()
     {
-        //Time.timeScale = 1;
+        paused = false;
+        Time.timeScale = 1;
     }
 
     void Input()
@@ -40,7 +43,6 @@ public class PauseMenu : MonoBehaviour
             if ((vertical < -0.5f && !moved) || (Gamepad.all[i].dpad.down.wasPressedThisFrame && !moved))
             {
                 buttonIndex++;
-                Debug.Log(vertical);
                 if (buttonIndex > buttons.Length - 1)
                 {
                     buttonIndex = 0;
@@ -78,7 +80,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (moved)
         {
-            timer += Time.deltaTime;
+            timer += Time.deltaTime * 1000000000;
             if (timer >= 0.25f)
             {
                 moved = false;

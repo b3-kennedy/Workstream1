@@ -17,7 +17,6 @@ public class SpeedBuff : PowerUp
         if (go.GetComponent<NewCarMovement>())
         {
             
-            Debug.Log("power up effect activated");
                 go.transform.GetComponent<NewCarMovement>().speed += SpeedPlus;
                 bubbleObj = Instantiate(bubblePrefab, go.transform);
                 bubbleObj.GetComponent<MoveWithCar>().move = true;
@@ -34,7 +33,6 @@ public class SpeedBuff : PowerUp
     public override void Cancel(GameObject gameObject)
     {
         gameObject.GetComponent<NewCarMovement>().speed -= SpeedPlus;
-        Debug.Log("power up effect ended");
         Destroy(bubbleObj);
     }
 }

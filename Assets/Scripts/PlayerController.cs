@@ -199,136 +199,60 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        WaterTimer();
-
-        if (pad != null)
+        if (!PauseMenu.Instance.paused)
         {
-            
+            WaterTimer();
 
-            if (canMove)
+            if (pad != null)
             {
-                stickL = pad.leftStick.ReadValue();
-                stickR = pad.rightStick.ReadValue();
-                
-            }
-            else
-            {
-                stickL = Vector2.zero;
-                stickR = Vector2.zero;
-            }
 
 
-            if (playerInput.currentControlScheme == "GamePadLeft")
-            {
-                if (!inCar)
+                if (canMove)
                 {
+                    stickL = pad.leftStick.ReadValue();
+                    stickR = pad.rightStick.ReadValue();
 
-                    if (!GroundCheck())
-                    {
-
-                        yVal =  1 + (gravity * Time.deltaTime);
-
-                    }
-                    else
-                    {
-                        yVal = 0;
-                    }
-
-                    if (carMovement != null)
-                    {
-                        if (carMovement.Emissionparticle.isPlaying)
-                        {
-
-                            carMovement.Emissionparticle.Clear();
-                            carMovement.Emissionparticle.Stop();
-                        }
-                        
-                    }
-                    
-                    dash = pad.leftShoulder.isPressed;
-                    //scoreTextMesh.text = "" + score;
-
-
-                    movement = new Vector3(stickL.x, -yVal, stickL.y);
-                    if (new Vector3(stickL.x, 0, stickL.y) != Vector3.zero)
-                    {
-                        animator.SetBool("isWalking", true);
-                    }
-                    else
-                    {
-                        animator.SetBool("isWalking", false);
-                    }
-                    //rigidbody.velocity =  movement;
-                    transform.Translate(movement * moveSpeed * Time.deltaTime);
-
-                    //if(transform.childCount > 0)
-                    //{
-                    //    transform.GetChild(0).rotation = Quaternion.LookRotation(movement, Vector3.up);
-                    //}
-                    
                 }
                 else
                 {
-                    if (!carMovement.Emissionparticle.isPlaying)
-                    {
-                        carMovement.Emissionparticle.Play();
-                    }
-                    
-                    brake = pad.leftTrigger.ReadValue();
-
-                    if (pad.dpad.down.isPressed)
-                    {
-                        carMovement.DisableInput();
-                    }
-
-                    carMove = new Vector3(stickL.x, 0, stickL.y);
-
-
-                    //carSmoke.Play();
-                    //carSmoke2.Play();
-
-                    horizontal = stickL.x;
-                    vertical = stickL.y;
-
-                    carMovement.moveInput = carRb.velocity.magnitude;
-
-                    float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
-
-
-
-                    if (carMove != Vector3.zero)
-                    {
-                        Vector3 newAngle = new Vector3(0, rot, 0);
-                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
-                            Time.deltaTime * newCarMovement.rotSpeed);
-                    }
+                    stickL = Vector2.zero;
+                    stickR = Vector2.zero;
                 }
 
-            }
-            else if (playerInput.currentControlScheme == "GamePadRight")
-            {
-                if (!inCar)
+
+                if (playerInput.currentControlScheme == "GamePadLeft")
                 {
-
-                    if (!GroundCheck())
+                    if (!inCar)
                     {
 
-                        yVal = 1 + (gravity * Time.deltaTime);
+                        if (!GroundCheck())
+                        {
 
-                    }
-                    else
-                    {
-                        yVal = 0;
-                    }
+                            yVal = 1 + (gravity * Time.deltaTime);
 
-                    dash = pad.rightShoulder.isPressed;
-                    //scoreTextMesh.text = "" + score;
-                    movement = new Vector3(stickR.x,-yVal , stickR.y);
+                        }
+                        else
+                        {
+                            yVal = 0;
+                        }
 
-                    if(animator != null)
-                    {
-                        if (new Vector3(stickR.x,0, stickR.y) != Vector3.zero)
+                        if (carMovement != null)
+                        {
+                            if (carMovement.Emissionparticle.isPlaying)
+                            {
+
+                                carMovement.Emissionparticle.Clear();
+                                carMovement.Emissionparticle.Stop();
+                            }
+
+                        }
+
+                        dash = pad.leftShoulder.isPressed;
+                        //scoreTextMesh.text = "" + score;
+
+
+                        movement = new Vector3(stickL.x, -yVal, stickL.y);
+                        if (new Vector3(stickL.x, 0, stickL.y) != Vector3.zero)
                         {
                             animator.SetBool("isWalking", true);
                         }
@@ -336,106 +260,189 @@ public class PlayerController : MonoBehaviour
                         {
                             animator.SetBool("isWalking", false);
                         }
+                        //rigidbody.velocity =  movement;
+                        transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+                        //if(transform.childCount > 0)
+                        //{
+                        //    transform.GetChild(0).rotation = Quaternion.LookRotation(movement, Vector3.up);
+                        //}
+
+                    }
+                    else
+                    {
+                        if (!carMovement.Emissionparticle.isPlaying)
+                        {
+                            carMovement.Emissionparticle.Play();
+                        }
+
+                        brake = pad.leftTrigger.ReadValue();
+
+                        if (pad.dpad.down.isPressed)
+                        {
+                            carMovement.DisableInput();
+                        }
+
+                        carMove = new Vector3(stickL.x, 0, stickL.y);
+
+
+                        //carSmoke.Play();
+                        //carSmoke2.Play();
+
+                        horizontal = stickL.x;
+                        vertical = stickL.y;
+
+                        carMovement.moveInput = carRb.velocity.magnitude;
+
+                        float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
+
+
+
+                        if (carMove != Vector3.zero)
+                        {
+                            Vector3 newAngle = new Vector3(0, rot, 0);
+                            currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
+                                Time.deltaTime * newCarMovement.rotSpeed);
+                        }
                     }
 
-                    //rigidbody.velocity =  movement;
-
-                    transform.Translate(movement * moveSpeed * Time.deltaTime);
-                    
                 }
-                else
+                else if (playerInput.currentControlScheme == "GamePadRight")
                 {
-                    brake = pad.rightTrigger.ReadValue();
-
-                    if (pad.buttonSouth.isPressed)
+                    if (!inCar)
                     {
-                        carMovement.DisableInput();
+
+                        if (!GroundCheck())
+                        {
+
+                            yVal = 1 + (gravity * Time.deltaTime);
+
+                        }
+                        else
+                        {
+                            yVal = 0;
+                        }
+
+                        dash = pad.rightShoulder.isPressed;
+                        //scoreTextMesh.text = "" + score;
+                        movement = new Vector3(stickR.x, -yVal, stickR.y);
+
+                        if (animator != null)
+                        {
+                            if (new Vector3(stickR.x, 0, stickR.y) != Vector3.zero)
+                            {
+                                animator.SetBool("isWalking", true);
+                            }
+                            else
+                            {
+                                animator.SetBool("isWalking", false);
+                            }
+                        }
+
+                        //rigidbody.velocity =  movement;
+
+                        transform.Translate(movement * moveSpeed * Time.deltaTime);
+
                     }
-
-                    carMove = new Vector3(stickR.x, 0, stickR.y);
-
-
-                    //carSmoke.Play();
-                    //carSmoke2.Play();
-
-                    horizontal = stickR.x;
-                    vertical = stickR.y;
-
-                    carMovement.moveInput = carRb.velocity.magnitude;
-
-                    float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
-
-                    if (carMove != Vector3.zero)
+                    else
                     {
-                        Vector3 newAngle = new Vector3(0, rot, 0);
-                        currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
-                            Time.deltaTime * newCarMovement.rotSpeed);
+                        brake = pad.rightTrigger.ReadValue();
+
+                        if (pad.buttonSouth.isPressed)
+                        {
+                            carMovement.DisableInput();
+                        }
+
+                        carMove = new Vector3(stickR.x, 0, stickR.y);
+
+
+                        //carSmoke.Play();
+                        //carSmoke2.Play();
+
+                        horizontal = stickR.x;
+                        vertical = stickR.y;
+
+                        carMovement.moveInput = carRb.velocity.magnitude;
+
+                        float rot = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
+
+                        if (carMove != Vector3.zero)
+                        {
+                            Vector3 newAngle = new Vector3(0, rot, 0);
+                            currentCar.transform.rotation = Quaternion.Lerp(currentCar.transform.rotation, Quaternion.Euler(newAngle.x, newAngle.y, newAngle.z),
+                                Time.deltaTime * newCarMovement.rotSpeed);
+                        }
+
                     }
 
                 }
 
             }
 
-        }
 
-
-        if (!canDash)
-        {
-            dashTimer += Time.deltaTime;
-            if(dashTimer >= dashCooldown)
+            if (!canDash)
             {
-                canDash = true;
-                dashTimer = 0;
+                dashTimer += Time.deltaTime;
+                if (dashTimer >= dashCooldown)
+                {
+                    canDash = true;
+                    dashTimer = 0;
+                }
             }
         }
+
 
 
     }
 
     private void FixedUpdate()
     {
-        if (dash && canDash)
+        if (!PauseMenu.Instance.paused)
         {
-            rb.AddForce(movement * dashForce, ForceMode.Impulse);
-            Instantiate(dashSmoke,gameObject.transform.position, Quaternion.identity);
-            canDash = false;
-        }
-
-        if (inCar)
-        {
-            carRb.velocity = Vector3.ClampMagnitude(carRb.velocity, currentCar.GetComponent<NewCarMovement>().maxSpeed);
-
-            if (carMove == Vector3.zero)
+            if (dash && canDash)
             {
-                carRb.velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * 0.5f);
-
-                //carSmoke.Stop();
-                //carSmoke2.Stop();
-
-
+                rb.AddForce(movement * dashForce, ForceMode.Impulse);
+                Instantiate(dashSmoke, gameObject.transform.position, Quaternion.identity);
+                canDash = false;
             }
 
-            if (brake == 1)
+            if (inCar)
             {
-                carRb.velocity = Vector3.Lerp(carRb.velocity, Vector3.zero, Time.deltaTime * currentCar.GetComponent<NewCarMovement>().breakPower);
-            }
-            else
-            {
-                if (currentCar.GetComponent<NewCarMovement>().GroundCheck())
+                carRb.velocity = Vector3.ClampMagnitude(carRb.velocity, currentCar.GetComponent<NewCarMovement>().maxSpeed);
+
+                if (carMove == Vector3.zero)
                 {
-                    carRb.AddForce(carMove * currentCar.GetComponent<NewCarMovement>().speed, ForceMode.Acceleration);
+                    carRb.velocity = Vector3.Lerp(currentCar.GetComponent<Rigidbody>().velocity, Vector3.zero, Time.deltaTime * 0.5f);
+
+                    //carSmoke.Stop();
+                    //carSmoke2.Stop();
+
+
+                }
+
+                if (brake == 1)
+                {
+                    carRb.velocity = Vector3.Lerp(carRb.velocity, Vector3.zero, Time.deltaTime * currentCar.GetComponent<NewCarMovement>().breakPower);
                 }
                 else
                 {
-                    carRb.AddForce(-Vector3.up * 10);
+                    if (currentCar.GetComponent<NewCarMovement>().GroundCheck())
+                    {
+                        carRb.AddForce(carMove * currentCar.GetComponent<NewCarMovement>().speed, ForceMode.Acceleration);
+                    }
+                    else
+                    {
+                        carRb.AddForce(-Vector3.up * 10);
+                    }
+
                 }
 
+
+
+
             }
-
-
-
-            
         }
+
     }
 
     private void OnTriggerEnter(Collider other)

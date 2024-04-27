@@ -107,7 +107,6 @@ public class LevelScroll : MonoBehaviour
 
     public void ScrollLeft()
     {
-        Debug.Log("left");
         if (index <= 0)
         {
             index = levels.Length;
@@ -117,6 +116,8 @@ public class LevelScroll : MonoBehaviour
 
     public void LoadLevel()
     {
+        AudioManager.Instance.ChangeMusic(index);
+
         SceneManager.LoadScene(levels[index].sceneIndex);
     }
     void SnapTo(RectTransform target)

@@ -111,7 +111,13 @@ public class Meteor : MonoBehaviour
             {
                 Destroy(spawnedShadow);
             }
-            Explode();
+
+            if (!other.collider.CompareTag("Water"))
+            {
+                Explode();
+            }
+
+            
             
         }
 

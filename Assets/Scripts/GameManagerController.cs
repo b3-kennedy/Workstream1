@@ -33,6 +33,8 @@ public class GameManagerController : MonoBehaviour
 
     public static int playerNum;
 
+    public GameObject[] crownIcons;
+
     private void Awake()
     {
     }
@@ -100,21 +102,21 @@ public class GameManagerController : MonoBehaviour
 
         
        
-        if (audioToggle != null)
-            audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
+        //if (audioToggle != null)
+        //    audioToggle.onValueChanged.AddListener(OnToggleValueChanged);
 
     }
-    void OnToggleValueChanged(bool isOn)
-    {
-        if (isOn)
-        {
-            gameAudio.Stop();
-        }
-        if (!isOn)
-        {
-            gameAudio.Play();
-        }
-    }
+    //void OnToggleValueChanged(bool isOn)
+    //{
+    //    if (isOn)
+    //    {
+    //        gameAudio.Stop();
+    //    }
+    //    if (!isOn)
+    //    {
+    //        gameAudio.Play();
+    //    }
+    //}
 
     private void LoadEndGameScene()
     {
@@ -123,20 +125,30 @@ public class GameManagerController : MonoBehaviour
         PauseMenu.Instance.gameObject.SetActive(false);
         EndMessage.text = scoreUIController.endGameMsg;
 
-        for (int i = 0; i < 8; i++)
-        {
-            scoresTxt[i].text = scoreUIController.scoresTxt[i].text;
-            endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
-            scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(scoreUIController.scoresTxt[i].text);
-        }
+       
         playerNum = scoreUIController.playersJoined;
+
+        for (int i = 0; i < playerNum; i++)
+        {
+            scoresTxt[i].text = ScoreUIController.Instance.scoresTxt[i].text;
+            endScores[i] = int.Parse(scoreUIController.scoresTxt[i].text);
+            scoresTxt[i].transform.parent.GetComponent<EndScore>().score = int.Parse(ScoreUIController.Instance.scoresTxt[i].text);
+        }
 
         endScene.SetActive(true);
         mainScene.SetActive(false);
-        gameAudio.Stop();
-        StartCoroutine(PlayEndMusic());
+        //gameAudio.Stop();
+        endAudio.Play();
         gameMode = "End";
         SortScores();
+        for (int i = 0; i < 8; i++)
+        {
+            if (i   == ScoreUIController.Instance.winnerIndex)
+                crownIcons[i].SetActive(true);
+            else crownIcons[i].SetActive(false);
+        }
+
+
         // SceneManager.LoadScene(4);
 
     }
@@ -144,12 +156,7 @@ public class GameManagerController : MonoBehaviour
     {
         
     }
-    IEnumerator PlayEndMusic()
-    {
-
-        yield return new WaitForSeconds(1.5f);
-        endAudio.Play();
-    }
+    
 
 
     void RestartGame()
