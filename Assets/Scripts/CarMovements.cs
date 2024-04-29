@@ -355,6 +355,8 @@ public class CarMovements : MonoBehaviour
                 ReduceLifeOnDamage(10);
 
                 colOOF.Play();
+
+                GetComponent<PitchRandAudio>().randPitch(colCRASH);
                 colCRASH.Play();
 
                 ShowFloatingLostLife(10);
@@ -362,6 +364,7 @@ public class CarMovements : MonoBehaviour
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Cars") || collision.gameObject.CompareTag("freeCar") || collision.gameObject.CompareTag("pickedUpCar"))
             {
                 ReduceLifeOnDamage(10);
+                GetComponent<PitchRandAudio>().randPitch(colCRASH);
                 colCRASH.Play();
                 ShowFloatingLostLife(10);
 
@@ -375,6 +378,7 @@ public class CarMovements : MonoBehaviour
             else if (collision.gameObject.CompareTag("TrafficCone") || collision.gameObject.CompareTag("Barrier"))
             {
                 ReduceLifeOnDamage(10);
+                GetComponent<PitchRandAudio>().randPitch(colCRASH);
                 colCRASH.Play();
                 ShowFloatingLostLife(10);
 

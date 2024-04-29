@@ -20,13 +20,14 @@ public class PitchRandAudio : MonoBehaviour
     public void randPitch(AudioSource audioSource)
     {
         float rand = Random.Range(0.8f, 1.2f);
-        if (audioSource != null && rand != audioSource.pitch) 
-        { 
-            audioSource.pitch = rand;
-        }
-        else
-        {
-            randPitch(audioSource);
-        }
+        audioSource.pitch = rand;
+        //if (audioSource != null && rand != audioSource.pitch) 
+        //{ 
+        //    audioSource.pitch = rand;
+        //}
+        //else
+        //{
+        //    randPitch(audioSource);
+        //}
     }
 }
