@@ -349,68 +349,72 @@ public class SelectScreenManager : MonoBehaviour
 
     public void ReadyCheck()
     {
-        float ready = 0;
-        float notReady = 0;
-        foreach (var card in list)
+        if(index > 1)
         {
-            if (card.GetComponent<PlayerCard>().cardJoined)
+            float ready = 0;
+            float notReady = 0;
+            foreach (var card in list)
             {
-                if (card.GetComponent<PlayerCard>().ready)
+                if (card.GetComponent<PlayerCard>().cardJoined)
                 {
-                    ready++;
+                    if (card.GetComponent<PlayerCard>().ready)
+                    {
+                        ready++;
+                    }
+                    else
+                    {
+                        notReady++;
+                    }
                 }
-                else
-                {
-                    notReady++;
-                }
+
             }
 
-        }
-
-        foreach (var player in PlayerControllerManager.Instance.players)
-        {
-            if(player.card != null)
+            foreach (var player in PlayerControllerManager.Instance.players)
             {
-                if (player.card.GetComponent<PlayerCard>().ready)
+                if (player.card != null)
                 {
-                    player.isReady = true;
+                    if (player.card.GetComponent<PlayerCard>().ready)
+                    {
+                        player.isReady = true;
+                    }
+                    else
+                    {
+                        player.isReady = false;
+                    }
                 }
-                else
-                {
-                    player.isReady = false;
-                }
+
             }
 
+            float total = ready + notReady;
+
+
+
+            float percent = (ready / total) * 100;
+
+            if (percent >= 50)
+            {
+                startTimer = true;
+                timerPanel.SetActive(true);
+                readyTimer = maxTimeAfterReady;
+            }
+            else
+            {
+                startTimer = false;
+                timerPanel.SetActive(false);
+                readyTimer = maxTimeAfterReady;
+            }
+
+
+            if (percent >= 100)
+            {
+                startText.SetActive(true);
+            }
+            else
+            {
+                startText.SetActive(false);
+            }
         }
-
-        float total = ready + notReady;
-
         
-
-        float percent = (ready / total) * 100;
-
-        if(percent >= 50)
-        {
-            startTimer = true;
-            timerPanel.SetActive(true);
-            readyTimer = maxTimeAfterReady;
-        }
-        else
-        {
-            startTimer = false;
-            timerPanel.SetActive(false);
-            readyTimer = maxTimeAfterReady;
-        }
-
-
-        if (percent >= 100)
-        {
-            startText.SetActive(true);
-        }
-        else
-        {
-            startText.SetActive(false);
-        }
 
     }
 
