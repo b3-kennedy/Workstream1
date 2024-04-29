@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource gameMusic;
 
     public AudioClip[] musicOptoins;
+
+    public AudioSource endGameMusic;
     public void Awake()
     {
         if (Instance == null)
@@ -33,5 +35,11 @@ public class AudioManager : MonoBehaviour
     public void ToggleMute()
     {
         gameMusic.mute = !gameMusic.mute;
+    }
+
+    public void PlayCountDownMusic()
+    {
+
+        endGameMusic.Play();
     }
 }
